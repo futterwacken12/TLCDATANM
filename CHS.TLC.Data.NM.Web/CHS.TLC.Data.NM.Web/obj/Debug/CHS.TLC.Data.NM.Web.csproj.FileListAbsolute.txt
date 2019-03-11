@@ -1,0 +1,2 @@
+C:\Users\lsandoval\source\repos\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csprojAssemblyReference.cache
+C:\Users\lsandoval\source\repos\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csproj.CoreCompileInputs.cache
