@@ -149,6 +149,7 @@
     <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Store\AddEditEntryNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditOutputNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\LstEntryNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\LstOuputNoteViewModel.cs" />
@@ -424,6 +425,8 @@
     <Content Include="Areas\Intranet\Views\Home\DashboardAdministrator.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\LstOuputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\LstEntryNote.cshtml" />
+    <Content Include="Areas\Intranet\Views\Store\AddEditOutputNote.cshtml" />
+    <Content Include="Areas\Intranet\Views\Store\AddEditEntryNote.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

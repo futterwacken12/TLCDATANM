@@ -1,5 +1,7 @@
 ﻿using CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store;
 using CHS.TLC.Data.NM.Web.Controllers;
+using CHS.TLC.Data.NM.Web.Helpers;
+using CHS.TLC.Data.NM.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         {
             return View();
         }
-        public ActionResult LstOuputNote(Int32? p, String State, String Date)
+        public ActionResult LstOuputNote(Int32? p, String State, String Date, Int32? MovementTypeId, String Code)
         {
             var model = new LstOuputNoteViewModel();
-            model.Fill(CargarDatosContext(), p, State, Date);
+            model.Fill(CargarDatosContext(), p, State, Date, MovementTypeId, Code);
             return View(model);
         }
         public ActionResult AddEditOutputNote(Int32? OutputNoteId)
@@ -32,11 +34,29 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         {
             try
             {
+                OutputNote outputNote = null;
+
+                if (model.OutputNoteId.HasValue)
+                {
+
+                }
+                else
+                {
+                    outputNote = new OutputNote();
+                    outputNote.State = ConstantHelpers.ESTADO.ACTIVO;
+                    outputNote.Date = DateTime.Now;
+                    outputNote.Time = DateTime.Now.TimeOfDay;
+                }
+
+
+                PostMessage(MessageType.Success);
                 return RedirectToAction("LstOuputNote");
             }
             catch(Exception ex)
             {
-                return View();
+                PostMessage(MessageType.Error);
+                model.Fill(CargarDatosContext(), model.OutputNoteId);
+                return View(model);
             }
         }
         public ActionResult LstEntryNote(Int32? p, String State, String Date)
@@ -44,6 +64,42 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             var model = new LstEntryNoteViewModel();
             model.Fill(CargarDatosContext(), p, State, Date);
             return View(model);
+        }
+        public ActionResult AddEditEntryNote(Int32? OutputNoteId)
+        {
+            var model = new AddEditEntryNoteViewModel();
+            model.Fill(CargarDatosContext(), OutputNoteId);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AddEditEntryNote(AddEditEntryNoteViewModel model)
+        {
+            try
+            {
+                EntryNote entryNote = null;
+
+                if (model.OutputNoteId.HasValue)
+                {
+
+                }
+                else
+                {
+                    entryNote = new EntryNote();
+                    entryNote.State = ConstantHelpers.ESTADO.ACTIVO;
+                    entryNote.Date = DateTime.Now;
+                    entryNote.Time = DateTime.Now.TimeOfDay;
+                }
+
+
+                PostMessage(MessageType.Success);
+                return RedirectToAction("LstOuputNote");
+            }
+            catch (Exception ex)
+            {
+                PostMessage(MessageType.Error);
+                model.Fill(CargarDatosContext(), model.OutputNoteId);
+                return View(model);
+            }
         }
     }
 }

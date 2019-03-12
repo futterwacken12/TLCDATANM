@@ -1,7 +1,5 @@
 C:\Users\lsandoval\source\repos\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csprojAssemblyReference.cache
 C:\Users\lsandoval\source\repos\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csproj.CoreCompileInputs.cache
-F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csprojAssemblyReference.cache
-F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csproj.CoreCompileInputs.cache
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\CHS.TLC.Data.NM.Web.dll.config
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\CHS.TLC.Data.NM.Web.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\CHS.TLC.Data.NM.Web.pdb
@@ -88,6 +86,8 @@ F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\es\System.Web.Ra
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\es\System.Web.WebPages.resources.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\es\System.Web.WebPages.Deployment.resources.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\es\System.Web.WebPages.Razor.resources.dll
+F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csprojAssemblyReference.cache
+F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csproj.CoreCompileInputs.cache
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csproj.CopyComplete
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.pdb

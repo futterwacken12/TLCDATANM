@@ -16,7 +16,7 @@ namespace CHS.TLC.Data.NM.Web.Models
     {
         public int OutputNoteId { get; set; }
         public System.DateTime Date { get; set; }
-        public System.TimeSpan Hour { get; set; }
+        public System.TimeSpan Time { get; set; }
         public string Code { get; set; }
         public int MovementTypeId { get; set; }
         public int DestinationStoreId { get; set; }

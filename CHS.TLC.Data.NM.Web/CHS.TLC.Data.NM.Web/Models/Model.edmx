@@ -60,14 +60,6 @@
           <Property Name="SKUCode" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
         </EntityType>
-        <EntityType Name="InternationalBank">
-          <Key>
-            <PropertyRef Name="InternationalBankId" />
-          </Key>
-          <Property Name="InternationalBankId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
-        </EntityType>
         <EntityType Name="MeasureUnit">
           <Key>
             <PropertyRef Name="MeasureUnitId" />
@@ -108,7 +100,7 @@
           </Key>
           <Property Name="OutputNoteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
-          <Property Name="Hour" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Time" Type="time" Precision="7" Nullable="false" />
           <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="MovementTypeId" Type="int" Nullable="false" />
           <Property Name="DestinationStoreId" Type="int" Nullable="false" />
@@ -505,7 +497,6 @@
           <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EntryNote" EntityType="Self.EntryNote" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Family" EntityType="Self.Family" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="InternationalBank" EntityType="Self.InternationalBank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MeasureUnit" EntityType="Self.MeasureUnit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MovementType" EntityType="Self.MovementType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Option" EntityType="Self.Option" Schema="dbo" store:Type="Tables" />
@@ -621,7 +612,6 @@
           <EntitySet Name="DocumentType" EntityType="TLC.Data.NMModel.DocumentType" />
           <EntitySet Name="EntryNote" EntityType="TLC.Data.NMModel.EntryNote" />
           <EntitySet Name="Family" EntityType="TLC.Data.NMModel.Family" />
-          <EntitySet Name="InternationalBank" EntityType="TLC.Data.NMModel.InternationalBank" />
           <EntitySet Name="MeasureUnit" EntityType="TLC.Data.NMModel.MeasureUnit" />
           <EntitySet Name="MovementType" EntityType="TLC.Data.NMModel.MovementType" />
           <EntitySet Name="Option" EntityType="TLC.Data.NMModel.Option" />
@@ -793,14 +783,6 @@
           <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SubFamily" Relationship="TLC.Data.NMModel.FK_SubFamily_Family" FromRole="Family" ToRole="SubFamily" />
         </EntityType>
-        <EntityType Name="InternationalBank">
-          <Key>
-            <PropertyRef Name="InternationalBankId" />
-          </Key>
-          <Property Name="InternationalBankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="MeasureUnit">
           <Key>
             <PropertyRef Name="MeasureUnitId" />
@@ -846,7 +828,7 @@
           </Key>
           <Property Name="OutputNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Hour" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
           <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MovementTypeId" Type="Int32" Nullable="false" />
           <Property Name="DestinationStoreId" Type="Int32" Nullable="false" />
@@ -1333,15 +1315,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="InternationalBank">
-            <EntityTypeMapping TypeName="TLC.Data.NMModel.InternationalBank">
-              <MappingFragment StoreEntitySet="InternationalBank">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="InternationalBankId" ColumnName="InternationalBankId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MeasureUnit">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.MeasureUnit">
               <MappingFragment StoreEntitySet="MeasureUnit">
@@ -1392,7 +1365,7 @@
                 <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
                 <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Hour" ColumnName="Hour" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="OutputNoteId" ColumnName="OutputNoteId" />
               </MappingFragment>

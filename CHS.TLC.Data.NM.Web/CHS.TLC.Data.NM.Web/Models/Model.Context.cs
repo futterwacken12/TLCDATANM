@@ -30,7 +30,6 @@ namespace CHS.TLC.Data.NM.Web.Models
         public DbSet<DocumentType> DocumentType { get; set; }
         public DbSet<EntryNote> EntryNote { get; set; }
         public DbSet<Family> Family { get; set; }
-        public DbSet<InternationalBank> InternationalBank { get; set; }
         public DbSet<MeasureUnit> MeasureUnit { get; set; }
         public DbSet<MovementType> MovementType { get; set; }
         public DbSet<Option> Option { get; set; }
