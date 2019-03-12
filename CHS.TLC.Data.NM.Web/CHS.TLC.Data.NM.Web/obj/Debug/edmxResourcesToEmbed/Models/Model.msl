@@ -61,15 +61,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="InternationalBank">
-      <EntityTypeMapping TypeName="TLC.Data.NMModel.InternationalBank">
-        <MappingFragment StoreEntitySet="InternationalBank">
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="InternationalBankId" ColumnName="InternationalBankId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="MeasureUnit">
       <EntityTypeMapping TypeName="TLC.Data.NMModel.MeasureUnit">
         <MappingFragment StoreEntitySet="MeasureUnit">

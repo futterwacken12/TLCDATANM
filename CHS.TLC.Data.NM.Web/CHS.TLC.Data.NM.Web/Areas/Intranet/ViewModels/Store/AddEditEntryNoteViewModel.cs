@@ -1,0 +1,46 @@
+﻿using CHS.TLC.Data.NM.Web.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
+{
+    public class AddEditEntryNoteViewModel
+    {
+        public Int32? OutputNoteId { get; set; }
+        public DateTime Date { get; set; }
+        public TimeSpan Time { get; set; }
+        public string Code { get; set; }
+        public int MovementTypeId { get; set; }
+        public int DestinationStoreId { get; set; }
+        public int OriginalStoreId { get; set; }
+        public Int32? DocumentId { get; set; }
+        public DateTime DepartureDate { get; set; }
+        public string Other { get; set; }
+        public bool IsOfficeGuide { get; set; }
+        public bool IsTransferGuide { get; set; }
+
+        public void Fill(CargarDatosContext c, Int32? outputNoteId)
+        {
+            this.OutputNoteId = outputNoteId;
+
+            if (this.OutputNoteId.HasValue)
+            {
+                var outputNote = c.context.OutputNote.FirstOrDefault(x => x.OutputNoteId == this.OutputNoteId);
+
+                this.Date = outputNote.Date;
+                this.Time = outputNote.Time;
+                this.Code = outputNote.Code;
+                this.MovementTypeId = outputNote.MovementTypeId;
+                this.DestinationStoreId = outputNote.DestinationStoreId;
+                this.OriginalStoreId = outputNote.OriginalStoreId;
+                this.DocumentId = outputNote.DocumentId;
+                this.DepartureDate = outputNote.DepartureDate;
+                this.Other = outputNote.Other;
+                this.IsOfficeGuide = outputNote.IsOfficeGuide;
+                this.IsTransferGuide = outputNote.IsTransferGuide;
+            }
+        }
+    }
+}

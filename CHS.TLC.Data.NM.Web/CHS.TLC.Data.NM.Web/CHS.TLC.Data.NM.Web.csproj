@@ -196,9 +196,6 @@
     <Compile Include="Models\Family.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InternationalBank.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\MeasureUnit.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -284,6 +281,8 @@
     <Content Include="Content\assets\images\jquery_ui\ui-icons_454545_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_888888_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_f6cf3b_256x240.png" />
+    <Content Include="Content\assets\images\login\TLeanHorizontal.png" />
+    <Content Include="Content\assets\images\login\TLeanVertical.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\alpha.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\hue.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\saturation.png" />
