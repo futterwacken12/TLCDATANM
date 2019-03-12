@@ -16,15 +16,15 @@ namespace CHS.TLC.Data.NM.Web.Controllers
     public class BaseController : Controller
     {
         private CargarDatosContext cargarDatosContext;
-        public dbcollectionagentEntities context;
+        public TLCDataNMEntities context;
         
         public BaseController()
         {
-            context = new dbcollectionagentEntities();
+            context = new TLCDataNMEntities();
         }
         public void InvalidarContext()
         {
-            context = new dbcollectionagentEntities();
+            context = new TLCDataNMEntities();
         }
         public CargarDatosContext CargarDatosContext()
         {
@@ -134,6 +134,39 @@ namespace CHS.TLC.Data.NM.Web.Controllers
             }
 
             base.OnActionExecuting(filterContext);
+        }
+        public List<RoleOption> ObtenerPermisos(Int32? RolId)
+        {
+            if (RolId.HasValue)
+            {
+                return context.RoleOption.Where(x => x.RoleId == RolId && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO) && x.Option.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).ToList();
+            }
+
+            return null;
+        }
+        public String GenerarMenu(List<RoleOption> LstSeguridadGrupoPermiso)
+        {
+            var LstSeguridadPermiso = LstSeguridadGrupoPermiso.OrderBy(x => x.Option.Order).Where(x => (!x.Option.FatherId.HasValue || x.Option.FatherId == 0) && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option).ToList();
+            StringBuilder sb = new StringBuilder();
+            foreach (var seguridadPermiso in LstSeguridadPermiso)
+                GenerarMenu(ref sb, seguridadPermiso, LstSeguridadGrupoPermiso);
+
+            return sb.ToString();
+        }
+        private void GenerarMenu(ref StringBuilder sb, Option seguridadPermiso, List<RoleOption> lstSeguridadGrupoPermiso)
+        {
+            var lstPermisos = lstSeguridadGrupoPermiso.Where(x => x.Option.FatherId.HasValue && x.Option.FatherId == seguridadPermiso.OptionId && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option);
+
+            if (lstPermisos != null && lstPermisos.Count() > 0)
+            {
+                sb.Append("<li class=''>" +
+                        "<a href='#'><i class='fa fa-" + seguridadPermiso.Icon + "'></i><span>" + seguridadPermiso.Description + "</span></a>" +
+                            "<ul class='nav nav-stacked'>");
+                foreach (var grupoPermiso in lstPermisos)
+                    GenerarMenu(ref sb, grupoPermiso, lstSeguridadGrupoPermiso);
+
+                sb.Append("</ul></li>");
+            }
         }
     }
 }
