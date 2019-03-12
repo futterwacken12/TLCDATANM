@@ -150,7 +150,7 @@
     <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
-<<<<<<< HEAD
+
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditInternationalBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditMeasureUnitViewModel.cs" />
@@ -172,10 +172,9 @@
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTypeExistenceViewModel.cs" />
-=======
+
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditEntryNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditOutputNoteViewModel.cs" />
->>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
     <Compile Include="Areas\Intranet\ViewModels\Store\LstEntryNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\LstOuputNoteViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
