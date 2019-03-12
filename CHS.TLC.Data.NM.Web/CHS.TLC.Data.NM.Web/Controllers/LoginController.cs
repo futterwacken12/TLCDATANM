@@ -37,5 +37,17 @@ namespace CHS.TLC.Data.NM.Web.Controllers
         {
             return RedirectToAction("DashboardAdministrator", "Home", new { Area = "Intranet" });
         }
+        public ActionResult LogOut()
+        {
+            try
+            {
+                Session.Clear();
+                return RedirectToAction("Login");
+            }
+            catch (Exception ex)
+            {
+                return RedirectToAction("Login");
+            }
+        }
     }
 }

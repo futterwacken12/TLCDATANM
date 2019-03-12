@@ -37,7 +37,7 @@
             <div class='navbar-inner'>
                 <div class='container-fluid'>
                     <a class='brand' href='index-2.html'>
-                        <img src="~/Content/assets/images/login/logoTLeanNegativoMini.png" />
+                        <img src="~/Content/assets/images/login/logoTLeanNegativoMini.png" style="width: 12%;"/>
                         <span class='hidden-phone'>TLean Consulting</span>
                     </a>
                     <a class='toggle-nav btn pull-left' href='#'>
@@ -52,7 +52,7 @@
                             </a>
                             <ul class='dropdown-menu'>
                                 <li>
-                                    <a href='sign_in.html'>
+                                    <a href='@Url.Action("LogOut","Login",new { area = String.Empty})'>
                                         <i class='icon-signout'></i>
                                         Cerrar Sesión
                                     </a>
