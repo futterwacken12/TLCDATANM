@@ -12,17 +12,19 @@ namespace CHS.TLC.Data.NM.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NationalBank
+    public partial class MovementType
     {
-        public NationalBank()
+        public MovementType()
         {
-            this.Provider = new HashSet<Provider>();
+            this.EntryNote = new HashSet<EntryNote>();
+            this.OutputNote = new HashSet<OutputNote>();
         }
     
-        public int NationalBankId { get; set; }
-        public string Description { get; set; }
+        public int MovementTypeId { get; set; }
+        public string Name { get; set; }
         public string State { get; set; }
     
-        public virtual ICollection<Provider> Provider { get; set; }
+        public virtual ICollection<EntryNote> EntryNote { get; set; }
+        public virtual ICollection<OutputNote> OutputNote { get; set; }
     }
 }

@@ -12,10 +12,21 @@ namespace CHS.TLC.Data.NM.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class InternationalBank
+    public partial class Document
     {
-        public int InternationalBankId { get; set; }
-        public string Description { get; set; }
+        public Document()
+        {
+            this.EntryNote = new HashSet<EntryNote>();
+            this.OutputNote = new HashSet<OutputNote>();
+        }
+    
+        public int DocumentId { get; set; }
+        public int DocumentTypeId { get; set; }
         public string State { get; set; }
+        public string DocumentNumber { get; set; }
+    
+        public virtual DocumentType DocumentType { get; set; }
+        public virtual ICollection<EntryNote> EntryNote { get; set; }
+        public virtual ICollection<OutputNote> OutputNote { get; set; }
     }
 }

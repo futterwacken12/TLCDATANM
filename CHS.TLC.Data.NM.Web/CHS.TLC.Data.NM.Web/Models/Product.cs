@@ -19,7 +19,7 @@ namespace CHS.TLC.Data.NM.Web.Models
         public int TypeExistenceId { get; set; }
         public Nullable<int> MeasureUnitPrimaryId { get; set; }
         public Nullable<int> MeasureUnitSecondaryId { get; set; }
-        public Nullable<int> ProviderId { get; set; }
+        public Nullable<int> SupplierId { get; set; }
         public string InternalCode { get; set; }
         public bool IsActive { get; set; }
         public string Barcode { get; set; }
@@ -43,7 +43,7 @@ namespace CHS.TLC.Data.NM.Web.Models
     
         public virtual MeasureUnit MeasureUnit { get; set; }
         public virtual MeasureUnit MeasureUnit1 { get; set; }
-        public virtual Provider Provider { get; set; }
+        public virtual Supplier Supplier { get; set; }
         public virtual SubFamily SubFamily { get; set; }
         public virtual TaxPercentage TaxPercentage { get; set; }
         public virtual TaxPercentage TaxPercentage1 { get; set; }

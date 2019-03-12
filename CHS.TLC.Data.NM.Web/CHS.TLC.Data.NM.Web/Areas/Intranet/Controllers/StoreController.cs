@@ -15,14 +15,34 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         {
             return View();
         }
-        public ActionResult LstOuputNote()
+        public ActionResult LstOuputNote(Int32? p, String State, String Date)
         {
             var model = new LstOuputNoteViewModel();
+            model.Fill(CargarDatosContext(), p, State, Date);
             return View(model);
         }
-        public ActionResult LstEntryNote()
+        public ActionResult AddEditOutputNote(Int32? OutputNoteId)
+        {
+            var model = new AddEditOutputNoteViewModel();
+            model.Fill(CargarDatosContext(), OutputNoteId);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult AddEditOutputNote(AddEditOutputNoteViewModel model)
+        {
+            try
+            {
+                return RedirectToAction("LstOuputNote");
+            }
+            catch(Exception ex)
+            {
+                return View();
+            }
+        }
+        public ActionResult LstEntryNote(Int32? p, String State, String Date)
         {
             var model = new LstEntryNoteViewModel();
+            model.Fill(CargarDatosContext(), p, State, Date);
             return View(model);
         }
     }

@@ -12,16 +12,16 @@ namespace CHS.TLC.Data.NM.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Provider
+    public partial class Supplier
     {
-        public Provider()
+        public Supplier()
         {
+            this.EntryNote = new HashSet<EntryNote>();
             this.Product = new HashSet<Product>();
         }
     
-        public int ProviderId { get; set; }
-        public Nullable<int> NationalBankId { get; set; }
-        public Nullable<int> InternationalBankId { get; set; }
+        public int SupplierId { get; set; }
+        public Nullable<int> BankId { get; set; }
         public string RUC { get; set; }
         public string BussinessName { get; set; }
         public string Provenance { get; set; }
@@ -37,8 +37,8 @@ namespace CHS.TLC.Data.NM.Web.Models
         public string SecondContactCharge { get; set; }
         public string SecondContactEmail { get; set; }
     
-        public virtual InternationalBank InternationalBank { get; set; }
-        public virtual NationalBank NationalBank { get; set; }
+        public virtual Bank Bank { get; set; }
+        public virtual ICollection<EntryNote> EntryNote { get; set; }
         public virtual ICollection<Product> Product { get; set; }
     }
 }

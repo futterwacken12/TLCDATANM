@@ -12,10 +12,18 @@ namespace CHS.TLC.Data.NM.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class InternationalBank
+    public partial class Bank
     {
-        public int InternationalBankId { get; set; }
+        public Bank()
+        {
+            this.Supplier = new HashSet<Supplier>();
+        }
+    
+        public int BankId { get; set; }
         public string Description { get; set; }
         public string State { get; set; }
+        public string Type { get; set; }
+    
+        public virtual ICollection<Supplier> Supplier { get; set; }
     }
 }

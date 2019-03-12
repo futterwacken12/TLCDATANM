@@ -5,32 +5,47 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="046d5c3d26af40fd978259c68a691dff" Name="Diagram1">
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Family" Width="1.5" PointX="1.5" PointY="25.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.InternationalBank" Width="1.5" PointX="1.5" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MeasureUnit" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.NationalBank" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Option" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Product" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Provider" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Role" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.RoleOption" Width="1.5" PointX="8" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.SubFamily" Width="1.5" PointX="0.75" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TaxPercentage" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TypeExistence" Width="1.5" PointX="0.75" PointY="28.5" IsExpanded="true" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_SubFamily_Family" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Provider_InternationalBank" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_MeasureUnit" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_MeasureUnit1" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Provider_NationalBank" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Option" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_Provider" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_SubFamily" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage4" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage5" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage6" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage7" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TypeExistence" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Bank" Width="1.5" PointX="1.5" PointY="20.25" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Document" Width="1.5" PointX="5.75" PointY="15.375" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.DocumentType" Width="1.5" PointX="3.5" PointY="15.5" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.EntryNote" Width="1.5" PointX="8" PointY="9.5" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Family" Width="1.5" PointX="1.5" PointY="11.125" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.InternationalBank" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.MeasureUnit" Width="1.5" PointX="0.75" PointY="25.875" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.MovementType" Width="1.5" PointX="5.75" PointY="1.625" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Option" Width="1.5" PointX="10.75" PointY="6.25" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.OutputNote" Width="1.5" PointX="8" PointY="4" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Product" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Role" Width="1.5" PointX="10.75" PointY="1" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.RoleOption" Width="1.5" PointX="13" PointY="0.875" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Store" Width="1.5" PointX="5.75" PointY="5" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.SubFamily" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Supplier" Width="1.5" PointX="0.75" PointY="13.875" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.TaxPercentage" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.TypeExistence" Width="1.5" PointX="0.75" PointY="23.375" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Provider_NationalBank" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Document_DocumentType" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_Document" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_Document" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_MovementType" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_Store" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_Store1" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_Supplier" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_SubFamily_Family" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_MeasureUnit" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_MeasureUnit1" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_MovementType" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Option" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_Store" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_Store1" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_Provider" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_SubFamily" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage4" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage5" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage6" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage7" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TypeExistence" />
+        <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Role" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
