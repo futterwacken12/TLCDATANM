@@ -55,14 +55,6 @@
     <Property Name="SKUCode" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
   </EntityType>
-  <EntityType Name="InternationalBank">
-    <Key>
-      <PropertyRef Name="InternationalBankId" />
-    </Key>
-    <Property Name="InternationalBankId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
-  </EntityType>
   <EntityType Name="MeasureUnit">
     <Key>
       <PropertyRef Name="MeasureUnitId" />
@@ -500,7 +492,6 @@
     <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EntryNote" EntityType="Self.EntryNote" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Family" EntityType="Self.Family" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="InternationalBank" EntityType="Self.InternationalBank" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MeasureUnit" EntityType="Self.MeasureUnit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MovementType" EntityType="Self.MovementType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Option" EntityType="Self.Option" Schema="dbo" store:Type="Tables" />
