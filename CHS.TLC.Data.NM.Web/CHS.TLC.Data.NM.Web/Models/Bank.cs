@@ -14,6 +14,11 @@ namespace CHS.TLC.Data.NM.Web.Models
     
     public partial class Bank
     {
+<<<<<<< HEAD:CHS.TLC.Data.NM.Web/CHS.TLC.Data.NM.Web/Models/InternationalBank.cs
+        public int InternationalBankId { get; set; }
+        public string Description { get; set; }
+        public string State { get; set; }
+=======
         public Bank()
         {
             this.Supplier = new HashSet<Supplier>();
@@ -25,5 +30,6 @@ namespace CHS.TLC.Data.NM.Web.Models
         public string Type { get; set; }
     
         public virtual ICollection<Supplier> Supplier { get; set; }
+>>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18:CHS.TLC.Data.NM.Web/CHS.TLC.Data.NM.Web/Models/Bank.cs
     }
 }
