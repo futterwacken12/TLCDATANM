@@ -150,7 +150,6 @@
     <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
-
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditBankViewModel.cs" />
@@ -169,7 +168,6 @@
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTypeExistenceViewModel.cs" />
-
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditEntryNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditOutputNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\LstEntryNoteViewModel.cs" />
@@ -302,7 +300,11 @@
     <Content Include="Content\assets\images\jquery_ui\ui-icons_454545_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_888888_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_f6cf3b_256x240.png" />
+    <Content Include="Content\assets\images\login\logoTLean.png" />
+    <Content Include="Content\assets\images\login\logoTLeanNegativoMini.png" />
     <Content Include="Content\assets\images\login\TLeanHorizontal.png" />
+    <Content Include="Content\assets\images\login\TLeanHorizontalNegativo.png" />
+    <Content Include="Content\assets\images\login\TLeanHorizontalNegativoMini.png" />
     <Content Include="Content\assets\images\login\TLeanVertical.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\alpha.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\hue.png" />
