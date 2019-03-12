@@ -1,0 +1,999 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TLC.Data.NMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Family">
+          <Key>
+            <PropertyRef Name="FamilyId" />
+          </Key>
+          <Property Name="FamilyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="SKUCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InternationalBank">
+          <Key>
+            <PropertyRef Name="InternationalBankId" />
+          </Key>
+          <Property Name="InternationalBankId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MeasureUnit">
+          <Key>
+            <PropertyRef Name="MeasureUnitId" />
+          </Key>
+          <Property Name="MeasureUnitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Acronym" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NationalBank">
+          <Key>
+            <PropertyRef Name="NationalBankId" />
+          </Key>
+          <Property Name="NationalBankId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="OptionId" />
+          </Key>
+          <Property Name="OptionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FatherId" Type="int" />
+          <Property Name="Section" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="SubSection" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Action" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Controller" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Area" Type="varchar" MaxLength="70" />
+          <Property Name="Icon" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="IsVisible" Type="bit" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubFamilyId" Type="int" Nullable="false" />
+          <Property Name="TypeExistenceId" Type="int" Nullable="false" />
+          <Property Name="MeasureUnitPrimaryId" Type="int" />
+          <Property Name="MeasureUnitSecondaryId" Type="int" />
+          <Property Name="ProviderId" Type="int" />
+          <Property Name="InternalCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Barcode" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DesignName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NumberDesign" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="InvoiceDescription" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="LocalDescription" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="LotNumberPurchase" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaxPercentageAdvalorenId" Type="int" Nullable="false" />
+          <Property Name="TaxPercentageAffectionIGVId" Type="int" Nullable="false" />
+          <Property Name="TaxPercentagePerceptionId" Type="int" Nullable="false" />
+          <Property Name="TaxPercentageDetractionId" Type="int" Nullable="false" />
+          <Property Name="IsSale" Type="bit" />
+          <Property Name="IsPurchase" Type="bit" />
+          <Property Name="OtherMeasureUnit" Type="varchar" MaxLength="100" />
+          <Property Name="ConversionFactor" Type="varchar" MaxLength="50" />
+          <Property Name="MinimumStock" Type="int" />
+          <Property Name="MinimumLot" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="ProviderId" />
+          </Key>
+          <Property Name="ProviderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NationalBankId" Type="int" />
+          <Property Name="InternationalBankId" Type="int" />
+          <Property Name="RUC" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="BussinessName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Provenance" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Origin" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FirstContactName" Type="varchar" MaxLength="150" />
+          <Property Name="FirstContactLastName" Type="varchar" MaxLength="150" />
+          <Property Name="FirstContactCharge" Type="varchar" MaxLength="150" />
+          <Property Name="FirstContactEmail" Type="varchar" MaxLength="100" />
+          <Property Name="SecondContactName" Type="varchar" MaxLength="150" />
+          <Property Name="SecondContactLastName" Type="varchar" MaxLength="150" />
+          <Property Name="SecondContactCharge" Type="varchar" MaxLength="150" />
+          <Property Name="SecondContactEmail" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Acronym" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleOption">
+          <Key>
+            <PropertyRef Name="RoleOptionId" />
+          </Key>
+          <Property Name="RoleOptionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OptionId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubFamily">
+          <Key>
+            <PropertyRef Name="SubFamilyId" />
+          </Key>
+          <Property Name="SubFamilyId" Type="int" Nullable="false" />
+          <Property Name="FamilyId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaxPercentage">
+          <Key>
+            <PropertyRef Name="TaxPercentageId" />
+          </Key>
+          <Property Name="TaxPercentageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeExistence">
+          <Key>
+            <PropertyRef Name="TypeExistenceId" />
+          </Key>
+          <Property Name="TypeExistenceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Product_MeasureUnit">
+          <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeasureUnit">
+              <PropertyRef Name="MeasureUnitId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="MeasureUnitPrimaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_MeasureUnit1">
+          <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeasureUnit">
+              <PropertyRef Name="MeasureUnitId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="MeasureUnitSecondaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Provider">
+          <End Role="Provider" Type="Self.Provider" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_SubFamily">
+          <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubFamily">
+              <PropertyRef Name="SubFamilyId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SubFamilyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TaxPercentage4">
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPercentage">
+              <PropertyRef Name="TaxPercentageId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TaxPercentageAdvalorenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TaxPercentage5">
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPercentage">
+              <PropertyRef Name="TaxPercentageId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TaxPercentageAffectionIGVId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TaxPercentage6">
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPercentage">
+              <PropertyRef Name="TaxPercentageId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TaxPercentagePerceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TaxPercentage7">
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPercentage">
+              <PropertyRef Name="TaxPercentageId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TaxPercentageDetractionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TypeExistence">
+          <End Role="TypeExistence" Type="Self.TypeExistence" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeExistence">
+              <PropertyRef Name="TypeExistenceId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TypeExistenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Provider_InternationalBank">
+          <End Role="InternationalBank" Type="Self.InternationalBank" Multiplicity="0..1" />
+          <End Role="Provider" Type="Self.Provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternationalBank">
+              <PropertyRef Name="InternationalBankId" />
+            </Principal>
+            <Dependent Role="Provider">
+              <PropertyRef Name="InternationalBankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Provider_NationalBank">
+          <End Role="NationalBank" Type="Self.NationalBank" Multiplicity="0..1" />
+          <End Role="Provider" Type="Self.Provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NationalBank">
+              <PropertyRef Name="NationalBankId" />
+            </Principal>
+            <Dependent Role="Provider">
+              <PropertyRef Name="NationalBankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleOption_Option">
+          <End Role="Option" Type="Self.Option" Multiplicity="1" />
+          <End Role="RoleOption" Type="Self.RoleOption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Option">
+              <PropertyRef Name="OptionId" />
+            </Principal>
+            <Dependent Role="RoleOption">
+              <PropertyRef Name="OptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleOption_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleOption" Type="Self.RoleOption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleOption">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubFamily_Family">
+          <End Role="Family" Type="Self.Family" Multiplicity="1" />
+          <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Family">
+              <PropertyRef Name="FamilyId" />
+            </Principal>
+            <Dependent Role="SubFamily">
+              <PropertyRef Name="FamilyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TLCDataNMModelStoreContainer">
+          <EntitySet Name="Family" EntityType="Self.Family" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternationalBank" EntityType="Self.InternationalBank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MeasureUnit" EntityType="Self.MeasureUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NationalBank" EntityType="Self.NationalBank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Option" EntityType="Self.Option" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleOption" EntityType="Self.RoleOption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubFamily" EntityType="Self.SubFamily" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxPercentage" EntityType="Self.TaxPercentage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeExistence" EntityType="Self.TypeExistence" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Product_MeasureUnit" Association="Self.FK_Product_MeasureUnit">
+            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_MeasureUnit1" Association="Self.FK_Product_MeasureUnit1">
+            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Provider" Association="Self.FK_Product_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_SubFamily" Association="Self.FK_Product_SubFamily">
+            <End Role="SubFamily" EntitySet="SubFamily" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage4" Association="Self.FK_Product_TaxPercentage4">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage5" Association="Self.FK_Product_TaxPercentage5">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage6" Association="Self.FK_Product_TaxPercentage6">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage7" Association="Self.FK_Product_TaxPercentage7">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TypeExistence" Association="Self.FK_Product_TypeExistence">
+            <End Role="TypeExistence" EntitySet="TypeExistence" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Provider_InternationalBank" Association="Self.FK_Provider_InternationalBank">
+            <End Role="InternationalBank" EntitySet="InternationalBank" />
+            <End Role="Provider" EntitySet="Provider" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Provider_NationalBank" Association="Self.FK_Provider_NationalBank">
+            <End Role="NationalBank" EntitySet="NationalBank" />
+            <End Role="Provider" EntitySet="Provider" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOption_Option" Association="Self.FK_RoleOption_Option">
+            <End Role="Option" EntitySet="Option" />
+            <End Role="RoleOption" EntitySet="RoleOption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOption_Role" Association="Self.FK_RoleOption_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleOption" EntitySet="RoleOption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubFamily_Family" Association="Self.FK_SubFamily_Family">
+            <End Role="Family" EntitySet="Family" />
+            <End Role="SubFamily" EntitySet="SubFamily" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TLC.Data.NMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Family">
+          <Key>
+            <PropertyRef Name="FamilyId" />
+          </Key>
+          <Property Name="FamilyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKUCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SubFamily" Relationship="Self.FK_SubFamily_Family" FromRole="Family" ToRole="SubFamily" />
+        </EntityType>
+        <EntityType Name="InternationalBank">
+          <Key>
+            <PropertyRef Name="InternationalBankId" />
+          </Key>
+          <Property Name="InternationalBankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Provider" Relationship="Self.FK_Provider_InternationalBank" FromRole="InternationalBank" ToRole="Provider" />
+        </EntityType>
+        <EntityType Name="MeasureUnit">
+          <Key>
+            <PropertyRef Name="MeasureUnitId" />
+          </Key>
+          <Property Name="MeasureUnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acronym" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_MeasureUnit" FromRole="MeasureUnit" ToRole="Product" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Product_MeasureUnit1" FromRole="MeasureUnit" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="NationalBank">
+          <Key>
+            <PropertyRef Name="NationalBankId" />
+          </Key>
+          <Property Name="NationalBankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Provider" Relationship="Self.FK_Provider_NationalBank" FromRole="NationalBank" ToRole="Provider" />
+        </EntityType>
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="OptionId" />
+          </Key>
+          <Property Name="OptionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FatherId" Type="Int32" />
+          <Property Name="Section" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubSection" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Controller" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="IsVisible" Type="Boolean" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RoleOption" Relationship="Self.FK_RoleOption_Option" FromRole="Option" ToRole="RoleOption" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubFamilyId" Type="Int32" Nullable="false" />
+          <Property Name="TypeExistenceId" Type="Int32" Nullable="false" />
+          <Property Name="MeasureUnitPrimaryId" Type="Int32" />
+          <Property Name="MeasureUnitSecondaryId" Type="Int32" />
+          <Property Name="ProviderId" Type="Int32" />
+          <Property Name="InternalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Barcode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DesignName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumberDesign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InvoiceDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LocalDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LotNumberPurchase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TaxPercentageAdvalorenId" Type="Int32" Nullable="false" />
+          <Property Name="TaxPercentageAffectionIGVId" Type="Int32" Nullable="false" />
+          <Property Name="TaxPercentagePerceptionId" Type="Int32" Nullable="false" />
+          <Property Name="TaxPercentageDetractionId" Type="Int32" Nullable="false" />
+          <Property Name="IsSale" Type="Boolean" />
+          <Property Name="IsPurchase" Type="Boolean" />
+          <Property Name="OtherMeasureUnit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ConversionFactor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MinimumStock" Type="Int32" />
+          <Property Name="MinimumLot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MeasureUnit" Relationship="Self.FK_Product_MeasureUnit" FromRole="Product" ToRole="MeasureUnit" />
+          <NavigationProperty Name="MeasureUnit1" Relationship="Self.FK_Product_MeasureUnit1" FromRole="Product" ToRole="MeasureUnit" />
+          <NavigationProperty Name="Provider" Relationship="Self.FK_Product_Provider" FromRole="Product" ToRole="Provider" />
+          <NavigationProperty Name="SubFamily" Relationship="Self.FK_Product_SubFamily" FromRole="Product" ToRole="SubFamily" />
+          <NavigationProperty Name="TaxPercentage" Relationship="Self.FK_Product_TaxPercentage4" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TaxPercentage1" Relationship="Self.FK_Product_TaxPercentage5" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TaxPercentage2" Relationship="Self.FK_Product_TaxPercentage6" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TaxPercentage3" Relationship="Self.FK_Product_TaxPercentage7" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TypeExistence" Relationship="Self.FK_Product_TypeExistence" FromRole="Product" ToRole="TypeExistence" />
+        </EntityType>
+        <EntityType Name="Provider">
+          <Key>
+            <PropertyRef Name="ProviderId" />
+          </Key>
+          <Property Name="ProviderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NationalBankId" Type="Int32" />
+          <Property Name="InternationalBankId" Type="Int32" />
+          <Property Name="RUC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BussinessName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Provenance" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Origin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstContactName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FirstContactLastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FirstContactCharge" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FirstContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SecondContactName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SecondContactLastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SecondContactCharge" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SecondContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InternationalBank" Relationship="Self.FK_Provider_InternationalBank" FromRole="Provider" ToRole="InternationalBank" />
+          <NavigationProperty Name="NationalBank" Relationship="Self.FK_Provider_NationalBank" FromRole="Provider" ToRole="NationalBank" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Provider" FromRole="Provider" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acronym" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RoleOption" Relationship="Self.FK_RoleOption_Role" FromRole="Role" ToRole="RoleOption" />
+        </EntityType>
+        <EntityType Name="RoleOption">
+          <Key>
+            <PropertyRef Name="RoleOptionId" />
+          </Key>
+          <Property Name="RoleOptionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OptionId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Option" Relationship="Self.FK_RoleOption_Option" FromRole="RoleOption" ToRole="Option" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_RoleOption_Role" FromRole="RoleOption" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="SubFamily">
+          <Key>
+            <PropertyRef Name="SubFamilyId" />
+          </Key>
+          <Property Name="SubFamilyId" Type="Int32" Nullable="false" />
+          <Property Name="FamilyId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Family" Relationship="Self.FK_SubFamily_Family" FromRole="SubFamily" ToRole="Family" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_SubFamily" FromRole="SubFamily" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="TaxPercentage">
+          <Key>
+            <PropertyRef Name="TaxPercentageId" />
+          </Key>
+          <Property Name="TaxPercentageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_TaxPercentage4" FromRole="TaxPercentage" ToRole="Product" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Product_TaxPercentage5" FromRole="TaxPercentage" ToRole="Product" />
+          <NavigationProperty Name="Product2" Relationship="Self.FK_Product_TaxPercentage6" FromRole="TaxPercentage" ToRole="Product" />
+          <NavigationProperty Name="Product3" Relationship="Self.FK_Product_TaxPercentage7" FromRole="TaxPercentage" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="TypeExistence">
+          <Key>
+            <PropertyRef Name="TypeExistenceId" />
+          </Key>
+          <Property Name="TypeExistenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_TypeExistence" FromRole="TypeExistence" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_SubFamily_Family">
+          <End Role="Family" Type="Self.Family" Multiplicity="1" />
+          <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Family">
+              <PropertyRef Name="FamilyId" />
+            </Principal>
+            <Dependent Role="SubFamily">
+              <PropertyRef Name="FamilyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Provider_InternationalBank">
+          <End Role="InternationalBank" Type="Self.InternationalBank" Multiplicity="0..1" />
+          <End Role="Provider" Type="Self.Provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InternationalBank">
+              <PropertyRef Name="InternationalBankId" />
+            </Principal>
+            <Dependent Role="Provider">
+              <PropertyRef Name="InternationalBankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_MeasureUnit">
+          <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeasureUnit">
+              <PropertyRef Name="MeasureUnitId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="MeasureUnitPrimaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_MeasureUnit1">
+          <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeasureUnit">
+              <PropertyRef Name="MeasureUnitId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="MeasureUnitSecondaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Provider_NationalBank">
+          <End Role="NationalBank" Type="Self.NationalBank" Multiplicity="0..1" />
+          <End Role="Provider" Type="Self.Provider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NationalBank">
+              <PropertyRef Name="NationalBankId" />
+            </Principal>
+            <Dependent Role="Provider">
+              <PropertyRef Name="NationalBankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleOption_Option">
+          <End Role="Option" Type="Self.Option" Multiplicity="1" />
+          <End Role="RoleOption" Type="Self.RoleOption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Option">
+              <PropertyRef Name="OptionId" />
+            </Principal>
+            <Dependent Role="RoleOption">
+              <PropertyRef Name="OptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Provider">
+          <End Role="Provider" Type="Self.Provider" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provider">
+              <PropertyRef Name="ProviderId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProviderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_SubFamily">
+          <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubFamily">
+              <PropertyRef Name="SubFamilyId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SubFamilyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TaxPercentage4">
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPercentage">
+              <PropertyRef Name="TaxPercentageId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TaxPercentageAdvalorenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TaxPercentage5">
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPercentage">
+              <PropertyRef Name="TaxPercentageId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TaxPercentageAffectionIGVId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TaxPercentage6">
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPercentage">
+              <PropertyRef Name="TaxPercentageId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TaxPercentagePerceptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TaxPercentage7">
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TaxPercentage">
+              <PropertyRef Name="TaxPercentageId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TaxPercentageDetractionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_TypeExistence">
+          <End Role="TypeExistence" Type="Self.TypeExistence" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeExistence">
+              <PropertyRef Name="TypeExistenceId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="TypeExistenceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleOption_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleOption" Type="Self.RoleOption" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleOption">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TLCDataNMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Family" EntityType="Self.Family" />
+          <EntitySet Name="InternationalBank" EntityType="Self.InternationalBank" />
+          <EntitySet Name="MeasureUnit" EntityType="Self.MeasureUnit" />
+          <EntitySet Name="NationalBank" EntityType="Self.NationalBank" />
+          <EntitySet Name="Option" EntityType="Self.Option" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Provider" EntityType="Self.Provider" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="RoleOption" EntityType="Self.RoleOption" />
+          <EntitySet Name="SubFamily" EntityType="Self.SubFamily" />
+          <EntitySet Name="TaxPercentage" EntityType="Self.TaxPercentage" />
+          <EntitySet Name="TypeExistence" EntityType="Self.TypeExistence" />
+          <AssociationSet Name="FK_SubFamily_Family" Association="Self.FK_SubFamily_Family">
+            <End Role="Family" EntitySet="Family" />
+            <End Role="SubFamily" EntitySet="SubFamily" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Provider_InternationalBank" Association="Self.FK_Provider_InternationalBank">
+            <End Role="InternationalBank" EntitySet="InternationalBank" />
+            <End Role="Provider" EntitySet="Provider" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_MeasureUnit" Association="Self.FK_Product_MeasureUnit">
+            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_MeasureUnit1" Association="Self.FK_Product_MeasureUnit1">
+            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Provider_NationalBank" Association="Self.FK_Provider_NationalBank">
+            <End Role="NationalBank" EntitySet="NationalBank" />
+            <End Role="Provider" EntitySet="Provider" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOption_Option" Association="Self.FK_RoleOption_Option">
+            <End Role="Option" EntitySet="Option" />
+            <End Role="RoleOption" EntitySet="RoleOption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Provider" Association="Self.FK_Product_Provider">
+            <End Role="Provider" EntitySet="Provider" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_SubFamily" Association="Self.FK_Product_SubFamily">
+            <End Role="SubFamily" EntitySet="SubFamily" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage4" Association="Self.FK_Product_TaxPercentage4">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage5" Association="Self.FK_Product_TaxPercentage5">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage6" Association="Self.FK_Product_TaxPercentage6">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage7" Association="Self.FK_Product_TaxPercentage7">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TypeExistence" Association="Self.FK_Product_TypeExistence">
+            <End Role="TypeExistence" EntitySet="TypeExistence" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOption_Role" Association="Self.FK_RoleOption_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleOption" EntitySet="RoleOption" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TLCDataNMModelStoreContainer" CdmEntityContainer="TLCDataNMEntities">
+          <EntitySetMapping Name="Family">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Family">
+              <MappingFragment StoreEntitySet="Family">
+                <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SKUCode" ColumnName="SKUCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternationalBank">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.InternationalBank">
+              <MappingFragment StoreEntitySet="InternationalBank">
+                <ScalarProperty Name="InternationalBankId" ColumnName="InternationalBankId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeasureUnit">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.MeasureUnit">
+              <MappingFragment StoreEntitySet="MeasureUnit">
+                <ScalarProperty Name="MeasureUnitId" ColumnName="MeasureUnitId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NationalBank">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.NationalBank">
+              <MappingFragment StoreEntitySet="NationalBank">
+                <ScalarProperty Name="NationalBankId" ColumnName="NationalBankId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Option">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Option">
+              <MappingFragment StoreEntitySet="Option">
+                <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+                <ScalarProperty Name="FatherId" ColumnName="FatherId" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="SubSection" ColumnName="SubSection" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
+                <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
+                <ScalarProperty Name="MeasureUnitPrimaryId" ColumnName="MeasureUnitPrimaryId" />
+                <ScalarProperty Name="MeasureUnitSecondaryId" ColumnName="MeasureUnitSecondaryId" />
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="DesignName" ColumnName="DesignName" />
+                <ScalarProperty Name="NumberDesign" ColumnName="NumberDesign" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="InvoiceDescription" ColumnName="InvoiceDescription" />
+                <ScalarProperty Name="LocalDescription" ColumnName="LocalDescription" />
+                <ScalarProperty Name="LotNumberPurchase" ColumnName="LotNumberPurchase" />
+                <ScalarProperty Name="TaxPercentageAdvalorenId" ColumnName="TaxPercentageAdvalorenId" />
+                <ScalarProperty Name="TaxPercentageAffectionIGVId" ColumnName="TaxPercentageAffectionIGVId" />
+                <ScalarProperty Name="TaxPercentagePerceptionId" ColumnName="TaxPercentagePerceptionId" />
+                <ScalarProperty Name="TaxPercentageDetractionId" ColumnName="TaxPercentageDetractionId" />
+                <ScalarProperty Name="IsSale" ColumnName="IsSale" />
+                <ScalarProperty Name="IsPurchase" ColumnName="IsPurchase" />
+                <ScalarProperty Name="OtherMeasureUnit" ColumnName="OtherMeasureUnit" />
+                <ScalarProperty Name="ConversionFactor" ColumnName="ConversionFactor" />
+                <ScalarProperty Name="MinimumStock" ColumnName="MinimumStock" />
+                <ScalarProperty Name="MinimumLot" ColumnName="MinimumLot" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provider">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Provider">
+              <MappingFragment StoreEntitySet="Provider">
+                <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+                <ScalarProperty Name="NationalBankId" ColumnName="NationalBankId" />
+                <ScalarProperty Name="InternationalBankId" ColumnName="InternationalBankId" />
+                <ScalarProperty Name="RUC" ColumnName="RUC" />
+                <ScalarProperty Name="BussinessName" ColumnName="BussinessName" />
+                <ScalarProperty Name="Provenance" ColumnName="Provenance" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="FirstContactName" ColumnName="FirstContactName" />
+                <ScalarProperty Name="FirstContactLastName" ColumnName="FirstContactLastName" />
+                <ScalarProperty Name="FirstContactCharge" ColumnName="FirstContactCharge" />
+                <ScalarProperty Name="FirstContactEmail" ColumnName="FirstContactEmail" />
+                <ScalarProperty Name="SecondContactName" ColumnName="SecondContactName" />
+                <ScalarProperty Name="SecondContactLastName" ColumnName="SecondContactLastName" />
+                <ScalarProperty Name="SecondContactCharge" ColumnName="SecondContactCharge" />
+                <ScalarProperty Name="SecondContactEmail" ColumnName="SecondContactEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleOption">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.RoleOption">
+              <MappingFragment StoreEntitySet="RoleOption">
+                <ScalarProperty Name="RoleOptionId" ColumnName="RoleOptionId" />
+                <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubFamily">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.SubFamily">
+              <MappingFragment StoreEntitySet="SubFamily">
+                <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
+                <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxPercentage">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.TaxPercentage">
+              <MappingFragment StoreEntitySet="TaxPercentage">
+                <ScalarProperty Name="TaxPercentageId" ColumnName="TaxPercentageId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeExistence">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.TypeExistence">
+              <MappingFragment StoreEntitySet="TypeExistence">
+                <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
