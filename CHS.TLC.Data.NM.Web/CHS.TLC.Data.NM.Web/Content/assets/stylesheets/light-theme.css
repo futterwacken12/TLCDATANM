@@ -1599,7 +1599,7 @@ h6 {
 }
 
 h1 [class^=icon-] {
-    color: #00a99d
+    color: #1f3466
 }
 
 .page-header {
@@ -1659,7 +1659,7 @@ h1 [class^=icon-] {
     }
 
         .page-header .breadcrumb li:first-child > a:hover {
-            color: #00a99d
+            color: #1f3466
         }
 
 .page-header .pull-left, .page-header .pull-right {
@@ -1754,7 +1754,7 @@ header .navbar {
 
     header .navbar .navbar-inner {
         padding: 0 10px;
-        background-color: #00a99d;
+        background-color: #1f3466;
         background-image: none;
         border-bottom: none;
         border: none;
@@ -1780,7 +1780,7 @@ header .navbar {
         header .navbar .navbar-inner .toggle-nav {
             color: #fff;
             text-shadow: none;
-            background-color: #00a99d;
+            background-color: #1f3466;
             border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25)
         }
 
@@ -1795,7 +1795,7 @@ header .navbar {
 
             header .navbar .navbar-inner .navbar-search button {
                 position: absolute;
-                color: #00a99d;
+                color: #1f3466;
                 right: 7px;
                 top: 6px;
                 text-decoration: none;
@@ -2008,7 +2008,7 @@ header .navbar .navbar-inner .widget .dropdown-menu {
         }
 
             header .navbar .navbar-inner .widget .dropdown-menu > li.widget-footer a:hover {
-                background: #00a99d
+                background: #1f3466
             }
 
     header .navbar .navbar-inner .widget .dropdown-menu p {
@@ -2021,7 +2021,7 @@ header .navbar .navbar-inner .widget .dropdown-menu {
 
 header .navbar .nav li .label {
     background: #fff;
-    color: #00a99d
+    color: #1f3466
 }
 
 header .navbar .nav li.dropdown > .dropdown-toggle .caret {
@@ -2217,7 +2217,7 @@ header .navbar .nav > li > a {
     }
 
     #main-nav .navigation > .nav > li > a.in [class^=icon-], #main-nav .navigation > .nav > li > a.in [class*=" icon-"] {
-        color: #00a99d
+        color: #1f3466
     }
 
     #main-nav .navigation > .nav > li > a.in span {
@@ -2275,7 +2275,7 @@ header .navbar .nav > li > a {
 }
 
     #main-nav .navigation > .nav > li:hover > a [class^=icon-], #main-nav .navigation > .nav > li:hover > a [class*=" icon-"], #main-nav .navigation > .nav > li:focus > a [class^=icon-], #main-nav .navigation > .nav > li:focus > a [class*=" icon-"], #main-nav .navigation > .nav > li.active > a [class^=icon-], #main-nav .navigation > .nav > li.active > a [class*=" icon-"] {
-        color: #00a99d !important
+        color: #1f3466 !important
     }
 
     #main-nav .navigation > .nav > li:hover > a span, #main-nav .navigation > .nav > li:focus > a span, #main-nav .navigation > .nav > li.active > a span {
@@ -2327,7 +2327,7 @@ header .navbar .nav > li > a {
     }
 
         #main-nav .navigation > .nav > li .nav > li > a:hover [class^=icon-], #main-nav .navigation > .nav > li .nav > li > a:hover [class*=" icon-"], #main-nav .navigation > .nav > li .nav > li > a:focus [class^=icon-], #main-nav .navigation > .nav > li .nav > li > a:focus [class*=" icon-"] {
-            color: #00a99d
+            color: #1f3466
         }
 
 #main-nav .navigation > .nav > li .nav > li.active > a {
@@ -2335,7 +2335,7 @@ header .navbar .nav > li > a {
 }
 
     #main-nav .navigation > .nav > li .nav > li.active > a [class^=icon-], #main-nav .navigation > .nav > li .nav > li.active > a [class*=" icon-"] {
-        color: #00a99d
+        color: #1f3466
     }
 
 #main-nav .navigation > .nav > li > .nav {
@@ -2554,7 +2554,7 @@ body.fixed-header #main-nav.main-nav-fixed {
             }
 
                 .box .box-header.contrast-background .actions .btn-link:hover {
-                    color: #00a99d !important;
+                    color: #1f3466 !important;
                     background-color: #fff
                 }
 
@@ -2588,7 +2588,7 @@ body.fixed-header #main-nav.main-nav-fixed {
             }
 
                 .box .box-header.blue-background .actions .btn-link:hover {
-                    color: #00acec !important;
+                    color: #1f3466 !important;
                     background-color: #fff
                 }
 
@@ -2622,7 +2622,7 @@ body.fixed-header #main-nav.main-nav-fixed {
             }
 
                 .box .box-header.green-background .actions .btn-link:hover {
-                    color: #49bf67 !important;
+                    color: #00a99d !important;
                     background-color: #fff
                 }
 
@@ -2639,7 +2639,7 @@ body.fixed-header #main-nav.main-nav-fixed {
             }
 
                 .box .box-header.red-background .actions .btn-link:hover {
-                    color: #00a99d !important;
+                    color: #1f3466 !important;
                     background-color: #fff
                 }
 
@@ -2818,7 +2818,7 @@ body.fixed-header #main-nav.main-nav-fixed {
             }
 
                 .box .box-header .actions .btn-link:hover {
-                    color: #00a99d
+                    color: #1f3466
                 }
 
             .box .box-header .actions .box-collapse i {
@@ -3534,7 +3534,7 @@ body.fixed-header #main-nav.main-nav-fixed {
 
 .todo-list .date {
     text-transform: uppercase;
-    color: #00a99d;
+    color: #1f3466;
     font-size: 11px;
     margin-top: 10px;
     margin-left: 10px
@@ -3587,7 +3587,7 @@ body.fixed-header #main-nav.main-nav-fixed {
             }
 
         .todo-list ul > li .actions .important {
-            color: #00acec
+            color: #1f3466
         }
 
             .todo-list ul > li .actions .important i:before {
@@ -3607,7 +3607,7 @@ body.fixed-header #main-nav.main-nav-fixed {
             }
 
         .todo-list ul > li .actions .remove {
-            color: #00a99d
+            color: #1f3466
         }
 
             .todo-list ul > li .actions .remove:hover {
@@ -3615,7 +3615,7 @@ body.fixed-header #main-nav.main-nav-fixed {
             }
 
         .todo-list ul > li.important {
-            border-left: 2px solid #00acec;
+            border-left: 2px solid #1f3466;
             padding-left: 15px;
             background: #f7f7f7
         }
@@ -3753,7 +3753,7 @@ body.fixed-header #main-nav.main-nav-fixed {
                 }
 
             .recent-activity .comments > li .body .actions .ok {
-                color: #49bf67;
+                color: #00a99d;
                 margin-right: 10px
             }
 
@@ -3762,7 +3762,7 @@ body.fixed-header #main-nav.main-nav-fixed {
                 }
 
             .recent-activity .comments > li .body .actions .remove {
-                color: #00a99d
+                color: #1f3466
             }
 
                 .recent-activity .comments > li .body .actions .remove:hover {
@@ -3778,7 +3778,7 @@ body.fixed-header #main-nav.main-nav-fixed {
     }
 
 .event-contrast .fc-event-inner {
-    background-color: #00a99d !important
+    background-color: #1f3466 !important
 }
 
 .event-orange .fc-event-inner {
@@ -3786,7 +3786,7 @@ body.fixed-header #main-nav.main-nav-fixed {
 }
 
 .event-blue .fc-event-inner {
-    background-color: #00acec !important
+    background-color: #1f3466 !important
 }
 
 .event-purple .fc-event-inner {
@@ -3794,11 +3794,11 @@ body.fixed-header #main-nav.main-nav-fixed {
 }
 
 .event-green .fc-event-inner {
-    background-color: #49bf67 !important
+    background-color: #00a99d !important
 }
 
 .event-red .fc-event-inner {
-    background-color: #00a99d !important
+    background-color: #1f3466 !important
 }
 
 .event-muted .fc-event-inner {
@@ -4227,7 +4227,7 @@ body.forgot-password #wrapper .controls .form-wrapper button {
 }
 
     .dd-handle:hover {
-        color: #00a99d;
+        color: #1f3466;
         cursor: move
     }
 
@@ -4268,7 +4268,7 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     padding: 0;
     min-height: 30px;
     background: #f7f7f7;
-    border: 1px dashed #00a99d;
+    border: 1px dashed #1f3466;
     box-sizing: border-box;
     -moz-box-sizing: border-box
 }
@@ -4291,13 +4291,13 @@ body.forgot-password #wrapper .controls .form-wrapper button {
 }
 
 .accordion.accordion-contrast .accordion-group {
-    border-color: #00a99d;
+    border-color: #1f3466;
     border-bottom-color: #f9a3a1
 }
 
 .accordion.accordion-contrast .accordion-heading .accordion-toggle {
     color: #fff;
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
 .accordion.accordion-orange .accordion-group {
@@ -4311,13 +4311,13 @@ body.forgot-password #wrapper .controls .form-wrapper button {
 }
 
 .accordion.accordion-blue .accordion-group {
-    border-color: #00acec;
+    border-color: #1f3466;
     border-bottom-color: #53d0ff
 }
 
 .accordion.accordion-blue .accordion-heading .accordion-toggle {
     color: #fff;
-    background-color: #00acec
+    background-color: #1f3466
 }
 
 .accordion.accordion-purple .accordion-group {
@@ -4331,23 +4331,23 @@ body.forgot-password #wrapper .controls .form-wrapper button {
 }
 
 .accordion.accordion-green .accordion-group {
-    border-color: #49bf67;
+    border-color: #00a99d;
     border-bottom-color: #94daa6
 }
 
 .accordion.accordion-green .accordion-heading .accordion-toggle {
     color: #fff;
-    background-color: #49bf67
+    background-color: #00a99d
 }
 
 .accordion.accordion-red .accordion-group {
-    border-color: #00a99d;
+    border-color: #1f3466;
     border-bottom-color: #f9a3a1
 }
 
 .accordion.accordion-red .accordion-heading .accordion-toggle {
     color: #fff;
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
 .accordion.accordion-muted .accordion-group {
@@ -4455,15 +4455,15 @@ body.forgot-password #wrapper .controls .form-wrapper button {
 
 .tabs-right .nav-tabs-simple > .active > a, .tabs-right .nav-tabs-simple > .active > a:hover, .tabs-right .nav-tabs-simple > .active > a:focus {
     border-color: transparent !important;
-    border-left-color: #00a99d !important
+    border-left-color: #1f3466 !important
 }
 
     .tabs-right .nav-tabs-simple > .active > a.contrast-border, .tabs-right .nav-tabs-simple > .active > a:hover.contrast-border, .tabs-right .nav-tabs-simple > .active > a:focus.contrast-border {
-        border-left-color: #00a99d !important
+        border-left-color: #1f3466 !important
     }
 
     .tabs-right .nav-tabs-simple > .active > a.contrast-border, .tabs-right .nav-tabs-simple > .active > a:hover.contrast-border, .tabs-right .nav-tabs-simple > .active > a:focus.contrast-border {
-        border-left-color: #00a99d !important
+        border-left-color: #1f3466 !important
     }
 
     .tabs-right .nav-tabs-simple > .active > a.orange-border, .tabs-right .nav-tabs-simple > .active > a:hover.orange-border, .tabs-right .nav-tabs-simple > .active > a:focus.orange-border {
@@ -4471,7 +4471,7 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     }
 
     .tabs-right .nav-tabs-simple > .active > a.blue-border, .tabs-right .nav-tabs-simple > .active > a:hover.blue-border, .tabs-right .nav-tabs-simple > .active > a:focus.blue-border {
-        border-left-color: #00acec !important
+        border-left-color: #1f3466 !important
     }
 
     .tabs-right .nav-tabs-simple > .active > a.purple-border, .tabs-right .nav-tabs-simple > .active > a:hover.purple-border, .tabs-right .nav-tabs-simple > .active > a:focus.purple-border {
@@ -4479,11 +4479,11 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     }
 
     .tabs-right .nav-tabs-simple > .active > a.green-border, .tabs-right .nav-tabs-simple > .active > a:hover.green-border, .tabs-right .nav-tabs-simple > .active > a:focus.green-border {
-        border-left-color: #49bf67 !important
+        border-left-color: #00a99d !important
     }
 
     .tabs-right .nav-tabs-simple > .active > a.red-border, .tabs-right .nav-tabs-simple > .active > a:hover.red-border, .tabs-right .nav-tabs-simple > .active > a:focus.red-border {
-        border-left-color: #00a99d !important
+        border-left-color: #1f3466 !important
     }
 
     .tabs-right .nav-tabs-simple > .active > a.muted-border, .tabs-right .nav-tabs-simple > .active > a:hover.muted-border, .tabs-right .nav-tabs-simple > .active > a:focus.muted-border {
@@ -4528,15 +4528,15 @@ body.forgot-password #wrapper .controls .form-wrapper button {
 
 .tabs-left .nav-tabs-simple > .active > a, .tabs-left .nav-tabs-simple > .active > a:hover, .tabs-left .nav-tabs-simple > .active > a:focus {
     border-color: transparent !important;
-    border-right-color: #00a99d !important
+    border-right-color: #1f3466 !important
 }
 
     .tabs-left .nav-tabs-simple > .active > a.contrast-border, .tabs-left .nav-tabs-simple > .active > a:hover.contrast-border, .tabs-left .nav-tabs-simple > .active > a:focus.contrast-border {
-        border-right-color: #00a99d !important
+        border-right-color: #1f3466 !important
     }
 
     .tabs-left .nav-tabs-simple > .active > a.contrast-border, .tabs-left .nav-tabs-simple > .active > a:hover.contrast-border, .tabs-left .nav-tabs-simple > .active > a:focus.contrast-border {
-        border-right-color: #00a99d !important
+        border-right-color: #1f3466 !important
     }
 
     .tabs-left .nav-tabs-simple > .active > a.orange-border, .tabs-left .nav-tabs-simple > .active > a:hover.orange-border, .tabs-left .nav-tabs-simple > .active > a:focus.orange-border {
@@ -4544,7 +4544,7 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     }
 
     .tabs-left .nav-tabs-simple > .active > a.blue-border, .tabs-left .nav-tabs-simple > .active > a:hover.blue-border, .tabs-left .nav-tabs-simple > .active > a:focus.blue-border {
-        border-right-color: #00acec !important
+        border-right-color: #1f3466 !important
     }
 
     .tabs-left .nav-tabs-simple > .active > a.purple-border, .tabs-left .nav-tabs-simple > .active > a:hover.purple-border, .tabs-left .nav-tabs-simple > .active > a:focus.purple-border {
@@ -4552,11 +4552,11 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     }
 
     .tabs-left .nav-tabs-simple > .active > a.green-border, .tabs-left .nav-tabs-simple > .active > a:hover.green-border, .tabs-left .nav-tabs-simple > .active > a:focus.green-border {
-        border-right-color: #49bf67 !important
+        border-right-color: #00a99d !important
     }
 
     .tabs-left .nav-tabs-simple > .active > a.red-border, .tabs-left .nav-tabs-simple > .active > a:hover.red-border, .tabs-left .nav-tabs-simple > .active > a:focus.red-border {
-        border-right-color: #00a99d !important
+        border-right-color: #1f3466 !important
     }
 
     .tabs-left .nav-tabs-simple > .active > a.muted-border, .tabs-left .nav-tabs-simple > .active > a:hover.muted-border, .tabs-left .nav-tabs-simple > .active > a:focus.muted-border {
@@ -4601,15 +4601,15 @@ body.forgot-password #wrapper .controls .form-wrapper button {
 
 .tabs-below .nav-tabs-simple > .active > a, .tabs-below .nav-tabs-simple > .active > a:hover, .tabs-below .nav-tabs-simple > .active > a:focus {
     border-color: transparent !important;
-    border-top-color: #00a99d !important
+    border-top-color: #1f3466 !important
 }
 
     .tabs-below .nav-tabs-simple > .active > a.contrast-border, .tabs-below .nav-tabs-simple > .active > a:hover.contrast-border, .tabs-below .nav-tabs-simple > .active > a:focus.contrast-border {
-        border-top-color: #00a99d !important
+        border-top-color: #1f3466 !important
     }
 
     .tabs-below .nav-tabs-simple > .active > a.contrast-border, .tabs-below .nav-tabs-simple > .active > a:hover.contrast-border, .tabs-below .nav-tabs-simple > .active > a:focus.contrast-border {
-        border-top-color: #00a99d !important
+        border-top-color: #1f3466 !important
     }
 
     .tabs-below .nav-tabs-simple > .active > a.orange-border, .tabs-below .nav-tabs-simple > .active > a:hover.orange-border, .tabs-below .nav-tabs-simple > .active > a:focus.orange-border {
@@ -4617,7 +4617,7 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     }
 
     .tabs-below .nav-tabs-simple > .active > a.blue-border, .tabs-below .nav-tabs-simple > .active > a:hover.blue-border, .tabs-below .nav-tabs-simple > .active > a:focus.blue-border {
-        border-top-color: #00acec !important
+        border-top-color: #1f3466 !important
     }
 
     .tabs-below .nav-tabs-simple > .active > a.purple-border, .tabs-below .nav-tabs-simple > .active > a:hover.purple-border, .tabs-below .nav-tabs-simple > .active > a:focus.purple-border {
@@ -4625,11 +4625,11 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     }
 
     .tabs-below .nav-tabs-simple > .active > a.green-border, .tabs-below .nav-tabs-simple > .active > a:hover.green-border, .tabs-below .nav-tabs-simple > .active > a:focus.green-border {
-        border-top-color: #49bf67 !important
+        border-top-color: #00a99d !important
     }
 
     .tabs-below .nav-tabs-simple > .active > a.red-border, .tabs-below .nav-tabs-simple > .active > a:hover.red-border, .tabs-below .nav-tabs-simple > .active > a:focus.red-border {
-        border-top-color: #00a99d !important
+        border-top-color: #1f3466 !important
     }
 
     .tabs-below .nav-tabs-simple > .active > a.muted-border, .tabs-below .nav-tabs-simple > .active > a:hover.muted-border, .tabs-below .nav-tabs-simple > .active > a:focus.muted-border {
@@ -4674,15 +4674,15 @@ body.forgot-password #wrapper .controls .form-wrapper button {
 
 .nav-tabs-simple > .active > a, .nav-tabs-simple > .active > a:hover, .nav-tabs-simple > .active > a:focus {
     border-color: transparent !important;
-    border-bottom-color: #00a99d !important
+    border-bottom-color: #1f3466 !important
 }
 
     .nav-tabs-simple > .active > a.contrast-border, .nav-tabs-simple > .active > a:hover.contrast-border, .nav-tabs-simple > .active > a:focus.contrast-border {
-        border-bottom-color: #00a99d !important
+        border-bottom-color: #1f3466 !important
     }
 
     .nav-tabs-simple > .active > a.contrast-border, .nav-tabs-simple > .active > a:hover.contrast-border, .nav-tabs-simple > .active > a:focus.contrast-border {
-        border-bottom-color: #00a99d !important
+        border-bottom-color: #1f3466 !important
     }
 
     .nav-tabs-simple > .active > a.orange-border, .nav-tabs-simple > .active > a:hover.orange-border, .nav-tabs-simple > .active > a:focus.orange-border {
@@ -4690,7 +4690,7 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     }
 
     .nav-tabs-simple > .active > a.blue-border, .nav-tabs-simple > .active > a:hover.blue-border, .nav-tabs-simple > .active > a:focus.blue-border {
-        border-bottom-color: #00acec !important
+        border-bottom-color: #1f3466 !important
     }
 
     .nav-tabs-simple > .active > a.purple-border, .nav-tabs-simple > .active > a:hover.purple-border, .nav-tabs-simple > .active > a:focus.purple-border {
@@ -4698,11 +4698,11 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     }
 
     .nav-tabs-simple > .active > a.green-border, .nav-tabs-simple > .active > a:hover.green-border, .nav-tabs-simple > .active > a:focus.green-border {
-        border-bottom-color: #49bf67 !important
+        border-bottom-color: #00a99d !important
     }
 
     .nav-tabs-simple > .active > a.red-border, .nav-tabs-simple > .active > a:hover.red-border, .nav-tabs-simple > .active > a:focus.red-border {
-        border-bottom-color: #00a99d !important
+        border-bottom-color: #1f3466 !important
     }
 
     .nav-tabs-simple > .active > a.muted-border, .nav-tabs-simple > .active > a:hover.muted-border, .nav-tabs-simple > .active > a:focus.muted-border {
@@ -4844,12 +4844,12 @@ body.forgot-password #wrapper .controls .form-wrapper button {
     }
 
         .fuelux .wizard ul li.active {
-            background-color: #00a99d;
+            background-color: #1f3466;
             color: #fff
         }
 
         .fuelux .wizard ul li.complete {
-            background-color: #49bf67;
+            background-color: #00a99d;
             color: #fff
         }
 
@@ -4858,7 +4858,7 @@ body.forgot-password #wrapper .controls .form-wrapper button {
             }
 
             .fuelux .wizard ul li.complete:before {
-                background-color: #49bf67
+                background-color: #00a99d
             }
 
         .fuelux .wizard ul li:before {
@@ -5221,15 +5221,15 @@ a, a:hover, .btn-link, .btn-link:hover {
     }
 
 .btn-group.open .btn-primary.dropdown-toggle, .btn.btn-primary {
-    background-color: #00acec
+    background-color: #1f3466
 }
 
     .btn-group.open .btn-primary.dropdown-toggle:focus, .btn-group.open .btn-primary.dropdown-toggle:active, .btn-group.open .btn-primary.dropdown-toggle.active, .btn-group.open .btn-primary.dropdown-toggle.disabled, .btn-group.open .btn-primary.dropdown-toggle[disabled], .btn.btn-primary:focus, .btn.btn-primary:active, .btn.btn-primary.active, .btn.btn-primary.disabled, .btn.btn-primary[disabled] {
-        background-color: #00acec
+        background-color: #1f3466
     }
 
         .btn-group.open .btn-primary.dropdown-toggle.disabled:hover, .btn-group.open .btn-primary.dropdown-toggle[disabled]:hover, .btn.btn-primary.disabled:hover, .btn.btn-primary[disabled]:hover {
-            background-color: #00acec
+            background-color: #1f3466
         }
 
     .btn-group.open .btn-primary.dropdown-toggle:hover, .btn.btn-primary:hover {
@@ -5253,15 +5253,15 @@ a, a:hover, .btn-link, .btn-link:hover {
     }
 
 .btn-group.open .btn-danger.dropdown-toggle, .btn.btn-danger {
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
     .btn-group.open .btn-danger.dropdown-toggle:focus, .btn-group.open .btn-danger.dropdown-toggle:active, .btn-group.open .btn-danger.dropdown-toggle.active, .btn-group.open .btn-danger.dropdown-toggle.disabled, .btn-group.open .btn-danger.dropdown-toggle[disabled], .btn.btn-danger:focus, .btn.btn-danger:active, .btn.btn-danger.active, .btn.btn-danger.disabled, .btn.btn-danger[disabled] {
-        background-color: #00a99d
+        background-color: #1f3466
     }
 
         .btn-group.open .btn-danger.dropdown-toggle.disabled:hover, .btn-group.open .btn-danger.dropdown-toggle[disabled]:hover, .btn.btn-danger.disabled:hover, .btn.btn-danger[disabled]:hover {
-            background-color: #00a99d
+            background-color: #1f3466
         }
 
     .btn-group.open .btn-danger.dropdown-toggle:hover, .btn.btn-danger:hover {
@@ -5269,15 +5269,15 @@ a, a:hover, .btn-link, .btn-link:hover {
     }
 
 .btn-group.open .btn-success.dropdown-toggle, .btn.btn-success {
-    background-color: #49bf67
+    background-color: #00a99d
 }
 
     .btn-group.open .btn-success.dropdown-toggle:focus, .btn-group.open .btn-success.dropdown-toggle:active, .btn-group.open .btn-success.dropdown-toggle.active, .btn-group.open .btn-success.dropdown-toggle.disabled, .btn-group.open .btn-success.dropdown-toggle[disabled], .btn.btn-success:focus, .btn.btn-success:active, .btn.btn-success.active, .btn.btn-success.disabled, .btn.btn-success[disabled] {
-        background-color: #49bf67
+        background-color: #00a99d
     }
 
         .btn-group.open .btn-success.dropdown-toggle.disabled:hover, .btn-group.open .btn-success.dropdown-toggle[disabled]:hover, .btn.btn-success.disabled:hover, .btn.btn-success[disabled]:hover {
-            background-color: #49bf67
+            background-color: #00a99d
         }
 
     .btn-group.open .btn-success.dropdown-toggle:hover, .btn.btn-success:hover {
@@ -5319,17 +5319,17 @@ a, a:hover, .btn-link, .btn-link:hover {
 
     .progress .bar {
         background-image: none;
-        background-color: #00acec
+        background-color: #1f3466
     }
 
     .progress.progress-danger .bar, .progress.progress .bar-danger {
         background-image: none;
-        background-color: #00a99d
+        background-color: #1f3466
     }
 
     .progress.progress-success .bar, .progress.progress .bar-success {
         background-image: none;
-        background-color: #49bf67
+        background-color: #00a99d
     }
 
     .progress.progress-warning .bar, .progress.progress .bar-warning {
@@ -5347,7 +5347,7 @@ a, a:hover, .btn-link, .btn-link:hover {
 }
 
 .label-important {
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
     .label-important[href] {
@@ -5363,7 +5363,7 @@ a, a:hover, .btn-link, .btn-link:hover {
     }
 
 .label-success {
-    background-color: #49bf67
+    background-color: #00a99d
 }
 
     .label-success[href] {
@@ -5387,7 +5387,7 @@ a, a:hover, .btn-link, .btn-link:hover {
     }
 
 .badge-important {
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
     .badge-important[href] {
@@ -5403,7 +5403,7 @@ a, a:hover, .btn-link, .btn-link:hover {
     }
 
 .badge-success {
-    background-color: #49bf67
+    background-color: #00a99d
 }
 
     .badge-success[href] {
@@ -5487,7 +5487,7 @@ ul.dynatree-container {
 .ui-slider .ui-slider-range {
     background-image: none !important;
     filter: none;
-    background-color: #00acec
+    background-color: #1f3466
 }
 
 div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
@@ -5514,7 +5514,7 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 
 .daterangepicker .ranges li.active, .daterangepicker .ranges li:hover {
     color: #fff;
-    background: #00a99d;
+    background: #1f3466;
     border-color: transparent
 }
 
@@ -5523,11 +5523,11 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .daterangepicker td.active, .daterangepicker td.active:hover {
-    background: #00a99d
+    background: #1f3466
 }
 
 .datepicker td span.active:hover, .datepicker td span.active:hover:hover, .datepicker td span.active.disabled:hover, .datepicker td span.active.disabled:hover:hover, .datepicker td span.active:active, .datepicker td span.active:hover:active, .datepicker td span.active.disabled:active, .datepicker td span.active.disabled:hover:active, .datepicker td span.active.active, .datepicker td span.active:hover.active, .datepicker td span.active.disabled.active, .datepicker td span.active.disabled:hover.active, .datepicker td span.active.disabled, .datepicker td span.active:hover.disabled, .datepicker td span.active.disabled.disabled, .datepicker td span.active.disabled:hover.disabled, .datepicker td span.active[disabled], .datepicker td span.active:hover[disabled], .datepicker td span.active.disabled[disabled], .datepicker td span.active.disabled:hover[disabled], .datepicker td.active:hover, .datepicker td.active:hover:hover, .datepicker td.active.disabled:hover, .datepicker td.active.disabled:hover:hover, .datepicker td.active:active, .datepicker td.active:hover:active, .datepicker td.active.disabled:active, .datepicker td.active.disabled:hover:active, .datepicker td.active.active, .datepicker td.active:hover.active, .datepicker td.active.disabled.active, .datepicker td.active.disabled:hover.active, .datepicker td.active.disabled, .datepicker td.active:hover.disabled, .datepicker td.active.disabled.disabled, .datepicker td.active.disabled:hover.disabled, .datepicker td.active[disabled], .datepicker td.active:hover[disabled], .datepicker td.active.disabled[disabled], .datepicker td.active.disabled:hover[disabled] {
-    background: #00a99d
+    background: #1f3466
 }
 
 .daterangepicker .ranges li, .daterangepicker td, .daterangepicker th, .datepicker td span, .datepicker td, .datepicker th {
@@ -5537,7 +5537,7 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .has-switch span.switch-primary, .has-switch span.switch-left, .has-switch span.switch-primary:hover, .has-switch span.switch-left:hover, .has-switch span.switch-primary:focus, .has-switch span.switch-left:focus, .has-switch span.switch-primary:active, .has-switch span.switch-left:active, .has-switch span.switch-primary.active, .has-switch span.switch-left.active, .has-switch span.switch-primary.disabled, .has-switch span.switch-left.disabled, .has-switch span.switch-primary[disabled], .has-switch span.switch-left[disabled], .has-switch span.switch-primary:active, .has-switch span.switch-left:active, .has-switch span.switch-primary.active, .has-switch span.switch-left.active {
-    background-color: #00acec
+    background-color: #1f3466
 }
 
     .has-switch span.switch-primary:hover, .has-switch span.switch-left:hover, .has-switch span.switch-primary:hover:hover, .has-switch span.switch-left:hover:hover, .has-switch span.switch-primary:focus:hover, .has-switch span.switch-left:focus:hover, .has-switch span.switch-primary:active:hover, .has-switch span.switch-left:active:hover, .has-switch span.switch-primary.active:hover, .has-switch span.switch-left.active:hover, .has-switch span.switch-primary.disabled:hover, .has-switch span.switch-left.disabled:hover, .has-switch span.switch-primary[disabled]:hover, .has-switch span.switch-left[disabled]:hover, .has-switch span.switch-primary:active:hover, .has-switch span.switch-left:active:hover, .has-switch span.switch-primary.active:hover, .has-switch span.switch-left.active:hover {
@@ -5545,7 +5545,7 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
     }
 
 .has-switch span.switch-danger, .has-switch span.switch-danger:hover, .has-switch span.switch-danger:focus, .has-switch span.switch-danger:active, .has-switch span.switch-danger.active, .has-switch span.switch-danger.disabled, .has-switch span.switch-danger[disabled], .has-switch span.switch-danger:active, .has-switch span.switch-danger.active {
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
     .has-switch span.switch-danger:hover, .has-switch span.switch-danger:hover:hover, .has-switch span.switch-danger:focus:hover, .has-switch span.switch-danger:active:hover, .has-switch span.switch-danger.active:hover, .has-switch span.switch-danger.disabled:hover, .has-switch span.switch-danger[disabled]:hover, .has-switch span.switch-danger:active:hover, .has-switch span.switch-danger.active:hover {
@@ -5569,7 +5569,7 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
     }
 
 .has-switch span.switch-success, .has-switch span.switch-success:hover, .has-switch span.switch-success:focus, .has-switch span.switch-success:active, .has-switch span.switch-success.active, .has-switch span.switch-success.disabled, .has-switch span.switch-success[disabled], .has-switch span.switch-success:active, .has-switch span.switch-success.active {
-    background-color: #49bf67
+    background-color: #00a99d
 }
 
     .has-switch span.switch-success:hover, .has-switch span.switch-success:hover:hover, .has-switch span.switch-success:focus:hover, .has-switch span.switch-success:active:hover, .has-switch span.switch-success.active:hover, .has-switch span.switch-success.disabled:hover, .has-switch span.switch-success[disabled]:hover, .has-switch span.switch-success:active:hover, .has-switch span.switch-success.active:hover {
@@ -5630,23 +5630,23 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .background-contrast {
-    background: #00a99d !important
+    background: #1f3466 !important
 }
 
 .text-contrast, .contrast {
-    color: #00a99d !important
+    color: #1f3466 !important
 }
 
 .text-error {
-    color: #00a99d !important
+    color: #1f3466 !important
 }
 
 .text-success {
-    color: #49bf67 !important
+    color: #00a99d !important
 }
 
 .text-primary {
-    color: #00acec !important
+    color: #1f3466 !important
 }
 
 .text-warning {
@@ -5658,15 +5658,15 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .text-contrast {
-    color: #00a99d !important
+    color: #1f3466 !important
 }
 
 .contrast-background {
-    background-color: #00a99d !important
+    background-color: #1f3466 !important
 }
 
 .contrast-border {
-    border-color: #00a99d !important
+    border-color: #1f3466 !important
 }
 
 .text-orange {
@@ -5682,15 +5682,15 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .text-blue {
-    color: #00acec !important
+    color: #1f3466 !important
 }
 
 .blue-background {
-    background-color: #00acec !important
+    background-color: #1f3466 !important
 }
 
 .blue-border {
-    border-color: #00acec !important
+    border-color: #1f3466 !important
 }
 
 .text-purple {
@@ -5706,27 +5706,27 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .text-green {
-    color: #49bf67 !important
-}
-
-.green-background {
-    background-color: #49bf67 !important
-}
-
-.green-border {
-    border-color: #49bf67 !important
-}
-
-.text-red {
     color: #00a99d !important
 }
 
-.red-background {
+.green-background {
     background-color: #00a99d !important
 }
 
-.red-border {
+.green-border {
     border-color: #00a99d !important
+}
+
+.text-red {
+    color: #1f3466 !important
+}
+
+.red-background {
+    background-color: #1f3466 !important
+}
+
+.red-border {
+    border-color: #1f3466 !important
 }
 
 .text-muted {
@@ -5862,11 +5862,11 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .contrast-red header .navbar .navbar-inner {
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
     .contrast-red header .navbar .navbar-inner .toggle-nav {
-        background-color: #00a99d
+        background-color: #1f3466
     }
 
         .contrast-red header .navbar .navbar-inner .toggle-nav:hover {
@@ -5874,7 +5874,7 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
         }
 
     .contrast-red header .navbar .navbar-inner .navbar-search button {
-        color: #00a99d
+        color: #1f3466
     }
 
         .contrast-red header .navbar .navbar-inner .navbar-search button:hover {
@@ -5951,65 +5951,65 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
         }
 
     .contrast-red header .navbar .navbar-inner .dark {
-        background: #026b63
+        background: #233d79
     }
 
         .contrast-red header .navbar .navbar-inner .dark .label {
-            color: #026b63
+            color: #233d79
         }
 
         .contrast-red header .navbar .navbar-inner .dark:hover > a, .contrast-red header .navbar .navbar-inner .dark:active > a, .contrast-red header .navbar .navbar-inner .dark:focus > a {
-            background-color: #01504a
+            background-color: #15264e
         }
 
     .contrast-red header .navbar .navbar-inner .widget .dropdown-menu > li.widget-footer a:hover {
-        background-color: #00a99d
+        background-color: #1f3466
     }
 
 .contrast-red header .navbar .nav li .label {
-    color: #00a99d
+    color: #1f3466
 }
 
 .contrast-red #main-nav .navigation > .nav > li > a.in [class^=icon-], .contrast-red #main-nav .navigation > .nav > li > a.in [class*=" icon-"] {
-    color: #00a99d
+    color: #1f3466
 }
 
 .contrast-red #main-nav .navigation > .nav > li:hover > a [class^=icon-], .contrast-red #main-nav .navigation > .nav > li:hover > a [class*=" icon-"], .contrast-red #main-nav .navigation > .nav > li:focus > a [class^=icon-], .contrast-red #main-nav .navigation > .nav > li:focus > a [class*=" icon-"], .contrast-red #main-nav .navigation > .nav > li.active > a [class^=icon-], .contrast-red #main-nav .navigation > .nav > li.active > a [class*=" icon-"] {
-    color: #00a99d !important
+    color: #1f3466 !important
 }
 
 .contrast-red #main-nav .navigation > .nav > li .nav > li.active > a [class^=icon-], .contrast-red #main-nav .navigation > .nav > li .nav > li.active > a [class*=" icon-"] {
-    color: #00a99d
+    color: #1f3466
 }
 
 .contrast-red #main-nav .navigation > .nav > li .nav > li > a:hover [class^=icon-], .contrast-red #main-nav .navigation > .nav > li .nav > li > a:hover [class*=" icon-"], .contrast-red #main-nav .navigation > .nav > li .nav > li > a:focus [class^=icon-], .contrast-red #main-nav .navigation > .nav > li .nav > li > a:focus [class*=" icon-"] {
-    color: #00a99d
+    color: #1f3466
 }
 
 .contrast-red .box .box-header.contrast-background .actions .btn-link:hover {
-    color: #00a99d !important
+    color: #1f3466 !important
 }
 
 .contrast-red.contrast-background, .contrast-red .contrast-background {
-    background: #00a99d !important
+    background: #1f3466 !important
 }
 
 .contrast-red .text-contrast, .contrast-red .contrast {
-    color: #00a99d !important
+    color: #1f3466 !important
 }
 
 .contrast-red .contrast-border {
-    border-color: #00a99d !important
+    border-color: #1f3466 !important
 }
 
 .contrast-red .accordion.accordion-contrast .accordion-group {
-    border-color: #00a99d;
+    border-color: #1f3466;
     border-bottom-color: #f9a3a1
 }
 
 .contrast-red .accordion.accordion-contrast .accordion-heading .accordion-toggle {
     color: #fff;
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
 .contrast-red .box-quick-link.contrast-background a:active .header {
@@ -6021,64 +6021,64 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .contrast-red .box-statistic.contrast-background .title, .contrast-red .box-statistic.contrast-background small, .contrast-red .box-statistic.contrast-background [class*=icon-] {
-    color: #00a99d !important
+    color: #1f3466 !important
 }
 
 .contrast-red .breadcrumb li:first-child > a:hover {
-    color: #00a99d !important
+    color: #1f3466 !important
 }
 
 .contrast-red h1 [class^=icon-] {
-    color: #00a99d
+    color: #1f3466
 }
 
 .contrast-red .dropdown-menu > .active > a, .contrast-red .dropdown-menu > .active > a:hover, .contrast-red .dropdown-menu > .active > a:focus, .contrast-red .dropdown-menu > li > a:hover, .contrast-red .dropdown-menu > li > a:focus, .contrast-red .dropdown-submenu:hover > a, .contrast-red .dropdown-submenu:focus > a {
-    background-color: #00a99d !important
+    background-color: #1f3466 !important
 }
 
 .contrast-red .box .box-header .actions .btn-link:hover {
-    color: #00a99d
+    color: #1f3466
 }
 
 .contrast-red .fuelux .wizard ul li.active {
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
 .contrast-red .fc-event .fc-event-inner {
-    background-color: #00a99d
+    background-color: #1f3466
 }
 
 .contrast-red .contrast-caret {
-    border-top-color: #00a99d !important;
-    border-bottom-color: #00a99d !important
+    border-top-color: #1f3466 !important;
+    border-bottom-color: #1f3466 !important
 }
 
 .contrast-red .select2-results .select2-highlighted {
-    background: #00a99d
+    background: #1f3466
 }
 
 .contrast-red .daterangepicker .ranges li.active, .contrast-red .daterangepicker .ranges li:hover {
-    background: #00a99d
+    background: #1f3466
 }
 
 .contrast-red .daterangepicker td.active, .contrast-red .daterangepicker td.active:hover {
-    background: #00a99d
+    background: #1f3466
 }
 
 .contrast-red .datepicker td span.active:hover, .contrast-red .datepicker td span.active:hover:hover, .contrast-red .datepicker td span.active.disabled:hover, .contrast-red .datepicker td span.active.disabled:hover:hover, .contrast-red .datepicker td span.active:active, .contrast-red .datepicker td span.active:hover:active, .contrast-red .datepicker td span.active.disabled:active, .contrast-red .datepicker td span.active.disabled:hover:active, .contrast-red .datepicker td span.active.active, .contrast-red .datepicker td span.active:hover.active, .contrast-red .datepicker td span.active.disabled.active, .contrast-red .datepicker td span.active.disabled:hover.active, .contrast-red .datepicker td span.active.disabled, .contrast-red .datepicker td span.active:hover.disabled, .contrast-red .datepicker td span.active.disabled.disabled, .contrast-red .datepicker td span.active.disabled:hover.disabled, .contrast-red .datepicker td span.active[disabled], .contrast-red .datepicker td span.active:hover[disabled], .contrast-red .datepicker td span.active.disabled[disabled], .contrast-red .datepicker td span.active.disabled:hover[disabled], .contrast-red .datepicker td.active:hover, .contrast-red .datepicker td.active:hover:hover, .contrast-red .datepicker td.active.disabled:hover, .contrast-red .datepicker td.active.disabled:hover:hover, .contrast-red .datepicker td.active:active, .contrast-red .datepicker td.active:hover:active, .contrast-red .datepicker td.active.disabled:active, .contrast-red .datepicker td.active.disabled:hover:active, .contrast-red .datepicker td.active.active, .contrast-red .datepicker td.active:hover.active, .contrast-red .datepicker td.active.disabled.active, .contrast-red .datepicker td.active.disabled:hover.active, .contrast-red .datepicker td.active.disabled, .contrast-red .datepicker td.active:hover.disabled, .contrast-red .datepicker td.active.disabled.disabled, .contrast-red .datepicker td.active.disabled:hover.disabled, .contrast-red .datepicker td.active[disabled], .contrast-red .datepicker td.active:hover[disabled], .contrast-red .datepicker td.active.disabled[disabled], .contrast-red .datepicker td.active.disabled:hover[disabled] {
-    background: #00a99d
+    background: #1f3466
 }
 
 .contrast-red .dropdown-menu > .active > a, .contrast-red .dropdown-menu > .active > a:hover, .contrast-red .dropdown-menu > .active > a:focus {
-    background: #00a99d
+    background: #1f3466
 }
 
 .contrast-red .dd-handle:hover {
-    color: #00a99d
+    color: #1f3466
 }
 
 .contrast-red .dd-placeholder {
-    border-color: #00a99d
+    border-color: #1f3466
 }
 
 .contrast-orange header .navbar .navbar-inner {
@@ -6302,11 +6302,11 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .contrast-blue header .navbar .navbar-inner {
-    background-color: #00acec
+    background-color: #1f3466
 }
 
     .contrast-blue header .navbar .navbar-inner .toggle-nav {
-        background-color: #00acec
+        background-color: #1f3466
     }
 
         .contrast-blue header .navbar .navbar-inner .toggle-nav:hover {
@@ -6314,7 +6314,7 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
         }
 
     .contrast-blue header .navbar .navbar-inner .navbar-search button {
-        color: #00acec
+        color: #1f3466
     }
 
         .contrast-blue header .navbar .navbar-inner .navbar-search button:hover {
@@ -6403,53 +6403,53 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
         }
 
     .contrast-blue header .navbar .navbar-inner .widget .dropdown-menu > li.widget-footer a:hover {
-        background-color: #00acec
+        background-color: #1f3466
     }
 
 .contrast-blue header .navbar .nav li .label {
-    color: #00acec
+    color: #1f3466
 }
 
 .contrast-blue #main-nav .navigation > .nav > li > a.in [class^=icon-], .contrast-blue #main-nav .navigation > .nav > li > a.in [class*=" icon-"] {
-    color: #00acec
+    color: #1f3466
 }
 
 .contrast-blue #main-nav .navigation > .nav > li:hover > a [class^=icon-], .contrast-blue #main-nav .navigation > .nav > li:hover > a [class*=" icon-"], .contrast-blue #main-nav .navigation > .nav > li:focus > a [class^=icon-], .contrast-blue #main-nav .navigation > .nav > li:focus > a [class*=" icon-"], .contrast-blue #main-nav .navigation > .nav > li.active > a [class^=icon-], .contrast-blue #main-nav .navigation > .nav > li.active > a [class*=" icon-"] {
-    color: #00acec !important
+    color: #1f3466 !important
 }
 
 .contrast-blue #main-nav .navigation > .nav > li .nav > li.active > a [class^=icon-], .contrast-blue #main-nav .navigation > .nav > li .nav > li.active > a [class*=" icon-"] {
-    color: #00acec
+    color: #1f3466
 }
 
 .contrast-blue #main-nav .navigation > .nav > li .nav > li > a:hover [class^=icon-], .contrast-blue #main-nav .navigation > .nav > li .nav > li > a:hover [class*=" icon-"], .contrast-blue #main-nav .navigation > .nav > li .nav > li > a:focus [class^=icon-], .contrast-blue #main-nav .navigation > .nav > li .nav > li > a:focus [class*=" icon-"] {
-    color: #00acec
+    color: #1f3466
 }
 
 .contrast-blue .box .box-header.contrast-background .actions .btn-link:hover {
-    color: #00acec !important
+    color: #1f3466 !important
 }
 
 .contrast-blue.contrast-background, .contrast-blue .contrast-background {
-    background: #00acec !important
+    background: #1f3466 !important
 }
 
 .contrast-blue .text-contrast, .contrast-blue .contrast {
-    color: #00acec !important
+    color: #1f3466 !important
 }
 
 .contrast-blue .contrast-border {
-    border-color: #00acec !important
+    border-color: #1f3466 !important
 }
 
 .contrast-blue .accordion.accordion-contrast .accordion-group {
-    border-color: #00acec;
+    border-color: #1f3466;
     border-bottom-color: #53d0ff
 }
 
 .contrast-blue .accordion.accordion-contrast .accordion-heading .accordion-toggle {
     color: #fff;
-    background-color: #00acec
+    background-color: #1f3466
 }
 
 .contrast-blue .box-quick-link.contrast-background a:active .header {
@@ -6461,64 +6461,64 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .contrast-blue .box-statistic.contrast-background .title, .contrast-blue .box-statistic.contrast-background small, .contrast-blue .box-statistic.contrast-background [class*=icon-] {
-    color: #00acec !important
+    color: #1f3466 !important
 }
 
 .contrast-blue .breadcrumb li:first-child > a:hover {
-    color: #00acec !important
+    color: #1f3466 !important
 }
 
 .contrast-blue h1 [class^=icon-] {
-    color: #00acec
+    color: #1f3466
 }
 
 .contrast-blue .dropdown-menu > .active > a, .contrast-blue .dropdown-menu > .active > a:hover, .contrast-blue .dropdown-menu > .active > a:focus, .contrast-blue .dropdown-menu > li > a:hover, .contrast-blue .dropdown-menu > li > a:focus, .contrast-blue .dropdown-submenu:hover > a, .contrast-blue .dropdown-submenu:focus > a {
-    background-color: #00acec !important
+    background-color: #1f3466 !important
 }
 
 .contrast-blue .box .box-header .actions .btn-link:hover {
-    color: #00acec
+    color: #1f3466
 }
 
 .contrast-blue .fuelux .wizard ul li.active {
-    background-color: #00acec
+    background-color: #1f3466
 }
 
 .contrast-blue .fc-event .fc-event-inner {
-    background-color: #00acec
+    background-color: #1f3466
 }
 
 .contrast-blue .contrast-caret {
-    border-top-color: #00acec !important;
-    border-bottom-color: #00acec !important
+    border-top-color: #1f3466 !important;
+    border-bottom-color: #1f3466 !important
 }
 
 .contrast-blue .select2-results .select2-highlighted {
-    background: #00acec
+    background: #1f3466
 }
 
 .contrast-blue .daterangepicker .ranges li.active, .contrast-blue .daterangepicker .ranges li:hover {
-    background: #00acec
+    background: #1f3466
 }
 
 .contrast-blue .daterangepicker td.active, .contrast-blue .daterangepicker td.active:hover {
-    background: #00acec
+    background: #1f3466
 }
 
 .contrast-blue .datepicker td span.active:hover, .contrast-blue .datepicker td span.active:hover:hover, .contrast-blue .datepicker td span.active.disabled:hover, .contrast-blue .datepicker td span.active.disabled:hover:hover, .contrast-blue .datepicker td span.active:active, .contrast-blue .datepicker td span.active:hover:active, .contrast-blue .datepicker td span.active.disabled:active, .contrast-blue .datepicker td span.active.disabled:hover:active, .contrast-blue .datepicker td span.active.active, .contrast-blue .datepicker td span.active:hover.active, .contrast-blue .datepicker td span.active.disabled.active, .contrast-blue .datepicker td span.active.disabled:hover.active, .contrast-blue .datepicker td span.active.disabled, .contrast-blue .datepicker td span.active:hover.disabled, .contrast-blue .datepicker td span.active.disabled.disabled, .contrast-blue .datepicker td span.active.disabled:hover.disabled, .contrast-blue .datepicker td span.active[disabled], .contrast-blue .datepicker td span.active:hover[disabled], .contrast-blue .datepicker td span.active.disabled[disabled], .contrast-blue .datepicker td span.active.disabled:hover[disabled], .contrast-blue .datepicker td.active:hover, .contrast-blue .datepicker td.active:hover:hover, .contrast-blue .datepicker td.active.disabled:hover, .contrast-blue .datepicker td.active.disabled:hover:hover, .contrast-blue .datepicker td.active:active, .contrast-blue .datepicker td.active:hover:active, .contrast-blue .datepicker td.active.disabled:active, .contrast-blue .datepicker td.active.disabled:hover:active, .contrast-blue .datepicker td.active.active, .contrast-blue .datepicker td.active:hover.active, .contrast-blue .datepicker td.active.disabled.active, .contrast-blue .datepicker td.active.disabled:hover.active, .contrast-blue .datepicker td.active.disabled, .contrast-blue .datepicker td.active:hover.disabled, .contrast-blue .datepicker td.active.disabled.disabled, .contrast-blue .datepicker td.active.disabled:hover.disabled, .contrast-blue .datepicker td.active[disabled], .contrast-blue .datepicker td.active:hover[disabled], .contrast-blue .datepicker td.active.disabled[disabled], .contrast-blue .datepicker td.active.disabled:hover[disabled] {
-    background: #00acec
+    background: #1f3466
 }
 
 .contrast-blue .dropdown-menu > .active > a, .contrast-blue .dropdown-menu > .active > a:hover, .contrast-blue .dropdown-menu > .active > a:focus {
-    background: #00acec
+    background: #1f3466
 }
 
 .contrast-blue .dd-handle:hover {
-    color: #00acec
+    color: #1f3466
 }
 
 .contrast-blue .dd-placeholder {
-    border-color: #00acec
+    border-color: #1f3466
 }
 
 .contrast-purple header .navbar .navbar-inner {
@@ -6742,11 +6742,11 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .contrast-green header .navbar .navbar-inner {
-    background-color: #49bf67
+    background-color: #00a99d
 }
 
     .contrast-green header .navbar .navbar-inner .toggle-nav {
-        background-color: #49bf67
+        background-color: #00a99d
     }
 
         .contrast-green header .navbar .navbar-inner .toggle-nav:hover {
@@ -6754,7 +6754,7 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
         }
 
     .contrast-green header .navbar .navbar-inner .navbar-search button {
-        color: #49bf67
+        color: #00a99d
     }
 
         .contrast-green header .navbar .navbar-inner .navbar-search button:hover {
@@ -6843,53 +6843,53 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
         }
 
     .contrast-green header .navbar .navbar-inner .widget .dropdown-menu > li.widget-footer a:hover {
-        background-color: #49bf67
+        background-color: #00a99d
     }
 
 .contrast-green header .navbar .nav li .label {
-    color: #49bf67
+    color: #00a99d
 }
 
 .contrast-green #main-nav .navigation > .nav > li > a.in [class^=icon-], .contrast-green #main-nav .navigation > .nav > li > a.in [class*=" icon-"] {
-    color: #49bf67
+    color: #00a99d
 }
 
 .contrast-green #main-nav .navigation > .nav > li:hover > a [class^=icon-], .contrast-green #main-nav .navigation > .nav > li:hover > a [class*=" icon-"], .contrast-green #main-nav .navigation > .nav > li:focus > a [class^=icon-], .contrast-green #main-nav .navigation > .nav > li:focus > a [class*=" icon-"], .contrast-green #main-nav .navigation > .nav > li.active > a [class^=icon-], .contrast-green #main-nav .navigation > .nav > li.active > a [class*=" icon-"] {
-    color: #49bf67 !important
+    color: #00a99d !important
 }
 
 .contrast-green #main-nav .navigation > .nav > li .nav > li.active > a [class^=icon-], .contrast-green #main-nav .navigation > .nav > li .nav > li.active > a [class*=" icon-"] {
-    color: #49bf67
+    color: #00a99d
 }
 
 .contrast-green #main-nav .navigation > .nav > li .nav > li > a:hover [class^=icon-], .contrast-green #main-nav .navigation > .nav > li .nav > li > a:hover [class*=" icon-"], .contrast-green #main-nav .navigation > .nav > li .nav > li > a:focus [class^=icon-], .contrast-green #main-nav .navigation > .nav > li .nav > li > a:focus [class*=" icon-"] {
-    color: #49bf67
+    color: #00a99d
 }
 
 .contrast-green .box .box-header.contrast-background .actions .btn-link:hover {
-    color: #49bf67 !important
+    color: #00a99d !important
 }
 
 .contrast-green.contrast-background, .contrast-green .contrast-background {
-    background: #49bf67 !important
+    background: #00a99d !important
 }
 
 .contrast-green .text-contrast, .contrast-green .contrast {
-    color: #49bf67 !important
+    color: #00a99d !important
 }
 
 .contrast-green .contrast-border {
-    border-color: #49bf67 !important
+    border-color: #00a99d !important
 }
 
 .contrast-green .accordion.accordion-contrast .accordion-group {
-    border-color: #49bf67;
+    border-color: #00a99d;
     border-bottom-color: #94daa6
 }
 
 .contrast-green .accordion.accordion-contrast .accordion-heading .accordion-toggle {
     color: #fff;
-    background-color: #49bf67
+    background-color: #00a99d
 }
 
 .contrast-green .box-quick-link.contrast-background a:active .header {
@@ -6901,64 +6901,64 @@ div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer {
 }
 
 .contrast-green .box-statistic.contrast-background .title, .contrast-green .box-statistic.contrast-background small, .contrast-green .box-statistic.contrast-background [class*=icon-] {
-    color: #49bf67 !important
+    color: #00a99d !important
 }
 
 .contrast-green .breadcrumb li:first-child > a:hover {
-    color: #49bf67 !important
+    color: #00a99d !important
 }
 
 .contrast-green h1 [class^=icon-] {
-    color: #49bf67
+    color: #00a99d
 }
 
 .contrast-green .dropdown-menu > .active > a, .contrast-green .dropdown-menu > .active > a:hover, .contrast-green .dropdown-menu > .active > a:focus, .contrast-green .dropdown-menu > li > a:hover, .contrast-green .dropdown-menu > li > a:focus, .contrast-green .dropdown-submenu:hover > a, .contrast-green .dropdown-submenu:focus > a {
-    background-color: #49bf67 !important
+    background-color: #00a99d !important
 }
 
 .contrast-green .box .box-header .actions .btn-link:hover {
-    color: #49bf67
+    color: #00a99d
 }
 
 .contrast-green .fuelux .wizard ul li.active {
-    background-color: #49bf67
+    background-color: #00a99d
 }
 
 .contrast-green .fc-event .fc-event-inner {
-    background-color: #49bf67
+    background-color: #00a99d
 }
 
 .contrast-green .contrast-caret {
-    border-top-color: #49bf67 !important;
-    border-bottom-color: #49bf67 !important
+    border-top-color: #00a99d !important;
+    border-bottom-color: #00a99d !important
 }
 
 .contrast-green .select2-results .select2-highlighted {
-    background: #49bf67
+    background: #00a99d
 }
 
 .contrast-green .daterangepicker .ranges li.active, .contrast-green .daterangepicker .ranges li:hover {
-    background: #49bf67
+    background: #00a99d
 }
 
 .contrast-green .daterangepicker td.active, .contrast-green .daterangepicker td.active:hover {
-    background: #49bf67
+    background: #00a99d
 }
 
 .contrast-green .datepicker td span.active:hover, .contrast-green .datepicker td span.active:hover:hover, .contrast-green .datepicker td span.active.disabled:hover, .contrast-green .datepicker td span.active.disabled:hover:hover, .contrast-green .datepicker td span.active:active, .contrast-green .datepicker td span.active:hover:active, .contrast-green .datepicker td span.active.disabled:active, .contrast-green .datepicker td span.active.disabled:hover:active, .contrast-green .datepicker td span.active.active, .contrast-green .datepicker td span.active:hover.active, .contrast-green .datepicker td span.active.disabled.active, .contrast-green .datepicker td span.active.disabled:hover.active, .contrast-green .datepicker td span.active.disabled, .contrast-green .datepicker td span.active:hover.disabled, .contrast-green .datepicker td span.active.disabled.disabled, .contrast-green .datepicker td span.active.disabled:hover.disabled, .contrast-green .datepicker td span.active[disabled], .contrast-green .datepicker td span.active:hover[disabled], .contrast-green .datepicker td span.active.disabled[disabled], .contrast-green .datepicker td span.active.disabled:hover[disabled], .contrast-green .datepicker td.active:hover, .contrast-green .datepicker td.active:hover:hover, .contrast-green .datepicker td.active.disabled:hover, .contrast-green .datepicker td.active.disabled:hover:hover, .contrast-green .datepicker td.active:active, .contrast-green .datepicker td.active:hover:active, .contrast-green .datepicker td.active.disabled:active, .contrast-green .datepicker td.active.disabled:hover:active, .contrast-green .datepicker td.active.active, .contrast-green .datepicker td.active:hover.active, .contrast-green .datepicker td.active.disabled.active, .contrast-green .datepicker td.active.disabled:hover.active, .contrast-green .datepicker td.active.disabled, .contrast-green .datepicker td.active:hover.disabled, .contrast-green .datepicker td.active.disabled.disabled, .contrast-green .datepicker td.active.disabled:hover.disabled, .contrast-green .datepicker td.active[disabled], .contrast-green .datepicker td.active:hover[disabled], .contrast-green .datepicker td.active.disabled[disabled], .contrast-green .datepicker td.active.disabled:hover[disabled] {
-    background: #49bf67
+    background: #00a99d
 }
 
 .contrast-green .dropdown-menu > .active > a, .contrast-green .dropdown-menu > .active > a:hover, .contrast-green .dropdown-menu > .active > a:focus {
-    background: #49bf67
+    background: #00a99d
 }
 
 .contrast-green .dd-handle:hover {
-    color: #49bf67
+    color: #00a99d
 }
 
 .contrast-green .dd-placeholder {
-    border-color: #49bf67
+    border-color: #00a99d
 }
 
 .contrast-fb header .navbar .navbar-inner {
