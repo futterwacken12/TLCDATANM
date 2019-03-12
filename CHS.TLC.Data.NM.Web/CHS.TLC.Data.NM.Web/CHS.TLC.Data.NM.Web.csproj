@@ -150,29 +150,24 @@
     <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
-
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
-    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditInternationalBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTypeExistenceViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListFamilyViewModel.cs" />
-    <Compile Include="Areas\Intranet\ViewModels\Master\ListInternationalBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListTypeExistenceViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteFamilyViewModel.cs" />
-    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteInternationalBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTypeExistenceViewModel.cs" />
-
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditEntryNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditOutputNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\LstEntryNoteViewModel.cs" />
@@ -436,13 +431,6 @@
     <Content Include="App_Code\MessageHelpers.cshtml" />
     <Content Include="App_Code\RazorHelpers.cshtml" />
     <Content Include="Areas\Intranet\Views\web.config" />
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Intranet\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Intranet\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Intranet\Views\Home\DashboardAdministrator.cshtml" />
@@ -450,6 +438,13 @@
     <Content Include="Areas\Intranet\Views\Store\LstEntryNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditEntryNote.cshtml" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
