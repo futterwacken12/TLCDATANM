@@ -1,18 +1,20 @@
 C:\Users\lsandoval\source\repos\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csprojAssemblyReference.cache
 C:\Users\lsandoval\source\repos\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csproj.CoreCompileInputs.cache
+F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\csc.exe
+F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.IO.Compression.dll
+F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\CHS.TLC.Data.NM.Web.dll.config
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\CHS.TLC.Data.NM.Web.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\CHS.TLC.Data.NM.Web.pdb
-F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\csc.exe
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\csc.exe.config
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\csc.rsp
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\csi.exe
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\csi.exe.config
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\csi.rsp
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\Microsoft.CSharp.Core.targets
@@ -25,7 +27,6 @@ F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Co
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Console.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
-F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.IO.Compression.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.IO.FileSystem.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.IO.Pipes.AccessControl.dll
@@ -35,7 +36,6 @@ F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Se
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Security.Claims.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
-F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Security.Principal.Windows.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
@@ -86,6 +86,7 @@ F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\es\System.Web.Ra
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\es\System.Web.WebPages.resources.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\es\System.Web.WebPages.Deployment.resources.dll
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\bin\es\System.Web.WebPages.Razor.resources.dll
+F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csprojAssemblyReference.cache
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csproj.CoreCompileInputs.cache
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.csproj.CopyComplete
 F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\obj\Debug\CHS.TLC.Data.NM.Web.dll
