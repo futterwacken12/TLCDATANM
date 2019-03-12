@@ -146,11 +146,36 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Intranet\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Intranet\Controllers\MasterController.cs" />
     <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
+<<<<<<< HEAD
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditInternationalBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditMeasureUnitViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditSubFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTaxPercentageViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTypeExistenceViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListInternationalBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListMeasureUnitViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListSubFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListTaxPercentageViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListTypeExistenceViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteInternationalBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteMeasureUnitViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSubFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTaxPercentageViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTypeExistenceViewModel.cs" />
+=======
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditEntryNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditOutputNoteViewModel.cs" />
+>>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
     <Compile Include="Areas\Intranet\ViewModels\Store\LstEntryNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\LstOuputNoteViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -464,6 +489,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Intranet\Models\" />
+    <Folder Include="Areas\Intranet\Views\Master\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
