@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TLC.Data.NMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TLC.Data.NMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bank">
           <Key>
             <PropertyRef Name="BankId" />
@@ -602,135 +602,20 @@
             <End Role="SubFamily" EntitySet="SubFamily" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TLC.Data.NMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="TLCDataNMEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Bank" EntityType="TLC.Data.NMModel.Bank" />
-          <EntitySet Name="Document" EntityType="TLC.Data.NMModel.Document" />
-          <EntitySet Name="DocumentType" EntityType="TLC.Data.NMModel.DocumentType" />
-          <EntitySet Name="EntryNote" EntityType="TLC.Data.NMModel.EntryNote" />
-          <EntitySet Name="Family" EntityType="TLC.Data.NMModel.Family" />
-<<<<<<< HEAD
-          <EntitySet Name="InternationalBank" EntityType="TLC.Data.NMModel.InternationalBank" />
-=======
->>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
-          <EntitySet Name="MeasureUnit" EntityType="TLC.Data.NMModel.MeasureUnit" />
-          <EntitySet Name="MovementType" EntityType="TLC.Data.NMModel.MovementType" />
-          <EntitySet Name="Option" EntityType="TLC.Data.NMModel.Option" />
-          <EntitySet Name="OutputNote" EntityType="TLC.Data.NMModel.OutputNote" />
-          <EntitySet Name="Product" EntityType="TLC.Data.NMModel.Product" />
-          <EntitySet Name="Role" EntityType="TLC.Data.NMModel.Role" />
-          <EntitySet Name="RoleOption" EntityType="TLC.Data.NMModel.RoleOption" />
-          <EntitySet Name="Store" EntityType="TLC.Data.NMModel.Store" />
-          <EntitySet Name="SubFamily" EntityType="TLC.Data.NMModel.SubFamily" />
-          <EntitySet Name="Supplier" EntityType="TLC.Data.NMModel.Supplier" />
-          <EntitySet Name="TaxPercentage" EntityType="TLC.Data.NMModel.TaxPercentage" />
-          <EntitySet Name="TypeExistence" EntityType="TLC.Data.NMModel.TypeExistence" />
-          <AssociationSet Name="FK_Provider_NationalBank" Association="TLC.Data.NMModel.FK_Provider_NationalBank">
-            <End Role="Bank" EntitySet="Bank" />
-            <End Role="Supplier" EntitySet="Supplier" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_DocumentType" Association="TLC.Data.NMModel.FK_Document_DocumentType">
-            <End Role="DocumentType" EntitySet="DocumentType" />
-            <End Role="Document" EntitySet="Document" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_Document" Association="TLC.Data.NMModel.FK_EntryNote_Document">
-            <End Role="Document" EntitySet="Document" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OutputNote_Document" Association="TLC.Data.NMModel.FK_OutputNote_Document">
-            <End Role="Document" EntitySet="Document" />
-            <End Role="OutputNote" EntitySet="OutputNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_MovementType" Association="TLC.Data.NMModel.FK_EntryNote_MovementType">
-            <End Role="MovementType" EntitySet="MovementType" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_Store" Association="TLC.Data.NMModel.FK_EntryNote_Store">
-            <End Role="Store" EntitySet="Store" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_Store1" Association="TLC.Data.NMModel.FK_EntryNote_Store1">
-            <End Role="Store" EntitySet="Store" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_Supplier" Association="TLC.Data.NMModel.FK_EntryNote_Supplier">
-            <End Role="Supplier" EntitySet="Supplier" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubFamily_Family" Association="TLC.Data.NMModel.FK_SubFamily_Family">
-            <End Role="Family" EntitySet="Family" />
-            <End Role="SubFamily" EntitySet="SubFamily" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_MeasureUnit" Association="TLC.Data.NMModel.FK_Product_MeasureUnit">
-            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_MeasureUnit1" Association="TLC.Data.NMModel.FK_Product_MeasureUnit1">
-            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OutputNote_MovementType" Association="TLC.Data.NMModel.FK_OutputNote_MovementType">
-            <End Role="MovementType" EntitySet="MovementType" />
-            <End Role="OutputNote" EntitySet="OutputNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RoleOption_Option" Association="TLC.Data.NMModel.FK_RoleOption_Option">
-            <End Role="Option" EntitySet="Option" />
-            <End Role="RoleOption" EntitySet="RoleOption" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OutputNote_Store" Association="TLC.Data.NMModel.FK_OutputNote_Store">
-            <End Role="Store" EntitySet="Store" />
-            <End Role="OutputNote" EntitySet="OutputNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OutputNote_Store1" Association="TLC.Data.NMModel.FK_OutputNote_Store1">
-            <End Role="Store" EntitySet="Store" />
-            <End Role="OutputNote" EntitySet="OutputNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_Provider" Association="TLC.Data.NMModel.FK_Product_Provider">
-            <End Role="Supplier" EntitySet="Supplier" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_SubFamily" Association="TLC.Data.NMModel.FK_Product_SubFamily">
-            <End Role="SubFamily" EntitySet="SubFamily" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TaxPercentage4" Association="TLC.Data.NMModel.FK_Product_TaxPercentage4">
-            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TaxPercentage5" Association="TLC.Data.NMModel.FK_Product_TaxPercentage5">
-            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TaxPercentage6" Association="TLC.Data.NMModel.FK_Product_TaxPercentage6">
-            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TaxPercentage7" Association="TLC.Data.NMModel.FK_Product_TaxPercentage7">
-            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TypeExistence" Association="TLC.Data.NMModel.FK_Product_TypeExistence">
-            <End Role="TypeExistence" EntitySet="TypeExistence" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RoleOption_Role" Association="TLC.Data.NMModel.FK_RoleOption_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="RoleOption" EntitySet="RoleOption" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="Bank">
-<<<<<<< HEAD
           <Key>
             <PropertyRef Name="BankId" />
           </Key>
           <Property Name="BankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_Provider_NationalBank" FromRole="Bank" ToRole="Supplier" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Provider_NationalBank" FromRole="Bank" ToRole="Supplier" />
         </EntityType>
         <EntityType Name="Document">
           <Key>
@@ -738,21 +623,21 @@
           </Key>
           <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DocumentType" Relationship="TLC.Data.NMModel.FK_Document_DocumentType" FromRole="Document" ToRole="DocumentType" />
-          <NavigationProperty Name="EntryNote" Relationship="TLC.Data.NMModel.FK_EntryNote_Document" FromRole="Document" ToRole="EntryNote" />
-          <NavigationProperty Name="OutputNote" Relationship="TLC.Data.NMModel.FK_OutputNote_Document" FromRole="Document" ToRole="OutputNote" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DocumentNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DocumentType" Relationship="Self.FK_Document_DocumentType" FromRole="Document" ToRole="DocumentType" />
+          <NavigationProperty Name="EntryNote" Relationship="Self.FK_EntryNote_Document" FromRole="Document" ToRole="EntryNote" />
+          <NavigationProperty Name="OutputNote" Relationship="Self.FK_OutputNote_Document" FromRole="Document" ToRole="OutputNote" />
         </EntityType>
         <EntityType Name="DocumentType">
           <Key>
             <PropertyRef Name="DocumentTypeId" />
           </Key>
           <Property Name="DocumentTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Acronym" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Document" Relationship="TLC.Data.NMModel.FK_Document_DocumentType" FromRole="DocumentType" ToRole="Document" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acronym" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Document" Relationship="Self.FK_Document_DocumentType" FromRole="DocumentType" ToRole="Document" />
         </EntityType>
         <EntityType Name="EntryNote">
           <Key>
@@ -761,125 +646,53 @@
           <Property Name="EntryNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MovementTypeId" Type="Int32" Nullable="false" />
-          <Property Name="SupplierGuideNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="TransportGuideNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Seal" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierGuideNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransportGuideNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TransportTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="DestinationStoreId" Type="Int32" Nullable="false" />
           <Property Name="TransferStoreId" Type="Int32" Nullable="false" />
           <Property Name="SupplierId" Type="Int32" Nullable="false" />
           <Property Name="DocumentId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Document" Relationship="TLC.Data.NMModel.FK_EntryNote_Document" FromRole="EntryNote" ToRole="Document" />
-          <NavigationProperty Name="MovementType" Relationship="TLC.Data.NMModel.FK_EntryNote_MovementType" FromRole="EntryNote" ToRole="MovementType" />
-          <NavigationProperty Name="Store" Relationship="TLC.Data.NMModel.FK_EntryNote_Store" FromRole="EntryNote" ToRole="Store" />
-          <NavigationProperty Name="Store1" Relationship="TLC.Data.NMModel.FK_EntryNote_Store1" FromRole="EntryNote" ToRole="Store" />
-          <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_EntryNote_Supplier" FromRole="EntryNote" ToRole="Supplier" />
-        </EntityType>
-        <EntityType Name="Family">
-=======
->>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
-          <Key>
-            <PropertyRef Name="BankId" />
-          </Key>
-<<<<<<< HEAD
-          <Property Name="FamilyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="SKUCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="SubFamily" Relationship="TLC.Data.NMModel.FK_SubFamily_Family" FromRole="Family" ToRole="SubFamily" />
-=======
-          <Property Name="BankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_Provider_NationalBank" FromRole="Bank" ToRole="Supplier" />
-        </EntityType>
-        <EntityType Name="Document">
-          <Key>
-            <PropertyRef Name="DocumentId" />
-          </Key>
-          <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DocumentType" Relationship="TLC.Data.NMModel.FK_Document_DocumentType" FromRole="Document" ToRole="DocumentType" />
-          <NavigationProperty Name="EntryNote" Relationship="TLC.Data.NMModel.FK_EntryNote_Document" FromRole="Document" ToRole="EntryNote" />
-          <NavigationProperty Name="OutputNote" Relationship="TLC.Data.NMModel.FK_OutputNote_Document" FromRole="Document" ToRole="OutputNote" />
-        </EntityType>
-        <EntityType Name="DocumentType">
-          <Key>
-            <PropertyRef Name="DocumentTypeId" />
-          </Key>
-          <Property Name="DocumentTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Acronym" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Document" Relationship="TLC.Data.NMModel.FK_Document_DocumentType" FromRole="DocumentType" ToRole="Document" />
-        </EntityType>
-        <EntityType Name="EntryNote">
-          <Key>
-            <PropertyRef Name="EntryNoteId" />
-          </Key>
-          <Property Name="EntryNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="MovementTypeId" Type="Int32" Nullable="false" />
-          <Property Name="SupplierGuideNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="TransportGuideNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Seal" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="TransportTime" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="DestinationStoreId" Type="Int32" Nullable="false" />
-          <Property Name="TransferStoreId" Type="Int32" Nullable="false" />
-          <Property Name="SupplierId" Type="Int32" Nullable="false" />
-          <Property Name="DocumentId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Document" Relationship="TLC.Data.NMModel.FK_EntryNote_Document" FromRole="EntryNote" ToRole="Document" />
-          <NavigationProperty Name="MovementType" Relationship="TLC.Data.NMModel.FK_EntryNote_MovementType" FromRole="EntryNote" ToRole="MovementType" />
-          <NavigationProperty Name="Store" Relationship="TLC.Data.NMModel.FK_EntryNote_Store" FromRole="EntryNote" ToRole="Store" />
-          <NavigationProperty Name="Store1" Relationship="TLC.Data.NMModel.FK_EntryNote_Store1" FromRole="EntryNote" ToRole="Store" />
-          <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_EntryNote_Supplier" FromRole="EntryNote" ToRole="Supplier" />
->>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
+          <NavigationProperty Name="Document" Relationship="Self.FK_EntryNote_Document" FromRole="EntryNote" ToRole="Document" />
+          <NavigationProperty Name="MovementType" Relationship="Self.FK_EntryNote_MovementType" FromRole="EntryNote" ToRole="MovementType" />
+          <NavigationProperty Name="Store" Relationship="Self.FK_EntryNote_Store" FromRole="EntryNote" ToRole="Store" />
+          <NavigationProperty Name="Store1" Relationship="Self.FK_EntryNote_Store1" FromRole="EntryNote" ToRole="Store" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_EntryNote_Supplier" FromRole="EntryNote" ToRole="Supplier" />
         </EntityType>
         <EntityType Name="Family">
           <Key>
             <PropertyRef Name="FamilyId" />
           </Key>
-<<<<<<< HEAD
-          <Property Name="InternationalBankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-=======
           <Property Name="FamilyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="SKUCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="SubFamily" Relationship="TLC.Data.NMModel.FK_SubFamily_Family" FromRole="Family" ToRole="SubFamily" />
->>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKUCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SubFamily" Relationship="Self.FK_SubFamily_Family" FromRole="Family" ToRole="SubFamily" />
         </EntityType>
         <EntityType Name="MeasureUnit">
           <Key>
             <PropertyRef Name="MeasureUnitId" />
           </Key>
           <Property Name="MeasureUnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Acronym" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="TLC.Data.NMModel.FK_Product_MeasureUnit" FromRole="MeasureUnit" ToRole="Product" />
-          <NavigationProperty Name="Product1" Relationship="TLC.Data.NMModel.FK_Product_MeasureUnit1" FromRole="MeasureUnit" ToRole="Product" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acronym" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_MeasureUnit" FromRole="MeasureUnit" ToRole="Product" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Product_MeasureUnit1" FromRole="MeasureUnit" ToRole="Product" />
         </EntityType>
         <EntityType Name="MovementType">
           <Key>
             <PropertyRef Name="MovementTypeId" />
           </Key>
           <Property Name="MovementTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EntryNote" Relationship="TLC.Data.NMModel.FK_EntryNote_MovementType" FromRole="MovementType" ToRole="EntryNote" />
-          <NavigationProperty Name="OutputNote" Relationship="TLC.Data.NMModel.FK_OutputNote_MovementType" FromRole="MovementType" ToRole="OutputNote" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EntryNote" Relationship="Self.FK_EntryNote_MovementType" FromRole="MovementType" ToRole="EntryNote" />
+          <NavigationProperty Name="OutputNote" Relationship="Self.FK_OutputNote_MovementType" FromRole="MovementType" ToRole="OutputNote" />
         </EntityType>
         <EntityType Name="Option">
           <Key>
@@ -887,17 +700,17 @@
           </Key>
           <Property Name="OptionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FatherId" Type="Int32" />
-          <Property Name="Section" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="SubSection" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Action" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Controller" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Section" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubSection" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Controller" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Area" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Icon" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Order" Type="Int32" Nullable="false" />
           <Property Name="IsVisible" Type="Boolean" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="RoleOption" Relationship="TLC.Data.NMModel.FK_RoleOption_Option" FromRole="Option" ToRole="RoleOption" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RoleOption" Relationship="Self.FK_RoleOption_Option" FromRole="Option" ToRole="RoleOption" />
         </EntityType>
         <EntityType Name="OutputNote">
           <Key>
@@ -906,7 +719,7 @@
           <Property Name="OutputNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MovementTypeId" Type="Int32" Nullable="false" />
           <Property Name="DestinationStoreId" Type="Int32" Nullable="false" />
           <Property Name="OriginalStoreId" Type="Int32" Nullable="false" />
@@ -915,11 +728,11 @@
           <Property Name="Other" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IsOfficeGuide" Type="Boolean" Nullable="false" />
           <Property Name="IsTransferGuide" Type="Boolean" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Document" Relationship="TLC.Data.NMModel.FK_OutputNote_Document" FromRole="OutputNote" ToRole="Document" />
-          <NavigationProperty Name="MovementType" Relationship="TLC.Data.NMModel.FK_OutputNote_MovementType" FromRole="OutputNote" ToRole="MovementType" />
-          <NavigationProperty Name="Store" Relationship="TLC.Data.NMModel.FK_OutputNote_Store" FromRole="OutputNote" ToRole="Store" />
-          <NavigationProperty Name="Store1" Relationship="TLC.Data.NMModel.FK_OutputNote_Store1" FromRole="OutputNote" ToRole="Store" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Document" Relationship="Self.FK_OutputNote_Document" FromRole="OutputNote" ToRole="Document" />
+          <NavigationProperty Name="MovementType" Relationship="Self.FK_OutputNote_MovementType" FromRole="OutputNote" ToRole="MovementType" />
+          <NavigationProperty Name="Store" Relationship="Self.FK_OutputNote_Store" FromRole="OutputNote" ToRole="Store" />
+          <NavigationProperty Name="Store1" Relationship="Self.FK_OutputNote_Store1" FromRole="OutputNote" ToRole="Store" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -931,15 +744,15 @@
           <Property Name="MeasureUnitPrimaryId" Type="Int32" />
           <Property Name="MeasureUnitSecondaryId" Type="Int32" />
           <Property Name="SupplierId" Type="Int32" />
-          <Property Name="InternalCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InternalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="Barcode" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="DesignName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="NumberDesign" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="InvoiceDescription" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="LocalDescription" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="LotNumberPurchase" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Barcode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DesignName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumberDesign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InvoiceDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LocalDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LotNumberPurchase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TaxPercentageAdvalorenId" Type="Int32" Nullable="false" />
           <Property Name="TaxPercentageAffectionIGVId" Type="Int32" Nullable="false" />
           <Property Name="TaxPercentagePerceptionId" Type="Int32" Nullable="false" />
@@ -950,26 +763,26 @@
           <Property Name="ConversionFactor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MinimumStock" Type="Int32" />
           <Property Name="MinimumLot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="MeasureUnit" Relationship="TLC.Data.NMModel.FK_Product_MeasureUnit" FromRole="Product" ToRole="MeasureUnit" />
-          <NavigationProperty Name="MeasureUnit1" Relationship="TLC.Data.NMModel.FK_Product_MeasureUnit1" FromRole="Product" ToRole="MeasureUnit" />
-          <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_Product_Provider" FromRole="Product" ToRole="Supplier" />
-          <NavigationProperty Name="SubFamily" Relationship="TLC.Data.NMModel.FK_Product_SubFamily" FromRole="Product" ToRole="SubFamily" />
-          <NavigationProperty Name="TaxPercentage" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage4" FromRole="Product" ToRole="TaxPercentage" />
-          <NavigationProperty Name="TaxPercentage1" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage5" FromRole="Product" ToRole="TaxPercentage" />
-          <NavigationProperty Name="TaxPercentage2" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage6" FromRole="Product" ToRole="TaxPercentage" />
-          <NavigationProperty Name="TaxPercentage3" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage7" FromRole="Product" ToRole="TaxPercentage" />
-          <NavigationProperty Name="TypeExistence" Relationship="TLC.Data.NMModel.FK_Product_TypeExistence" FromRole="Product" ToRole="TypeExistence" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MeasureUnit" Relationship="Self.FK_Product_MeasureUnit" FromRole="Product" ToRole="MeasureUnit" />
+          <NavigationProperty Name="MeasureUnit1" Relationship="Self.FK_Product_MeasureUnit1" FromRole="Product" ToRole="MeasureUnit" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Product_Provider" FromRole="Product" ToRole="Supplier" />
+          <NavigationProperty Name="SubFamily" Relationship="Self.FK_Product_SubFamily" FromRole="Product" ToRole="SubFamily" />
+          <NavigationProperty Name="TaxPercentage" Relationship="Self.FK_Product_TaxPercentage4" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TaxPercentage1" Relationship="Self.FK_Product_TaxPercentage5" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TaxPercentage2" Relationship="Self.FK_Product_TaxPercentage6" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TaxPercentage3" Relationship="Self.FK_Product_TaxPercentage7" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TypeExistence" Relationship="Self.FK_Product_TypeExistence" FromRole="Product" ToRole="TypeExistence" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="RoleId" />
           </Key>
           <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Acronym" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="RoleOption" Relationship="TLC.Data.NMModel.FK_RoleOption_Role" FromRole="Role" ToRole="RoleOption" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acronym" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RoleOption" Relationship="Self.FK_RoleOption_Role" FromRole="Role" ToRole="RoleOption" />
         </EntityType>
         <EntityType Name="RoleOption">
           <Key>
@@ -978,21 +791,21 @@
           <Property Name="RoleOptionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OptionId" Type="Int32" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Option" Relationship="TLC.Data.NMModel.FK_RoleOption_Option" FromRole="RoleOption" ToRole="Option" />
-          <NavigationProperty Name="Role" Relationship="TLC.Data.NMModel.FK_RoleOption_Role" FromRole="RoleOption" ToRole="Role" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Option" Relationship="Self.FK_RoleOption_Option" FromRole="RoleOption" ToRole="Option" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_RoleOption_Role" FromRole="RoleOption" ToRole="Role" />
         </EntityType>
         <EntityType Name="Store">
           <Key>
             <PropertyRef Name="StoreId" />
           </Key>
           <Property Name="StoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EntryNote" Relationship="TLC.Data.NMModel.FK_EntryNote_Store" FromRole="Store" ToRole="EntryNote" />
-          <NavigationProperty Name="EntryNote1" Relationship="TLC.Data.NMModel.FK_EntryNote_Store1" FromRole="Store" ToRole="EntryNote" />
-          <NavigationProperty Name="OutputNote" Relationship="TLC.Data.NMModel.FK_OutputNote_Store" FromRole="Store" ToRole="OutputNote" />
-          <NavigationProperty Name="OutputNote1" Relationship="TLC.Data.NMModel.FK_OutputNote_Store1" FromRole="Store" ToRole="OutputNote" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EntryNote" Relationship="Self.FK_EntryNote_Store" FromRole="Store" ToRole="EntryNote" />
+          <NavigationProperty Name="EntryNote1" Relationship="Self.FK_EntryNote_Store1" FromRole="Store" ToRole="EntryNote" />
+          <NavigationProperty Name="OutputNote" Relationship="Self.FK_OutputNote_Store" FromRole="Store" ToRole="OutputNote" />
+          <NavigationProperty Name="OutputNote1" Relationship="Self.FK_OutputNote_Store1" FromRole="Store" ToRole="OutputNote" />
         </EntityType>
         <EntityType Name="SubFamily">
           <Key>
@@ -1000,10 +813,10 @@
           </Key>
           <Property Name="SubFamilyId" Type="Int32" Nullable="false" />
           <Property Name="FamilyId" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Family" Relationship="TLC.Data.NMModel.FK_SubFamily_Family" FromRole="SubFamily" ToRole="Family" />
-          <NavigationProperty Name="Product" Relationship="TLC.Data.NMModel.FK_Product_SubFamily" FromRole="SubFamily" ToRole="Product" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Family" Relationship="Self.FK_SubFamily_Family" FromRole="SubFamily" ToRole="Family" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_SubFamily" FromRole="SubFamily" ToRole="Product" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -1011,12 +824,12 @@
           </Key>
           <Property Name="SupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BankId" Type="Int32" />
-          <Property Name="RUC" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="BussinessName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Provenance" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Origin" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RUC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BussinessName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Provenance" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Origin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FirstContactName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="FirstContactLastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="FirstContactCharge" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
@@ -1025,34 +838,34 @@
           <Property Name="SecondContactLastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="SecondContactCharge" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="SecondContactEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Bank" Relationship="TLC.Data.NMModel.FK_Provider_NationalBank" FromRole="Supplier" ToRole="Bank" />
-          <NavigationProperty Name="EntryNote" Relationship="TLC.Data.NMModel.FK_EntryNote_Supplier" FromRole="Supplier" ToRole="EntryNote" />
-          <NavigationProperty Name="Product" Relationship="TLC.Data.NMModel.FK_Product_Provider" FromRole="Supplier" ToRole="Product" />
+          <NavigationProperty Name="Bank" Relationship="Self.FK_Provider_NationalBank" FromRole="Supplier" ToRole="Bank" />
+          <NavigationProperty Name="EntryNote" Relationship="Self.FK_EntryNote_Supplier" FromRole="Supplier" ToRole="EntryNote" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Provider" FromRole="Supplier" ToRole="Product" />
         </EntityType>
         <EntityType Name="TaxPercentage">
           <Key>
             <PropertyRef Name="TaxPercentageId" />
           </Key>
           <Property Name="TaxPercentageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage4" FromRole="TaxPercentage" ToRole="Product" />
-          <NavigationProperty Name="Product1" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage5" FromRole="TaxPercentage" ToRole="Product" />
-          <NavigationProperty Name="Product2" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage6" FromRole="TaxPercentage" ToRole="Product" />
-          <NavigationProperty Name="Product3" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage7" FromRole="TaxPercentage" ToRole="Product" />
+          <Property Name="Description" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_TaxPercentage4" FromRole="TaxPercentage" ToRole="Product" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Product_TaxPercentage5" FromRole="TaxPercentage" ToRole="Product" />
+          <NavigationProperty Name="Product2" Relationship="Self.FK_Product_TaxPercentage6" FromRole="TaxPercentage" ToRole="Product" />
+          <NavigationProperty Name="Product3" Relationship="Self.FK_Product_TaxPercentage7" FromRole="TaxPercentage" ToRole="Product" />
         </EntityType>
         <EntityType Name="TypeExistence">
           <Key>
             <PropertyRef Name="TypeExistenceId" />
           </Key>
           <Property Name="TypeExistenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="TLC.Data.NMModel.FK_Product_TypeExistence" FromRole="TypeExistence" ToRole="Product" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_TypeExistence" FromRole="TypeExistence" ToRole="Product" />
         </EntityType>
         <Association Name="FK_Provider_NationalBank">
-          <End Type="TLC.Data.NMModel.Bank" Role="Bank" Multiplicity="0..1" />
-          <End Type="TLC.Data.NMModel.Supplier" Role="Supplier" Multiplicity="*" />
+          <End Role="Bank" Type="Self.Bank" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Bank">
               <PropertyRef Name="BankId" />
@@ -1063,8 +876,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Document_DocumentType">
-          <End Type="TLC.Data.NMModel.DocumentType" Role="DocumentType" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.Document" Role="Document" Multiplicity="*" />
+          <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+          <End Role="Document" Type="Self.Document" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DocumentType">
               <PropertyRef Name="DocumentTypeId" />
@@ -1075,8 +888,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_Document">
-          <End Type="TLC.Data.NMModel.Document" Role="Document" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.EntryNote" Role="EntryNote" Multiplicity="*" />
+          <End Role="Document" Type="Self.Document" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Document">
               <PropertyRef Name="DocumentId" />
@@ -1087,8 +900,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OutputNote_Document">
-          <End Type="TLC.Data.NMModel.Document" Role="Document" Multiplicity="0..1" />
-          <End Type="TLC.Data.NMModel.OutputNote" Role="OutputNote" Multiplicity="*" />
+          <End Role="Document" Type="Self.Document" Multiplicity="0..1" />
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Document">
               <PropertyRef Name="DocumentId" />
@@ -1099,8 +912,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_MovementType">
-          <End Type="TLC.Data.NMModel.MovementType" Role="MovementType" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.EntryNote" Role="EntryNote" Multiplicity="*" />
+          <End Role="MovementType" Type="Self.MovementType" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MovementType">
               <PropertyRef Name="MovementTypeId" />
@@ -1111,8 +924,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_Store">
-          <End Type="TLC.Data.NMModel.Store" Role="Store" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.EntryNote" Role="EntryNote" Multiplicity="*" />
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Store">
               <PropertyRef Name="StoreId" />
@@ -1123,8 +936,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_Store1">
-          <End Type="TLC.Data.NMModel.Store" Role="Store" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.EntryNote" Role="EntryNote" Multiplicity="*" />
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Store">
               <PropertyRef Name="StoreId" />
@@ -1135,10 +948,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_Supplier">
-          <End Type="TLC.Data.NMModel.Supplier" Role="Supplier" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.EntryNote" Role="EntryNote" Multiplicity="*" />
-<<<<<<< HEAD
-=======
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
               <PropertyRef Name="SupplierId" />
@@ -1149,8 +960,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SubFamily_Family">
-          <End Type="TLC.Data.NMModel.Family" Role="Family" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.SubFamily" Role="SubFamily" Multiplicity="*" />
+          <End Role="Family" Type="Self.Family" Multiplicity="1" />
+          <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Family">
               <PropertyRef Name="FamilyId" />
@@ -1161,8 +972,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_MeasureUnit">
-          <End Type="TLC.Data.NMModel.MeasureUnit" Role="MeasureUnit" Multiplicity="0..1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MeasureUnit">
               <PropertyRef Name="MeasureUnitId" />
@@ -1173,8 +984,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_MeasureUnit1">
-          <End Type="TLC.Data.NMModel.MeasureUnit" Role="MeasureUnit" Multiplicity="0..1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MeasureUnit">
               <PropertyRef Name="MeasureUnitId" />
@@ -1185,8 +996,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OutputNote_MovementType">
-          <End Type="TLC.Data.NMModel.MovementType" Role="MovementType" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.OutputNote" Role="OutputNote" Multiplicity="*" />
+          <End Role="MovementType" Type="Self.MovementType" Multiplicity="1" />
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MovementType">
               <PropertyRef Name="MovementTypeId" />
@@ -1197,8 +1008,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RoleOption_Option">
-          <End Type="TLC.Data.NMModel.Option" Role="Option" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.RoleOption" Role="RoleOption" Multiplicity="*" />
+          <End Role="Option" Type="Self.Option" Multiplicity="1" />
+          <End Role="RoleOption" Type="Self.RoleOption" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Option">
               <PropertyRef Name="OptionId" />
@@ -1209,8 +1020,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OutputNote_Store">
-          <End Type="TLC.Data.NMModel.Store" Role="Store" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.OutputNote" Role="OutputNote" Multiplicity="*" />
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Store">
               <PropertyRef Name="StoreId" />
@@ -1221,8 +1032,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OutputNote_Store1">
-          <End Type="TLC.Data.NMModel.Store" Role="Store" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.OutputNote" Role="OutputNote" Multiplicity="*" />
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Store">
               <PropertyRef Name="StoreId" />
@@ -1233,8 +1044,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_Provider">
-          <End Type="TLC.Data.NMModel.Supplier" Role="Supplier" Multiplicity="0..1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
               <PropertyRef Name="SupplierId" />
@@ -1245,118 +1056,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_SubFamily">
-          <End Type="TLC.Data.NMModel.SubFamily" Role="SubFamily" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
->>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
-          <ReferentialConstraint>
-            <Principal Role="Supplier">
-              <PropertyRef Name="SupplierId" />
-            </Principal>
-            <Dependent Role="EntryNote">
-              <PropertyRef Name="SupplierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-<<<<<<< HEAD
-        <Association Name="FK_SubFamily_Family">
-          <End Type="TLC.Data.NMModel.Family" Role="Family" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.SubFamily" Role="SubFamily" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Family">
-              <PropertyRef Name="FamilyId" />
-            </Principal>
-            <Dependent Role="SubFamily">
-              <PropertyRef Name="FamilyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Product_MeasureUnit">
-          <End Type="TLC.Data.NMModel.MeasureUnit" Role="MeasureUnit" Multiplicity="0..1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MeasureUnit">
-              <PropertyRef Name="MeasureUnitId" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="MeasureUnitPrimaryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Product_MeasureUnit1">
-          <End Type="TLC.Data.NMModel.MeasureUnit" Role="MeasureUnit" Multiplicity="0..1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MeasureUnit">
-              <PropertyRef Name="MeasureUnitId" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="MeasureUnitSecondaryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OutputNote_MovementType">
-          <End Type="TLC.Data.NMModel.MovementType" Role="MovementType" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.OutputNote" Role="OutputNote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MovementType">
-              <PropertyRef Name="MovementTypeId" />
-            </Principal>
-            <Dependent Role="OutputNote">
-              <PropertyRef Name="MovementTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RoleOption_Option">
-          <End Type="TLC.Data.NMModel.Option" Role="Option" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.RoleOption" Role="RoleOption" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Option">
-              <PropertyRef Name="OptionId" />
-            </Principal>
-            <Dependent Role="RoleOption">
-              <PropertyRef Name="OptionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OutputNote_Store">
-          <End Type="TLC.Data.NMModel.Store" Role="Store" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.OutputNote" Role="OutputNote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Store">
-              <PropertyRef Name="StoreId" />
-            </Principal>
-            <Dependent Role="OutputNote">
-              <PropertyRef Name="DestinationStoreId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OutputNote_Store1">
-          <End Type="TLC.Data.NMModel.Store" Role="Store" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.OutputNote" Role="OutputNote" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Store">
-              <PropertyRef Name="StoreId" />
-            </Principal>
-            <Dependent Role="OutputNote">
-              <PropertyRef Name="OriginalStoreId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Product_Provider">
-          <End Type="TLC.Data.NMModel.Supplier" Role="Supplier" Multiplicity="0..1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Supplier">
-              <PropertyRef Name="SupplierId" />
-            </Principal>
-            <Dependent Role="Product">
-              <PropertyRef Name="SupplierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Product_SubFamily">
-          <End Type="TLC.Data.NMModel.SubFamily" Role="SubFamily" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SubFamily">
               <PropertyRef Name="SubFamilyId" />
@@ -1366,11 +1067,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-=======
->>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
         <Association Name="FK_Product_TaxPercentage4">
-          <End Type="TLC.Data.NMModel.TaxPercentage" Role="TaxPercentage" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaxPercentage">
               <PropertyRef Name="TaxPercentageId" />
@@ -1381,8 +1080,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_TaxPercentage5">
-          <End Type="TLC.Data.NMModel.TaxPercentage" Role="TaxPercentage" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaxPercentage">
               <PropertyRef Name="TaxPercentageId" />
@@ -1393,8 +1092,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_TaxPercentage6">
-          <End Type="TLC.Data.NMModel.TaxPercentage" Role="TaxPercentage" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaxPercentage">
               <PropertyRef Name="TaxPercentageId" />
@@ -1405,8 +1104,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_TaxPercentage7">
-          <End Type="TLC.Data.NMModel.TaxPercentage" Role="TaxPercentage" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaxPercentage">
               <PropertyRef Name="TaxPercentageId" />
@@ -1417,8 +1116,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_TypeExistence">
-          <End Type="TLC.Data.NMModel.TypeExistence" Role="TypeExistence" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="*" />
+          <End Role="TypeExistence" Type="Self.TypeExistence" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeExistence">
               <PropertyRef Name="TypeExistenceId" />
@@ -1429,8 +1128,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RoleOption_Role">
-          <End Type="TLC.Data.NMModel.Role" Role="Role" Multiplicity="1" />
-          <End Type="TLC.Data.NMModel.RoleOption" Role="RoleOption" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleOption" Type="Self.RoleOption" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="RoleId" />
@@ -1440,11 +1139,118 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-<<<<<<< HEAD
+        <EntityContainer Name="TLCDataNMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bank" EntityType="Self.Bank" />
+          <EntitySet Name="Document" EntityType="Self.Document" />
+          <EntitySet Name="DocumentType" EntityType="Self.DocumentType" />
+          <EntitySet Name="EntryNote" EntityType="Self.EntryNote" />
+          <EntitySet Name="Family" EntityType="Self.Family" />
+          <EntitySet Name="MeasureUnit" EntityType="Self.MeasureUnit" />
+          <EntitySet Name="MovementType" EntityType="Self.MovementType" />
+          <EntitySet Name="Option" EntityType="Self.Option" />
+          <EntitySet Name="OutputNote" EntityType="Self.OutputNote" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="RoleOption" EntityType="Self.RoleOption" />
+          <EntitySet Name="Store" EntityType="Self.Store" />
+          <EntitySet Name="SubFamily" EntityType="Self.SubFamily" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" />
+          <EntitySet Name="TaxPercentage" EntityType="Self.TaxPercentage" />
+          <EntitySet Name="TypeExistence" EntityType="Self.TypeExistence" />
+          <AssociationSet Name="FK_Provider_NationalBank" Association="Self.FK_Provider_NationalBank">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_DocumentType" Association="Self.FK_Document_DocumentType">
+            <End Role="DocumentType" EntitySet="DocumentType" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_Document" Association="Self.FK_EntryNote_Document">
+            <End Role="Document" EntitySet="Document" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutputNote_Document" Association="Self.FK_OutputNote_Document">
+            <End Role="Document" EntitySet="Document" />
+            <End Role="OutputNote" EntitySet="OutputNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_MovementType" Association="Self.FK_EntryNote_MovementType">
+            <End Role="MovementType" EntitySet="MovementType" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_Store" Association="Self.FK_EntryNote_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_Store1" Association="Self.FK_EntryNote_Store1">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_Supplier" Association="Self.FK_EntryNote_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubFamily_Family" Association="Self.FK_SubFamily_Family">
+            <End Role="Family" EntitySet="Family" />
+            <End Role="SubFamily" EntitySet="SubFamily" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_MeasureUnit" Association="Self.FK_Product_MeasureUnit">
+            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_MeasureUnit1" Association="Self.FK_Product_MeasureUnit1">
+            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutputNote_MovementType" Association="Self.FK_OutputNote_MovementType">
+            <End Role="MovementType" EntitySet="MovementType" />
+            <End Role="OutputNote" EntitySet="OutputNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOption_Option" Association="Self.FK_RoleOption_Option">
+            <End Role="Option" EntitySet="Option" />
+            <End Role="RoleOption" EntitySet="RoleOption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutputNote_Store" Association="Self.FK_OutputNote_Store">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="OutputNote" EntitySet="OutputNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutputNote_Store1" Association="Self.FK_OutputNote_Store1">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="OutputNote" EntitySet="OutputNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Provider" Association="Self.FK_Product_Provider">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_SubFamily" Association="Self.FK_Product_SubFamily">
+            <End Role="SubFamily" EntitySet="SubFamily" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage4" Association="Self.FK_Product_TaxPercentage4">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage5" Association="Self.FK_Product_TaxPercentage5">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage6" Association="Self.FK_Product_TaxPercentage6">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage7" Association="Self.FK_Product_TaxPercentage7">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TypeExistence" Association="Self.FK_Product_TypeExistence">
+            <End Role="TypeExistence" EntitySet="TypeExistence" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOption_Role" Association="Self.FK_RoleOption_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleOption" EntitySet="RoleOption" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
-=======
-        </Schema>
->>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1453,282 +1259,227 @@
           <EntitySetMapping Name="Bank">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Bank">
               <MappingFragment StoreEntitySet="Bank">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Document">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Document">
               <MappingFragment StoreEntitySet="Document">
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
-<<<<<<< HEAD
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DocumentType">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.DocumentType">
               <MappingFragment StoreEntitySet="DocumentType">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EntryNote">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.EntryNote">
               <MappingFragment StoreEntitySet="EntryNote">
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="TransferStoreId" ColumnName="TransferStoreId" />
-                <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
-                <ScalarProperty Name="TransportTime" ColumnName="TransportTime" />
-                <ScalarProperty Name="Seal" ColumnName="Seal" />
-                <ScalarProperty Name="TransportGuideNumber" ColumnName="TransportGuideNumber" />
-                <ScalarProperty Name="SupplierGuideNumber" ColumnName="SupplierGuideNumber" />
-                <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="EntryNoteId" ColumnName="EntryNoteId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
+                <ScalarProperty Name="SupplierGuideNumber" ColumnName="SupplierGuideNumber" />
+                <ScalarProperty Name="TransportGuideNumber" ColumnName="TransportGuideNumber" />
+                <ScalarProperty Name="Seal" ColumnName="Seal" />
+                <ScalarProperty Name="TransportTime" ColumnName="TransportTime" />
+                <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
+                <ScalarProperty Name="TransferStoreId" ColumnName="TransferStoreId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Family">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Family">
               <MappingFragment StoreEntitySet="Family">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="SKUCode" ColumnName="SKUCode" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="InternationalBank">
-            <EntityTypeMapping TypeName="TLC.Data.NMModel.InternationalBank">
-              <MappingFragment StoreEntitySet="InternationalBank">
-                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="InternationalBankId" ColumnName="InternationalBankId" />
-=======
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DocumentType">
-            <EntityTypeMapping TypeName="TLC.Data.NMModel.DocumentType">
-              <MappingFragment StoreEntitySet="DocumentType">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EntryNote">
-            <EntityTypeMapping TypeName="TLC.Data.NMModel.EntryNote">
-              <MappingFragment StoreEntitySet="EntryNote">
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="TransferStoreId" ColumnName="TransferStoreId" />
-                <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
-                <ScalarProperty Name="TransportTime" ColumnName="TransportTime" />
-                <ScalarProperty Name="Seal" ColumnName="Seal" />
-                <ScalarProperty Name="TransportGuideNumber" ColumnName="TransportGuideNumber" />
-                <ScalarProperty Name="SupplierGuideNumber" ColumnName="SupplierGuideNumber" />
-                <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="EntryNoteId" ColumnName="EntryNoteId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Family">
-            <EntityTypeMapping TypeName="TLC.Data.NMModel.Family">
-              <MappingFragment StoreEntitySet="Family">
-                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="SKUCode" ColumnName="SKUCode" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
->>>>>>> 57d2163f53fbd8daa250e31d80afb12de6273d18
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MeasureUnit">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.MeasureUnit">
               <MappingFragment StoreEntitySet="MeasureUnit">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="MeasureUnitId" ColumnName="MeasureUnitId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MovementType">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.MovementType">
               <MappingFragment StoreEntitySet="MovementType">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Option">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Option">
               <MappingFragment StoreEntitySet="Option">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
-                <ScalarProperty Name="Order" ColumnName="Order" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Icon" ColumnName="Icon" />
-                <ScalarProperty Name="Area" ColumnName="Area" />
-                <ScalarProperty Name="Controller" ColumnName="Controller" />
-                <ScalarProperty Name="Action" ColumnName="Action" />
-                <ScalarProperty Name="SubSection" ColumnName="SubSection" />
-                <ScalarProperty Name="Section" ColumnName="Section" />
-                <ScalarProperty Name="FatherId" ColumnName="FatherId" />
                 <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+                <ScalarProperty Name="FatherId" ColumnName="FatherId" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="SubSection" ColumnName="SubSection" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OutputNote">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.OutputNote">
               <MappingFragment StoreEntitySet="OutputNote">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="IsTransferGuide" ColumnName="IsTransferGuide" />
-                <ScalarProperty Name="IsOfficeGuide" ColumnName="IsOfficeGuide" />
-                <ScalarProperty Name="Other" ColumnName="Other" />
-                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-                <ScalarProperty Name="OriginalStoreId" ColumnName="OriginalStoreId" />
-                <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
-                <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="OutputNoteId" ColumnName="OutputNoteId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
+                <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
+                <ScalarProperty Name="OriginalStoreId" ColumnName="OriginalStoreId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="IsOfficeGuide" ColumnName="IsOfficeGuide" />
+                <ScalarProperty Name="IsTransferGuide" ColumnName="IsTransferGuide" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="MinimumLot" ColumnName="MinimumLot" />
-                <ScalarProperty Name="MinimumStock" ColumnName="MinimumStock" />
-                <ScalarProperty Name="ConversionFactor" ColumnName="ConversionFactor" />
-                <ScalarProperty Name="OtherMeasureUnit" ColumnName="OtherMeasureUnit" />
-                <ScalarProperty Name="IsPurchase" ColumnName="IsPurchase" />
-                <ScalarProperty Name="IsSale" ColumnName="IsSale" />
-                <ScalarProperty Name="TaxPercentageDetractionId" ColumnName="TaxPercentageDetractionId" />
-                <ScalarProperty Name="TaxPercentagePerceptionId" ColumnName="TaxPercentagePerceptionId" />
-                <ScalarProperty Name="TaxPercentageAffectionIGVId" ColumnName="TaxPercentageAffectionIGVId" />
-                <ScalarProperty Name="TaxPercentageAdvalorenId" ColumnName="TaxPercentageAdvalorenId" />
-                <ScalarProperty Name="LotNumberPurchase" ColumnName="LotNumberPurchase" />
-                <ScalarProperty Name="LocalDescription" ColumnName="LocalDescription" />
-                <ScalarProperty Name="InvoiceDescription" ColumnName="InvoiceDescription" />
-                <ScalarProperty Name="Color" ColumnName="Color" />
-                <ScalarProperty Name="NumberDesign" ColumnName="NumberDesign" />
-                <ScalarProperty Name="DesignName" ColumnName="DesignName" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="MeasureUnitSecondaryId" ColumnName="MeasureUnitSecondaryId" />
-                <ScalarProperty Name="MeasureUnitPrimaryId" ColumnName="MeasureUnitPrimaryId" />
-                <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
-                <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
+                <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
+                <ScalarProperty Name="MeasureUnitPrimaryId" ColumnName="MeasureUnitPrimaryId" />
+                <ScalarProperty Name="MeasureUnitSecondaryId" ColumnName="MeasureUnitSecondaryId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="DesignName" ColumnName="DesignName" />
+                <ScalarProperty Name="NumberDesign" ColumnName="NumberDesign" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="InvoiceDescription" ColumnName="InvoiceDescription" />
+                <ScalarProperty Name="LocalDescription" ColumnName="LocalDescription" />
+                <ScalarProperty Name="LotNumberPurchase" ColumnName="LotNumberPurchase" />
+                <ScalarProperty Name="TaxPercentageAdvalorenId" ColumnName="TaxPercentageAdvalorenId" />
+                <ScalarProperty Name="TaxPercentageAffectionIGVId" ColumnName="TaxPercentageAffectionIGVId" />
+                <ScalarProperty Name="TaxPercentagePerceptionId" ColumnName="TaxPercentagePerceptionId" />
+                <ScalarProperty Name="TaxPercentageDetractionId" ColumnName="TaxPercentageDetractionId" />
+                <ScalarProperty Name="IsSale" ColumnName="IsSale" />
+                <ScalarProperty Name="IsPurchase" ColumnName="IsPurchase" />
+                <ScalarProperty Name="OtherMeasureUnit" ColumnName="OtherMeasureUnit" />
+                <ScalarProperty Name="ConversionFactor" ColumnName="ConversionFactor" />
+                <ScalarProperty Name="MinimumStock" ColumnName="MinimumStock" />
+                <ScalarProperty Name="MinimumLot" ColumnName="MinimumLot" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RoleOption">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.RoleOption">
               <MappingFragment StoreEntitySet="RoleOption">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="OptionId" ColumnName="OptionId" />
                 <ScalarProperty Name="RoleOptionId" ColumnName="RoleOptionId" />
+                <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Store">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Store">
               <MappingFragment StoreEntitySet="Store">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubFamily">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.SubFamily">
               <MappingFragment StoreEntitySet="SubFamily">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
                 <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
+                <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Supplier">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
-                <ScalarProperty Name="SecondContactEmail" ColumnName="SecondContactEmail" />
-                <ScalarProperty Name="SecondContactCharge" ColumnName="SecondContactCharge" />
-                <ScalarProperty Name="SecondContactLastName" ColumnName="SecondContactLastName" />
-                <ScalarProperty Name="SecondContactName" ColumnName="SecondContactName" />
-                <ScalarProperty Name="FirstContactEmail" ColumnName="FirstContactEmail" />
-                <ScalarProperty Name="FirstContactCharge" ColumnName="FirstContactCharge" />
-                <ScalarProperty Name="FirstContactLastName" ColumnName="FirstContactLastName" />
-                <ScalarProperty Name="FirstContactName" ColumnName="FirstContactName" />
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Origin" ColumnName="Origin" />
-                <ScalarProperty Name="Provenance" ColumnName="Provenance" />
-                <ScalarProperty Name="BussinessName" ColumnName="BussinessName" />
-                <ScalarProperty Name="RUC" ColumnName="RUC" />
-                <ScalarProperty Name="BankId" ColumnName="BankId" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="RUC" ColumnName="RUC" />
+                <ScalarProperty Name="BussinessName" ColumnName="BussinessName" />
+                <ScalarProperty Name="Provenance" ColumnName="Provenance" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="FirstContactName" ColumnName="FirstContactName" />
+                <ScalarProperty Name="FirstContactLastName" ColumnName="FirstContactLastName" />
+                <ScalarProperty Name="FirstContactCharge" ColumnName="FirstContactCharge" />
+                <ScalarProperty Name="FirstContactEmail" ColumnName="FirstContactEmail" />
+                <ScalarProperty Name="SecondContactName" ColumnName="SecondContactName" />
+                <ScalarProperty Name="SecondContactLastName" ColumnName="SecondContactLastName" />
+                <ScalarProperty Name="SecondContactCharge" ColumnName="SecondContactCharge" />
+                <ScalarProperty Name="SecondContactEmail" ColumnName="SecondContactEmail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TaxPercentage">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.TaxPercentage">
               <MappingFragment StoreEntitySet="TaxPercentage">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="TaxPercentageId" ColumnName="TaxPercentageId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeExistence">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.TypeExistence">
               <MappingFragment StoreEntitySet="TypeExistence">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

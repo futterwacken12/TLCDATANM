@@ -151,21 +151,18 @@
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
-    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditInternationalBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTypeExistenceViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListFamilyViewModel.cs" />
-    <Compile Include="Areas\Intranet\ViewModels\Master\ListInternationalBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListTypeExistenceViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteFamilyViewModel.cs" />
-    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteInternationalBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSubFamilyViewModel.cs" />
@@ -303,7 +300,11 @@
     <Content Include="Content\assets\images\jquery_ui\ui-icons_454545_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_888888_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_f6cf3b_256x240.png" />
+    <Content Include="Content\assets\images\login\logoTLean.png" />
+    <Content Include="Content\assets\images\login\logoTLeanNegativoMini.png" />
     <Content Include="Content\assets\images\login\TLeanHorizontal.png" />
+    <Content Include="Content\assets\images\login\TLeanHorizontalNegativo.png" />
+    <Content Include="Content\assets\images\login\TLeanHorizontalNegativoMini.png" />
     <Content Include="Content\assets\images\login\TLeanVertical.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\alpha.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\hue.png" />
@@ -434,13 +435,6 @@
     <Content Include="App_Code\MessageHelpers.cshtml" />
     <Content Include="App_Code\RazorHelpers.cshtml" />
     <Content Include="Areas\Intranet\Views\web.config" />
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Intranet\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Intranet\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Intranet\Views\Home\DashboardAdministrator.cshtml" />
@@ -448,6 +442,13 @@
     <Content Include="Areas\Intranet\Views\Store\LstEntryNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditEntryNote.cshtml" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
