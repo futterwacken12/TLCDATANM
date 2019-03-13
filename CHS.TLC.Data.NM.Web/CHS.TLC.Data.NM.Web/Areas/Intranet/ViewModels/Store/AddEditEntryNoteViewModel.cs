@@ -8,38 +8,41 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
 {
     public class AddEditEntryNoteViewModel
     {
-        public Int32? OutputNoteId { get; set; }
+        public Int32? EntryNoteId { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
-        public string Code { get; set; }
-        public int MovementTypeId { get; set; }
+        public String Code { get; set; }
+        public Int32 MovementTypeId { get; set; }
+        public String SupplierGuideNumber { get; set; }
+        public String TransportGuideNumber { get; set; }
+        public String Seal { get; set; }
+        public TimeSpan TransportTime { get; set; }
         public int DestinationStoreId { get; set; }
-        public int OriginalStoreId { get; set; }
-        public Int32? DocumentId { get; set; }
-        public DateTime DepartureDate { get; set; }
-        public string Other { get; set; }
-        public bool IsOfficeGuide { get; set; }
-        public bool IsTransferGuide { get; set; }
+        public int TransferStoreId { get; set; }
+        public int SupplierId { get; set; }
+        public int DocumentId { get; set; }
 
-        public void Fill(CargarDatosContext c, Int32? outputNoteId)
+        public void Fill(CargarDatosContext c, Int32? entryNoteId)
         {
-            this.OutputNoteId = outputNoteId;
+            this.EntryNoteId = entryNoteId;
 
-            if (this.OutputNoteId.HasValue)
+            if (this.EntryNoteId.HasValue)
             {
-                var outputNote = c.context.OutputNote.FirstOrDefault(x => x.OutputNoteId == this.OutputNoteId);
+                var entryNote = c.context.EntryNote.FirstOrDefault(x => x.EntryNoteId == this.EntryNoteId);
 
-                this.Date = outputNote.Date;
-                this.Time = outputNote.Time;
-                this.Code = outputNote.Code;
-                this.MovementTypeId = outputNote.MovementTypeId;
-                this.DestinationStoreId = outputNote.DestinationStoreId;
-                this.OriginalStoreId = outputNote.OriginalStoreId;
-                this.DocumentId = outputNote.DocumentId;
-                this.DepartureDate = outputNote.DepartureDate;
-                this.Other = outputNote.Other;
-                this.IsOfficeGuide = outputNote.IsOfficeGuide;
-                this.IsTransferGuide = outputNote.IsTransferGuide;
+                this.Date = entryNote.Date;
+                this.Time = entryNote.Time;
+                this.Code = entryNote.Code;
+                this.MovementTypeId = entryNote.MovementTypeId;
+                this.DestinationStoreId = entryNote.DestinationStoreId;
+                this.SupplierGuideNumber = entryNote.SupplierGuideNumber;
+                this.DocumentId = entryNote.DocumentId;
+                this.TransportGuideNumber = entryNote.TransportGuideNumber;
+                this.Seal = entryNote.Seal;
+                this.TransportTime = entryNote.TransportTime;
+                this.DestinationStoreId = entryNote.DestinationStoreId;
+                this.SupplierId = entryNote.SupplierId;
+                this.DocumentId = entryNote.DocumentId;
             }
         }
     }

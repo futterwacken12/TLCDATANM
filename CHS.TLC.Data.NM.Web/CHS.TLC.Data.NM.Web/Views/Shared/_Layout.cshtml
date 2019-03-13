@@ -83,10 +83,9 @@
                                         <div class="pull-right">
                                             <ul class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="@Url.Action("Dashboard", "Login", new { Area = String.Empty})"><i class="icon icon-home" style="padding-right: 0px;"></i> Home</a></li>
-                                                <li class="separator">
-                                                    <i class="icon-angle-right"></i>
-                                                </li>
+                                                <li class="separator"><i class="icon-angle-right"></i></li>
                                                 @RenderSection("Breadcrumbs", false)
+                                                <li class="active">@ViewBag.Title</li>
                                             </ul>
                                         </div>
                                     }

@@ -300,6 +300,7 @@
     <Content Include="Content\assets\images\jquery_ui\ui-icons_454545_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_888888_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_f6cf3b_256x240.png" />
+    <Content Include="Content\assets\images\login\fondo.png" />
     <Content Include="Content\assets\images\login\logoTLean.png" />
     <Content Include="Content\assets\images\login\logoTLeanNegativoMini.png" />
     <Content Include="Content\assets\images\login\TLeanHorizontal.png" />
@@ -438,7 +439,7 @@
     <Content Include="Areas\Intranet\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Intranet\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Intranet\Views\Home\DashboardAdministrator.cshtml" />
-    <Content Include="Areas\Intranet\Views\Store\LstOuputNote.cshtml" />
+    <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\LstEntryNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditEntryNote.cshtml" />
@@ -449,7 +450,14 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Master\ListFamily.cshtml" />
+=======
+    <Content Include="Areas\Intranet\Views\Master\AddEditFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListBank.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditBank.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteBank.cshtml" />
+>>>>>>> e061a86bdcd1912374ffda61e45bc34f0401c534
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

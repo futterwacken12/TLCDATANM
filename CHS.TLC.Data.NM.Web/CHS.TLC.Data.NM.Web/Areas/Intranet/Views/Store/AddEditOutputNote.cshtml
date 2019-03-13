@@ -1,7 +1,187 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store.AddEditOutputNoteViewModel
 @{
-    ViewBag.Title = "AddEditOutputNote";
+    ViewBag.Title = (Model.OutputNoteId.HasValue ? "Editar" : "Agregar") + " nota de salida";
+    ViewBag.PageIcon = "arrow-right";
 }
 
-<h2>AddEditOutputNote</h2>
+@section Breadcrumbs{
+    <li><a href="@Url.Action("LstOuputNote","Store")">Lista de notas de salidas</a></li>
+    <li class="separator"><i class="icon-angle-right"></i></li>
+}
 
+<div class="row-fluid">
+    <div class="span12 box bordered-box green-border">
+        <div class="box-header green-background">
+            <div class="title">
+                <i class="icon-reorder"></i>
+                Datos
+            </div>            
+        </div>
+        <div class="box-content box-double-padding">
+            <form class="form" style="margin-bottom: 0;">
+                <fieldset>
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label">#Nota Salida</label>
+                            <div class="controls">
+                                <input class="span12" id="full-name" type="text">
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Almacén Origen</label>
+                            <div class="controls">
+                                <input class="span12" id="full-name" type="text">
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Tipo Movimiento</label>
+                            <div class="controls">
+                                <input class="span12" id="full-name" type="text">
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Almacén Destino</label>
+                            <div class="controls">
+                                <input class="span12" id="full-name" type="text">
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span5 offset1">
+                        <div class="control-group">
+                            <label class="control-label">Fecha</label>
+                            <div class="controls">
+                                <input class="span4" readonly>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Documentación Origen</label>
+                            <div class="controls">
+                                <input class="span12" id="full-name" type="text">
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"># Documento Origen</label>
+                            <div class="controls">
+                                <input class="span12" id="address-line2" placeholder="Street placeholder" type="text">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Documento a generar</label>
+                            <div class="controls">
+                                <span class="span3">
+                                    <label class="checkbox inline">
+                                        <input id="inlineCheckbox1" type="checkbox" value="option1">
+                                        Guía Despacho
+                                    </label>
+                                </span>
+                                <span class="span4">
+                                    <label class="checkbox inline">
+                                        <input id="inlineCheckbox1" type="checkbox" value="option1">
+                                        Guía de Transferencia
+                                    </label>
+                                </span>
+                                <i class="icon-ellipsis-horizontal"></i>
+                                @Html.TextBoxFor(x => x.Other, new { @placeholder = "Otros", @class = "span5" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <hr class="hr-normal">
+
+                <fieldset>
+                    <div class="span6">
+                        <div class="control-group">
+                            <label class="control-label">Buscar Producto</label>
+                            <div class="controls">
+                                <input class="span12" id="full-name" type="text">
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="control-group">
+                            <label class="control-label">Buscar Diseño o Color</label>
+                            <div class="controls">
+                                <input class="span12" id="full-name" type="text">
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <br />
+                <div class="responsive-table">
+                    <div class="scrollable-area">
+                        <table class="table table-hover table-striped" style="margin-bottom:0;">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Desc. Local</th>
+                                    <th>Familia</th>
+                                    <th>Cod. Diseño</th>
+                                    <th>Cod. Color</th>
+                                    <th>Cant. Stock</th>
+                                    <th>Uni. Pedida</th>
+                                    <th>Cant. Pedida</th>
+                                    <th>Uni. Pedida</th>
+                                    <th>Cant. Despa.</th>
+                                    <th>Und. Des.</th>
+                                    <th>Cant. Des.</th>
+                                    <th>Und. Des.</th>
+                                    <th>Cant. Real</th>
+                                    <th>Und. Real</th>
+                                    <th>Cant. Real</th>
+                                    <th>Und. Real</th>
+                                    <th>Parcial/Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="form-actions" style="margin-bottom: 0;">
+                    <div class="text-right">
+                        <div class="btn btn-primary">
+                            <i class="icon-save"></i>
+                            Guardar
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
