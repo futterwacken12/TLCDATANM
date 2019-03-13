@@ -4,13 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD
       <Diagram DiagramId="47b44eec83e4427aba8579cd61ea2788" Name="Diagram1" ZoomLevel="50">
         <EntityTypeShape EntityType="TLC.Data.NMModel.Bank" Width="1.5" PointX="1.5" PointY="16.5" />
+=======
+      <Diagram DiagramId="47b44eec83e4427aba8579cd61ea2788" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Bank" Width="1.5" PointX="1.5" PointY="25.375" />
+>>>>>>> 1127a9ed082bc8d2e454eaa950634a54d6468d88
         <EntityTypeShape EntityType="TLC.Data.NMModel.Document" Width="1.5" PointX="5.75" PointY="10.375" />
         <EntityTypeShape EntityType="TLC.Data.NMModel.DocumentType" Width="1.5" PointX="3.5" PointY="10.5" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.EntryNote" Width="1.5" PointX="8" PointY="9.625" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Family" Width="1.5" PointX="1.5" PointY="22.625" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MeasureUnit" Width="1.5" PointX="0.75" PointY="25.5" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.EntryNote" Width="1.5" PointX="8" PointY="12" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Family" Width="1.5" PointX="1.5" PointY="16.125" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.MeasureUnit" Width="1.5" PointX="0.75" PointY="10.125" />
         <EntityTypeShape EntityType="TLC.Data.NMModel.MovementType" Width="1.5" PointX="5.75" PointY="1.625" />
         <EntityTypeShape EntityType="TLC.Data.NMModel.Option" Width="1.5" PointX="10.75" PointY="1" />
         <EntityTypeShape EntityType="TLC.Data.NMModel.OutputNote" Width="1.5" PointX="8" PointY="4" />
@@ -18,8 +23,8 @@
         <EntityTypeShape EntityType="TLC.Data.NMModel.Role" Width="1.5" PointX="10.75" PointY="5.75" />
         <EntityTypeShape EntityType="TLC.Data.NMModel.RoleOption" Width="1.5" PointX="13" PointY="1.625" />
         <EntityTypeShape EntityType="TLC.Data.NMModel.Store" Width="1.5" PointX="5.75" PointY="5" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.SubFamily" Width="1.5" PointX="0.75" PointY="19.625" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Supplier" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.SubFamily" Width="1.5" PointX="0.75" PointY="13.125" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Supplier" Width="1.5" PointX="0.75" PointY="19" />
         <EntityTypeShape EntityType="TLC.Data.NMModel.TaxPercentage" Width="1.5" PointX="0.75" PointY="3.875" />
         <EntityTypeShape EntityType="TLC.Data.NMModel.TypeExistence" Width="1.5" PointX="0.75" PointY="7.625" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_Provider_NationalBank" />

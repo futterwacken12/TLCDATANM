@@ -15,7 +15,7 @@
             <div class="title">
                 <i class="icon-reorder"></i>
                 Datos
-            </div>            
+            </div>
         </div>
         <div class="box-content box-double-padding">
             <form class="form" style="margin-bottom: 0;">
@@ -102,7 +102,7 @@
                 <fieldset>
                     <div class="span6">
                         <div class="control-group">
-                            <label class="control-label">Buscar Producto</label>
+                            <label class="control-label"><i class="icon-search"></i> Buscar Producto</label>
                             <div class="controls">
                                 <input class="span12" id="full-name" type="text">
                                 <p class="help-block">
@@ -112,7 +112,7 @@
                     </div>
                     <div class="span6">
                         <div class="control-group">
-                            <label class="control-label">Buscar Diseño o Color</label>
+                            <label class="control-label"><i class="icon-search"></i> Buscar Diseño o Color</label>
                             <div class="controls">
                                 <input class="span12" id="full-name" type="text">
                                 <p class="help-block">
@@ -128,6 +128,7 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Desc. Invoice</th>
                                     <th>Desc. Local</th>
                                     <th>Familia</th>
                                     <th>Cod. Diseño</th>
@@ -155,18 +156,28 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+
+                                    <td><input class="span9" readonly data-type="startP-1" value="500" /></td>
+                                    <td><input class="span9" readonly value="m" /></td>
+                                    <td><input class="span9" readonly data-type="startS-1" value="20" /></td>
+                                    <td><input class="span9" readonly value="rollos" /></td>
+
+                                    <td style="background-color:#78d676"><input class="span9 onlyNumbers realP" value="0" data-index="1" /></td>
+                                    <td style="background-color:#78d676"><input class="span9" value="m" /></td>
+                                    <td style="background-color:#78d676"><input class="span9 onlyNumbers realS" value="0" data-index="1" /></td>
+                                    <td style="background-color:#78d676"><input class="span9" value="rollos" /></td>
+
+                                    <td style="background-color:#ef4f4f"><input class="span9 difP" data-type="difP-1" readonly value="500" /></td>
+                                    <td style="background-color:#ef4f4f"><input class="span9" readonly value="m" /></td>
+                                    <td style="background-color:#ef4f4f"><input class="span9 difS" data-type="difS-1" readonly value="20" /></td>
+                                    <td style="background-color:#ef4f4f"><input class="span9" readonly value="rollos" /></td>
+
+                                    <td>
+                                        <select class="form-control">
+                                            <option value="P">PARCIAL</option>
+                                            <option value="T">TOTAL</option>
+                                        </select>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -185,3 +196,29 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script>
+        $(document).on('ready', function () {
+            $('.realP').on('keyup', function () {
+                var value = $(this).val();
+                var index = $(this).attr('data-index');
+                if (value > 0) {
+                    var startp = $('input[data-type="startP-' + index + '"]').val();
+                    var resta = startp - value;
+                    $('input[data-type="difP-' + index + '"]').val(resta);
+                }
+            });
+
+            $('.realS').on('keyup', function () {
+                var value = $(this).val();
+                var index = $(this).attr('data-index');
+                if (value > 0) {
+                    var starts = $('input[data-type="startS-' + index + '"]').val();
+                    var resta = starts - value;
+                    $('input[data-type="difS-' + index + '"]').val(resta);
+                }
+            });
+        });
+    </script>
+}

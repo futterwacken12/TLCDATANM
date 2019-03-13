@@ -1,7 +1,7 @@
-﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store.LstEntryNoteViewModel
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store.LstOuputNoteViewModel
 @{
-    ViewBag.Title = "Lista de notas de ingreso";
-    ViewBag.PageIcon = "arrow-left";
+    ViewBag.Title = "Lista de notas de salida";
+    ViewBag.PageIcon = "arrow-right";
 }
 
 @section Breadcrumbs{
@@ -72,7 +72,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model.LstEntryNote)
+                            @foreach (var item in Model.LstOutPutNote)
                             {
                                 <tr>
                                     <td>@item.Code</td>
@@ -95,13 +95,13 @@
 <div class="row-fluid">
     <div class="col-lg-6" style="padding-top: 20px;">
         <div class="pull-left">
-            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva nota de ingreso"), "AddEditEntryNote", "Store", "Intranet", new { }, new { @class = "'btn btn-primary'" })
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva nota de salida"), "AddEditOutputNote", "Store", "Intranet", new { }, new { @class = "'btn btn-primary'" })
         </div>
     </div>
 
     <div class="col-lg-6" style="padding-top: 20px;">
         <div class="pull-right">
-            @Html.PagedListPager(Model.LstEntryNote, p => Url.Action("LstEntryNote", new { p = p, State = Model.State, Date = Model.Date, MovementTypeId = Model.MovementTypeId, Code = Model.Code }), ConstantHelpers.Bootstrap3Pager)
+            @Html.PagedListPager(Model.LstOutPutNote, p => Url.Action("LstOutPutNote", new { p = p, State = Model.State, Date = Model.Date, MovementTypeId = Model.MovementTypeId, Code = Model.Code }), ConstantHelpers.Bootstrap3Pager)
         </div>
     </div>
 </div>
