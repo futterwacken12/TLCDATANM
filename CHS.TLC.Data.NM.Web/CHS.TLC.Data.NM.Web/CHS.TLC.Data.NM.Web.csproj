@@ -145,9 +145,36 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Intranet\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Intranet\Controllers\MasterController.cs" />
+    <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditMeasureUnitViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditSubFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTaxPercentageViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTypeExistenceViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListMeasureUnitViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListSubFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListTaxPercentageViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListTypeExistenceViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteMeasureUnitViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSubFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTaxPercentageViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTypeExistenceViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Store\AddEditEntryNoteViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Store\AddEditOutputNoteViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Store\LstEntryNoteViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Store\LstOuputNoteViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Filters\AppAuthorizeAttribute.cs" />
     <Compile Include="Filters\EncryptedActionParameterAttribute.cs" />
     <Compile Include="Filters\EncryptedExtensions.cs" />
@@ -172,7 +199,25 @@
     <Compile Include="Helpers\SessionHelpers.cs" />
     <Compile Include="Helpers\TextMediaTypeFormatter.cs" />
     <Compile Include="Helpers\ValidationHelpers.cs" />
+    <Compile Include="Models\Bank.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CargarDatosContext.cs" />
+    <Compile Include="Models\Document.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DocumentType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntryNote.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Family.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeasureUnit.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -188,7 +233,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\MovementType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Option.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OutputNote.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoleOption.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Store.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubFamily.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Supplier.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaxPercentage.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TypeExistence.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Login\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\fonts\montserrat-bold-webfont.svg" />
@@ -221,6 +300,13 @@
     <Content Include="Content\assets\images\jquery_ui\ui-icons_454545_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_888888_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_f6cf3b_256x240.png" />
+    <Content Include="Content\assets\images\login\fondo.png" />
+    <Content Include="Content\assets\images\login\logoTLean.png" />
+    <Content Include="Content\assets\images\login\logoTLeanNegativoMini.png" />
+    <Content Include="Content\assets\images\login\TLeanHorizontal.png" />
+    <Content Include="Content\assets\images\login\TLeanHorizontalNegativo.png" />
+    <Content Include="Content\assets\images\login\TLeanHorizontalNegativoMini.png" />
+    <Content Include="Content\assets\images\login\TLeanVertical.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\alpha.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\hue.png" />
     <Content Include="Content\assets\images\plugins\bootstrap_colorpicker\saturation.png" />
@@ -325,8 +411,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -350,6 +436,13 @@
     <Content Include="App_Code\MessageHelpers.cshtml" />
     <Content Include="App_Code\RazorHelpers.cshtml" />
     <Content Include="Areas\Intranet\Views\web.config" />
+    <Content Include="Areas\Intranet\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Intranet\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Intranet\Views\Home\DashboardAdministrator.cshtml" />
+    <Content Include="Areas\Intranet\Views\Store\LstOuputNote.cshtml" />
+    <Content Include="Areas\Intranet\Views\Store\LstEntryNote.cshtml" />
+    <Content Include="Areas\Intranet\Views\Store\AddEditOutputNote.cshtml" />
+    <Content Include="Areas\Intranet\Views\Store\AddEditEntryNote.cshtml" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -380,7 +473,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -388,12 +483,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Intranet\Controllers\" />
     <Folder Include="Areas\Intranet\Models\" />
-    <Folder Include="Areas\Intranet\Views\Shared\" />
+    <Folder Include="Areas\Intranet\Views\Master\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
