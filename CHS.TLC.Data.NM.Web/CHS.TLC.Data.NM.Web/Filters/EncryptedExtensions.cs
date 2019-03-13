@@ -52,7 +52,9 @@ namespace CHS.TLC.Data.NM.Web.Filters
                 ancor.Append(htmlAttributesString);
             }
             ancor.Append(" href='");
-            ancor.Append("/" + deployName);
+
+            if (!String.IsNullOrEmpty(deployName))
+                ancor.Append("/" + deployName);
 
             if (areaName != string.Empty)
             {

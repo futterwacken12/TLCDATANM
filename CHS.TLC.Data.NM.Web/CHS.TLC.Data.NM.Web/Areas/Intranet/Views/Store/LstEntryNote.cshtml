@@ -1,7 +1,107 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store.LstEntryNoteViewModel
 @{
-    ViewBag.Title = "LstEntryNote";
+    ViewBag.Title = "Lista de notas de ingreso";
+    ViewBag.PageIcon = "arrow-left";
 }
 
-<h2>LstEntryNote</h2>
+@section Breadcrumbs{
+}
 
+<div class="row-fluid">
+    <div class="span12 box bordered-box green-border">
+        <div class="box-header green-background">
+            <div class="title">
+                <i class="icon-filter"></i>
+                Filtros
+            </div>
+        </div>
+        <div class="box-content box-double-padding">
+            <form class="form" style="margin-bottom: 0;">
+                <fieldset>
+                    <div class="span4">
+                        <strong>Estado</strong>
+                        @Html.DropDownListFor(x => x.State, Model.LstState, "[-Seleccione-]", new { @class = "span12" })
+                    </div>
+                    <div class="span4">
+                        <strong>Fecha</strong>
+                        @Html.TextBoxFor(x => x.Date, new { @class = "span12" })
+                    </div>
+                    <div class="span4">
+                        <strong>Código</strong>
+                        @Html.TextBoxFor(x => x.Code, new { @class = "span12" })
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="span4">
+                        <strong>Tipo de Movimiento</strong>
+                        @Html.DropDownListFor(x => x.MovementTypeId, new SelectList(Model.LstMovementType, "MovementTypeId", "Name"), "[-Seleccione-]", new { @class = "span12" })
+                    </div>
+                </fieldset>
+                <hr class="hr-normal">
+
+                <div class="form-actions" style="margin-bottom: 0;">
+                    <div class="text-right">
+                        <div class="btn btn-primary">
+                            <i class="icon-save"></i>
+                            Filtrar
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12 box bordered-box green-border" style="margin-bottom:0;">
+        <div class="box-header green-background">
+            <div class="title"><i class="icon-reorder"></i> Resultados</div>
+        </div>
+        <div class="box-content box-no-padding">
+            <div class="responsive-table">
+                <div class="scrollable-area">
+                    <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Documento</th>
+                                <th>Tipo Movimiento</th>
+                                <th>Origen</th>
+                                <th>Destino</th>
+                                <th>Fecha Registro</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.LstEntryNote)
+                            {
+                                <tr>
+                                    <td>@item.Code</td>
+                                    <td>@item.Document.DocumentType.Acronym @item.Document.DocumentNumber</td>
+                                    <td>@item.MovementType.Name</td>
+                                    <td>@item.Store.Name</td>
+                                    <td>@item.Store1.Name</td>
+                                    <td>@item.Date</td>
+                                    <td></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="col-lg-6" style="padding-top: 20px;">
+        <div class="pull-left">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva nota de salida"), "AddEditOutputNote", "Store", "Intranet", new { }, new { @class = "'btn btn-primary'" })
+        </div>
+    </div>
+
+    <div class="col-lg-6" style="padding-top: 20px;">
+        <div class="pull-right">
+            @Html.PagedListPager(Model.LstEntryNote, p => Url.Action("LstEntryNote", new { p = p, State = Model.State, Date = Model.Date, MovementTypeId = Model.MovementTypeId, Code = Model.Code }), ConstantHelpers.Bootstrap3Pager)
+        </div>
+    </div>
+</div>

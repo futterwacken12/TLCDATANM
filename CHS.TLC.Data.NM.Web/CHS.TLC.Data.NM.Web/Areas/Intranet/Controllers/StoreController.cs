@@ -17,7 +17,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         {
             return View();
         }
-        public ActionResult LstOuputNote(Int32? p, String State, String Date, Int32? MovementTypeId, String Code)
+        public ActionResult LstOutputNote(Int32? p, String State, String Date, Int32? MovementTypeId, String Code)
         {
             var model = new LstOuputNoteViewModel();
             model.Fill(CargarDatosContext(), p, State, Date, MovementTypeId, Code);
@@ -38,7 +38,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
 
                 if (model.OutputNoteId.HasValue)
                 {
-
+                    outputNote = context.OutputNote.FirstOrDefault( x => x.OutputNoteId == model.OutputNoteId);
                 }
                 else
                 {
@@ -59,10 +59,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 return View(model);
             }
         }
-        public ActionResult LstEntryNote(Int32? p, String State, String Date)
+        public ActionResult LstEntryNote(Int32? p, String State, String Date, Int32? MovementTypeId, String Code)
         {
             var model = new LstEntryNoteViewModel();
-            model.Fill(CargarDatosContext(), p, State, Date);
+            model.Fill(CargarDatosContext(), p, State, Date, MovementTypeId, Code);
             return View(model);
         }
         public ActionResult AddEditEntryNote(Int32? OutputNoteId)
@@ -78,9 +78,9 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             {
                 EntryNote entryNote = null;
 
-                if (model.OutputNoteId.HasValue)
+                if (model.EntryNoteId.HasValue)
                 {
-
+                    entryNote = context.EntryNote.FirstOrDefault( x => x.EntryNoteId == model.EntryNoteId);
                 }
                 else
                 {
@@ -92,12 +92,12 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
 
 
                 PostMessage(MessageType.Success);
-                return RedirectToAction("LstOuputNote");
+                return RedirectToAction("LstEntryNote");
             }
             catch (Exception ex)
             {
                 PostMessage(MessageType.Error);
-                model.Fill(CargarDatosContext(), model.OutputNoteId);
+                model.Fill(CargarDatosContext(), model.EntryNoteId);
                 return View(model);
             }
         }

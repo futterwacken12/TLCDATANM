@@ -30,9 +30,9 @@ namespace CHS.TLC.Data.NM.Web.Models
         public int DocumentId { get; set; }
     
         public virtual Document Document { get; set; }
-        public virtual MovementType MovementType { get; set; }
         public virtual Store Store { get; set; }
-        public virtual Store Store1 { get; set; }
+        public virtual MovementType MovementType { get; set; }
         public virtual Supplier Supplier { get; set; }
+        public virtual Store Store1 { get; set; }
     }
 }
