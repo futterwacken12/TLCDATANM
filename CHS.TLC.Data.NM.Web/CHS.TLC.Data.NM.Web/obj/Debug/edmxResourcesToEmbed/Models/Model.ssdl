@@ -222,6 +222,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_EntryNote_DestinationStore">
+    <End Role="Store" Type="Self.Store" Multiplicity="1" />
+    <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Store">
+        <PropertyRef Name="StoreId" />
+      </Principal>
+      <Dependent Role="EntryNote">
+        <PropertyRef Name="DestinationStoreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_EntryNote_Document">
     <End Role="Document" Type="Self.Document" Multiplicity="1" />
     <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
@@ -246,19 +258,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EntryNote_Store">
-    <End Role="Store" Type="Self.Store" Multiplicity="1" />
+  <Association Name="FK_EntryNote_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
     <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Store">
-        <PropertyRef Name="StoreId" />
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
       </Principal>
       <Dependent Role="EntryNote">
-        <PropertyRef Name="DestinationStoreId" />
+        <PropertyRef Name="SupplierId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EntryNote_Store1">
+  <Association Name="FK_EntryNote_TransferStore">
     <End Role="Store" Type="Self.Store" Multiplicity="1" />
     <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
     <ReferentialConstraint>
@@ -270,15 +282,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EntryNote_Supplier">
-    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
-    <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
+  <Association Name="FK_OutputNote_DestinationStore">
+    <End Role="Store" Type="Self.Store" Multiplicity="1" />
+    <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Supplier">
-        <PropertyRef Name="SupplierId" />
+      <Principal Role="Store">
+        <PropertyRef Name="StoreId" />
       </Principal>
-      <Dependent Role="EntryNote">
-        <PropertyRef Name="SupplierId" />
+      <Dependent Role="OutputNote">
+        <PropertyRef Name="DestinationStoreId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -306,19 +318,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_OutputNote_Store">
-    <End Role="Store" Type="Self.Store" Multiplicity="1" />
-    <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Store">
-        <PropertyRef Name="StoreId" />
-      </Principal>
-      <Dependent Role="OutputNote">
-        <PropertyRef Name="DestinationStoreId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_OutputNote_Store1">
+  <Association Name="FK_OutputNote_OriginalStore">
     <End Role="Store" Type="Self.Store" Multiplicity="1" />
     <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
     <ReferentialConstraint>
@@ -508,6 +508,10 @@
       <End Role="DocumentType" EntitySet="DocumentType" />
       <End Role="Document" EntitySet="Document" />
     </AssociationSet>
+    <AssociationSet Name="FK_EntryNote_DestinationStore" Association="Self.FK_EntryNote_DestinationStore">
+      <End Role="Store" EntitySet="Store" />
+      <End Role="EntryNote" EntitySet="EntryNote" />
+    </AssociationSet>
     <AssociationSet Name="FK_EntryNote_Document" Association="Self.FK_EntryNote_Document">
       <End Role="Document" EntitySet="Document" />
       <End Role="EntryNote" EntitySet="EntryNote" />
@@ -516,17 +520,17 @@
       <End Role="MovementType" EntitySet="MovementType" />
       <End Role="EntryNote" EntitySet="EntryNote" />
     </AssociationSet>
-    <AssociationSet Name="FK_EntryNote_Store" Association="Self.FK_EntryNote_Store">
-      <End Role="Store" EntitySet="Store" />
-      <End Role="EntryNote" EntitySet="EntryNote" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EntryNote_Store1" Association="Self.FK_EntryNote_Store1">
-      <End Role="Store" EntitySet="Store" />
-      <End Role="EntryNote" EntitySet="EntryNote" />
-    </AssociationSet>
     <AssociationSet Name="FK_EntryNote_Supplier" Association="Self.FK_EntryNote_Supplier">
       <End Role="Supplier" EntitySet="Supplier" />
       <End Role="EntryNote" EntitySet="EntryNote" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EntryNote_TransferStore" Association="Self.FK_EntryNote_TransferStore">
+      <End Role="Store" EntitySet="Store" />
+      <End Role="EntryNote" EntitySet="EntryNote" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OutputNote_DestinationStore" Association="Self.FK_OutputNote_DestinationStore">
+      <End Role="Store" EntitySet="Store" />
+      <End Role="OutputNote" EntitySet="OutputNote" />
     </AssociationSet>
     <AssociationSet Name="FK_OutputNote_Document" Association="Self.FK_OutputNote_Document">
       <End Role="Document" EntitySet="Document" />
@@ -536,11 +540,7 @@
       <End Role="MovementType" EntitySet="MovementType" />
       <End Role="OutputNote" EntitySet="OutputNote" />
     </AssociationSet>
-    <AssociationSet Name="FK_OutputNote_Store" Association="Self.FK_OutputNote_Store">
-      <End Role="Store" EntitySet="Store" />
-      <End Role="OutputNote" EntitySet="OutputNote" />
-    </AssociationSet>
-    <AssociationSet Name="FK_OutputNote_Store1" Association="Self.FK_OutputNote_Store1">
+    <AssociationSet Name="FK_OutputNote_OriginalStore" Association="Self.FK_OutputNote_OriginalStore">
       <End Role="Store" EntitySet="Store" />
       <End Role="OutputNote" EntitySet="OutputNote" />
     </AssociationSet>
