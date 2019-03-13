@@ -196,7 +196,8 @@
                 var index = $(this).attr('data-index');
                 if (value > 0) {
                     var startp = $('input[data-type="startP-' + index + '"]').val();
-                    $('input[data-type="difP-' + index + '"]').val(startp - value);
+                    var resta = startp - value;
+                    $('input[data-type="difP-' + index + '"]').val(resta);
                 }
             });
 
@@ -204,8 +205,9 @@
                 var value = $(this).val();
                 var index = $(this).attr('data-index');
                 if (value > 0) {
-                    var startp = $('input[data-type="startS-' + index + '"]').val();
-                    $('input[data-type="difS-' + index + '"]').val(startp - value);
+                    var starts = $('input[data-type="startS-' + index + '"]').val();
+                    var resta = starts - value;
+                    $('input[data-type="difS-' + index + '"]').val(resta);
                 }
             });
         });
