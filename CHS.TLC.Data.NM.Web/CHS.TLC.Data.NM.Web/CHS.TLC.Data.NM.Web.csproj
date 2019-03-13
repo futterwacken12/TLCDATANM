@@ -300,6 +300,7 @@
     <Content Include="Content\assets\images\jquery_ui\ui-icons_454545_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_888888_256x240.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-icons_f6cf3b_256x240.png" />
+    <Content Include="Content\assets\images\login\fondo.png" />
     <Content Include="Content\assets\images\login\logoTLean.png" />
     <Content Include="Content\assets\images\login\logoTLeanNegativoMini.png" />
     <Content Include="Content\assets\images\login\TLeanHorizontal.png" />
