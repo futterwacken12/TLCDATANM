@@ -439,7 +439,6 @@
     <Content Include="Areas\Intranet\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Intranet\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Intranet\Views\Home\DashboardAdministrator.cshtml" />
-    <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\LstEntryNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditEntryNote.cshtml" />
@@ -450,14 +449,12 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
-<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Master\ListFamily.cshtml" />
-=======
     <Content Include="Areas\Intranet\Views\Master\AddEditFamily.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListBank.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditBank.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteBank.cshtml" />
->>>>>>> e061a86bdcd1912374ffda61e45bc34f0401c534
+    <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
