@@ -97,10 +97,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region Bank
-        public ActionResult ListBank(Int32? Page)
+        public ActionResult ListBank(Int32? Page, String BankType)
         {
             var model = new ListBankViewModel();
-            model.Fill(CargarDatosContext(), Page);
+            model.Fill(CargarDatosContext(), Page, BankType);
             return View(model);
         }
         [EncryptedActionParameter]

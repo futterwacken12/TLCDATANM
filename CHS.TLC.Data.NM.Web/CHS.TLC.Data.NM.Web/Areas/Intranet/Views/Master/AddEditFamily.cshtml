@@ -1,0 +1,32 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master.AddEditFamilyViewModel
+@{
+    ViewBag.Title = "Nueva Familia";
+    ViewBag.PageIcon = "arrow-right";
+}
+
+<div class='row-fluid'>
+    <div class='span12 box'>
+        <div class='box-header red-background'>
+            <div class='title'>
+                <div class='icon-edit'></div>
+                Formulario
+            </div>
+        </div>
+        <div class='box-content'>
+            <form class="form" method="post" style="margin-bottom: 0;">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.FamilyId)
+                <div class='control-group'>
+                    <label class='control-label' for='Description'>Descripción</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.Description, new { @class = "input-block-level", @placeholder = "Descripción" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <button class="btn btn-primary" type="submit"><i class="icon icon-save"></i> Guardar</button>
+                    <a class="btn btn-default" href="@Url.Action("ListFamily", "Master")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

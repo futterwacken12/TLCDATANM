@@ -450,6 +450,10 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Intranet\Views\Master\AddEditFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListBank.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditBank.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteBank.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -488,7 +492,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Intranet\Models\" />
-    <Folder Include="Areas\Intranet\Views\Master\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

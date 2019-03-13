@@ -46,6 +46,34 @@ namespace CHS.TLC.Data.NM.Web.Helpers
                 return "";
             }
         }
+        public static class TIPOBANCO
+        {
+            public const String NACIONAL = "NAC";
+            public const String EXTRANJERO = "EXT";
+
+            public static String GetLabelTipoBanco(String TipoBanco)
+            {
+                switch (TipoBanco)
+                {
+                    case NACIONAL:
+                        return "<span class='badge badge-success'>NACIONAL</span>";
+                    case EXTRANJERO:
+                        return "<span class='badge badge-info'>EXTRANJERO</span>";
+                }
+                return "";
+            }
+            public static String GetNombreTipoBanco(String TipoBanco)
+            {
+                switch (TipoBanco)
+                {
+                    case NACIONAL:
+                        return "NACIONAL";
+                    case EXTRANJERO:
+                        return "EXTRANJERO";
+                }
+                return "";
+            }
+        }
         public static class EXTENSION_REPORTE
         {
             public const String EXCEL = "EXCEL";
