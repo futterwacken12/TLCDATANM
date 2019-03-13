@@ -450,14 +450,24 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
-<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Master\ListFamily.cshtml" />
-=======
     <Content Include="Areas\Intranet\Views\Master\AddEditFamily.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListBank.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditBank.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteBank.cshtml" />
->>>>>>> e061a86bdcd1912374ffda61e45bc34f0401c534
+    <Content Include="Areas\Intranet\Views\Master\_DeleteFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditMeasureUnit.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListMeasureUnit.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteMeasureUnit.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListSubFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditSubFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteSubFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListTaxPercentage.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteTaxPercentage.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditTaxPercentage.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListTypeExistence.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditTypeExistence.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteTypeExistence.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -492,6 +502,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\_ModalLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TLCDataNMModelStoreContainer" CdmEntityContainer="TLCDataNMEntities">
+    <EntitySetMapping Name="Bank">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Bank">
+        <MappingFragment StoreEntitySet="Bank">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Document">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Document">
+        <MappingFragment StoreEntitySet="Document">
+          <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentType">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.DocumentType">
+        <MappingFragment StoreEntitySet="DocumentType">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EntryNote">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.EntryNote">
+        <MappingFragment StoreEntitySet="EntryNote">
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="TransferStoreId" ColumnName="TransferStoreId" />
+          <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
+          <ScalarProperty Name="TransportTime" ColumnName="TransportTime" />
+          <ScalarProperty Name="Seal" ColumnName="Seal" />
+          <ScalarProperty Name="TransportGuideNumber" ColumnName="TransportGuideNumber" />
+          <ScalarProperty Name="SupplierGuideNumber" ColumnName="SupplierGuideNumber" />
+          <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="EntryNoteId" ColumnName="EntryNoteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Family">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Family">
+        <MappingFragment StoreEntitySet="Family">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="SKUCode" ColumnName="SKUCode" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeasureUnit">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.MeasureUnit">
+        <MappingFragment StoreEntitySet="MeasureUnit">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MeasureUnitId" ColumnName="MeasureUnitId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MovementType">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.MovementType">
+        <MappingFragment StoreEntitySet="MovementType">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Option">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Option">
+        <MappingFragment StoreEntitySet="Option">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="SubSection" ColumnName="SubSection" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="FatherId" ColumnName="FatherId" />
+          <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OutputNote">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.OutputNote">
+        <MappingFragment StoreEntitySet="OutputNote">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="IsTransferGuide" ColumnName="IsTransferGuide" />
+          <ScalarProperty Name="IsOfficeGuide" ColumnName="IsOfficeGuide" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="OriginalStoreId" ColumnName="OriginalStoreId" />
+          <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
+          <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OutputNoteId" ColumnName="OutputNoteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="MinimumLot" ColumnName="MinimumLot" />
+          <ScalarProperty Name="MinimumStock" ColumnName="MinimumStock" />
+          <ScalarProperty Name="ConversionFactor" ColumnName="ConversionFactor" />
+          <ScalarProperty Name="OtherMeasureUnit" ColumnName="OtherMeasureUnit" />
+          <ScalarProperty Name="IsPurchase" ColumnName="IsPurchase" />
+          <ScalarProperty Name="IsSale" ColumnName="IsSale" />
+          <ScalarProperty Name="TaxPercentageDetractionId" ColumnName="TaxPercentageDetractionId" />
+          <ScalarProperty Name="TaxPercentagePerceptionId" ColumnName="TaxPercentagePerceptionId" />
+          <ScalarProperty Name="TaxPercentageAffectionIGVId" ColumnName="TaxPercentageAffectionIGVId" />
+          <ScalarProperty Name="TaxPercentageAdvalorenId" ColumnName="TaxPercentageAdvalorenId" />
+          <ScalarProperty Name="LotNumberPurchase" ColumnName="LotNumberPurchase" />
+          <ScalarProperty Name="LocalDescription" ColumnName="LocalDescription" />
+          <ScalarProperty Name="InvoiceDescription" ColumnName="InvoiceDescription" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="NumberDesign" ColumnName="NumberDesign" />
+          <ScalarProperty Name="DesignName" ColumnName="DesignName" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="MeasureUnitSecondaryId" ColumnName="MeasureUnitSecondaryId" />
+          <ScalarProperty Name="MeasureUnitPrimaryId" ColumnName="MeasureUnitPrimaryId" />
+          <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
+          <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleOption">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.RoleOption">
+        <MappingFragment StoreEntitySet="RoleOption">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+          <ScalarProperty Name="RoleOptionId" ColumnName="RoleOptionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Store">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Store">
+        <MappingFragment StoreEntitySet="Store">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubFamily">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.SubFamily">
+        <MappingFragment StoreEntitySet="SubFamily">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+          <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="SecondContactEmail" ColumnName="SecondContactEmail" />
+          <ScalarProperty Name="SecondContactCharge" ColumnName="SecondContactCharge" />
+          <ScalarProperty Name="SecondContactLastName" ColumnName="SecondContactLastName" />
+          <ScalarProperty Name="SecondContactName" ColumnName="SecondContactName" />
+          <ScalarProperty Name="FirstContactEmail" ColumnName="FirstContactEmail" />
+          <ScalarProperty Name="FirstContactCharge" ColumnName="FirstContactCharge" />
+          <ScalarProperty Name="FirstContactLastName" ColumnName="FirstContactLastName" />
+          <ScalarProperty Name="FirstContactName" ColumnName="FirstContactName" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="Provenance" ColumnName="Provenance" />
+          <ScalarProperty Name="BussinessName" ColumnName="BussinessName" />
+          <ScalarProperty Name="RUC" ColumnName="RUC" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxPercentage">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.TaxPercentage">
+        <MappingFragment StoreEntitySet="TaxPercentage">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TaxPercentageId" ColumnName="TaxPercentageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeExistence">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.TypeExistence">
+        <MappingFragment StoreEntitySet="TypeExistence">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

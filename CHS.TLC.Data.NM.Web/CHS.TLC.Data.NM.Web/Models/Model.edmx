@@ -173,7 +173,7 @@
           <Key>
             <PropertyRef Name="SubFamilyId" />
           </Key>
-          <Property Name="SubFamilyId" Type="int" Nullable="false" />
+          <Property Name="SubFamilyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FamilyId" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />

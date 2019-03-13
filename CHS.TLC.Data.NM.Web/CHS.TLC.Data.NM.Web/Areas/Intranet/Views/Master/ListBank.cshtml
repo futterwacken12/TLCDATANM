@@ -44,12 +44,12 @@
 <div class="row-fluid">
     <div class="span12 box bordered-box green-border" style="margin-bottom:0;">
         <div class="box-header green-background">
-            <div class="title"><i class="icon-reorder"></i> Resultados</div>
+            <div class="title"><i class="icon icon-reorder"></i> Resultados</div>
         </div>
         <div class="box-content box-no-padding">
             <div class="responsive-table">
                 <div class="scrollable-area">
-                    <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;">
+                    <table class='table table-hover table-striped' style='margin-bottom:0;'>
                         <thead>
                             <tr>
                                 <th>Descripción</th>
@@ -58,9 +58,9 @@
                                 <th>Opciones</th>
                             </tr>
                         </thead>
-                        
+
                         <tbody>
-                            @foreach(var bank in Model.LstBank)
+                            @foreach (var bank in Model.LstBank)
                             {
                                 <tr>
                                     <td>@bank.Description</td>
@@ -68,19 +68,20 @@
                                     <td>@Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(bank.State))</td>
                                     <td>
                                         <div class='btn-group' style='margin-bottom:5px'>
-                                            <a class='btn'><i class="icon icon-edit"></i> Editar</a>
+                                            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-edit'></i> Editar"), "AddEditBank", "Master", "Intranet", new { BankId = bank.BankId }, new { @class = "'btn'" })
                                             <button class='btn dropdown-toggle' data-toggle='dropdown'>
                                                 <span class='caret'></span>
                                             </button>
                                             <ul class='dropdown-menu'>
                                                 <li>
-                                                    <a href='#'><i class="icon icon-trash"></i> Eliminar</a>
+                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteBank", "Master", "Intranet", new { BankId = bank.BankId }, new { })
                                                 </li>
                                             </ul>
                                         </div>
                                     </td>
                                 </tr>
                             }
+                            <tr style="visibility:hidden"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
                         </tbody>
                     </table>
                 </div>

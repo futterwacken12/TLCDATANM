@@ -56,7 +56,7 @@ namespace CHS.TLC.Data.NM.Web.Helpers
                 switch (TipoBanco)
                 {
                     case NACIONAL:
-                        return "<span class='badge badge-success'>NACIONAL</span>";
+                        return "<span class='badge badge-warning'>NACIONAL</span>";
                     case EXTRANJERO:
                         return "<span class='badge badge-info'>EXTRANJERO</span>";
                 }
