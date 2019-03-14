@@ -17,10 +17,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         {
             return View();
         }
-        public ActionResult LstOutputNote(Int32? p, String State, String Date, Int32? MovementTypeId, String Code)
+        public ActionResult ListOutputNote(Int32? Page, String State, String Date, Int32? MovementTypeId, String Code)
         {
             var model = new LstOuputNoteViewModel();
-            model.Fill(CargarDatosContext(), p, State, Date, MovementTypeId, Code);
+            model.Fill(CargarDatosContext(), Page, State, Date, MovementTypeId, Code);
             return View(model);
         }
         public ActionResult AddEditOutputNote(Int32? OutputNoteId)
@@ -50,7 +50,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
 
 
                 PostMessage(MessageType.Success);
-                return RedirectToAction("LstOuputNote");
+                return RedirectToAction("ListOuputNote");
             }
             catch(Exception ex)
             {
@@ -59,10 +59,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 return View(model);
             }
         }
-        public ActionResult LstEntryNote(Int32? p, String State, String Date, Int32? MovementTypeId, String Code)
+        public ActionResult ListEntryNote(Int32? Page, String State, String Date, Int32? MovementTypeId, String Code)
         {
             var model = new LstEntryNoteViewModel();
-            model.Fill(CargarDatosContext(), p, State, Date, MovementTypeId, Code);
+            model.Fill(CargarDatosContext(), Page, State, Date, MovementTypeId, Code);
             return View(model);
         }
         public ActionResult AddEditEntryNote(Int32? OutputNoteId)
@@ -92,7 +92,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
 
 
                 PostMessage(MessageType.Success);
-                return RedirectToAction("LstEntryNote");
+                return RedirectToAction("ListEntryNote");
             }
             catch (Exception ex)
             {
