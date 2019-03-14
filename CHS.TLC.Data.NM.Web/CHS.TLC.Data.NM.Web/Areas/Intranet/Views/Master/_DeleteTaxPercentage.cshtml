@@ -1,0 +1,26 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master._DeleteTaxPercentageViewModel
+@{
+    ViewBag.Title = "Eliminar Familia";
+    ViewBag.PageIcon = "trash";
+    Layout = ConstantHelpers.Layout.MODAL_LAYOUT_PATH;
+    ViewBag.Form = new ModalFormHelpers("_DeleteTaxPercentage", "Master", FormMethod.Post);
+}
+
+@section Styles
+{
+    <style>
+        form {
+            margin: 0 0 0px !important;
+        }
+    </style>
+}
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(x => x.TaxPercentageId)
+
+<p>¿Está seguro de eliminar el porcentaje de impusto <b>@Model.Description</b>?</p>
+
+@section Footer
+{
+    <button id="save" type="submit" class="btn btn-primary"><i class="icon icon-save"></i> Guardar</button>
+}

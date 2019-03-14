@@ -3329,7 +3329,7 @@ body.fixed-header #main-nav.main-nav-fixed {
     .responsive-table table td {
         position: relative;
         white-space: nowrap;
-        overflow: hidden
+        overflow: visible
     }
 
 .box-content.box-no-padding .table-striped th:first-child, .box-content.box-no-padding .table-striped td:first-child {

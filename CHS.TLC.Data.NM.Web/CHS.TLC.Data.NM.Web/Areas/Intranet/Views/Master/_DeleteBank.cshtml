@@ -1,11 +1,22 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master._DeleteBankViewModel
-
 @{
     ViewBag.Title = "Eliminar Banco";
     ViewBag.PageIcon = "trash-o";
     Layout = ConstantHelpers.Layout.MODAL_LAYOUT_PATH;
     ViewBag.Form = new ModalFormHelpers("_DeleteBank", "Master", FormMethod.Post);
 }
+
+@section Styles
+{
+    <style>
+        form {
+            margin: 0 0 0px !important;
+        }
+    </style>
+}
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(x => x.BankId)
 
 <p>¿Está seguro de eliminar el banco <b>@Model.Description</b>?</p>
 

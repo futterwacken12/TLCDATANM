@@ -439,7 +439,6 @@
     <Content Include="Areas\Intranet\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Intranet\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Intranet\Views\Home\DashboardAdministrator.cshtml" />
-    <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\LstEntryNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditEntryNote.cshtml" />
@@ -450,10 +449,28 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Intranet\Views\Master\ListFamily.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditFamily.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListBank.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditBank.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteBank.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Areas\Intranet\Views\Master\_DeleteFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditMeasureUnit.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListMeasureUnit.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteMeasureUnit.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListSubFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditSubFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteSubFamily.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListTaxPercentage.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteTaxPercentage.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditTaxPercentage.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListTypeExistence.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditTypeExistence.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteTypeExistence.cshtml" />
+=======
+    <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
+>>>>>>> 1127a9ed082bc8d2e454eaa950634a54d6468d88
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -488,6 +505,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\_ModalLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

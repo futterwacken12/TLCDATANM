@@ -11,17 +11,24 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
     public class ListTaxPercentageViewModel
     {
         public Int32? Page { get; set; }
-        public String Name { get; set; }
-        public IPagedList<TaxPercentage> ListTaxPercentage { get; set; }
+        public String Description { get; set; }
+        public IPagedList<TaxPercentage> LstTaxPercentage { get; set; }
         public ListTaxPercentageViewModel()
         {
         }
-        public void Fill(CargarDatosContext c, Int32? page)
+        public void Fill(CargarDatosContext c, Int32? page, String description)
         {
             this.Page = page ?? 1;
+            this.Description = description;
 
             var query = c.context.TaxPercentage.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).AsQueryable();
-            this.ListTaxPercentage = query.OrderBy(x => x.Description).ToPagedList(this.Page.Value, ConstantHelpers.DEFAULT_PAGE_SIZE);
+
+            if (!String.IsNullOrEmpty(this.Description))
+            {
+                query = query.Where(x => x.Description.Equals(this.Description));
+            }
+
+            this.LstTaxPercentage = query.OrderBy(x => x.Description).ToPagedList(this.Page.Value, ConstantHelpers.DEFAULT_PAGE_SIZE);
         }
     }
 }

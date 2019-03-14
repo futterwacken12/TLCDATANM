@@ -54,7 +54,9 @@ namespace CHS.TLC.Data.NM.Web.Filters
             ancor.Append(" href='");
 
             if (!String.IsNullOrEmpty(deployName))
+            {
                 ancor.Append("/" + deployName);
+            }
 
             if (areaName != string.Empty)
             {
@@ -115,8 +117,11 @@ namespace CHS.TLC.Data.NM.Web.Filters
             }
 
             ancor.Append("data-type='modal-link' href='#' data-source-url='");
-            ancor.Append("/" + deployName);
 
+            if (!String.IsNullOrEmpty(deployName))
+            {
+                ancor.Append("/" + deployName);
+            }
             if (areaName != string.Empty)
             {
                 ancor.Append("/" + areaName);

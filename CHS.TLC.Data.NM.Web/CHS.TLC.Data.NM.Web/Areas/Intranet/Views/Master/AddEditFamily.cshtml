@@ -6,7 +6,7 @@
 
 <div class='row-fluid'>
     <div class='span12 box'>
-        <div class='box-header red-background'>
+        <div class='box-header green-background'>
             <div class='title'>
                 <div class='icon-edit'></div>
                 Formulario
@@ -20,6 +20,12 @@
                     <label class='control-label' for='Description'>Descripción</label>
                     <div class='controls'>
                         @Html.TextBoxFor(x => x.Description, new { @class = "input-block-level", @placeholder = "Descripción" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='SKUCode'>SKUCode</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.SKUCode, new { @class = "input-block-level", @placeholder = "SKUCode" })
                     </div>
                 </div>
                 <div class='control-group'>

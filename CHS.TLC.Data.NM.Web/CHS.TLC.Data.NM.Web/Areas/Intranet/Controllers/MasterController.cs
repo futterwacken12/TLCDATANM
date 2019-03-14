@@ -15,10 +15,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
     {
         // GET: Intranet/Master
         #region Family
-        public ActionResult ListFamily(Int32? Page)
+        public ActionResult ListFamily(Int32? Page, String Description)
         {
             var model = new ListFamilyViewModel();
-            model.Fill(CargarDatosContext(), Page);
+            model.Fill(CargarDatosContext(), Page, Description);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -87,7 +87,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             if (model.FamilyId.HasValue)
             {
                 family = context.Family.FirstOrDefault(x => x.FamilyId == model.FamilyId);
-                family.State = ConstantHelpers.ESTADO.ACTIVO;
+                family.State = ConstantHelpers.ESTADO.INACTIVO;
             }
 
             context.SaveChanges();
@@ -169,7 +169,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             if (model.BankId.HasValue)
             {
                 bank = context.Bank.FirstOrDefault(x => x.BankId == model.BankId);
-                bank.State = ConstantHelpers.ESTADO.ACTIVO;
+                bank.State = ConstantHelpers.ESTADO.INACTIVO;
             }
 
             context.SaveChanges();
@@ -179,10 +179,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region MeasureUnit
-        public ActionResult ListMeasureUnit(Int32? Page)
+        public ActionResult ListMeasureUnit(Int32? Page, String Description)
         {
             var model = new ListMeasureUnitViewModel();
-            model.Fill(CargarDatosContext(), Page);
+            model.Fill(CargarDatosContext(), Page, Description);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -251,7 +251,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             if (model.MeasureUnitId.HasValue)
             {
                 MeasureUnit = context.MeasureUnit.FirstOrDefault(x => x.MeasureUnitId == model.MeasureUnitId);
-                MeasureUnit.State = ConstantHelpers.ESTADO.ACTIVO;
+                MeasureUnit.State = ConstantHelpers.ESTADO.INACTIVO;
             }
 
             context.SaveChanges();
@@ -261,10 +261,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region SubFamily
-        public ActionResult ListSubFamily(Int32? Page)
+        public ActionResult ListSubFamily(Int32? Page, String Description)
         {
             var model = new ListSubFamilyViewModel();
-            model.Fill(CargarDatosContext(), Page);
+            model.Fill(CargarDatosContext(), Page, Description);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -333,7 +333,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             if (model.SubFamilyId.HasValue)
             {
                 SubFamily = context.SubFamily.FirstOrDefault(x => x.SubFamilyId == model.SubFamilyId);
-                SubFamily.State = ConstantHelpers.ESTADO.ACTIVO;
+                SubFamily.State = ConstantHelpers.ESTADO.INACTIVO;
             }
 
             context.SaveChanges();
@@ -343,10 +343,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region TaxPercentage
-        public ActionResult ListTaxPercentage(Int32? Page)
+        public ActionResult ListTaxPercentage(Int32? Page, String Description)
         {
             var model = new ListTaxPercentageViewModel();
-            model.Fill(CargarDatosContext(), Page);
+            model.Fill(CargarDatosContext(), Page, Description);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -414,7 +414,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             if (model.TaxPercentageId.HasValue)
             {
                 TaxPercentage = context.TaxPercentage.FirstOrDefault(x => x.TaxPercentageId == model.TaxPercentageId);
-                TaxPercentage.State = ConstantHelpers.ESTADO.ACTIVO;
+                TaxPercentage.State = ConstantHelpers.ESTADO.INACTIVO;
             }
 
             context.SaveChanges();
@@ -424,10 +424,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region TypeExistence
-        public ActionResult ListTypeExistence(Int32? Page)
+        public ActionResult ListTypeExistence(Int32? Page, String Description)
         {
             var model = new ListTypeExistenceViewModel();
-            model.Fill(CargarDatosContext(), Page);
+            model.Fill(CargarDatosContext(), Page, Description);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -495,7 +495,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             if (model.TypeExistenceId.HasValue)
             {
                 TypeExistence = context.TypeExistence.FirstOrDefault(x => x.TypeExistenceId == model.TypeExistenceId);
-                TypeExistence.State = ConstantHelpers.ESTADO.ACTIVO;
+                TypeExistence.State = ConstantHelpers.ESTADO.INACTIVO;
             }
 
             context.SaveChanges();
