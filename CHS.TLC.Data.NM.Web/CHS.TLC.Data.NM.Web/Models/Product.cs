@@ -17,10 +17,7 @@ namespace CHS.TLC.Data.NM.Web.Models
         public Product()
         {
             this.PrePurcherseOrderDetail = new HashSet<PrePurcherseOrderDetail>();
-<<<<<<< HEAD
-=======
             this.StockProduct = new HashSet<StockProduct>();
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
         }
     
         public int ProductId { get; set; }

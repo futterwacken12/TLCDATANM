@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿// T4 code generation is enabled for model 'D:\_COHESIVE\TLC\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\Models\Model.edmx'. 
-=======
-﻿// T4 code generation is enabled for model 'D:\Proyectos\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\Models\Model.edmx'. 
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
+﻿// T4 code generation is enabled for model 'F:\TFS_CM\TLCDATANM\CHS.TLC.Data.NM.Web\CHS.TLC.Data.NM.Web\Models\Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

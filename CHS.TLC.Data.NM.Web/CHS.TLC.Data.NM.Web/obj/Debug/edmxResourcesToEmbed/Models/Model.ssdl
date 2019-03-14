@@ -32,6 +32,25 @@
     <Property Name="SecondLastName" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="CurrencyId" />
+    </Key>
+    <Property Name="CurrencyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Sign" Type="varchar" MaxLength="5" Nullable="false" />
   </EntityType>
   <EntityType Name="Document">
     <Key>
@@ -77,6 +96,15 @@
     <Property Name="FamilyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="SKUCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Incoterms">
+    <Key>
+      <PropertyRef Name="IncotermsId" />
+    </Key>
+    <Property Name="IncotermsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Acronym" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
   </EntityType>
   <EntityType Name="Item">
@@ -139,6 +167,43 @@
     <Property Name="IsTransferGuide" Type="bit" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
   </EntityType>
+  <EntityType Name="Port">
+    <Key>
+      <PropertyRef Name="PortId" />
+    </Key>
+    <Property Name="PortId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrePurcherseOrder">
+    <Key>
+      <PropertyRef Name="PrePurcherseOrderId" />
+    </Key>
+    <Property Name="PrePurcherseOrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+    <Property Name="DateOrder" Type="date" Nullable="false" />
+    <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="SupplierId" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="ShipmentDate" Type="date" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="SendSupply" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DocumentName" Type="varchar" MaxLength="100" />
+    <Property Name="DocumentPath" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PrePurcherseOrderDetail">
+    <Key>
+      <PropertyRef Name="PrePurcherseOrderDetailId" />
+    </Key>
+    <Property Name="PrePurcherseOrderDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrePurcherseOrderId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="MeasureUnitId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ProductId" />
@@ -170,6 +235,34 @@
     <Property Name="MinimumLot" Type="varchar" MaxLength="50" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
   </EntityType>
+  <EntityType Name="PurcherseOrder">
+    <Key>
+      <PropertyRef Name="PurcherseOrderId" />
+    </Key>
+    <Property Name="PurcherseOrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentTypeId" Type="int" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PrePurcherseOrderId" Type="int" Nullable="false" />
+    <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+    <Property Name="CurrencyId" Type="int" Nullable="false" />
+    <Property Name="IncotermsId" Type="int" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ToleranceId" Type="int" Nullable="false" />
+    <Property Name="ToleranceRemark" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="ShipmentSample" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="TreasuryId" Type="int" Nullable="false" />
+    <Property Name="PortId" Type="int" Nullable="false" />
+    <Property Name="BeneficiarySupply" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="BeneficiarySupplyAdress" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="BeneficiaryBankAdress" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="BankAccountnumber" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SwiftCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IntermediaryBank" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SwiftIntermediaryBank" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CEOEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SupplierEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="RoleId" />
@@ -187,6 +280,28 @@
     <Property Name="OptionId" Type="int" Nullable="false" />
     <Property Name="RoleId" Type="int" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StockProduct">
+    <Key>
+      <PropertyRef Name="StockProductId" />
+    </Key>
+    <Property Name="StockProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StockProductDetail">
+    <Key>
+      <PropertyRef Name="StockProductDetailId" />
+    </Key>
+    <Property Name="StockProductDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StockProductId" Type="int" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Operation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="EntryNoteId" Type="int" />
+    <Property Name="OutputNoteId" Type="int" />
   </EntityType>
   <EntityType Name="Store">
     <Key>
@@ -210,12 +325,18 @@
       <PropertyRef Name="SupplierId" />
     </Key>
     <Property Name="SupplierId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="RUC" Type="varchar" MaxLength="11" Nullable="false" />
     <Property Name="BussinessName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="Provenance" Type="varchar" MaxLength="3" Nullable="false" />
     <Property Name="Origin" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Address" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="ZipCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Retention" Type="bit" Nullable="false" />
+    <Property Name="Detraction" Type="bit" Nullable="false" />
+    <Property Name="Perception" Type="bit" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
   </EntityType>
   <EntityType Name="TaxPercentage">
@@ -225,6 +346,22 @@
     <Property Name="TaxPercentageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tolerance">
+    <Key>
+      <PropertyRef Name="ToleranceId" />
+    </Key>
+    <Property Name="ToleranceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Treasury">
+    <Key>
+      <PropertyRef Name="TreasuryId" />
+    </Key>
+    <Property Name="TreasuryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" />
   </EntityType>
   <EntityType Name="TypeExistence">
     <Key>
@@ -402,6 +539,150 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PO_Currency">
+    <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+    <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="CurrencyId" />
+      </Principal>
+      <Dependent Role="PurcherseOrder">
+        <PropertyRef Name="CurrencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_DocumentType">
+    <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+    <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeId" />
+      </Principal>
+      <Dependent Role="PurcherseOrder">
+        <PropertyRef Name="DocumentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_Incoterms">
+    <End Role="Incoterms" Type="Self.Incoterms" Multiplicity="1" />
+    <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Incoterms">
+        <PropertyRef Name="IncotermsId" />
+      </Principal>
+      <Dependent Role="PurcherseOrder">
+        <PropertyRef Name="IncotermsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_Port">
+    <End Role="Port" Type="Self.Port" Multiplicity="1" />
+    <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Port">
+        <PropertyRef Name="PortId" />
+      </Principal>
+      <Dependent Role="PurcherseOrder">
+        <PropertyRef Name="PortId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_PrePO">
+    <End Role="PrePurcherseOrder" Type="Self.PrePurcherseOrder" Multiplicity="1" />
+    <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrePurcherseOrder">
+        <PropertyRef Name="PrePurcherseOrderId" />
+      </Principal>
+      <Dependent Role="PurcherseOrder">
+        <PropertyRef Name="PrePurcherseOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_Tolerance">
+    <End Role="Tolerance" Type="Self.Tolerance" Multiplicity="1" />
+    <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tolerance">
+        <PropertyRef Name="ToleranceId" />
+      </Principal>
+      <Dependent Role="PurcherseOrder">
+        <PropertyRef Name="ToleranceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_Treasury">
+    <End Role="Treasury" Type="Self.Treasury" Multiplicity="1" />
+    <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Treasury">
+        <PropertyRef Name="TreasuryId" />
+      </Principal>
+      <Dependent Role="PurcherseOrder">
+        <PropertyRef Name="TreasuryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrePO_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="PrePurcherseOrder" Type="Self.PrePurcherseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="PrePurcherseOrder">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrePO_Supplier">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+    <End Role="PrePurcherseOrder" Type="Self.PrePurcherseOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="SupplierId" />
+      </Principal>
+      <Dependent Role="PrePurcherseOrder">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrePODetail_MeasureUnit">
+    <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="1" />
+    <End Role="PrePurcherseOrderDetail" Type="Self.PrePurcherseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeasureUnit">
+        <PropertyRef Name="MeasureUnitId" />
+      </Principal>
+      <Dependent Role="PrePurcherseOrderDetail">
+        <PropertyRef Name="MeasureUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrePODetail_PrePO">
+    <End Role="PrePurcherseOrder" Type="Self.PrePurcherseOrder" Multiplicity="1" />
+    <End Role="PrePurcherseOrderDetail" Type="Self.PrePurcherseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrePurcherseOrder">
+        <PropertyRef Name="PrePurcherseOrderId" />
+      </Principal>
+      <Dependent Role="PrePurcherseOrderDetail">
+        <PropertyRef Name="PrePurcherseOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrePODetail_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="PrePurcherseOrderDetail" Type="Self.PrePurcherseOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="PrePurcherseOrderDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Product_MeasureUnit">
     <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="0..1" />
     <End Role="Product" Type="Self.Product" Multiplicity="*" />
@@ -534,6 +815,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_StockProduct_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="StockProduct" Type="Self.StockProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="StockProduct">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockProductDetail_EntryNote">
+    <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="0..1" />
+    <End Role="StockProductDetail" Type="Self.StockProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EntryNote">
+        <PropertyRef Name="EntryNoteId" />
+      </Principal>
+      <Dependent Role="StockProductDetail">
+        <PropertyRef Name="EntryNoteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockProductDetail_OutputNote">
+    <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="0..1" />
+    <End Role="StockProductDetail" Type="Self.StockProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OutputNote">
+        <PropertyRef Name="OutputNoteId" />
+      </Principal>
+      <Dependent Role="StockProductDetail">
+        <PropertyRef Name="OutputNoteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StockProductDetail_StockProduct">
+    <End Role="StockProduct" Type="Self.StockProduct" Multiplicity="1" />
+    <End Role="StockProductDetail" Type="Self.StockProductDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StockProduct">
+        <PropertyRef Name="StockProductId" />
+      </Principal>
+      <Dependent Role="StockProductDetail">
+        <PropertyRef Name="StockProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SubFamily_Family">
     <End Role="Family" Type="Self.Family" Multiplicity="1" />
     <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="*" />
@@ -546,26 +875,49 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Supplier_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Supplier">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="TLCDataNMModelStoreContainer">
     <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BankContact" EntityType="Self.BankContact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EntryNote" EntityType="Self.EntryNote" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Family" EntityType="Self.Family" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Incoterms" EntityType="Self.Incoterms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MeasureUnit" EntityType="Self.MeasureUnit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MovementType" EntityType="Self.MovementType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Option" EntityType="Self.Option" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OutputNote" EntityType="Self.OutputNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Port" EntityType="Self.Port" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrePurcherseOrder" EntityType="Self.PrePurcherseOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrePurcherseOrderDetail" EntityType="Self.PrePurcherseOrderDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurcherseOrder" EntityType="Self.PurcherseOrder" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoleOption" EntityType="Self.RoleOption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockProduct" EntityType="Self.StockProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockProductDetail" EntityType="Self.StockProductDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SubFamily" EntityType="Self.SubFamily" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaxPercentage" EntityType="Self.TaxPercentage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tolerance" EntityType="Self.Tolerance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Treasury" EntityType="Self.Treasury" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeExistence" EntityType="Self.TypeExistence" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_BankContact_Bank" Association="Self.FK_BankContact_Bank">
       <End Role="Bank" EntitySet="Bank" />
@@ -623,6 +975,54 @@
       <End Role="Store" EntitySet="Store" />
       <End Role="OutputNote" EntitySet="OutputNote" />
     </AssociationSet>
+    <AssociationSet Name="FK_PO_Currency" Association="Self.FK_PO_Currency">
+      <End Role="Currency" EntitySet="Currency" />
+      <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_DocumentType" Association="Self.FK_PO_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_Incoterms" Association="Self.FK_PO_Incoterms">
+      <End Role="Incoterms" EntitySet="Incoterms" />
+      <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_Port" Association="Self.FK_PO_Port">
+      <End Role="Port" EntitySet="Port" />
+      <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_PrePO" Association="Self.FK_PO_PrePO">
+      <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
+      <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_Tolerance" Association="Self.FK_PO_Tolerance">
+      <End Role="Tolerance" EntitySet="Tolerance" />
+      <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_Treasury" Association="Self.FK_PO_Treasury">
+      <End Role="Treasury" EntitySet="Treasury" />
+      <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrePO_Country" Association="Self.FK_PrePO_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrePO_Supplier" Association="Self.FK_PrePO_Supplier">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrePODetail_MeasureUnit" Association="Self.FK_PrePODetail_MeasureUnit">
+      <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+      <End Role="PrePurcherseOrderDetail" EntitySet="PrePurcherseOrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrePODetail_PrePO" Association="Self.FK_PrePODetail_PrePO">
+      <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
+      <End Role="PrePurcherseOrderDetail" EntitySet="PrePurcherseOrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrePODetail_Product" Association="Self.FK_PrePODetail_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="PrePurcherseOrderDetail" EntitySet="PrePurcherseOrderDetail" />
+    </AssociationSet>
     <AssociationSet Name="FK_Product_MeasureUnit" Association="Self.FK_Product_MeasureUnit">
       <End Role="MeasureUnit" EntitySet="MeasureUnit" />
       <End Role="Product" EntitySet="Product" />
@@ -667,9 +1067,29 @@
       <End Role="Role" EntitySet="Role" />
       <End Role="RoleOption" EntitySet="RoleOption" />
     </AssociationSet>
+    <AssociationSet Name="FK_StockProduct_Product" Association="Self.FK_StockProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="StockProduct" EntitySet="StockProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockProductDetail_EntryNote" Association="Self.FK_StockProductDetail_EntryNote">
+      <End Role="EntryNote" EntitySet="EntryNote" />
+      <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockProductDetail_OutputNote" Association="Self.FK_StockProductDetail_OutputNote">
+      <End Role="OutputNote" EntitySet="OutputNote" />
+      <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StockProductDetail_StockProduct" Association="Self.FK_StockProductDetail_StockProduct">
+      <End Role="StockProduct" EntitySet="StockProduct" />
+      <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+    </AssociationSet>
     <AssociationSet Name="FK_SubFamily_Family" Association="Self.FK_SubFamily_Family">
       <End Role="Family" EntitySet="Family" />
       <End Role="SubFamily" EntitySet="SubFamily" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supplier_Country" Association="Self.FK_Supplier_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Supplier" EntitySet="Supplier" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

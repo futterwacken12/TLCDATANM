@@ -1,0 +1,309 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document.AddEditPrePOViewModel
+@{
+    ViewBag.Title = (Model.PrePurcherseOrderId.HasValue ? "Editar" : "Nueva") + " Pre P.O.";
+    ViewBag.PageIcon = "file-alt";
+}
+
+@section BreadCrumbs{
+    <li><a href="@Url.Action("ListPrePO","Document")">Lista de Pre P.O.</a></li>
+    <li class="separator"><i class="icon-angle-right"></i></li>
+}
+
+<div class='row-fluid'>
+    <div class='span12 box'>
+        <div class='box-header green-background'>
+            <div class='title'>
+                <div class='icon-edit'></div>
+                Formulario
+            </div>
+        </div>
+        <div class='box-content'>
+            <form class="form" method="post" style="margin-bottom: 0;">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.PrePurcherseOrderId)
+                @Html.HiddenFor(x => x.Registration)
+                <div class='control-group'>
+                    <label class='control-label' for='RegistrationDate'>
+                        <strong>Fecha de Registro : @Model.RegistrationDate</strong>
+                    </label>
+                </div>
+
+                <div class='control-group'>
+                    <div class="span3">
+                        <label class='control-label' for='Code'>Número Pre Orden</label>
+                        <div class='controls'>
+                            @Html.TextBoxFor(x => x.Code, new { @class = "input-block-level", @placeholder = "Número Pre Orden" })
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <label class='control-label' for='DateOrder'>Fecha Pedido</label>
+                        <div class='controls'>
+                            <div class="datepicker input-append" id="datepicker" style="padding-left: 0%; padding: unset;">
+                                @Html.TextBoxFor(x => x.DateOrder, new { @class = "input-block-level", @placeholder = "Fecha Pedido", @data_format = "dd/MM/yyyy" })
+                                <span class="add-on">
+                                    <i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+
+
+                <div class='control-group'>
+                    <label class='control-label' for='SupplierId'>Proveedor</label>
+                    <div class='controls'>
+                        <select id="SupplierId" name="SupplierId" class="span12" placeholder="Proveedor" value="@Model.SupplierId"/>
+                    </div>
+                </div>
+                <div class='control-group'>
+
+                    <label class='control-label' for='SupplierCode'>Código Proveedor</label>
+                    <div class='controls'>
+                        <input hidden />
+                    </div>
+                </div>
+
+                <div class='control-group'>
+                    <div class="span3">
+                        <label class='control-label' for='SupplierCode'>Código Proveedor</label>
+                        <div class='controls'>
+                            @Html.TextBoxFor(x => x.SupplierCode, new { @readonly = true, @class = "input-block-level", @placeholder = "Código Proveedor" })
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <label class='control-label' for='AddressSupplier'>Dirección</label>
+                        <div class='controls'>
+                            @Html.TextBoxFor(x => x.AddressSupplier, new { @readonly = true, @class = "input-block-level", @placeholder = "Dirección" })
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+                <div class="pull-right">
+                    <a class="btn btn-warning" @Data.ModalLink("AddEditProduct", "Master")><i class="icon-plus"></i> Nuevo Producto</a>
+                </div>
+
+                <br />
+                <div class='control-group'>
+                    <label class='control-label' for='ProductId'><i class="icon-search"></i> Buscar Producto</label>
+                    <div class='controls'>
+                        <select name="ProductId" id="ProductId" class="span6" disabled></select>
+                        <a class="btn btn-inverse" id="add-product"><i class="icon-plus-sign"></i> Agregar</a>
+                        @*<select name="ProductId" id="ProductId" class="input-block-level"></select>*@
+                    </div>
+                </div>
+
+
+                <div class="responsive-table">
+                    <div class="scrollable-area">
+                        <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
+                            <thead>
+                                <tr>
+                                    <th>Código Producto</th>
+                                    <th>Descripción Invoice</th>
+                                    <th>Cantidad</th>
+                                    <th>Und.</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="product-table">
+                                @foreach (var prePO in Model.LstPrePODetail)
+                                {
+                                    <tr id="row-@prePO.ProductId">
+                                        <td>@prePO.Product.InternalCode</td>
+                                        <td>@prePO.Product.InvoiceDescription.ToUpper()</td>
+                                        <td>
+                                            <input class="span12 onlyNumbers" name="quantity-@prePO.ProductId" value="@prePO.Quantity"/>
+                                        </td>
+                                        <td>
+                                            <select class="span12 select2" name="measureunit-@prePO.ProductId">
+                                                @foreach (var o in Model.LstMeasureUnit)
+                                                {
+                                                    <option value="@o.MeasureUnitId" @(o.MeasureUnitId == prePO.MeasureUnitId ? "selected":"")>@o.Acronym</option>
+                                                }
+                                            </select>
+                                        </td>
+                                        <td class="span2">
+                                            <div class="pull-right">
+                                                <a class="deleterow btn btn-danger" data-index="@prePO.ProductId"><i class="icon-trash"></i> Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p class="pull-right"><strong>Cantidad de productos: <span id="total-quantity">@Model.LstPrePODetail.Count</span></strong></p>
+                <br />
+                <hr />
+
+                <label><strong>Remark</strong></label>
+
+                <div class='control-group'>
+                    <label class='control-label' for='CountryId'>Made</label>
+                    <div class='controls'>
+                        @Html.DropDownListFor(x => x.CountryId, new SelectList(Model.LstCountry, "CountryId", "Name"), "[-Seleccione-]", new { @class = "input-block-level select2" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <div class="span3">
+                        <label class='control-label' for='ShipmentDate'>Shipment Date</label>
+                        <div class='controls'>
+                            <div class="datepicker input-append" id="datepicker" style="padding-left: 0%; padding: unset;">
+                                @Html.TextBoxFor(x => x.ShipmentDate, new { @class = "input-block-level", @placeholder = "Shipment Date", @data_format = "dd/MM/yyyy" })
+                                <span class="add-on">
+                                    <i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <label class='control-label' for='Text'>Send Supply</label>
+                        <div class='controls'>
+                            @Html.TextBoxFor(x => x.SendSupply, new { @class = "input-block-level", @placeholder = "Send Supply" })
+                        </div>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Text</label>
+                    <div class='controls'>
+                        @Html.TextAreaFor(x => x.Text, new { @class = "input-block-level", @placeholder = "Text", @rows="3" })
+                    </div>                    
+                </div>
+                <hr />
+                <div class='control-group'>
+                    <button class="btn btn-primary" type="submit"><i class="icon icon-save"></i> Guardar</button>
+                    <a class="btn btn-default" href="@Url.Action("ListPrePO","Document")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).on('ready', function () {            
+            $('#SupplierId').select2({
+                ajax: {
+                    url: '@Url.Action("GetSupplierByName", "Json")',
+                    dataType: 'json',
+                    type: "GET",
+                    data: function (params) {
+                        return {
+                            q: params.term, // search term
+                        };
+                    },
+                    processResults: function (data) {
+                        var arr = []
+                        $.each(data, function (index, value) {
+                            arr.push({
+                                id: value.id,
+                                text: value.text
+                            })
+                        })
+                        return {
+                            results: arr
+                        };
+                    },
+                    initSelection: function (element, callback) {
+
+                        callback({ id: '@Model.SupplierId', text: '@Model.SupplierBussinessName' });
+                    }
+                },
+                minimumInputLength: 3,
+                placeholder:'Proveedor'
+            });
+            $('#ProductId').select2({
+                ajax: {
+                    url: '@Url.Action("GetProductByCodeAndInvoice", "Json")',
+                    dataType: 'json',
+                    type: "GET",
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            supplierid: $('#SupplierId').val()// search term
+                        };
+                    },
+                    processResults: function (data) {
+                        var arr = []
+                        $.each(data, function (index, value) {
+                            arr.push({
+                                id: value.id,
+                                text: value.text
+                            })
+                        })
+                        return {
+                            results: arr
+                        };
+                    }
+                },
+                minimumInputLength: 3
+            });
+            $('#SupplierId').on('change', function () {
+                var parameter = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("GetSupplierInfo", "Json")' + '?SupplierId=' + parameter,
+                    type: 'GET',
+                    success: function (data) {
+                        $('#SupplierCode').val(data.Code);
+                        $('#AddressSupplier').val(data.Address);
+                        $('#ProductId').removeAttr('disabled');
+                    }
+                });
+            });
+
+            $('#add-product').on('click', function () {
+                var parameter = $('#ProductId').val();
+                $.ajax({
+                    url: '@Url.Action("GetProductById", "Json")' + '?ProductId=' + parameter,
+                    type: 'GET',
+                    success: function (data) {
+                        if (data != null && data.length > 0) {
+                            var template = '<tr id="row-' + data[0].id +'">'+
+                                '<td>'+ data[0].code +'</td>'+
+                                '<td>' + data[0].invoiceDescription + '</td>' +
+                                '<td><input class="span12 onlyNumbers" name="quantity-' + data[0].id + '"/></td> '+
+                                '<td> '+
+                                '<select class="span12 select2" name="measureunit-' + data[0].id + '"> '+
+                                          @foreach (var o in Model.LstMeasureUnit)
+                                          {
+                                              @:'<option value="' + '@o.MeasureUnitId' + '">' + '@o.Acronym' + '</option>'+
+                                          }
+                                    '</select>' +
+                                '</td>' +
+                                '<td class="span2">' +
+                                    '<div class="pull-right"><a class="deleterow btn btn-danger" data-index ="' + data[0].id +'"><i class="icon-trash"></i> Eliminar</a></div>' +
+                                '</td>'+
+                                '</tr>';
+
+                            $('#product-table').append(template);
+
+                            var rowCount = $('#table >tbody >tr').length;
+                            $('#total-quantity').text(rowCount);
+                        }
+                    }
+                });
+            });
+
+            $(document).on('click', '.deleterow', function () {
+                var index = $(this).attr('data-index');
+                $('#row-' + index).remove();
+
+                var rowCount = $('#table >tbody >tr').length;
+                $('#total-quantity').text(rowCount);
+            });
+
+            @if (Model.SupplierId != 0) {
+                <text>
+                    var newOption = new Option('@Model.SupplierBussinessName', @Model.SupplierId, true, true);
+                    $("#SupplierId").append(newOption).trigger('change');
+                </text>
+            }
+        })
+    </script>
+}

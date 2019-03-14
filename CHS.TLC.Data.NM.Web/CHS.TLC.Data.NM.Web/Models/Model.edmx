@@ -44,8 +44,9 @@
             <PropertyRef Name="CountryId" />
           </Key>
           <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
         </EntityType>
         <EntityType Name="Currency">
           <Key>
@@ -184,7 +185,7 @@
             <PropertyRef Name="PrePurcherseOrderId" />
           </Key>
           <Property Name="PrePurcherseOrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" />
           <Property Name="DateOrder" Type="date" Nullable="false" />
           <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
@@ -192,7 +193,9 @@
           <Property Name="CountryId" Type="int" Nullable="false" />
           <Property Name="ShipmentDate" Type="date" Nullable="false" />
           <Property Name="Text" Type="varchar" MaxLength="250" Nullable="false" />
-          <Property Name="SendSupply" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SendSupply" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DocumentName" Type="varchar" MaxLength="100" />
+          <Property Name="DocumentPath" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="PrePurcherseOrderDetail">
           <Key>
@@ -204,8 +207,6 @@
           <Property Name="MeasureUnitId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
-          <Property Name="DocumentName" Type="varchar" MaxLength="50" />
-          <Property Name="DocumentPath" Type="varchar" MaxLength="50" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <EntityType Name="Product">
@@ -338,12 +339,9 @@
           <Property Name="Origin" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Address" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="ZipCode" Type="varchar" MaxLength="20" Nullable="false" />
-<<<<<<< HEAD
           <Property Name="Retention" Type="bit" Nullable="false" />
           <Property Name="Detraction" Type="bit" Nullable="false" />
           <Property Name="Perception" Type="bit" Nullable="false" />
-=======
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
         </EntityType>
         <EntityType Name="TaxPercentage">
@@ -1148,18 +1146,6 @@
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
           <AssociationSet Name="FK_Contact_Supplier" Association="TLC.Data.NMModel.FK_Contact_Supplier">
-<<<<<<< HEAD
-=======
-            <End Role="Supplier" EntitySet="Supplier" />
-            <End Role="Contact" EntitySet="Contact" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrePO_Country" Association="TLC.Data.NMModel.FK_PrePO_Country">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Supplier_Country" Association="TLC.Data.NMModel.FK_Supplier_Country">
-            <End Role="Country" EntitySet="Country" />
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
@@ -1170,10 +1156,6 @@
           <AssociationSet Name="FK_Supplier_Country" Association="TLC.Data.NMModel.FK_Supplier_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="Supplier" EntitySet="Supplier" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PO_Currency" Association="TLC.Data.NMModel.FK_PO_Currency">
-            <End Role="Currency" EntitySet="Currency" />
-            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
           </AssociationSet>
           <AssociationSet Name="FK_PO_Currency" Association="TLC.Data.NMModel.FK_PO_Currency">
             <End Role="Currency" EntitySet="Currency" />
@@ -1251,13 +1233,10 @@
             <End Role="Store" EntitySet="Store" />
             <End Role="OutputNote" EntitySet="OutputNote" />
           </AssociationSet>
-<<<<<<< HEAD
-=======
           <AssociationSet Name="FK_StockProductDetail_OutputNote" Association="TLC.Data.NMModel.FK_StockProductDetail_OutputNote">
             <End Role="OutputNote" EntitySet="OutputNote" />
             <End Role="StockProductDetail" EntitySet="StockProductDetail" />
           </AssociationSet>
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
           <AssociationSet Name="FK_PO_Port" Association="TLC.Data.NMModel.FK_PO_Port">
             <End Role="Port" EntitySet="Port" />
             <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
@@ -1306,13 +1285,10 @@
             <End Role="TypeExistence" EntitySet="TypeExistence" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-<<<<<<< HEAD
-=======
           <AssociationSet Name="FK_StockProduct_Product" Association="TLC.Data.NMModel.FK_StockProduct_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="StockProduct" EntitySet="StockProduct" />
           </AssociationSet>
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
           <AssociationSet Name="FK_PO_Tolerance" Association="TLC.Data.NMModel.FK_PO_Tolerance">
             <End Role="Tolerance" EntitySet="Tolerance" />
             <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
@@ -1375,51 +1351,9 @@
             <PropertyRef Name="CountryId" />
           </Key>
           <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-<<<<<<< HEAD
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BankContact" Relationship="TLC.Data.NMModel.FK_BankContact_Bank" FromRole="Bank" ToRole="BankContact" />
-        </EntityType>
-        <EntityType Name="BankContact">
-          <Key>
-            <PropertyRef Name="BankContactId" />
-          </Key>
-          <Property Name="BankContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ContactId" Type="Int32" Nullable="false" />
-          <Property Name="BankId" Type="Int32" Nullable="false" />
-          <Property Name="AccountSoles" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="AccountDollars" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Bank" Relationship="TLC.Data.NMModel.FK_BankContact_Bank" FromRole="BankContact" ToRole="Bank" />
-          <NavigationProperty Name="Contact" Relationship="TLC.Data.NMModel.FK_BankContact_Contact" FromRole="BankContact" ToRole="Contact" />
-        </EntityType>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="ContactId" />
-          </Key>
-          <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SupplierId" Type="Int32" Nullable="false" />
-          <Property Name="ItemId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="SecondLastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BankContact" Relationship="TLC.Data.NMModel.FK_BankContact_Contact" FromRole="Contact" ToRole="BankContact" />
-          <NavigationProperty Name="Item" Relationship="TLC.Data.NMModel.FK_Contact_Item" FromRole="Contact" ToRole="Item" />
-          <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_Contact_Supplier" FromRole="Contact" ToRole="Supplier" />
-        </EntityType>
-        <EntityType Name="Country">
-          <Key>
-            <PropertyRef Name="CountryId" />
-          </Key>
-          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-=======
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PrePurcherseOrder" Relationship="TLC.Data.NMModel.FK_PrePO_Country" FromRole="Country" ToRole="PrePurcherseOrder" />
           <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_Supplier_Country" FromRole="Country" ToRole="Supplier" />
         </EntityType>
@@ -1587,7 +1521,7 @@
             <PropertyRef Name="PrePurcherseOrderId" />
           </Key>
           <Property Name="PrePurcherseOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
@@ -1595,7 +1529,9 @@
           <Property Name="CountryId" Type="Int32" Nullable="false" />
           <Property Name="ShipmentDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Text" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="SendSupply" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SendSupply" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentPath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Country" Relationship="TLC.Data.NMModel.FK_PrePO_Country" FromRole="PrePurcherseOrder" ToRole="Country" />
           <NavigationProperty Name="PurcherseOrder" Relationship="TLC.Data.NMModel.FK_PO_PrePO" FromRole="PrePurcherseOrder" ToRole="PurcherseOrder" />
           <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_PrePO_Supplier" FromRole="PrePurcherseOrder" ToRole="Supplier" />
@@ -1611,53 +1547,6 @@
           <Property Name="MeasureUnitId" Type="Int32" Nullable="false" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="MeasureUnit" Relationship="TLC.Data.NMModel.FK_PrePODetail_MeasureUnit" FromRole="PrePurcherseOrderDetail" ToRole="MeasureUnit" />
-          <NavigationProperty Name="PrePurcherseOrder" Relationship="TLC.Data.NMModel.FK_PrePODetail_PrePO" FromRole="PrePurcherseOrderDetail" ToRole="PrePurcherseOrder" />
-          <NavigationProperty Name="Product" Relationship="TLC.Data.NMModel.FK_PrePODetail_Product" FromRole="PrePurcherseOrderDetail" ToRole="Product" />
-        </EntityType>
-        <EntityType Name="Port">
-          <Key>
-            <PropertyRef Name="PortId" />
-          </Key>
-          <Property Name="PortId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PurcherseOrder" Relationship="TLC.Data.NMModel.FK_PO_Port" FromRole="Port" ToRole="PurcherseOrder" />
-        </EntityType>
-        <EntityType Name="PrePurcherseOrder">
-          <Key>
-            <PropertyRef Name="PrePurcherseOrderId" />
-          </Key>
-          <Property Name="PrePurcherseOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="SupplierId" Type="Int32" Nullable="false" />
-          <Property Name="CountryId" Type="Int32" Nullable="false" />
-          <Property Name="ShipmentDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Text" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="SendSupply" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Country" Relationship="TLC.Data.NMModel.FK_PrePO_Country" FromRole="PrePurcherseOrder" ToRole="Country" />
-          <NavigationProperty Name="PurcherseOrder" Relationship="TLC.Data.NMModel.FK_PO_PrePO" FromRole="PrePurcherseOrder" ToRole="PurcherseOrder" />
-          <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_PrePO_Supplier" FromRole="PrePurcherseOrder" ToRole="Supplier" />
-          <NavigationProperty Name="PrePurcherseOrderDetail" Relationship="TLC.Data.NMModel.FK_PrePODetail_PrePO" FromRole="PrePurcherseOrder" ToRole="PrePurcherseOrderDetail" />
-        </EntityType>
-        <EntityType Name="PrePurcherseOrderDetail">
-          <Key>
-            <PropertyRef Name="PrePurcherseOrderDetailId" />
-          </Key>
-          <Property Name="PrePurcherseOrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PrePurcherseOrderId" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="MeasureUnitId" Type="Int32" Nullable="false" />
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="MeasureUnit" Relationship="TLC.Data.NMModel.FK_PrePODetail_MeasureUnit" FromRole="PrePurcherseOrderDetail" ToRole="MeasureUnit" />
           <NavigationProperty Name="PrePurcherseOrder" Relationship="TLC.Data.NMModel.FK_PrePODetail_PrePO" FromRole="PrePurcherseOrderDetail" ToRole="PrePurcherseOrder" />
@@ -1704,41 +1593,6 @@
           <NavigationProperty Name="TaxPercentage3" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage7" FromRole="Product" ToRole="TaxPercentage" />
           <NavigationProperty Name="TypeExistence" Relationship="TLC.Data.NMModel.FK_Product_TypeExistence" FromRole="Product" ToRole="TypeExistence" />
           <NavigationProperty Name="StockProduct" Relationship="TLC.Data.NMModel.FK_StockProduct_Product" FromRole="Product" ToRole="StockProduct" />
-        </EntityType>
-        <EntityType Name="PurcherseOrder">
-          <Key>
-            <PropertyRef Name="PurcherseOrderId" />
-          </Key>
-          <Property Name="PurcherseOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="PrePurcherseOrderId" Type="Int32" Nullable="false" />
-          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CurrencyId" Type="Int32" Nullable="false" />
-          <Property Name="IncotermsId" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="ToleranceId" Type="Int32" Nullable="false" />
-          <Property Name="ToleranceRemark" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="ShipmentSample" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="TreasuryId" Type="Int32" Nullable="false" />
-          <Property Name="PortId" Type="Int32" Nullable="false" />
-          <Property Name="BeneficiarySupply" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="BeneficiarySupplyAdress" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="BeneficiaryBankAdress" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="BankAccountnumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SwiftCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IntermediaryBank" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SwiftIntermediaryBank" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CEOEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SupplierEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Currency" Relationship="TLC.Data.NMModel.FK_PO_Currency" FromRole="PurcherseOrder" ToRole="Currency" />
-          <NavigationProperty Name="DocumentType" Relationship="TLC.Data.NMModel.FK_PO_DocumentType" FromRole="PurcherseOrder" ToRole="DocumentType" />
-          <NavigationProperty Name="Incoterms" Relationship="TLC.Data.NMModel.FK_PO_Incoterms" FromRole="PurcherseOrder" ToRole="Incoterms" />
-          <NavigationProperty Name="Port" Relationship="TLC.Data.NMModel.FK_PO_Port" FromRole="PurcherseOrder" ToRole="Port" />
-          <NavigationProperty Name="PrePurcherseOrder" Relationship="TLC.Data.NMModel.FK_PO_PrePO" FromRole="PurcherseOrder" ToRole="PrePurcherseOrder" />
-          <NavigationProperty Name="Tolerance" Relationship="TLC.Data.NMModel.FK_PO_Tolerance" FromRole="PurcherseOrder" ToRole="Tolerance" />
-          <NavigationProperty Name="Treasury" Relationship="TLC.Data.NMModel.FK_PO_Treasury" FromRole="PurcherseOrder" ToRole="Treasury" />
         </EntityType>
         <EntityType Name="PurcherseOrder">
           <Key>
@@ -1860,15 +1714,15 @@
           <Property Name="Origin" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Retention" Type="Boolean" Nullable="false" />
+          <Property Name="Detraction" Type="Boolean" Nullable="false" />
+          <Property Name="Perception" Type="Boolean" Nullable="false" />
           <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Contact" Relationship="TLC.Data.NMModel.FK_Contact_Supplier" FromRole="Supplier" ToRole="Contact" />
           <NavigationProperty Name="Country" Relationship="TLC.Data.NMModel.FK_Supplier_Country" FromRole="Supplier" ToRole="Country" />
           <NavigationProperty Name="EntryNote" Relationship="TLC.Data.NMModel.FK_EntryNote_Supplier" FromRole="Supplier" ToRole="EntryNote" />
           <NavigationProperty Name="PrePurcherseOrder" Relationship="TLC.Data.NMModel.FK_PrePO_Supplier" FromRole="Supplier" ToRole="PrePurcherseOrder" />
           <NavigationProperty Name="Product" Relationship="TLC.Data.NMModel.FK_Product_Provider" FromRole="Supplier" ToRole="Product" />
-          <Property Name="Retention" Type="Boolean" Nullable="false" />
-          <Property Name="Detraction" Type="Boolean" Nullable="false" />
-          <Property Name="Perception" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="TaxPercentage">
           <Key>
@@ -2209,8 +2063,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-<<<<<<< HEAD
-=======
         <Association Name="FK_StockProductDetail_OutputNote">
           <End Type="TLC.Data.NMModel.OutputNote" Role="OutputNote" Multiplicity="0..1" />
           <End Type="TLC.Data.NMModel.StockProductDetail" Role="StockProductDetail" Multiplicity="*" />
@@ -2223,7 +2075,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
         <Association Name="FK_PO_Port">
           <End Type="TLC.Data.NMModel.Port" Role="Port" Multiplicity="1" />
           <End Type="TLC.Data.NMModel.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
@@ -2368,8 +2219,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-<<<<<<< HEAD
-=======
         <Association Name="FK_StockProduct_Product">
           <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="1" />
           <End Type="TLC.Data.NMModel.StockProduct" Role="StockProduct" Multiplicity="*" />
@@ -2382,7 +2231,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
         <Association Name="FK_PO_Tolerance">
           <End Type="TLC.Data.NMModel.Tolerance" Role="Tolerance" Multiplicity="1" />
           <End Type="TLC.Data.NMModel.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
@@ -2477,6 +2325,7 @@
           <EntitySetMapping Name="Country">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Country">
               <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
@@ -2630,6 +2479,8 @@
           <EntitySetMapping Name="PrePurcherseOrder">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.PrePurcherseOrder">
               <MappingFragment StoreEntitySet="PrePurcherseOrder">
+                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
                 <ScalarProperty Name="SendSupply" ColumnName="SendSupply" />
                 <ScalarProperty Name="Text" ColumnName="Text" />
                 <ScalarProperty Name="ShipmentDate" ColumnName="ShipmentDate" />
@@ -2647,8 +2498,6 @@
             <EntityTypeMapping TypeName="TLC.Data.NMModel.PrePurcherseOrderDetail">
               <MappingFragment StoreEntitySet="PrePurcherseOrderDetail">
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
-                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="MeasureUnitId" ColumnName="MeasureUnitId" />
@@ -2785,13 +2634,10 @@
           <EntitySetMapping Name="Supplier">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
-<<<<<<< HEAD
+                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Perception" ColumnName="Perception" />
                 <ScalarProperty Name="Detraction" ColumnName="Detraction" />
                 <ScalarProperty Name="Retention" ColumnName="Retention" />
-=======
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
-                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Origin" ColumnName="Origin" />

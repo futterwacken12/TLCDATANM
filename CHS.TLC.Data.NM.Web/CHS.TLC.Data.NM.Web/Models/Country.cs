@@ -23,6 +23,7 @@ namespace CHS.TLC.Data.NM.Web.Models
         public int CountryId { get; set; }
         public string Name { get; set; }
         public string State { get; set; }
+        public string Code { get; set; }
     
         public virtual ICollection<PrePurcherseOrder> PrePurcherseOrder { get; set; }
         public virtual ICollection<Supplier> Supplier { get; set; }
