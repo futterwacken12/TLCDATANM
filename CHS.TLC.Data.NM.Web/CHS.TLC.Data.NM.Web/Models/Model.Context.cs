@@ -47,6 +47,8 @@ namespace CHS.TLC.Data.NM.Web.Models
         public DbSet<PurcherseOrder> PurcherseOrder { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<RoleOption> RoleOption { get; set; }
+        public DbSet<StockProduct> StockProduct { get; set; }
+        public DbSet<StockProductDetail> StockProductDetail { get; set; }
         public DbSet<Store> Store { get; set; }
         public DbSet<SubFamily> SubFamily { get; set; }
         public DbSet<Supplier> Supplier { get; set; }

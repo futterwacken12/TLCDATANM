@@ -14,6 +14,11 @@ namespace CHS.TLC.Data.NM.Web.Models
     
     public partial class OutputNote
     {
+        public OutputNote()
+        {
+            this.StockProductDetail = new HashSet<StockProductDetail>();
+        }
+    
         public int OutputNoteId { get; set; }
         public System.DateTime Date { get; set; }
         public System.TimeSpan Time { get; set; }
@@ -32,5 +37,6 @@ namespace CHS.TLC.Data.NM.Web.Models
         public virtual MovementType MovementType { get; set; }
         public virtual Store Store { get; set; }
         public virtual Store Store1 { get; set; }
+        public virtual ICollection<StockProductDetail> StockProductDetail { get; set; }
     }
 }

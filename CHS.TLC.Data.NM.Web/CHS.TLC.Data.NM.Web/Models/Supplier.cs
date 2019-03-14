@@ -33,9 +33,12 @@ namespace CHS.TLC.Data.NM.Web.Models
         public string Address { get; set; }
         public string ZipCode { get; set; }
         public string State { get; set; }
+<<<<<<< HEAD
         public bool Retention { get; set; }
         public bool Detraction { get; set; }
         public bool Perception { get; set; }
+=======
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
     
         public virtual ICollection<Contact> Contact { get; set; }
         public virtual Country Country { get; set; }

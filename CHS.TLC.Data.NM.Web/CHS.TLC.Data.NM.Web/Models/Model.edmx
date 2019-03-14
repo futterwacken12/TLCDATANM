@@ -285,6 +285,28 @@
           <Property Name="RoleId" Type="int" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
         </EntityType>
+        <EntityType Name="StockProduct">
+          <Key>
+            <PropertyRef Name="StockProductId" />
+          </Key>
+          <Property Name="StockProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockProductDetail">
+          <Key>
+            <PropertyRef Name="StockProductDetailId" />
+          </Key>
+          <Property Name="StockProductDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StockProductId" Type="int" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Operation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="EntryNoteId" Type="int" />
+          <Property Name="OutputNoteId" Type="int" />
+        </EntityType>
         <EntityType Name="Store">
           <Key>
             <PropertyRef Name="StoreId" />
@@ -316,9 +338,12 @@
           <Property Name="Origin" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Address" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="ZipCode" Type="varchar" MaxLength="20" Nullable="false" />
+<<<<<<< HEAD
           <Property Name="Retention" Type="bit" Nullable="false" />
           <Property Name="Detraction" Type="bit" Nullable="false" />
           <Property Name="Perception" Type="bit" Nullable="false" />
+=======
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
         </EntityType>
         <EntityType Name="TaxPercentage">
@@ -797,6 +822,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StockProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="StockProduct" Type="Self.StockProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="StockProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockProductDetail_EntryNote">
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="0..1" />
+          <End Role="StockProductDetail" Type="Self.StockProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntryNote">
+              <PropertyRef Name="EntryNoteId" />
+            </Principal>
+            <Dependent Role="StockProductDetail">
+              <PropertyRef Name="EntryNoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockProductDetail_OutputNote">
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="0..1" />
+          <End Role="StockProductDetail" Type="Self.StockProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OutputNote">
+              <PropertyRef Name="OutputNoteId" />
+            </Principal>
+            <Dependent Role="StockProductDetail">
+              <PropertyRef Name="OutputNoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockProductDetail_StockProduct">
+          <End Role="StockProduct" Type="Self.StockProduct" Multiplicity="1" />
+          <End Role="StockProductDetail" Type="Self.StockProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockProduct">
+              <PropertyRef Name="StockProductId" />
+            </Principal>
+            <Dependent Role="StockProductDetail">
+              <PropertyRef Name="StockProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SubFamily_Family">
           <End Role="Family" Type="Self.Family" Multiplicity="1" />
           <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="*" />
@@ -844,6 +917,8 @@
           <EntitySet Name="PurcherseOrder" EntityType="Self.PurcherseOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleOption" EntityType="Self.RoleOption" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockProduct" EntityType="Self.StockProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockProductDetail" EntityType="Self.StockProductDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Store" EntityType="Self.Store" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubFamily" EntityType="Self.SubFamily" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
@@ -999,6 +1074,22 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="RoleOption" EntitySet="RoleOption" />
           </AssociationSet>
+          <AssociationSet Name="FK_StockProduct_Product" Association="Self.FK_StockProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="StockProduct" EntitySet="StockProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockProductDetail_EntryNote" Association="Self.FK_StockProductDetail_EntryNote">
+            <End Role="EntryNote" EntitySet="EntryNote" />
+            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockProductDetail_OutputNote" Association="Self.FK_StockProductDetail_OutputNote">
+            <End Role="OutputNote" EntitySet="OutputNote" />
+            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockProductDetail_StockProduct" Association="Self.FK_StockProductDetail_StockProduct">
+            <End Role="StockProduct" EntitySet="StockProduct" />
+            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_SubFamily_Family" Association="Self.FK_SubFamily_Family">
             <End Role="Family" EntitySet="Family" />
             <End Role="SubFamily" EntitySet="SubFamily" />
@@ -1035,6 +1126,8 @@
           <EntitySet Name="PurcherseOrder" EntityType="TLC.Data.NMModel.PurcherseOrder" />
           <EntitySet Name="Role" EntityType="TLC.Data.NMModel.Role" />
           <EntitySet Name="RoleOption" EntityType="TLC.Data.NMModel.RoleOption" />
+          <EntitySet Name="StockProduct" EntityType="TLC.Data.NMModel.StockProduct" />
+          <EntitySet Name="StockProductDetail" EntityType="TLC.Data.NMModel.StockProductDetail" />
           <EntitySet Name="Store" EntityType="TLC.Data.NMModel.Store" />
           <EntitySet Name="SubFamily" EntityType="TLC.Data.NMModel.SubFamily" />
           <EntitySet Name="Supplier" EntityType="TLC.Data.NMModel.Supplier" />
@@ -1055,6 +1148,18 @@
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
           <AssociationSet Name="FK_Contact_Supplier" Association="TLC.Data.NMModel.FK_Contact_Supplier">
+<<<<<<< HEAD
+=======
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrePO_Country" Association="TLC.Data.NMModel.FK_PrePO_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplier_Country" Association="TLC.Data.NMModel.FK_Supplier_Country">
+            <End Role="Country" EntitySet="Country" />
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
             <End Role="Supplier" EntitySet="Supplier" />
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
@@ -1065,6 +1170,10 @@
           <AssociationSet Name="FK_Supplier_Country" Association="TLC.Data.NMModel.FK_Supplier_Country">
             <End Role="Country" EntitySet="Country" />
             <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PO_Currency" Association="TLC.Data.NMModel.FK_PO_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
           </AssociationSet>
           <AssociationSet Name="FK_PO_Currency" Association="TLC.Data.NMModel.FK_PO_Currency">
             <End Role="Currency" EntitySet="Currency" />
@@ -1102,6 +1211,10 @@
             <End Role="Store" EntitySet="Store" />
             <End Role="EntryNote" EntitySet="EntryNote" />
           </AssociationSet>
+          <AssociationSet Name="FK_StockProductDetail_EntryNote" Association="TLC.Data.NMModel.FK_StockProductDetail_EntryNote">
+            <End Role="EntryNote" EntitySet="EntryNote" />
+            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_SubFamily_Family" Association="TLC.Data.NMModel.FK_SubFamily_Family">
             <End Role="Family" EntitySet="Family" />
             <End Role="SubFamily" EntitySet="SubFamily" />
@@ -1138,6 +1251,13 @@
             <End Role="Store" EntitySet="Store" />
             <End Role="OutputNote" EntitySet="OutputNote" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+          <AssociationSet Name="FK_StockProductDetail_OutputNote" Association="TLC.Data.NMModel.FK_StockProductDetail_OutputNote">
+            <End Role="OutputNote" EntitySet="OutputNote" />
+            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+          </AssociationSet>
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
           <AssociationSet Name="FK_PO_Port" Association="TLC.Data.NMModel.FK_PO_Port">
             <End Role="Port" EntitySet="Port" />
             <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
@@ -1186,6 +1306,13 @@
             <End Role="TypeExistence" EntitySet="TypeExistence" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+          <AssociationSet Name="FK_StockProduct_Product" Association="TLC.Data.NMModel.FK_StockProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="StockProduct" EntitySet="StockProduct" />
+          </AssociationSet>
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
           <AssociationSet Name="FK_PO_Tolerance" Association="TLC.Data.NMModel.FK_PO_Tolerance">
             <End Role="Tolerance" EntitySet="Tolerance" />
             <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
@@ -1197,6 +1324,10 @@
           <AssociationSet Name="FK_RoleOption_Role" Association="TLC.Data.NMModel.FK_RoleOption_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="RoleOption" EntitySet="RoleOption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockProductDetail_StockProduct" Association="TLC.Data.NMModel.FK_StockProductDetail_StockProduct">
+            <End Role="StockProduct" EntitySet="StockProduct" />
+            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Bank">
@@ -1246,6 +1377,49 @@
           <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+<<<<<<< HEAD
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BankContact" Relationship="TLC.Data.NMModel.FK_BankContact_Bank" FromRole="Bank" ToRole="BankContact" />
+        </EntityType>
+        <EntityType Name="BankContact">
+          <Key>
+            <PropertyRef Name="BankContactId" />
+          </Key>
+          <Property Name="BankContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactId" Type="Int32" Nullable="false" />
+          <Property Name="BankId" Type="Int32" Nullable="false" />
+          <Property Name="AccountSoles" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AccountDollars" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bank" Relationship="TLC.Data.NMModel.FK_BankContact_Bank" FromRole="BankContact" ToRole="Bank" />
+          <NavigationProperty Name="Contact" Relationship="TLC.Data.NMModel.FK_BankContact_Contact" FromRole="BankContact" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SecondLastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BankContact" Relationship="TLC.Data.NMModel.FK_BankContact_Contact" FromRole="Contact" ToRole="BankContact" />
+          <NavigationProperty Name="Item" Relationship="TLC.Data.NMModel.FK_Contact_Item" FromRole="Contact" ToRole="Item" />
+          <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_Contact_Supplier" FromRole="Contact" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+=======
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
           <NavigationProperty Name="PrePurcherseOrder" Relationship="TLC.Data.NMModel.FK_PrePO_Country" FromRole="Country" ToRole="PrePurcherseOrder" />
           <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_Supplier_Country" FromRole="Country" ToRole="Supplier" />
         </EntityType>
@@ -1305,6 +1479,7 @@
           <NavigationProperty Name="MovementType" Relationship="TLC.Data.NMModel.FK_EntryNote_MovementType" FromRole="EntryNote" ToRole="MovementType" />
           <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_EntryNote_Supplier" FromRole="EntryNote" ToRole="Supplier" />
           <NavigationProperty Name="Store1" Relationship="TLC.Data.NMModel.FK_EntryNote_TransferStore" FromRole="EntryNote" ToRole="Store" />
+          <NavigationProperty Name="StockProductDetail" Relationship="TLC.Data.NMModel.FK_StockProductDetail_EntryNote" FromRole="EntryNote" ToRole="StockProductDetail" />
         </EntityType>
         <EntityType Name="Family">
           <Key>
@@ -1396,6 +1571,52 @@
           <NavigationProperty Name="MovementType" Relationship="TLC.Data.NMModel.FK_OutputNote_MovementType" FromRole="OutputNote" ToRole="MovementType" />
           <NavigationProperty Name="Store" Relationship="TLC.Data.NMModel.FK_OutputNote_DestinationStore" FromRole="OutputNote" ToRole="Store" />
           <NavigationProperty Name="Store1" Relationship="TLC.Data.NMModel.FK_OutputNote_OriginalStore" FromRole="OutputNote" ToRole="Store" />
+          <NavigationProperty Name="StockProductDetail" Relationship="TLC.Data.NMModel.FK_StockProductDetail_OutputNote" FromRole="OutputNote" ToRole="StockProductDetail" />
+        </EntityType>
+        <EntityType Name="Port">
+          <Key>
+            <PropertyRef Name="PortId" />
+          </Key>
+          <Property Name="PortId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PurcherseOrder" Relationship="TLC.Data.NMModel.FK_PO_Port" FromRole="Port" ToRole="PurcherseOrder" />
+        </EntityType>
+        <EntityType Name="PrePurcherseOrder">
+          <Key>
+            <PropertyRef Name="PrePurcherseOrderId" />
+          </Key>
+          <Property Name="PrePurcherseOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="ShipmentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SendSupply" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Country" Relationship="TLC.Data.NMModel.FK_PrePO_Country" FromRole="PrePurcherseOrder" ToRole="Country" />
+          <NavigationProperty Name="PurcherseOrder" Relationship="TLC.Data.NMModel.FK_PO_PrePO" FromRole="PrePurcherseOrder" ToRole="PurcherseOrder" />
+          <NavigationProperty Name="Supplier" Relationship="TLC.Data.NMModel.FK_PrePO_Supplier" FromRole="PrePurcherseOrder" ToRole="Supplier" />
+          <NavigationProperty Name="PrePurcherseOrderDetail" Relationship="TLC.Data.NMModel.FK_PrePODetail_PrePO" FromRole="PrePurcherseOrder" ToRole="PrePurcherseOrderDetail" />
+        </EntityType>
+        <EntityType Name="PrePurcherseOrderDetail">
+          <Key>
+            <PropertyRef Name="PrePurcherseOrderDetailId" />
+          </Key>
+          <Property Name="PrePurcherseOrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrePurcherseOrderId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="MeasureUnitId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentPath" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="MeasureUnit" Relationship="TLC.Data.NMModel.FK_PrePODetail_MeasureUnit" FromRole="PrePurcherseOrderDetail" ToRole="MeasureUnit" />
+          <NavigationProperty Name="PrePurcherseOrder" Relationship="TLC.Data.NMModel.FK_PrePODetail_PrePO" FromRole="PrePurcherseOrderDetail" ToRole="PrePurcherseOrder" />
+          <NavigationProperty Name="Product" Relationship="TLC.Data.NMModel.FK_PrePODetail_Product" FromRole="PrePurcherseOrderDetail" ToRole="Product" />
         </EntityType>
         <EntityType Name="Port">
           <Key>
@@ -1482,6 +1703,42 @@
           <NavigationProperty Name="TaxPercentage2" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage6" FromRole="Product" ToRole="TaxPercentage" />
           <NavigationProperty Name="TaxPercentage3" Relationship="TLC.Data.NMModel.FK_Product_TaxPercentage7" FromRole="Product" ToRole="TaxPercentage" />
           <NavigationProperty Name="TypeExistence" Relationship="TLC.Data.NMModel.FK_Product_TypeExistence" FromRole="Product" ToRole="TypeExistence" />
+          <NavigationProperty Name="StockProduct" Relationship="TLC.Data.NMModel.FK_StockProduct_Product" FromRole="Product" ToRole="StockProduct" />
+        </EntityType>
+        <EntityType Name="PurcherseOrder">
+          <Key>
+            <PropertyRef Name="PurcherseOrderId" />
+          </Key>
+          <Property Name="PurcherseOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PrePurcherseOrderId" Type="Int32" Nullable="false" />
+          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CurrencyId" Type="Int32" Nullable="false" />
+          <Property Name="IncotermsId" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="ToleranceId" Type="Int32" Nullable="false" />
+          <Property Name="ToleranceRemark" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ShipmentSample" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TreasuryId" Type="Int32" Nullable="false" />
+          <Property Name="PortId" Type="Int32" Nullable="false" />
+          <Property Name="BeneficiarySupply" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="BeneficiarySupplyAdress" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="BeneficiaryBankAdress" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccountnumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SwiftCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IntermediaryBank" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SwiftIntermediaryBank" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CEOEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Currency" Relationship="TLC.Data.NMModel.FK_PO_Currency" FromRole="PurcherseOrder" ToRole="Currency" />
+          <NavigationProperty Name="DocumentType" Relationship="TLC.Data.NMModel.FK_PO_DocumentType" FromRole="PurcherseOrder" ToRole="DocumentType" />
+          <NavigationProperty Name="Incoterms" Relationship="TLC.Data.NMModel.FK_PO_Incoterms" FromRole="PurcherseOrder" ToRole="Incoterms" />
+          <NavigationProperty Name="Port" Relationship="TLC.Data.NMModel.FK_PO_Port" FromRole="PurcherseOrder" ToRole="Port" />
+          <NavigationProperty Name="PrePurcherseOrder" Relationship="TLC.Data.NMModel.FK_PO_PrePO" FromRole="PurcherseOrder" ToRole="PrePurcherseOrder" />
+          <NavigationProperty Name="Tolerance" Relationship="TLC.Data.NMModel.FK_PO_Tolerance" FromRole="PurcherseOrder" ToRole="Tolerance" />
+          <NavigationProperty Name="Treasury" Relationship="TLC.Data.NMModel.FK_PO_Treasury" FromRole="PurcherseOrder" ToRole="Treasury" />
         </EntityType>
         <EntityType Name="PurcherseOrder">
           <Key>
@@ -1538,6 +1795,33 @@
           <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Option" Relationship="TLC.Data.NMModel.FK_RoleOption_Option" FromRole="RoleOption" ToRole="Option" />
           <NavigationProperty Name="Role" Relationship="TLC.Data.NMModel.FK_RoleOption_Role" FromRole="RoleOption" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="StockProduct">
+          <Key>
+            <PropertyRef Name="StockProductId" />
+          </Key>
+          <Property Name="StockProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="TLC.Data.NMModel.FK_StockProduct_Product" FromRole="StockProduct" ToRole="Product" />
+          <NavigationProperty Name="StockProductDetail" Relationship="TLC.Data.NMModel.FK_StockProductDetail_StockProduct" FromRole="StockProduct" ToRole="StockProductDetail" />
+        </EntityType>
+        <EntityType Name="StockProductDetail">
+          <Key>
+            <PropertyRef Name="StockProductDetailId" />
+          </Key>
+          <Property Name="StockProductDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StockProductId" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Operation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EntryNoteId" Type="Int32" />
+          <Property Name="OutputNoteId" Type="Int32" />
+          <NavigationProperty Name="EntryNote" Relationship="TLC.Data.NMModel.FK_StockProductDetail_EntryNote" FromRole="StockProductDetail" ToRole="EntryNote" />
+          <NavigationProperty Name="OutputNote" Relationship="TLC.Data.NMModel.FK_StockProductDetail_OutputNote" FromRole="StockProductDetail" ToRole="OutputNote" />
+          <NavigationProperty Name="StockProduct" Relationship="TLC.Data.NMModel.FK_StockProductDetail_StockProduct" FromRole="StockProductDetail" ToRole="StockProduct" />
         </EntityType>
         <EntityType Name="Store">
           <Key>
@@ -1805,6 +2089,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StockProductDetail_EntryNote">
+          <End Type="TLC.Data.NMModel.EntryNote" Role="EntryNote" Multiplicity="0..1" />
+          <End Type="TLC.Data.NMModel.StockProductDetail" Role="StockProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EntryNote">
+              <PropertyRef Name="EntryNoteId" />
+            </Principal>
+            <Dependent Role="StockProductDetail">
+              <PropertyRef Name="EntryNoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SubFamily_Family">
           <End Type="TLC.Data.NMModel.Family" Role="Family" Multiplicity="1" />
           <End Type="TLC.Data.NMModel.SubFamily" Role="SubFamily" Multiplicity="*" />
@@ -1913,6 +2209,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+=======
+        <Association Name="FK_StockProductDetail_OutputNote">
+          <End Type="TLC.Data.NMModel.OutputNote" Role="OutputNote" Multiplicity="0..1" />
+          <End Type="TLC.Data.NMModel.StockProductDetail" Role="StockProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OutputNote">
+              <PropertyRef Name="OutputNoteId" />
+            </Principal>
+            <Dependent Role="StockProductDetail">
+              <PropertyRef Name="OutputNoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
         <Association Name="FK_PO_Port">
           <End Type="TLC.Data.NMModel.Port" Role="Port" Multiplicity="1" />
           <End Type="TLC.Data.NMModel.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
@@ -2057,6 +2368,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+=======
+        <Association Name="FK_StockProduct_Product">
+          <End Type="TLC.Data.NMModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="TLC.Data.NMModel.StockProduct" Role="StockProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="StockProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
         <Association Name="FK_PO_Tolerance">
           <End Type="TLC.Data.NMModel.Tolerance" Role="Tolerance" Multiplicity="1" />
           <End Type="TLC.Data.NMModel.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
@@ -2090,6 +2416,18 @@
             </Principal>
             <Dependent Role="RoleOption">
               <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockProductDetail_StockProduct">
+          <End Type="TLC.Data.NMModel.StockProduct" Role="StockProduct" Multiplicity="1" />
+          <End Type="TLC.Data.NMModel.StockProductDetail" Role="StockProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StockProduct">
+              <PropertyRef Name="StockProductId" />
+            </Principal>
+            <Dependent Role="StockProductDetail">
+              <PropertyRef Name="StockProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2401,6 +2739,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="StockProduct">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.StockProduct">
+              <MappingFragment StoreEntitySet="StockProduct">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="StockProductId" ColumnName="StockProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockProductDetail">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.StockProductDetail">
+              <MappingFragment StoreEntitySet="StockProductDetail">
+                <ScalarProperty Name="OutputNoteId" ColumnName="OutputNoteId" />
+                <ScalarProperty Name="EntryNoteId" ColumnName="EntryNoteId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="StockProductId" ColumnName="StockProductId" />
+                <ScalarProperty Name="StockProductDetailId" ColumnName="StockProductDetailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Store">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Store">
               <MappingFragment StoreEntitySet="Store">
@@ -2423,9 +2785,12 @@
           <EntitySetMapping Name="Supplier">
             <EntityTypeMapping TypeName="TLC.Data.NMModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
+<<<<<<< HEAD
                 <ScalarProperty Name="Perception" ColumnName="Perception" />
                 <ScalarProperty Name="Detraction" ColumnName="Detraction" />
                 <ScalarProperty Name="Retention" ColumnName="Retention" />
+=======
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
                 <ScalarProperty Name="Address" ColumnName="Address" />

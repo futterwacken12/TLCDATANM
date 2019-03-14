@@ -145,10 +145,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Intranet\Controllers\DocumentController.cs" />
     <Compile Include="Areas\Intranet\Controllers\HomeController.cs" />
     <Compile Include="Areas\Intranet\Controllers\MasterController.cs" />
     <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\ListPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditMeasureUnitViewModel.cs" />
@@ -210,6 +212,15 @@
     <Compile Include="Models\Contact.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Models\Country.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Currency.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
     <Compile Include="Models\Document.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -222,6 +233,12 @@
     <Compile Include="Models\Family.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="Models\Incoterms.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
     <Compile Include="Models\Item.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -252,13 +269,31 @@
     <Compile Include="Models\OutputNote.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Port.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PrePurcherseOrder.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PrePurcherseOrderDetail.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Product.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PurcherseOrder.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RoleOption.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StockProduct.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StockProductDetail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Store.cs">
@@ -271,6 +306,12 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TaxPercentage.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tolerance.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Treasury.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TypeExistence.cs">
@@ -449,7 +490,7 @@
     <Content Include="Areas\Intranet\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Intranet\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Intranet\Views\Home\DashboardAdministrator.cshtml" />
-    <Content Include="Areas\Intranet\Views\Store\LstEntryNote.cshtml" />
+    <Content Include="Areas\Intranet\Views\Store\ListEntryNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditEntryNote.cshtml" />
     <EntityDeploy Include="Models\Model.edmx">
@@ -477,8 +518,12 @@
     <Content Include="Areas\Intranet\Views\Master\ListTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteTypeExistence.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListSupplier.cshtml" />
+=======
+    <Content Include="Areas\Intranet\Views\Store\ListOutputNote.cshtml" />
+>>>>>>> 51332268c053d317b93672999e51fd33f37f6628
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -518,6 +563,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Intranet\Models\" />
+    <Folder Include="Areas\Intranet\Views\Document\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
