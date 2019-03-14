@@ -160,6 +160,7 @@
     <Compile Include="Areas\Intranet\ViewModels\Master\ListMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListSubFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListSupplierViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListTypeExistenceViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteFamilyViewModel.cs" />
@@ -202,7 +203,13 @@
     <Compile Include="Models\Bank.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BankContact.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CargarDatosContext.cs" />
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Document.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -213,6 +220,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Family.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Item.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MeasureUnit.cs">
@@ -454,7 +464,6 @@
     <Content Include="Areas\Intranet\Views\Master\ListBank.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditBank.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteBank.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Master\_DeleteFamily.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditMeasureUnit.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListMeasureUnit.cshtml" />
@@ -468,9 +477,8 @@
     <Content Include="Areas\Intranet\Views\Master\ListTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteTypeExistence.cshtml" />
-=======
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
->>>>>>> 1127a9ed082bc8d2e454eaa950634a54d6468d88
+    <Content Include="Areas\Intranet\Views\Master\ListSupplier.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

@@ -12,22 +12,28 @@ namespace CHS.TLC.Data.NM.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MeasureUnit
+    public partial class PrePurcherseOrder
     {
-        public MeasureUnit()
+        public PrePurcherseOrder()
         {
+            this.PurcherseOrder = new HashSet<PurcherseOrder>();
             this.PrePurcherseOrderDetail = new HashSet<PrePurcherseOrderDetail>();
-            this.Product = new HashSet<Product>();
-            this.Product1 = new HashSet<Product>();
         }
     
-        public int MeasureUnitId { get; set; }
-        public string Description { get; set; }
-        public string Acronym { get; set; }
+        public int PrePurcherseOrderId { get; set; }
+        public string Code { get; set; }
+        public System.DateTime DateOrder { get; set; }
+        public System.DateTime RegistrationDate { get; set; }
         public string State { get; set; }
+        public int SupplierId { get; set; }
+        public int CountryId { get; set; }
+        public System.DateTime ShipmentDate { get; set; }
+        public string Text { get; set; }
+        public string SendSupply { get; set; }
     
+        public virtual Country Country { get; set; }
+        public virtual ICollection<PurcherseOrder> PurcherseOrder { get; set; }
+        public virtual Supplier Supplier { get; set; }
         public virtual ICollection<PrePurcherseOrderDetail> PrePurcherseOrderDetail { get; set; }
-        public virtual ICollection<Product> Product { get; set; }
-        public virtual ICollection<Product> Product1 { get; set; }
     }
 }

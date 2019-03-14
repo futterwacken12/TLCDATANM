@@ -504,5 +504,20 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             return RedirectToAction("ListTypeExistence");
         }
         #endregion
+        #region Supplier
+        public ActionResult ListSupplier(Int32? Page, String BussinessName)
+        {
+            var model = new ListSupplierViewModel();
+            model.Fill(CargarDatosContext(), Page, BussinessName);
+            return View(model);
+        }
+        [EncryptedActionParameter]
+        public ActionResult AddEditSupplier(Int32? SupplierId)
+        {
+            var model = new AddEditSupplierViewModel();
+            model.Fill(CargarDatosContext(), SupplierId);
+            return View(model);
+        }
+        #endregion
     }
 }

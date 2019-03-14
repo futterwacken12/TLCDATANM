@@ -11,6 +11,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="BankContact">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.BankContact">
+        <MappingFragment StoreEntitySet="BankContact">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="AccountDollars" ColumnName="AccountDollars" />
+          <ScalarProperty Name="AccountSoles" ColumnName="AccountSoles" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="BankContactId" ColumnName="BankContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contact">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SecondLastName" ColumnName="SecondLastName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Document">
       <EntityTypeMapping TypeName="TLC.Data.NMModel.Document">
         <MappingFragment StoreEntitySet="Document">
@@ -191,21 +217,13 @@
     <EntitySetMapping Name="Supplier">
       <EntityTypeMapping TypeName="TLC.Data.NMModel.Supplier">
         <MappingFragment StoreEntitySet="Supplier">
-          <ScalarProperty Name="SecondContactEmail" ColumnName="SecondContactEmail" />
-          <ScalarProperty Name="SecondContactCharge" ColumnName="SecondContactCharge" />
-          <ScalarProperty Name="SecondContactLastName" ColumnName="SecondContactLastName" />
-          <ScalarProperty Name="SecondContactName" ColumnName="SecondContactName" />
-          <ScalarProperty Name="FirstContactEmail" ColumnName="FirstContactEmail" />
-          <ScalarProperty Name="FirstContactCharge" ColumnName="FirstContactCharge" />
-          <ScalarProperty Name="FirstContactLastName" ColumnName="FirstContactLastName" />
-          <ScalarProperty Name="FirstContactName" ColumnName="FirstContactName" />
+          <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Origin" ColumnName="Origin" />
           <ScalarProperty Name="Provenance" ColumnName="Provenance" />
           <ScalarProperty Name="BussinessName" ColumnName="BussinessName" />
           <ScalarProperty Name="RUC" ColumnName="RUC" />
-          <ScalarProperty Name="BankId" ColumnName="BankId" />
           <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -225,6 +243,15 @@
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Item">
+      <EntityTypeMapping TypeName="TLC.Data.NMModel.Item">
+        <MappingFragment StoreEntitySet="Item">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

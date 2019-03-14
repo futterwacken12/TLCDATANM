@@ -12,18 +12,17 @@ namespace CHS.TLC.Data.NM.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Item
     {
-        public Role()
+        public Item()
         {
-            this.RoleOption = new HashSet<RoleOption>();
+            this.Contact = new HashSet<Contact>();
         }
     
-        public int RoleId { get; set; }
-        public string Name { get; set; }
-        public string Acronym { get; set; }
+        public int ItemId { get; set; }
+        public string Description { get; set; }
         public string State { get; set; }
     
-        public virtual ICollection<RoleOption> RoleOption { get; set; }
+        public virtual ICollection<Contact> Contact { get; set; }
     }
 }

@@ -74,6 +74,34 @@ namespace CHS.TLC.Data.NM.Web.Helpers
                 return "";
             }
         }
+        public static class PROCEDENCIA
+        {
+            public const String LOCAL = "LOC";
+            public const String INTERNACIONAL = "INT";
+
+            public static String GetLabelProcedencia(String Procedencia)
+            {
+                switch (Procedencia)
+                {
+                    case LOCAL:
+                        return "<span class='badge badge-warning'>LOCAL</span>";
+                    case INTERNACIONAL:
+                        return "<span class='badge badge-info'>INTERNACIONAL</span>";
+                }
+                return "";
+            }
+            public static String GetNombreProcedencia(String Procedencia)
+            {
+                switch (Procedencia)
+                {
+                    case LOCAL:
+                        return "LOCAL";
+                    case INTERNACIONAL:
+                        return "INTERNACIONAL";
+                }
+                return "";
+            }
+        }
         public static class EXTENSION_REPORTE
         {
             public const String EXCEL = "EXCEL";
