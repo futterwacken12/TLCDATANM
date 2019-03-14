@@ -167,7 +167,7 @@ function RebindJquery($element) {
     //}).on('changeDate', function (ev) {
     //    $(this).datepicker('hide');
     //});
-    $.datetimepicker.setLocale('es');
+    //$.datetimepicker.setLocale('es');
     //$element.find('.datepicker').datepicker({
     //    format: "dd/MM/yyyy",
     //    language: "es",
@@ -193,10 +193,10 @@ function RebindJquery($element) {
     //    },
     //});
 
-    $element.find('.select2,[data-plugin="select2"]').select2({
-        allowClear: true,
-        placeholder: "[-Seleccione-]"
-    });
+    //$element.find('.select2,[data-plugin="select2"]').select2({
+    //    allowClear: true,
+    //    placeholder: "[-Seleccione-]"
+    //});
     $element.find('[data-toggle="tooltip"]').tooltip();
 
 

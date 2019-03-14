@@ -39,8 +39,14 @@
       <PropertyRef Name="CountryId" />
     </Key>
     <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+<<<<<<< HEAD
     <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+=======
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="3" Nullable="false" />
+>>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
   </EntityType>
   <EntityType Name="Currency">
     <Key>
@@ -179,7 +185,11 @@
       <PropertyRef Name="PrePurcherseOrderId" />
     </Key>
     <Property Name="PrePurcherseOrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+<<<<<<< HEAD
     <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+=======
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+>>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
     <Property Name="DateOrder" Type="date" Nullable="false" />
     <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
@@ -187,7 +197,13 @@
     <Property Name="CountryId" Type="int" Nullable="false" />
     <Property Name="ShipmentDate" Type="date" Nullable="false" />
     <Property Name="Text" Type="varchar" MaxLength="250" Nullable="false" />
+<<<<<<< HEAD
     <Property Name="SendSupply" Type="varchar" MaxLength="20" Nullable="false" />
+=======
+    <Property Name="SendSupply" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DocumentName" Type="varchar" MaxLength="100" />
+    <Property Name="DocumentPath" Type="varchar" MaxLength="100" />
+>>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
   </EntityType>
   <EntityType Name="PrePurcherseOrderDetail">
     <Key>
@@ -199,8 +215,11 @@
     <Property Name="MeasureUnitId" Type="int" Nullable="false" />
     <Property Name="ProductId" Type="int" Nullable="false" />
     <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+<<<<<<< HEAD
     <Property Name="DocumentName" Type="varchar" MaxLength="50" />
     <Property Name="DocumentPath" Type="varchar" MaxLength="50" />
+=======
+>>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
     <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="Product">
@@ -886,7 +905,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+<<<<<<< HEAD
   <EntityContainer Name="ModelStoreContainer">
+=======
+  <EntityContainer Name="TLCDataNMModelStoreContainer">
+>>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
     <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BankContact" EntityType="Self.BankContact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />

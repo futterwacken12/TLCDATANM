@@ -20,8 +20,6 @@ namespace CHS.TLC.Data.NM.Web.Models
         public int MeasureUnitId { get; set; }
         public int ProductId { get; set; }
         public string State { get; set; }
-        public string DocumentName { get; set; }
-        public string DocumentPath { get; set; }
         public Nullable<decimal> Price { get; set; }
     
         public virtual MeasureUnit MeasureUnit { get; set; }

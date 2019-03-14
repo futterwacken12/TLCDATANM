@@ -65,6 +65,7 @@
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -147,9 +148,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Intranet\Controllers\DocumentController.cs" />
     <Compile Include="Areas\Intranet\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Intranet\Controllers\JsonController.cs" />
     <Compile Include="Areas\Intranet\Controllers\MasterController.cs" />
     <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
+    <Compile Include="Areas\Intranet\Models\BE\Json\LstSupplierInfo.cs" />
+    <Compile Include="Areas\Intranet\Models\BE\Json\DataSelect2.cs" />
+    <Compile Include="Areas\Intranet\Models\BE\Json\ProductByCodeAndInvoice.cs" />
+    <Compile Include="Areas\Intranet\Models\BE\Json\SupplierInfo.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\AddEditPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\ListPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditBankContactViewModel.cs" />
@@ -377,6 +384,10 @@
     <Content Include="Content\assets\javascripts\demo\demo.js" />
     <Content Include="Content\assets\javascripts\demo\inplace_editing.js" />
     <Content Include="Content\assets\javascripts\demo\jquery.mockjax.js" />
+    <Content Include="Content\assets\javascripts\dtbootstrap\bootstrap-clockpicker.min.js" />
+    <Content Include="Content\assets\javascripts\dtbootstrap\bootstrap-datepicker.es.min.js" />
+    <Content Include="Content\assets\javascripts\dtbootstrap\bootstrap-datepicker.min.js" />
+    <Content Include="Content\assets\javascripts\dtbootstrap\bootstrap-timepicker.js" />
     <Content Include="Content\assets\javascripts\jquery\jquery-migrate.min.js" />
     <Content Include="Content\assets\javascripts\jquery\jquery.min.js" />
     <Content Include="Content\assets\javascripts\jquery_ui\jquery-ui.min.js" />
@@ -435,6 +446,9 @@
     <Content Include="Content\assets\stylesheets\bootstrap\bootstrap-responsive.css" />
     <Content Include="Content\assets\stylesheets\bootstrap\bootstrap.css" />
     <Content Include="Content\assets\stylesheets\demo.css" />
+    <Content Include="Content\assets\stylesheets\dtbootstrap\bootstrap-clockpicker.min.css" />
+    <Content Include="Content\assets\stylesheets\dtbootstrap\bootstrap-datepicker.min.css" />
+    <Content Include="Content\assets\stylesheets\dtbootstrap\bootstrap-timepicker.min.css" />
     <Content Include="Content\assets\stylesheets\jquery_ui\jquery-ui-1.10.0.custom.css" />
     <Content Include="Content\assets\stylesheets\jquery_ui\jquery.ui.1.10.0.ie.css" />
     <Content Include="Content\assets\stylesheets\light-theme.css" />
@@ -514,9 +528,12 @@
     <Content Include="Areas\Intranet\Views\Master\ListTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteTypeExistence.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListSupplier.cshtml" />
+=======
+>>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
     <Content Include="Areas\Intranet\Views\Store\ListOutputNote.cshtml" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -525,6 +542,7 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Master\AddEditSupplier.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteSupplier.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListItem.cshtml" />
@@ -533,6 +551,10 @@
     <Content Include="Areas\Intranet\Views\Master\_AddEditContact.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditItem.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditBankContact.cshtml" />
+=======
+    <Content Include="Areas\Intranet\Views\Document\ListPrePO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Document\AddEditPrePO.cshtml" />
+>>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -571,8 +593,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Intranet\Models\" />
-    <Folder Include="Areas\Intranet\Views\Document\" />
+    <Folder Include="Areas\Intranet\Views\Json\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

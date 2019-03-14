@@ -1,4 +1,5 @@
-﻿using PagedList.Mvc;
+﻿using CHS.TLC.Data.NM.Web.Models;
+using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace CHS.TLC.Data.NM.Web.Helpers
 {
     public class ConstantHelpers
     {
-
         public const Int32 ROL_ADMINISTRADOR_KEY = 1;
         public const String ROL_CAJERO = "CAJ";
         public const String ROL_COMPLETO_CAJERO = "CAJERO";
