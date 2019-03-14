@@ -23,7 +23,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
         [Display(Name = "Fecha")]
         public String Date { get; set; }
         public IPagedList<EntryNote> LstEntryNote { get; set; }
-        public Int32? p { get; set; }
+        public Int32? Page { get; set; }
 
         public LstEntryNoteViewModel()
         {
@@ -31,9 +31,9 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
             LstState.Add(new SelectListItem { Value = ConstantHelpers.ESTADO.INACTIVO, Text = "INACTIVO" });
         }
 
-        public void Fill(CargarDatosContext c, Int32? p, String state, String date, Int32? movementTypeId, String code)
+        public void Fill(CargarDatosContext c, Int32? page, String state, String date, Int32? movementTypeId, String code)
         {
-            this.p = p ?? 1;
+            this.Page = page ?? 1;
             this.State = state;
             this.Date = date;
             this.Code = code;
@@ -62,7 +62,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
             }
 
 
-            LstEntryNote = query.OrderByDescending(x => x.EntryNoteId).ToPagedList(this.p.Value, ConstantHelpers.DEFAULT_PAGE_SIZE);
+            LstEntryNote = query.OrderByDescending(x => x.EntryNoteId).ToPagedList(this.Page.Value, ConstantHelpers.DEFAULT_PAGE_SIZE);
 
         }
     }

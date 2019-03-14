@@ -12,18 +12,19 @@ namespace CHS.TLC.Data.NM.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Country
     {
-        public Role()
+        public Country()
         {
-            this.RoleOption = new HashSet<RoleOption>();
+            this.PrePurcherseOrder = new HashSet<PrePurcherseOrder>();
+            this.Supplier = new HashSet<Supplier>();
         }
     
-        public int RoleId { get; set; }
+        public int CountryId { get; set; }
         public string Name { get; set; }
-        public string Acronym { get; set; }
         public string State { get; set; }
     
-        public virtual ICollection<RoleOption> RoleOption { get; set; }
+        public virtual ICollection<PrePurcherseOrder> PrePurcherseOrder { get; set; }
+        public virtual ICollection<Supplier> Supplier { get; set; }
     }
 }

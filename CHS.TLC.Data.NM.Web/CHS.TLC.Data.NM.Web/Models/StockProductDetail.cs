@@ -12,18 +12,19 @@ namespace CHS.TLC.Data.NM.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class StockProductDetail
     {
-        public Role()
-        {
-            this.RoleOption = new HashSet<RoleOption>();
-        }
-    
-        public int RoleId { get; set; }
-        public string Name { get; set; }
-        public string Acronym { get; set; }
+        public int StockProductDetailId { get; set; }
+        public int StockProductId { get; set; }
         public string State { get; set; }
+        public string Operation { get; set; }
+        public decimal Value { get; set; }
+        public System.DateTime Date { get; set; }
+        public Nullable<int> EntryNoteId { get; set; }
+        public Nullable<int> OutputNoteId { get; set; }
     
-        public virtual ICollection<RoleOption> RoleOption { get; set; }
+        public virtual EntryNote EntryNote { get; set; }
+        public virtual OutputNote OutputNote { get; set; }
+        public virtual StockProduct StockProduct { get; set; }
     }
 }

@@ -12,18 +12,16 @@ namespace CHS.TLC.Data.NM.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class BankContact
     {
-        public Role()
-        {
-            this.RoleOption = new HashSet<RoleOption>();
-        }
-    
-        public int RoleId { get; set; }
-        public string Name { get; set; }
-        public string Acronym { get; set; }
+        public int BankContactId { get; set; }
+        public int ContactId { get; set; }
+        public int BankId { get; set; }
+        public string AccountSoles { get; set; }
+        public string AccountDollars { get; set; }
         public string State { get; set; }
     
-        public virtual ICollection<RoleOption> RoleOption { get; set; }
+        public virtual Bank Bank { get; set; }
+        public virtual Contact Contact { get; set; }
     }
 }

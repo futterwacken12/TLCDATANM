@@ -101,7 +101,7 @@
 
     <div class="col-lg-6" style="padding-top: 20px;">
         <div class="pull-right">
-            @Html.PagedListPager(Model.LstOutPutNote, p => Url.Action("LstOutPutNote", new { p = p, State = Model.State, Date = Model.Date, MovementTypeId = Model.MovementTypeId, Code = Model.Code }), ConstantHelpers.Bootstrap3Pager)
+            @Html.PagedListPager(Model.LstOutPutNote, Page => Url.Action("LstOutPutNote", new { Page = Page, State = Model.State, Date = Model.Date, MovementTypeId = Model.MovementTypeId, Code = Model.Code }), ConstantHelpers.Bootstrap3Pager)
         </div>
     </div>
 </div>
