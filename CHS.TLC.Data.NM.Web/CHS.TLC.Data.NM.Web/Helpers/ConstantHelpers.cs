@@ -102,6 +102,34 @@ namespace CHS.TLC.Data.NM.Web.Helpers
                 return "";
             }
         }
+        public static class FORMAPAGO
+        {
+            public const String CREDITO = "CRE";
+            public const String CONTADO = "CON";
+
+            public static String GetLabelFormaPago(String FormaPago)
+            {
+                switch (FormaPago)
+                {
+                    case CREDITO:
+                        return "<span class='badge badge-danger'>CRÉDITO</span>";
+                    case CONTADO:
+                        return "<span class='badge badge-success'>CONTADO</span>";
+                }
+                return "";
+            }
+            public static String GetNombreFormaPago(String FormaPago)
+            {
+                switch (FormaPago)
+                {
+                    case CREDITO:
+                        return "CRÉDITO";
+                    case CONTADO:
+                        return "CONTADO";
+                }
+                return "";
+            }
+        }
         public static class EXTENSION_REPORTE
         {
             public const String EXCEL = "EXCEL";

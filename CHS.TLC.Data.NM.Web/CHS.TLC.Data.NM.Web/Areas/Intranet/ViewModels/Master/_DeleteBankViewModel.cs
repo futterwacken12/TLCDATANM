@@ -13,9 +13,9 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         public _DeleteBankViewModel()
         {
         }
-        public void Fill(CargarDatosContext c, Int32? nationalBankId)
+        public void Fill(CargarDatosContext c, Int32? bankId)
         {
-            this.BankId = nationalBankId;
+            this.BankId = bankId;
 
             if (this.BankId.HasValue)
             {

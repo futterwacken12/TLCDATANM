@@ -152,23 +152,32 @@
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\ListPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditBankContactViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditContactViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditItemViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditSubFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditSupplierViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditTypeExistenceViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListContactViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListItemViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListSupplierViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListTypeExistenceViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteContactViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteItemViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteBankViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSubFamilyViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSupplierViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTypeExistenceViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditEntryNoteViewModel.cs" />
@@ -212,15 +221,12 @@
     <Compile Include="Models\Contact.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
     <Compile Include="Models\Country.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Currency.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
     <Compile Include="Models\Document.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -233,12 +239,9 @@
     <Compile Include="Models\Family.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
     <Compile Include="Models\Incoterms.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
     <Compile Include="Models\Item.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -493,13 +496,6 @@
     <Content Include="Areas\Intranet\Views\Store\ListEntryNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\AddEditEntryNote.cshtml" />
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Intranet\Views\Master\ListFamily.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditFamily.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListBank.cshtml" />
@@ -518,16 +514,25 @@
     <Content Include="Areas\Intranet\Views\Master\ListTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteTypeExistence.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
-=======
-<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListSupplier.cshtml" />
-=======
     <Content Include="Areas\Intranet\Views\Store\ListOutputNote.cshtml" />
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
->>>>>>> 9a534baca7d98e3125b522fddd22cfa88001ac98
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Intranet\Views\Master\AddEditSupplier.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteSupplier.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListItem.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteItem.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListContact.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\_AddEditContact.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditItem.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditBankContact.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
