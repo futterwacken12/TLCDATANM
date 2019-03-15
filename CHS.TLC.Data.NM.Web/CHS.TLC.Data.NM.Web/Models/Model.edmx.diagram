@@ -5,115 +5,114 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
 <<<<<<< HEAD
-      <Diagram DiagramId="47b44eec83e4427aba8579cd61ea2788" Name="Diagram1" ZoomLevel="50">
-        
+      <Diagram DiagramId="c91057de08af44659c78c7ce2c83a683" Name="Diagram1" ZoomLevel="48">
+        <EntityTypeShape EntityType="Model.Bank" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.BankContact" Width="1.5" PointX="8.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Contact" Width="1.5" PointX="6" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Country" Width="1.5" PointX="1.5" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Currency" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Document" Width="1.5" PointX="3" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DocumentType" Width="1.5" PointX="0.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EntryNote" Width="1.5" PointX="5.25" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Family" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Incoterms" Width="1.5" PointX="3" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Item" Width="1.5" PointX="3.75" PointY="47.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MeasureUnit" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MovementType" Width="1.5" PointX="3" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Option" Width="1.5" PointX="8.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OutputNote" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Port" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PrePurcherseOrder" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PrePurcherseOrderDetail" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PurcherseOrder" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RoleOption" Width="1.5" PointX="11" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StockProduct" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StockProductDetail" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Store" Width="1.5" PointX="3" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SubFamily" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Supplier" Width="1.5" PointX="0.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TaxPercentage" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Tolerance" Width="1.5" PointX="3" PointY="42.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Treasury" Width="1.5" PointX="3" PointY="45" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TypeExistence" Width="1.5" PointX="0.75" PointY="26.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_BankContact_Bank" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_BankContact_Contact" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Contact_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Contact_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PrePO_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Supplier_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PO_Currency" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Document_DocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_EntryNote_Document" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_OutputNote_Document" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PO_DocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_EntryNote_DestinationStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_EntryNote_MovementType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_EntryNote_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_EntryNote_TransferStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_StockProductDetail_EntryNote" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_SubFamily_Family" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PO_Incoterms" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PrePODetail_MeasureUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_MeasureUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_MeasureUnit1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_OutputNote_MovementType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_RoleOption_Option" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_OutputNote_DestinationStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_OutputNote_OriginalStore" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_StockProductDetail_OutputNote" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PO_Port" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PO_PrePO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PrePO_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PrePODetail_PrePO" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PrePODetail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_SubFamily" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_TaxPercentage4" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_TaxPercentage5" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_TaxPercentage6" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_TaxPercentage7" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_TypeExistence" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_StockProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PO_Tolerance" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_PO_Treasury" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_RoleOption_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_StockProductDetail_StockProduct" ManuallyRouted="false" />
 =======
-      <Diagram DiagramId="47b44eec83e4427aba8579cd61ea2788" Name="Diagram1" ZoomLevel="85">
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Bank" Width="1.5" PointX="1.5" PointY="25.375" />
->>>>>>> 1127a9ed082bc8d2e454eaa950634a54d6468d88
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Document" Width="1.5" PointX="5.75" PointY="10.375" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.DocumentType" Width="1.5" PointX="3.5" PointY="10.5" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.EntryNote" Width="1.5" PointX="8" PointY="12" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Family" Width="1.5" PointX="1.5" PointY="16.125" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MeasureUnit" Width="1.5" PointX="0.75" PointY="10.125" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MovementType" Width="1.5" PointX="5.75" PointY="1.625" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Option" Width="1.5" PointX="10.75" PointY="1" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.OutputNote" Width="1.5" PointX="8" PointY="4" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Product" Width="1.5" PointX="3" PointY="1.25" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Role" Width="1.5" PointX="10.75" PointY="5.75" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.RoleOption" Width="1.5" PointX="13" PointY="1.625" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Store" Width="1.5" PointX="5.75" PointY="5" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.SubFamily" Width="1.5" PointX="0.75" PointY="13.125" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Supplier" Width="1.5" PointX="0.75" PointY="19" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TaxPercentage" Width="1.5" PointX="0.75" PointY="3.875" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TypeExistence" Width="1.5" PointX="0.75" PointY="7.625" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Provider_NationalBank" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Document_DocumentType" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_Document" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_Document" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_DestinationStore" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_MovementType" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_Supplier" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_TransferStore" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_SubFamily_Family" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_MeasureUnit" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_MeasureUnit1" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_MovementType" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Option" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_DestinationStore" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_OriginalStore" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_Provider" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_SubFamily" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage4" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage5" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage6" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage7" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TypeExistence" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Role" />
-      </Diagram>
-<<<<<<< HEAD
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Bank" Width="1.5" PointX="5.6134440962287808" PointY="1.5738015778240755" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.BankContact" Width="1.5" PointX="3.7349059766786672" PointY="5.4480424846746223" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Contact" Width="1.5" PointX="10.61171376454258" PointY="5.3193758452867046" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Country" Width="1.5" PointX="6.2256800859354815" PointY="4.6419316998878175" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Currency" Width="1.5" PointX="9.2268504357090464" PointY="10.520590071808822" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Document" Width="1.5" PointX="2.859539376040706" PointY="18.582694986175138" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.DocumentType" Width="1.5" PointX="3.2319852762073209" PointY="1.7516591259053251" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.EntryNote" Width="1.5" PointX="4.6392109024521009" PointY="8.9729911577762067" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Family" Width="1.5" PointX="6.8109323823875432" PointY="18.332869851185414" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Incoterms" Width="1.5" PointX="3.0241770926044218" PointY="25.375493046536807" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Item" Width="1.5" PointX="0.43681117167547867" PointY="20.133071521359064" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MeasureUnit" Width="1.5" PointX="4.0530222747721814" PointY="22.381164129069617" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MovementType" Width="1.5" PointX="0.76094674913256743" PointY="13.270250162701238" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Option" Width="1.5" PointX="9.79538654619613" PointY="30.354063927360841" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.OutputNote" Width="1.5" PointX="9.0084315729366757" PointY="30.136144666995921" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Port" Width="1.5" PointX="5.0793623910655095" PointY="8.3080564776007346" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.PrePurcherseOrder" Width="1.5" PointX="1.44192233562559" PointY="12.22405247959497" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.PrePurcherseOrderDetail" Width="1.5" PointX="4.2024251502949861" PointY="10.723785777913307" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Product" Width="1.5" PointX="5.2927839464008732" PointY="19.90061781737051" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.PurcherseOrder" Width="1.5" PointX="1.2888912247907796" PointY="18.619857006994941" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Role" Width="1.5" PointX="11.244638610279484" PointY="15.78843080242557" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.RoleOption" Width="1.5" PointX="5.4833504378252433" PointY="15.444385371843532" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Store" Width="1.5" PointX="3.8451535514766135" PointY="5.1621159935193672" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.SubFamily" Width="1.5" PointX="5.2295158157262565" PointY="6.7368443788666488" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Supplier" Width="1.5" PointX="3.2433193695001865" PointY="8.1804766544049965" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TaxPercentage" Width="1.5" PointX="4.6611157323518375" PointY="9.1043443126158525" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Tolerance" Width="1.5" PointX="4.5831136631700744" PointY="20.257374296084688" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Treasury" Width="1.5" PointX="1.9374777013144817" PointY="26.836112735251017" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TypeExistence" Width="1.5" PointX="8.5371533169118461" PointY="19.578585142073493" />
-=======
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Bank" Width="1.5" PointX="10.653881806253402" PointY="21.167971397362635" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.BankContact" Width="1.5" PointX="8.4802862165869612" PointY="26.743955222304891" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Contact" Width="1.5" PointX="0.57596874077616667" PointY="29.153337849841144" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Country" Width="1.5" PointX="2.5608130239699096" PointY="17.607112564894887" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Currency" Width="1.5" PointX="11.597331946528206" PointY="30.559717311784492" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Document" Width="1.5" PointX="11.04786314584681" PointY="17.856952735156266" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.DocumentType" Width="1.5" PointX="4.7977414693672866" PointY="24.29960554479603" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.EntryNote" Width="1.5" PointX="0.09079670351501401" PointY="2.3617049764663469" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Family" Width="1.5" PointX="10.841970702094011" PointY="30.786409347684312" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Incoterms" Width="1.5" PointX="0.12604391394464481" PointY="7.67439654826857" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Item" Width="1.5" PointX="4.8665775586229643" PointY="13.57814054823394" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MeasureUnit" Width="1.5" PointX="8.1542444043579714" PointY="9.58349530845112" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MovementType" Width="1.5" PointX="11.707415398074041" PointY="20.889000514936168" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Option" Width="1.5" PointX="3.5541732122908218" PointY="6.8459534527947907" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.OutputNote" Width="1.5" PointX="0.67110606314200261" PointY="26.937804607179856" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Port" Width="1.5" PointX="0.44133652767228737" PointY="22.074036936310137" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.PrePurcherseOrder" Width="1.5" PointX="2.0400076443515753" PointY="4.9697738909021831" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.PrePurcherseOrderDetail" Width="1.5" PointX="10.744582486685637" PointY="10.679868583884028" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Product" Width="1.5" PointX="7.8764135892858791" PointY="5.202487500944402" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.PurcherseOrder" Width="1.5" PointX="9.6659423455903042" PointY="26.414009210846391" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Role" Width="1.5" PointX="6.37138498871186" PointY="18.41083184741942" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.RoleOption" Width="1.5" PointX="9.5481058403607957" PointY="22.01963619423082" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.StockProduct" Width="1.5" PointX="8.3975615316990577" PointY="30.895821585737085" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.StockProductDetail" Width="1.5" PointX="2.475689131056745" PointY="10.71372630200988" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Store" Width="1.5" PointX="4.702381797461948" PointY="26.904714239251202" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.SubFamily" Width="1.5" PointX="5.4785393930406032" PointY="3.4445160345381667" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Supplier" Width="1.5" PointX="8.7070307287885953" PointY="8.0598257966618174" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TaxPercentage" Width="1.5" PointX="3.4033132155441272" PointY="14.832210935108462" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Tolerance" Width="1.5" PointX="11.783744869653017" PointY="13.030601269114111" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Treasury" Width="1.5" PointX="10.321567810290292" PointY="12.64691612713361" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TypeExistence" Width="1.5" PointX="7.378328481399608" PointY="31.982881277791634" />
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
+      <Diagram DiagramId="7e5f61b955314a6abf22d615c86d8c97" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Bank" Width="1.5" PointX="3" PointY="54.625" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.BankContact" Width="1.5" PointX="5.25" PointY="21.375" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Contact" Width="1.5" PointX="3" PointY="23" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Country" Width="1.5" PointX="1.5" PointY="28.5" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Currency" Width="1.5" PointX="3" PointY="43.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Document" Width="1.5" PointX="3" PointY="37.875" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.DocumentType" Width="1.5" PointX="0.75" PointY="37.875" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.EntryNote" Width="1.5" PointX="5.25" PointY="33.625" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Family" Width="1.5" PointX="1.5" PointY="13.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Incoterms" Width="1.5" PointX="3" PointY="49" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Item" Width="1.5" PointX="0.75" PointY="31.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.MeasureUnit" Width="1.5" PointX="0.75" PointY="16.625" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.MovementType" Width="1.5" PointX="3" PointY="32" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Option" Width="1.5" PointX="7.75" PointY="3.5" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.OutputNote" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Port" Width="1.5" PointX="3" PointY="46.5" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.PrePurcherseOrder" Width="1.5" PointX="3" PointY="16.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.PrePurcherseOrderDetail" Width="1.5" PointX="5.25" PointY="6.25" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Product" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.PurcherseOrder" Width="1.5" PointX="5.25" PointY="25" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Role" Width="1.5" PointX="7.75" PointY="14.25" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.RoleOption" Width="1.5" PointX="10" PointY="4.125" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.StockProduct" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.StockProductDetail" Width="1.5" PointX="7.5" PointY="9.875" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Store" Width="1.5" PointX="3" PointY="34.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.SubFamily" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Supplier" Width="1.5" PointX="0.75" PointY="22.25" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.TaxPercentage" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Tolerance" Width="1.5" PointX="3" PointY="51.75" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.Treasury" Width="1.5" PointX="3" PointY="41.25" />
+        <EntityTypeShape EntityType="TLC.Data.NMModel.TypeExistence" Width="1.5" PointX="0.75" PointY="19.75" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_BankContact_Bank" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_BankContact_Contact" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_Contact_Item" />
@@ -129,10 +128,7 @@
         <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_MovementType" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_Supplier" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_TransferStore" />
-<<<<<<< HEAD
-=======
         <AssociationConnector Association="TLC.Data.NMModel.FK_StockProductDetail_EntryNote" />
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
         <AssociationConnector Association="TLC.Data.NMModel.FK_SubFamily_Family" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Incoterms" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_PrePODetail_MeasureUnit" />
@@ -142,10 +138,7 @@
         <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Option" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_DestinationStore" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_OriginalStore" />
-<<<<<<< HEAD
-=======
         <AssociationConnector Association="TLC.Data.NMModel.FK_StockProductDetail_OutputNote" />
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
         <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Port" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_PO_PrePO" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_PrePO_Supplier" />
@@ -158,17 +151,13 @@
         <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage6" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage7" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TypeExistence" />
-<<<<<<< HEAD
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Tolerance" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Treasury" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Role" />
-=======
         <AssociationConnector Association="TLC.Data.NMModel.FK_StockProduct_Product" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Tolerance" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Treasury" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Role" />
         <AssociationConnector Association="TLC.Data.NMModel.FK_StockProductDetail_StockProduct" />
->>>>>>> 51332268c053d317b93672999e51fd33f37f6628
-        </edmx:Diagrams>
+>>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
+      </Diagram>
+    </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

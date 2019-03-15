@@ -77,16 +77,19 @@
                                 <tr>
                                     <td>@supplier.Code</td>
                                     <td>@supplier.BussinessName</td>
-                                    <td>@(supplier.IsActive == true ? Html.Raw("<i class='icon icon-check'></i>") : Html.Raw("<i class='icon icon-remove'></i>"))</td>
+                                    <td>@(supplier.IsActive == true ? Html.Raw("<i class='icon icon-ok' style='color: #00a99d;'></i>") : Html.Raw("<i class='icon icon-remove' style='color: red;'></i>"))</td>
                                     <td>
                                         @Html.Raw(ConstantHelpers.PROCEDENCIA.GetLabelProcedencia(supplier.Provenance))
+                                    </td>
+                                    <td>
+                                        @supplier.Country.Name
                                     </td>
                                     <td>
                                         @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(ConstantHelpers.ESTADO.ACTIVO))
                                     </td>
                                     <td>
                                         <div class='btn-group' style='margin-bottom:5px'>
-                                            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-users'></i> Contactos"), "ListContact", "Master", "Intranet", new { SupplierId = supplier.SupplierId }, new { @class = "'btn'" })
+                                            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-group'></i> Contactos"), "ListContact", "Master", "Intranet", new { SupplierId = supplier.SupplierId }, new { @class = "'btn'" })
                                             <button class='btn dropdown-toggle' data-toggle='dropdown'>
                                                 <span class='caret'></span>
                                             </button>
@@ -102,7 +105,8 @@
                                     </td>
                                 </tr>
                             }
-                            <tr style="visibility:hidden"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            <tr style="visibility:hidden"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            <tr style="visibility:hidden"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
                         </tbody>
                     </table>
                 </div>

@@ -16,7 +16,51 @@ namespace CHS.TLC.Data.NM.Web.Filters
         private static byte[] secretKey = Encoding.UTF8.GetBytes("!R5_6Gfy4#2f?!fD");
         private static byte[] iv64 = { };
         private static String _iv { get; set; } = System.Configuration.ConfigurationManager.AppSettings["IV"];
+        public static MvcHtmlString EncodedUrl(string actionName, string controllerName, string areaName, object routeValues)
+        {
+            string queryString = string.Empty;
+            string htmlAttributesString = string.Empty;
+            string deployName = ConfigurationManager.AppSettings["Deploy_Name"];
 
+            if (routeValues != null)
+            {
+                RouteValueDictionary d = new RouteValueDictionary(routeValues);
+                for (int i = 0; i < d.Keys.Count; i++)
+                {
+                    if (i > 0)
+                    {
+                        queryString += "?";
+                    }
+                    queryString += d.Keys.ElementAt(i) + "=" + d.Values.ElementAt(i);
+                }
+            }
+            
+            StringBuilder ancor = new StringBuilder();            
+
+            if (!String.IsNullOrEmpty(deployName))
+            {
+                ancor.Append("/" + deployName);
+            }
+
+            if (areaName != string.Empty)
+            {
+                ancor.Append("/" + areaName);
+            }
+            if (controllerName != string.Empty)
+            {
+                ancor.Append("/" + controllerName);
+            }
+            if (actionName != "Index")
+            {
+                ancor.Append("/" + actionName);
+            }
+            if (queryString != string.Empty)
+            {
+                ancor.Append("?q=" + Encrypt(queryString));
+            }
+
+            return new MvcHtmlString(ancor.ToString());
+        }
         public static MvcHtmlString EncodedActionLink(this HtmlHelper htmlHelper, IHtmlString linkText, string actionName, string controllerName, string areaName, object routeValues, object htmlAttributes)
         {
             string queryString = string.Empty;

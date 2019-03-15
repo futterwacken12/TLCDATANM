@@ -518,6 +518,262 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             model.Fill(CargarDatosContext(), SupplierId);
             return View(model);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddEditSupplier(AddEditSupplierViewModel model)
+        {
+
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    model.Fill(CargarDatosContext(), model.SupplierId);
+                    TryUpdateModel(model);
+                    PostMessage(MessageType.Error);
+                    return View(model);
+                }
+
+                Supplier supplier = null;
+
+                if (model.SupplierId.HasValue)
+                {
+                    supplier = context.Supplier.FirstOrDefault(x => x.SupplierId == model.SupplierId);
+                }
+                else
+                {
+                    supplier = new Supplier();
+                    supplier.State = ConstantHelpers.ESTADO.ACTIVO;
+                    context.Supplier.Add(supplier);
+                }
+
+                supplier.CountryId = model.CountryId;
+                supplier.Code = model.Code;
+                supplier.RUC = model.RUC;
+                supplier.BussinessName = model.BussinessName;
+                supplier.IsActive = model.IsActive;
+                supplier.Provenance = model.Provenance;
+                supplier.Origin = model.Origin;
+                supplier.Address = model.Address;
+                supplier.ZipCode = model.ZipCode;
+                supplier.Retention = model.Retention;
+                supplier.Detraction = model.Detraction;
+                supplier.Perception = model.Perception;
+
+                context.SaveChanges();
+                PostMessage(MessageType.Success);
+
+                return RedirectToAction("ListSupplier");
+            }
+            catch (Exception ex)
+            {
+                PostMessage(MessageType.Error);
+                model.Fill(CargarDatosContext(), model.SupplierId);
+
+                return View(model);
+            }
+        }
+        [EncryptedActionParameter]
+        public ActionResult _DeleteSupplier(Int32? SupplierId)
+        {
+            var model = new _DeleteSupplierViewModel();
+            model.Fill(CargarDatosContext(), SupplierId);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult _DeleteSupplier(_DeleteSupplierViewModel model)
+        {
+            Supplier supplier = null;
+
+            if (model.SupplierId.HasValue)
+            {
+                supplier = context.Supplier.FirstOrDefault(x => x.SupplierId == model.SupplierId);
+                supplier.State = ConstantHelpers.ESTADO.INACTIVO;
+            }
+
+            context.SaveChanges();
+            PostMessage(MessageType.Success);
+
+            return RedirectToAction("ListSupplier");
+        }
+        #endregion
+        #region Item
+        public ActionResult ListItem(Int32? Page, String Description)
+        {
+            var model = new ListItemViewModel();
+            model.Fill(CargarDatosContext(), Page, Description);
+            return View(model);
+        }
+        [EncryptedActionParameter]
+        public ActionResult AddEditItem(Int32? ItemId)
+        {
+            var model = new AddEditItemViewModel();
+            model.Fill(CargarDatosContext(), ItemId);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddEditItem(AddEditItemViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    model.Fill(CargarDatosContext(), model.ItemId);
+                    TryUpdateModel(model);
+                    PostMessage(MessageType.Error);
+                    return View(model);
+                }
+
+                Item item = null;
+
+                if (model.ItemId.HasValue)
+                {
+                    item = context.Item.FirstOrDefault(x => x.ItemId == model.ItemId);
+                }
+                else
+                {
+                    item = new Item();
+                    item.State = ConstantHelpers.ESTADO.ACTIVO;
+                    context.Item.Add(item);
+                }
+
+                item.Description = model.Description;
+
+                context.SaveChanges();
+                PostMessage(MessageType.Success);
+
+                return RedirectToAction("ListItem");
+            }
+            catch (Exception ex)
+            {
+                PostMessage(MessageType.Error);
+                model.Fill(CargarDatosContext(), model.ItemId);
+
+                return View(model);
+            }
+        }
+        [EncryptedActionParameter]
+        public ActionResult _DeleteItem(Int32? ItemId)
+        {
+            var model = new _DeleteItemViewModel();
+            model.Fill(CargarDatosContext(), ItemId);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult _DeleteItem(_DeleteItemViewModel model)
+        {
+            Item item = null;
+
+            if (model.ItemId.HasValue)
+            {
+                item = context.Item.FirstOrDefault(x => x.ItemId == model.ItemId);
+                item.State = ConstantHelpers.ESTADO.INACTIVO;
+            }
+
+            context.SaveChanges();
+            PostMessage(MessageType.Success);
+
+            return RedirectToAction("ListItem");
+        }
+        #endregion
+        #region Contact
+        [EncryptedActionParameter]
+        public ActionResult ListContact(Int32? SupplierId)
+        {
+            var model = new ListContactViewModel();
+            model.Fill(CargarDatosContext(), SupplierId);
+            return View(model);
+        }
+        [EncryptedActionParameter]
+        public ActionResult _AddEditContact(Int32? ContactId, Int32 SupplierId)
+        {
+            var model = new _AddEditContactViewModel();
+            model.Fill(CargarDatosContext(), ContactId, SupplierId);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult _AddEditContact(_AddEditContactViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    model.Fill(CargarDatosContext(), model.ContactId, model.SupplierId);
+                    TryUpdateModel(model);
+                    PostMessage(MessageType.Error);
+                    return View(model);
+                }
+
+                Contact contact = null;
+
+                if (model.ContactId.HasValue)
+                {
+                    contact = context.Contact.FirstOrDefault(x => x.ContactId == model.ContactId);
+                }
+                else
+                {
+                    contact = new Contact();
+                    contact.State = ConstantHelpers.ESTADO.ACTIVO;
+                    context.Contact.Add(contact);
+                }
+
+                contact.SupplierId = model.SupplierId;
+                contact.ItemId = model.ItemId;
+                contact.Name = model.Name;
+                contact.LastName = model.LastName;
+                contact.SecondLastName = model.SecondLastName;
+                contact.Phone = model.Phone;
+                contact.Email = model.Email;
+
+                context.SaveChanges();
+                PostMessage(MessageType.Success);
+
+                return RedirectToActionSecure("ListContact", "Master", new { SupplierId = model.SupplierId });
+            }
+            catch (Exception ex)
+            {
+                PostMessage(MessageType.Error);
+                model.Fill(CargarDatosContext(), model.ContactId, model.SupplierId);
+
+                return View(model);
+            }
+        }
+        [EncryptedActionParameter]
+        public ActionResult _DeleteContact(Int32? ContactId)
+        {
+            var model = new _DeleteContactViewModel();
+            model.Fill(CargarDatosContext(), ContactId);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult _DeleteContact(_DeleteContactViewModel model)
+        {
+            Contact contact = null;
+
+            if (model.ContactId.HasValue)
+            {
+                contact = context.Contact.FirstOrDefault(x => x.ContactId == model.ContactId);
+                contact.State = ConstantHelpers.ESTADO.INACTIVO;
+            }
+
+            context.SaveChanges();
+            PostMessage(MessageType.Success);
+
+            return RedirectToActionSecure("ListContact", "Master", new { SupplierId = model.SupplierId });
+        }
+        #endregion
+        #region BankContact
+        [EncryptedActionParameter]
+        public ActionResult _AddEditBankContact(Int32? ContactId)
+        {
+            var model = new _AddEditBankContactViewModel();
+            //model.Fill(CargarDatosContext(), ContactId);
+            return View(model);
+        }
         #endregion
     }
 }

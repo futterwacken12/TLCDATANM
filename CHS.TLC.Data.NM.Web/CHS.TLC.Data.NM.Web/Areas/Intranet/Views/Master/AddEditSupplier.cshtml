@@ -1,0 +1,112 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master.AddEditSupplierViewModel
+@{
+    ViewBag.Title = "Nuevo Proveedor";
+    ViewBag.PageIcon = "arrow-right";
+}
+
+<div class='row-fluid'>
+    <div class='span12 box'>
+        <div class='box-header green-background'>
+            <div class='title'>
+                <div class='icon-edit'></div>
+                Formulario
+            </div>
+        </div>
+        <div class='box-content'>
+            <form class="form" method="post" style="margin-bottom: 0;">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.SupplierId)
+                <div class='control-group'>
+                    <label class='control-label' for='Code'>Código Interno</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.Code, new { @class = "input-block-level", @placeholder = "Código Interno" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='RUC'>RUC</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.RUC, new { @class = "input-block-level", @placeholder = "RUC" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='BussinessName'>Razón Social</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.BussinessName, new { @class = "input-block-level", @placeholder = "Razón Social" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='IsActive'>Activo</label>
+                    <div class='controls'>
+                        <label class="checkbox">
+                            @Html.CheckBoxFor(x => x.IsActive) ¿Se encuentra operando?
+                        </label>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Origin'>Ubicación</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.Origin, new { @class = "input-block-level", @placeholder = "Ubicación" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Address'>Dirección</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.Address, new { @class = "input-block-level", @placeholder = "Dirección" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='ZipCode'>Código Postal</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.ZipCode, new { @class = "input-block-level", @placeholder = "Código Postal" })
+                    </div>
+                </div>
+                <div class='control-group' style="padding-bottom: 3%;">
+                    <label class='control-label' for='MethodPayment'>Forma de Pago</label>
+                    <div class='controls'>
+                        @Html.DropDownListFor(x => x.MethodPayment, Model.LstMethodPayment, "[-Seleccione-]", new { @class = "select2 span12" })
+                    </div>
+                </div>
+                <div class='control-group' style="padding-bottom: 3%;">
+                    <label class='control-label' for='Provenance'>Procedencia</label>
+                    <div class='controls'>
+                        @Html.DropDownListFor(x => x.Provenance, Model.LstProvenance, "[-Seleccione-]", new { @class = "select2 span12" })
+                    </div>
+                </div>
+                <div class='control-group' style="padding-bottom: 3%;">
+                    <label class='control-label' for='CountryId'>País</label>
+                    <div class='controls'>
+                        @Html.DropDownListFor(x => x.CountryId, new SelectList(Model.LstCountry, "CountryId", "Name"), "[-Seleccione-]", new { @class = "select2 span12" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Retention'>Retención</label>
+                    <div class='controls'>
+                        <label class="checkbox">
+                            @Html.CheckBoxFor(x => x.Retention) ¿Aplica Retención?
+                        </label>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Detraction'>Detracción</label>
+                    <div class='controls'>
+                        <label class="checkbox">
+                            @Html.CheckBoxFor(x => x.Detraction) ¿Aplica Detracción?
+                        </label>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Perception'>Percepción</label>
+                    <div class='controls'>
+                        <label class="checkbox">
+                            @Html.CheckBoxFor(x => x.Perception) ¿Aplica Percepción?
+                        </label>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <button class="btn btn-primary" type="submit"><i class="icon icon-save"></i> Guardar</button>
+                    <a class="btn btn-default" href="@Url.Action("ListSupplier", "Master")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
