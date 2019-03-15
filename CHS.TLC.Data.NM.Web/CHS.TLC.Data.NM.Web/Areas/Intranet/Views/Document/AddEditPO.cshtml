@@ -1,0 +1,415 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document.AddEditPOViewModel
+@{
+    ViewBag.Title = (Model.PurcherseOrderId.HasValue ? "Editar" : "Nueva") + " Purcharse Order";
+    ViewBag.PageIcon = "check-sign";
+}
+
+@section BreadCrumbs{
+    <li><a href="@Url.Action("ListPO","Document")">Lista de P.O.</a></li>
+    <li class="separator"><i class="icon-angle-right"></i></li>
+}
+
+<div class='row-fluid'>
+    <div class='span12 box'>
+        <div class='box-header green-background'>
+            <div class='title'>
+                <div class='icon-edit'></div>
+                Formulario
+            </div>
+        </div>
+        <div class='box-content'>
+            <form class="form" method="post" style="margin-bottom: 0;">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.PurcherseOrderId)
+                @Html.HiddenFor(x => x.RegistrationDate)
+                <input hidden name="SupplierId" id="SupplierId" />
+                <div class='control-group'>
+                    <label class='control-label' for='RegistrationDate'>
+                        <strong>Fecha de Registro : @Model.RegistrationDate</strong>
+                    </label>
+                </div>
+
+                <div class='control-group'>
+                    <label class='control-label' for='PrePurcherseOrderId'>Número Pre Orden</label>
+                    <div class='controls'>
+                        <select id="PrePurcherseOrderId" name="PrePurcherseOrderId" class="span12" placeholder="Proveedor" value="@Model.PrePurcherseOrderId" />
+                    </div>
+                    <label class='control-label' for='DateOrder'>&nbsp;</label>
+                    <div class='controls'>
+                        <input hidden />
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Code'>Número Pucharse Orden</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.Code, new { @class = "input-block-level", @placeholder = "Número Pre Orden" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <div class="span3">
+                        <label class='control-label' for='DateOrder'>Fecha Pedido</label>
+                        <div class='controls'>
+                            <div class="datepicker input-append" id="datepicker" style="padding-left: 0%; padding: unset;">
+                                @Html.TextBoxFor(x => x.OrderDate, new { @class = "input-block-level", @placeholder = "Fecha Pedido", @data_format = "dd/MM/yyyy" })
+                                <span class="add-on">
+                                    <i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span9">                        
+                        <label class='control-label' for='NombreProveedor'>Nombre Proveedor</label>
+                        <div class='controls'>
+                            <input name="NombreProveedor" id="NombreProveedor" class="input-block-level span12" type="text" />
+                        </div>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <div class="span3">
+                        <label class='control-label' for='CurrencyId'>Moneda</label>
+                        <div class='controls'>
+                            @Html.DropDownListFor(x => x.CurrencyId, new SelectList(Model.LstCurrency, "CurrencyId", "Name"), "[-Seleccione-]", new { @class = "input-block-level select2" })
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <label class='control-label' for='DateOrder'>Dirección Proveedor</label>
+                        <div class='controls'>
+                            <input name="DireccionProveedor" id="DireccionProveedor" class="input-block-level span12" type="text" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class='control-group'>
+                    <label class='control-label' for='SupplierId'>Incoterms</label>
+                    <div class='controls'>
+                        @Html.DropDownListFor(x => x.IncotermsId, new SelectList(Model.LstIncoterms, "IncotermsId", "Name"), "[-Seleccione-]", new { @class = "input-block-level select2" })
+                    </div>
+                </div>
+
+
+                <hr />
+                <div class="pull-right">
+                    <a class="btn btn-warning" @Data.ModalLink("AddEditProduct", "Master")><i class="icon-plus"></i> Nuevo Producto</a>
+                </div>
+
+                <br />
+                <div class='control-group'>
+                    <label class='control-label' for='ProductId'><i class="icon-search"></i> Buscar Producto</label>
+                    <div class='controls'>
+                        <select name="ProductId" id="ProductId" class="span6" disabled></select>
+                        <a class="btn btn-inverse" id="add-product"><i class="icon-plus-sign"></i> Agregar</a>
+                    </div>
+                </div>
+
+
+                <div class="responsive-table">
+                    <div class="scrollable-area">
+                        <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
+                            <thead>
+                                <tr>
+                                    <th>Código Producto</th>
+                                    <th>Descripción Invoice</th>
+                                    <th>Cantidad</th>
+                                    <th>Und.</th>
+                                    <th>Precio</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="product-table">
+                                @foreach (var prePO in Model.LstPrePODetail)
+                                {
+                                    <tr id="row-@prePO.PrePurcherseOrderDetailId">
+                                        <td>@prePO.Product.InternalCode</td>
+                                        <td>@prePO.Product.InvoiceDescription.ToUpper()</td>
+                                        <td>@prePO.Quantity<input hidden id="quantity-@prePO.PrePurcherseOrderId" value="@prePO.Quantity" /></td>
+                                        <td>@prePO.MeasureUnit.Acronym</td>
+                                        <td>
+                                            <input class="price span12 onlyNumbers" name="price-@prePO.PrePurcherseOrderDetailId" value="@prePO.Price" data_index="@prePO.PrePurcherseOrderDetailId" />
+                                        </td>
+                                        <td>
+                                            <input class="total span12 onlyNumbers" name="total-@prePO.PrePurcherseOrderDetailId" value="@((prePO.Quantity * prePO.Price.Value).ToString("F"))" disabled />
+                                        </td>
+                                        <td class="span2">
+                                            <div class="pull-right">
+                                                <a class="deleterow btn btn-danger" data-index="@prePO.PrePurcherseOrderDetailId"><i class="icon-trash"></i> Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <h5><strong>Total: <span id="total-quantity">@(Model.LstPrePODetail.Sum(x => x.Price.Value * x.Quantity).ToString("F"))</span></strong></h5>
+                </div>
+                <br />
+                <hr />
+
+                <label><strong>Remark</strong></label>
+
+                <div class='control-group'>
+                    <div class="span3">
+                        <label class='control-label' for='CountryId'>Tolerance</label>
+                        <div class='controls'>
+                            @Html.DropDownListFor(x => x.ToleranceId, new SelectList(Model.LstTolerance, "ToleranceId", "Value"), "[-Seleccione-]", new { @class = "input-block-level select2" })
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <label class='control-label' for='CountryId'>Tolerance Remark</label>
+                        <div class='controls'>
+                            @Html.TextAreaFor(x => x.ToleranceRemark, new { @class = "input-block-level", @rows = "3" , @placeholder = "Tolerance Remark" })
+                        </div>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <div class="span3">
+                        
+                        <label class='control-label' for='Text'>Made</label>
+                        <div class='controls'>
+                            @Html.DropDownListFor(x => x.CountryId, new SelectList(Model.LstCountry, "CountryId", "Name"), "[-Seleccione-]", new { @class = "input-block-level select2" })
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <label class='control-label' for='Text'>Shipment Date</label>
+                        <div class='controls'>
+                            <div class="datepicker input-append" id="datepicker" style="padding-left: 0%; padding: unset;">
+                                @Html.TextBoxFor(x => x.ShipmentDate, new { @class = "input-block-level", @placeholder = "Shipment Date", @data_format = "dd/MM/yyyy" })
+                                <span class="add-on">
+                                    <i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='CountryId'>Shipment Sample</label>
+                    <div class='controls'>
+                        @Html.TextAreaFor(x => x.ShipmentSample, new { @class = "input-block-level", @rows = "3", @placeholder = "Shipment Sample" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Payment Terms</label>
+                    <div class='controls'>
+                        @Html.DropDownListFor(x => x.MethodPayment, Model.LstMethodPayment, "[-Seleccione-]", new { @class = "input-block-level select2" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Payment Obs (Días)</label>
+                    <div class='controls'>
+                        @Html.DropDownListFor(x => x.TreasuryId, new SelectList(Model.LstTreasury, "TreasuryId", "Value"), "[-Seleccione-]", new { @class = "input-block-level select2" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Destiny Port</label>
+                    <div class='controls'>
+                        @Html.DropDownListFor(x => x.PortId, new SelectList(Model.LstPort, "PortId", "Name"), "[-Seleccione-]", new { @class = "input-block-level select2" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Beneficiary Supply</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.BeneficiarySupply, new { @class = "input-block-level", @placeholder = "Beneficiary Supply" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Beneficiary Supply Adress</label>
+                    <div class='controls'>
+                        @Html.TextAreaFor(x => x.BeneficiarySupplyAdress, new { @orws = "3", @class = "input-block-level", @placeholder = "Beneficiary Supply Adress" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Beneficiary Bank Adress</label>
+                    <div class='controls'>
+                        @Html.TextAreaFor(x => x.BeneficiaryBankAdress, new { @orws = "3", @class = "input-block-level", @placeholder = "Beneficiary Bank Adress" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Bank Account Number</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.BankAccountnumber, new { @class = "input-block-level", @placeholder = "Bank Account Number" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Swift Code</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.SwiftCode, new { @class = "input-block-level", @placeholder = "Swift Code" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Intermediary Bank</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.IntermediaryBank, new { @class = "input-block-level", @placeholder = "Intermediary Bank" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Swift Intermediary Bank</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.SwiftIntermediaryBank, new { @class = "input-block-level", @placeholder = "Swift Intermediary Bank" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Send CEO Company</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.CEOEmail, new { @class = "input-block-level", @placeholder = "Send CEO Company" })
+                    </div>
+                </div>
+                <div class='control-group'>
+                    <label class='control-label' for='Text'>Send Supply</label>
+                    <div class='controls'>
+                        @Html.TextBoxFor(x => x.SupplierEmail, new { @class = "input-block-level", @placeholder = "Send Supply" })
+                    </div>
+                </div>
+                <hr />
+                <div class='control-group'>
+                    <button class="btn btn-primary" type="submit"><i class="icon icon-save"></i> Guardar</button>
+                    <a class="btn btn-default" href="@Url.Action("ListPrePO","Document")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).on('ready', function () {
+            $('#PrePurcherseOrderId').select2({
+                ajax: {
+                    url: '@Url.Action("GetPrePurcherseOrderByCode", "Json")',
+                    dataType: 'json',
+                    type: "GET",
+                    data: function (params) {
+                        return {
+                            q: params.term, // search term
+                        };
+                    },
+                    processResults: function (data) {
+                        var arr = [];
+                        $.each(data, function (index, value) {
+                            arr.push({
+                                id: value.id,
+                                text: value.text
+                            });
+                        });
+                        return {
+                            results: arr
+                        };
+                    },
+                    initSelection: function (element, callback) {
+                        callback({ id: '@Model.PrePurcherseOrderId', text: '@Model.PreOrderCode' });
+                    }
+                },
+                minimumInputLength: 1,
+                placeholder:'Pre Orden'
+            });
+            $('#ProductId').select2({
+                ajax: {
+                    url: '@Url.Action("GetProductByCodeAndInvoicePrePO", "Json")',
+                    dataType: 'json',
+                    type: "GET",
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            prePurcherseOrderId: $('#PrePurcherseOrderId').val()
+                        };
+                    },
+                    processResults: function (data) {
+                        var arr = [];
+                        $.each(data, function (index, value) {
+                            arr.push({
+                                id: value.id,
+                                text: value.text
+                            });
+                        });
+                        return {
+                            results: arr
+                        };
+                    }
+                },
+                minimumInputLength: 3
+            });
+            $('#PrePurcherseOrderId').on('change', function () {
+                var parameter = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("GetPrePurcherseOrderInfo", "Json")' + '?PrePurcherseOrderId=' + parameter,
+                    type: 'GET',
+                    success: function (data) {
+                        $('#OrderDate').val(data.orderDate);
+                        $('#NombreProveedor').val(data.supplierName);
+                        $('#DireccionProveedor').val(data.supplierAddress);
+                        $('#CountryId').val(data.countryId).trigger('change');
+                        $('#ShipmentDate').val(data.shipmentDate);
+                        $('#SupplierId').val(data.supplierId);
+
+                        $('#ProductId').removeAttr('disabled');
+                    }
+                });
+            });
+
+            $('#add-product').on('click', function () {
+                var parameter = $('#ProductId').val();
+                $.ajax({
+                    url: '@Url.Action("GetProductPrePOById", "Json")' + '?ProductId=' + parameter,
+                    type: 'GET',
+                    success: function (data) {
+                        if (data !== null && data.length > 0) {
+                            var template = '<tr id="row-' + data[0].id +'">'+
+                                '<td>'+ data[0].code +'</td>'+
+                                '<td>' + data[0].invoiceDescription + '</td>' +
+                                '<td>' + data[0].quantity + '<input hidden id = "quantity-'+ data[0].id + '" value="' + data[0].quantity+'"/></td> '+
+                                '<td>' + data[0].measureUnit + '</td> ' +
+                                '<td><input value="0" class="price span12 onlyNumbers" name="price-' + data[0].id + '" data-index="' + data[0].id + '"/></td> ' +
+                                '<td><input value="0" class="totalPrice span12 onlyNumbers" name="total-' + data[0].id + '" disabled id="total-' + data[0].id + '"/></td> ' +
+                                '<td class="span2">' +
+                                    '<div class="pull-right"><a class="deleterow btn btn-danger" data-index ="' + data[0].id +'"><i class="icon-trash"></i> Eliminar</a></div>' +
+                                '</td>'+
+                                '</tr>';
+
+                            $('#product-table').append(template);
+
+                            var total = 0;
+                            $('.totalPrice').each(function () {
+                                total += parseFloat($(this).val());
+                            });
+                            $('#total-quantity').text(total.toFixed(2));
+                        }
+                    }
+                });
+            });
+
+            $(document).on('keyup', '.price', function () {
+                var value = parseFloat($(this).val());
+                var index = $(this).attr('data-index');
+                var quantity = parseFloat($('#quantity-' + index).val());
+
+                $('#total-' + index).val(value * quantity);
+
+                var total = 0;
+                $('.totalPrice').each(function(){
+                    total += parseFloat($(this).val());
+                });
+                $('#total-quantity').text(total.toFixed(2));
+            });
+
+            $(document).on('click', '.deleterow', function () {
+                var index = $(this).attr('data-index');
+                $('#row-' + index).remove();
+
+                var total = 0;
+                $('.totalPrice').each(function () {
+                    total += parseFloat($(this).val());
+                });
+                $('#total-quantity').text(total.toFixed(2));
+            });
+
+            @if (Model.PrePurcherseOrderId != 0) {
+                <text>
+                    var newOption = new Option('@Model.PreOrderCode', '@Model.PrePurcherseOrderId', true, true);
+                    $("#PrePurcherseOrderId").append(newOption).trigger('change');
+                </text>
+            }
+        })
+    </script>
+}
