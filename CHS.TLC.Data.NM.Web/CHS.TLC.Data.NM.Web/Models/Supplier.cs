@@ -27,6 +27,7 @@ namespace CHS.TLC.Data.NM.Web.Models
         public string Code { get; set; }
         public string RUC { get; set; }
         public string BussinessName { get; set; }
+        public string MethodPayment { get; set; }
         public bool IsActive { get; set; }
         public string Provenance { get; set; }
         public string Origin { get; set; }

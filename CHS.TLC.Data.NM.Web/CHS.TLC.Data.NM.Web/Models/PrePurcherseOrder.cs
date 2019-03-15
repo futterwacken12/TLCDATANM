@@ -31,7 +31,9 @@ namespace CHS.TLC.Data.NM.Web.Models
         public string Text { get; set; }
         public string SendSupply { get; set; }
         public string DocumentName { get; set; }
-        public string DocumentPath { get; set; }
+        public byte[] DocumentPath { get; set; }
+        public string DocumentExtension { get; set; }
+        public string DocumentContentType { get; set; }
     
         public virtual Country Country { get; set; }
         public virtual ICollection<PurcherseOrder> PurcherseOrder { get; set; }

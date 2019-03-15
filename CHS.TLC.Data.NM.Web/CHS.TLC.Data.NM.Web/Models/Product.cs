@@ -29,8 +29,6 @@ namespace CHS.TLC.Data.NM.Web.Models
         public string InternalCode { get; set; }
         public bool IsActive { get; set; }
         public string Barcode { get; set; }
-        public string DesignName { get; set; }
-        public string NumberDesign { get; set; }
         public string Color { get; set; }
         public string InvoiceDescription { get; set; }
         public string LocalDescription { get; set; }

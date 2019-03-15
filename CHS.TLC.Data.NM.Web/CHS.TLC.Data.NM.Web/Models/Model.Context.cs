@@ -40,6 +40,7 @@ namespace CHS.TLC.Data.NM.Web.Models
         public DbSet<MovementType> MovementType { get; set; }
         public DbSet<Option> Option { get; set; }
         public DbSet<OutputNote> OutputNote { get; set; }
+        public DbSet<Password> Password { get; set; }
         public DbSet<Port> Port { get; set; }
         public DbSet<PrePurcherseOrder> PrePurcherseOrder { get; set; }
         public DbSet<PrePurcherseOrderDetail> PrePurcherseOrderDetail { get; set; }
@@ -56,5 +57,6 @@ namespace CHS.TLC.Data.NM.Web.Models
         public DbSet<Tolerance> Tolerance { get; set; }
         public DbSet<Treasury> Treasury { get; set; }
         public DbSet<TypeExistence> TypeExistence { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

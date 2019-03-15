@@ -17,6 +17,7 @@ namespace CHS.TLC.Data.NM.Web.Models
         public Role()
         {
             this.RoleOption = new HashSet<RoleOption>();
+            this.User = new HashSet<User>();
         }
     
         public int RoleId { get; set; }
@@ -25,5 +26,6 @@ namespace CHS.TLC.Data.NM.Web.Models
         public string State { get; set; }
     
         public virtual ICollection<RoleOption> RoleOption { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }
