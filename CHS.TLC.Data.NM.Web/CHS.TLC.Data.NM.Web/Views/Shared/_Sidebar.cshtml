@@ -5,6 +5,37 @@
     <div class='navigation'>
         <ul class='nav nav-stacked'>
             @Html.Raw(controller.GenerarMenu(controller.ObtenerPermisos(Session.GetRolId())))
+            <li class="">
+                <a href="@Url.Action("DashboardAdministrator","Home")">
+                    <i class="icon-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("ListPrePO","Document")">
+                    <i class="icon-file-alt"></i>
+                    <span>Lista de Pre P.O.</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("ListPO","Document")">
+                    <i class="icon-check-sign"></i>
+                    <span>Lista de P.O.</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("ListEntryNote","Store")">
+                    <i class="icon-arrow-left"></i>
+                    <span>Lista de Notas de Entrada</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="@Url.Action("ListOutputNote","Store")">
+                    <i class="icon-arrow-right"></i>
+                    <span>Lista de Notas de Salida</span>
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>
