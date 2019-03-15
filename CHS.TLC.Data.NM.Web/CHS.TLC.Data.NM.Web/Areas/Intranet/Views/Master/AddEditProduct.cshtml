@@ -1,0 +1,256 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master.AddEditProductViewModel
+@{
+    ViewBag.Title = "Nuevo Producto";
+    ViewBag.PageIcon = "arrow-right";
+}
+
+<div class='row-fluid'>
+    <div class='span12 box'>
+        <div class='box-header green-background'>
+            <div class='title'>
+                <div class='icon-edit'></div>
+                Formulario
+            </div>
+        </div>
+        <div class='box-content'>
+            <form class="form" method="post" style="margin-bottom: 0;">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.ProductId)
+
+                <fieldset>
+                    <div class="span6">
+                        <div class='control-group'>
+                            <label class='control-label' for='FamilyId'>Familia</label>
+                            <div class='controls'>
+                                @Html.DropDownListFor(x => x.FamilyId, new SelectList(Model.LstFamily, "FamilyId", "Description"), "[-Seleccione-]", new { @class = "select2 span12", data_type = "cascade-dropdown-list", data_filter = "FamilyId", data_update_target = "#SubFamilyId", data_source_url = Url.Action("GetSubfamilyByFamily", "Json") })
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label' for='SubFamilyId'>Subfamilia</label>
+                            <div class='controls'>
+                                @Html.DropDownListFor(x => x.SubFamilyId, new SelectList(Model.LstSubFamily, "SubFamilyId", "Description"), "[-Seleccione-]", new { @class = "select2 span12", @disabled = "disabled", data_value_member = "SubFamilyId", data_text_member = "Description" })
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label' for='InvoiceDescription'>Descripción Invoice</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.InvoiceDescription, new { @class = "input-block-level", @placeholder = "Descripción Invoice" })
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label' for='LocalDescription'>Descripción Local</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.LocalDescription, new { @class = "input-block-level", @placeholder = "Descripción Local" })
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label' for='LotNumberPurchase'># Lote Compra</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.LotNumberPurchase, new { @class = "input-block-level", @placeholder = "# Lote Compra" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="span6">
+                        <div class='control-group'>
+                            <label class='control-label' for='InternalCode'>Código Interno</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.InternalCode, new { @class = "input-block-level", @placeholder = "Código Interno" })
+                            </div>
+                        </div>
+                        <div class='control-group' style="margin-top: -1%;">
+                            <label class='control-label' for='IsActive'>Activo</label>
+                            <div class='controls'>
+                                <label class="checkbox" style="padding-top: 0px !important;">
+                                    @Html.CheckBoxFor(x => x.IsActive) ¿Es Activo?
+                                </label>
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label' for='InternalCode'>Código SKU</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.SKUCode, new { @class = "input-block-level", @placeholder = "Código SKU", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label' for='Barcode'>Código Barra</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.Barcode, new { @class = "input-block-level", @placeholder = "Código Barra" })
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label' for='Color'>Color</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.Color, new { @class = "colorpicker-hex input-block-level", @placeholder = "Color", @style = "margin-bottom: 0;", @autocomplete = "off" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <hr class="hr-normal">
+
+                <fieldset>
+                    <div class="span8">
+                        <div class='control-group' style="padding-bottom: 3%;">
+                            <label class='control-label' for='Type'>Tipo de Existencia</label>
+                            <div class='controls'>
+                                @Html.DropDownListFor(x => x.TypeExistenceId, new SelectList(Model.LstTypeExistence, "TypeExistenceId", "Description"), "[-Seleccione-]", new { @class = "select2 span12" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="span4">
+                        <div class='control-group' style="padding-bottom: 3%;">
+                            <label class='control-label' for='Type'>Afecto IGV</label>
+                            <div class='controls'>
+                                @Html.DropDownListFor(x => x.TaxPercentageAffectionIGVId, new SelectList(Model.LstTaxPercentage, "TaxPercentageId", "Description"), "[-Seleccione-]", new { @class = "select2 span12" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div class="span4">
+                        <div class='control-group' style="padding-bottom: 3%;">
+                            <label class='control-label' for='Type'>% ADvaloren</label>
+                            <div class='controls'>
+                                @Html.DropDownListFor(x => x.TaxPercentageAdvalorenId, new SelectList(Model.LstTaxPercentage, "TaxPercentageId", "Description"), "[-Seleccione-]", new { @class = "select2 span12" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="span4">
+                        <div class='control-group' style="padding-bottom: 3%;">
+                            <label class='control-label' for='Type'>Percepción</label>
+                            <div class='controls'>
+                                @Html.DropDownListFor(x => x.TaxPercentagePerceptionId, new SelectList(Model.LstTaxPercentage, "TaxPercentageId", "Description"), "[-Seleccione-]", new { @class = "select2 span12" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="span4">
+                        <div class='control-group' style="padding-bottom: 3%;">
+                            <label class='control-label' for='Type'>Detracción</label>
+                            <div class='controls'>
+                                @Html.DropDownListFor(x => x.TaxPercentageDetractionId, new SelectList(Model.LstTaxPercentage, "TaxPercentageId", "Description"), "[-Seleccione-]", new { @class = "select2 span12" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <hr class="hr-normal">
+
+                <div class='control-group'>
+                    <label class='control-label' for=''>Destino</label>
+                    <div class='controls'>
+                        <label class="checkbox inline">
+                            @Html.CheckBoxFor(x => x.IsSale) Venta
+                        </label>
+                        <label class="checkbox inline">
+                            @Html.CheckBoxFor(x => x.IsPurchase) Compra
+                        </label>
+                    </div>
+                </div>
+
+                <hr class="hr-normal">
+
+                <fieldset>
+                    <div class="span4">
+                        <div class='control-group' style="padding-bottom: 3%;">
+                            <label class='control-label' for='Type'>Unidad de Medida Principal</label>
+                            <div class='controls'>
+                                @Html.DropDownListFor(x => x.MeasureUnitPrimaryId, new SelectList(Model.LstMeasureUnit, "MeasureUnitId", "Description"), "[-Seleccione-]", new { @class = "select2 span12" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class='control-group' style="padding-bottom: 3%;">
+                            <label class='control-label' for='Type'>Unidad de Medida Secundario</label>
+                            <div class='controls'>
+                                @Html.DropDownListFor(x => x.MeasureUnitSecondaryId, new SelectList(Model.LstMeasureUnit, "MeasureUnitId", "Description"), "[-Seleccione-]", new { @class = "select2 span12" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <div class='control-group'>
+                            <label class='control-label' for='Otro'>Otro</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.OtherMeasureUnit, new { @class = "input-block-level", @placeholder = "Otro" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class='control-group'>
+                        <label class='control-label' for='ConversionFactor'>Factor Conversión</label>
+                        <div class='controls'>
+                            @Html.TextBoxFor(x => x.ConversionFactor, new { @class = "input-block-level", @placeholder = "Factor Conversión" })
+                        </div>
+                    </div>
+                </fieldset>
+
+                <hr class="hr-normal">
+
+                <fieldset>
+                    <div class="span6">
+                        <div class='control-group'>
+                            <label class='control-label' for='MinimumStock'>Stock Mínimo</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.MinimumStock, new { @class = "input-block-level", @placeholder = "Stock Mínimo" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="span6">
+                        <div class='control-group'>
+                            <label class='control-label' for='MinimumLot'>Lote Mínimo</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.MinimumLot, new { @class = "input-block-level", @placeholder = "Lote Mínimo" })
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <hr class="hr-normal">
+
+                <div class='control-group' style="padding-bottom: 3%;">
+                    <label class='control-label' for='MinimumLot'>Origen Proveedor</label>
+                    <div class='controls'>
+                        @Html.DropDownListFor(x => x.SupplierId, new SelectList(Model.LstSupplier, "SupplierId", "BussinessName"), "[-Seleccione-]", new { @class = "select2 span12" })
+                    </div>
+                </div>
+
+                <div class='control-group'>
+                    <div class='controls'>
+                        <button class="btn btn-primary" type="submit"><i class="icon icon-save"></i> Guardar</button>
+                        <a class="btn btn-default" href="@Url.Action("ListProduct", "Master")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $(document).on('ready', function () {
+            $('#FamilyId').on('change', function () {
+                var parameter = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("GetSKUCodeByFamily", "Json")' + '?FamilyId=' + parameter,
+                    type: 'GET',
+                    success: function (data) {
+                        $('#SKUCode').val(data);
+                    }
+                });
+            });
+
+            @if(Model.ProductId.HasValue)
+            {
+                <text>
+                    $('#FamilyId').change().val('@Model.FamilyId');
+                    $('#SubFamilyId').change().val('@Model.SubFamilyId');
+                </text>
+            }
+        });
+    </script>
+}

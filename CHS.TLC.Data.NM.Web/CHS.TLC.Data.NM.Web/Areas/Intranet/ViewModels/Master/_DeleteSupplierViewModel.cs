@@ -15,7 +15,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         }
         public void Fill(CargarDatosContext c, Int32? supplierId)
         {
-            this.SupplierId = SupplierId;
+            this.SupplierId = supplierId;
 
             if (this.SupplierId.HasValue)
             {

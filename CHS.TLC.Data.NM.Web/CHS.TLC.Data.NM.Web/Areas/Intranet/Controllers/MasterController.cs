@@ -550,6 +550,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 supplier.Code = model.Code;
                 supplier.RUC = model.RUC;
                 supplier.BussinessName = model.BussinessName;
+                supplier.MethodPayment = model.MethodPayment;
                 supplier.IsActive = model.IsActive;
                 supplier.Provenance = model.Provenance;
                 supplier.Origin = model.Origin;
@@ -773,6 +774,107 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             var model = new _AddEditBankContactViewModel();
             //model.Fill(CargarDatosContext(), ContactId);
             return View(model);
+        }
+        #endregion
+        #region Product
+        public ActionResult ListProduct(Int32? Page, String InvoiceDescription)
+        {
+            var model = new ListProductViewModel();
+            model.Fill(CargarDatosContext(), Page, InvoiceDescription);
+            return View(model);
+        }
+        [EncryptedActionParameter]
+        public ActionResult AddEditProduct(Int32? ProductId)
+        {
+            var model = new AddEditProductViewModel();
+            model.Fill(CargarDatosContext(), ProductId);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddEditProduct(AddEditProductViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    model.Fill(CargarDatosContext(), model.ProductId);
+                    TryUpdateModel(model);
+                    PostMessage(MessageType.Error);
+                    return View(model);
+                }
+
+                Product product = null;
+
+                if (model.ProductId.HasValue)
+                {
+                    product = context.Product.FirstOrDefault(x => x.ProductId == model.ProductId);
+                }
+                else
+                {
+                    product = new Product();
+                    product.State = ConstantHelpers.ESTADO.ACTIVO;
+                    context.Product.Add(product);
+                }
+
+                product.SubFamilyId = model.SubFamilyId.Value;
+                product.TypeExistenceId = model.TypeExistenceId;
+                product.MeasureUnitPrimaryId = model.MeasureUnitPrimaryId;
+                product.MeasureUnitSecondaryId = model.MeasureUnitSecondaryId;
+                product.SupplierId = model.SupplierId;
+                product.InternalCode = model.InternalCode;
+                product.IsActive = model.IsActive;
+                product.Barcode = model.Barcode;
+                product.Color = model.Color;
+                product.InvoiceDescription = model.InvoiceDescription;
+                product.LocalDescription = model.LocalDescription;
+                product.LotNumberPurchase = model.LotNumberPurchase;
+                product.TaxPercentageAdvalorenId = model.TaxPercentageAdvalorenId;
+                product.TaxPercentageAffectionIGVId = model.TaxPercentageAffectionIGVId;
+                product.TaxPercentagePerceptionId = model.TaxPercentagePerceptionId;
+                product.TaxPercentageDetractionId = model.TaxPercentageDetractionId;
+                product.IsSale = model.IsSale;
+                product.IsPurchase = model.IsPurchase;
+                product.OtherMeasureUnit = model.OtherMeasureUnit;
+                product.ConversionFactor = model.ConversionFactor;
+                product.MinimumStock = model.MinimumStock;
+                product.MinimumLot = model.MinimumLot;
+
+                context.SaveChanges();
+                PostMessage(MessageType.Success);
+
+                return RedirectToAction("ListProduct", "Master");
+            }
+            catch (Exception ex)
+            {
+                PostMessage(MessageType.Error);
+                model.Fill(CargarDatosContext(), model.ProductId);
+                return View(model);
+            }
+        }
+        [EncryptedActionParameter]
+        public ActionResult _DeleteProduct(Int32? ProductId)
+        {
+            var model = new _DeleteProductViewModel();
+            model.Fill(CargarDatosContext(), ProductId);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult _DeleteProduct(_DeleteProductViewModel model)
+        {
+            Product product = null;
+
+            if (model.ProductId.HasValue)
+            {
+                product = context.Product.FirstOrDefault(x => x.ProductId == model.ProductId);
+                product.State = ConstantHelpers.ESTADO.INACTIVO;
+            }
+
+            context.SaveChanges();
+            PostMessage(MessageType.Success);
+
+            return RedirectToAction("ListProduct");
         }
         #endregion
     }

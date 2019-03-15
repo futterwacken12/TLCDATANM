@@ -1,7 +1,7 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master.AddEditSupplierViewModel
 @{
     ViewBag.Title = "Nuevo Proveedor";
-    ViewBag.PageIcon = "arrow-right";
+    ViewBag.PageIcon = "truck";
 }
 
 <div class='row-fluid'>
@@ -60,19 +60,19 @@
                         @Html.TextBoxFor(x => x.ZipCode, new { @class = "input-block-level", @placeholder = "Código Postal" })
                     </div>
                 </div>
-                <div class='control-group' style="padding-bottom: 3%;">
+                <div class='control-group'>
                     <label class='control-label' for='MethodPayment'>Forma de Pago</label>
                     <div class='controls'>
                         @Html.DropDownListFor(x => x.MethodPayment, Model.LstMethodPayment, "[-Seleccione-]", new { @class = "select2 span12" })
                     </div>
                 </div>
-                <div class='control-group' style="padding-bottom: 3%;">
+                <div class='control-group'>
                     <label class='control-label' for='Provenance'>Procedencia</label>
                     <div class='controls'>
                         @Html.DropDownListFor(x => x.Provenance, Model.LstProvenance, "[-Seleccione-]", new { @class = "select2 span12" })
                     </div>
                 </div>
-                <div class='control-group' style="padding-bottom: 3%;">
+                <div class='control-group'>
                     <label class='control-label' for='CountryId'>País</label>
                     <div class='controls'>
                         @Html.DropDownListFor(x => x.CountryId, new SelectList(Model.LstCountry, "CountryId", "Name"), "[-Seleccione-]", new { @class = "select2 span12" })

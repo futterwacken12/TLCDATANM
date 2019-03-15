@@ -112,7 +112,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 }
 
                 PostMessage(MessageType.Success);
-                return RedirectToAction("ListPrePO");
+                return RedirectToAction("ListPO");
             }
             catch (Exception ex)
             {
