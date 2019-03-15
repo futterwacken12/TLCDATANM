@@ -98,5 +98,27 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
         }
+        [HttpPost]
+        public JsonResult GetSubfamilyByFamily(Int32 FamilyId)
+        {
+            var LstData = context.SubFamily.Where(x => x.FamilyId == FamilyId && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO))
+                .Select(x => new { SubFamilyId = x.SubFamilyId, Description = x.Description }).ToList();
+            return Json(LstData);
+        }
+        [HttpGet]
+        public JsonResult GetSKUCodeByFamily(Int32 FamilyId)
+        {
+            var data = String.Empty;
+            try
+            {
+                var family = context.Family.FirstOrDefault(x => x.FamilyId == FamilyId);
+                data = family.SKUCode;
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
     }
 }

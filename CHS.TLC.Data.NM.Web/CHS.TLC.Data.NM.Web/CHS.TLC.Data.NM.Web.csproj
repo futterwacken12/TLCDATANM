@@ -159,6 +159,8 @@
     <Compile Include="Areas\Intranet\ViewModels\Document\AddEditPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\ListPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditProductViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListProductViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditBankContactViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditContactViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
@@ -183,6 +185,7 @@
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteItemViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteProductViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSupplierViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTaxPercentageViewModel.cs" />
@@ -279,6 +282,9 @@
     <Compile Include="Models\OutputNote.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Password.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Port.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -327,6 +333,9 @@
     <Compile Include="Models\TypeExistence.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
   </ItemGroup>
@@ -352,6 +361,11 @@
     <Content Include="Content\assets\images\ajax-loaders\8.gif" />
     <Content Include="Content\assets\images\ajax-loaders\9.gif" />
     <Content Include="Content\assets\images\avatar.jpg" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\hue.png" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\saturation.png" />
     <Content Include="Content\assets\images\bootstrap\glyphicons-halflings-white.png" />
     <Content Include="Content\assets\images\bootstrap\glyphicons-halflings.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -379,6 +393,7 @@
     <Content Include="Content\assets\images\plugins\select2\spinner.gif" />
     <Content Include="Content\assets\images\plugins\xeditable\clear.png" />
     <Content Include="Content\assets\images\plugins\xeditable\loading.gif" />
+    <Content Include="Content\assets\javascripts\bootstrap-colorpicker.js" />
     <Content Include="Content\assets\javascripts\bootstrap\bootstrap.min.js" />
     <Content Include="Content\assets\javascripts\demo\charts.js" />
     <Content Include="Content\assets\javascripts\demo\demo.js" />
@@ -443,6 +458,7 @@
     <Content Include="Content\assets\javascripts\plugins\xeditable\wysihtml5.js" />
     <Content Include="Content\assets\javascripts\tables.js" />
     <Content Include="Content\assets\javascripts\theme.js" />
+    <Content Include="Content\assets\stylesheets\bootstrap-colorpicker.css" />
     <Content Include="Content\assets\stylesheets\bootstrap\bootstrap-responsive.css" />
     <Content Include="Content\assets\stylesheets\bootstrap\bootstrap.css" />
     <Content Include="Content\assets\stylesheets\demo.css" />
@@ -531,20 +547,8 @@
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListSupplier.cshtml" />
-<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Store\ListOutputNote.cshtml" />
-=======
-=======
->>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
     <Content Include="Areas\Intranet\Views\Store\ListOutputNote.cshtml" />
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
-<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Master\AddEditSupplier.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteSupplier.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListItem.cshtml" />
@@ -553,11 +557,18 @@
     <Content Include="Areas\Intranet\Views\Master\_AddEditContact.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditItem.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditBankContact.cshtml" />
-=======
     <Content Include="Areas\Intranet\Views\Document\ListPrePO.cshtml" />
     <Content Include="Areas\Intranet\Views\Document\AddEditPrePO.cshtml" />
->>>>>>> 8cc025315035cbe5edace47e90356bce0de8e899
->>>>>>> 7dc2efcad050d7f11b28ec8ac9ee68e17ee00ac2
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Intranet\Views\Master\AddEditProduct.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListProduct.cshtml" />
+    <Content Include="Content\assets\stylesheets\bootstrap-colorpicker.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

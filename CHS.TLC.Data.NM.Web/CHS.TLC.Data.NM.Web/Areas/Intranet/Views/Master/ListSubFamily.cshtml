@@ -69,7 +69,7 @@
                                     <td>@subFamily.Description</td>
                                     <td>@subFamily.Family.Description</td>
                                     <td>
-                                        @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(ConstantHelpers.ESTADO.ACTIVO))
+                                        @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(subFamily.State))
                                     </td>
                                     <td>
                                         <div class='btn-group' style='margin-bottom:5px'>
