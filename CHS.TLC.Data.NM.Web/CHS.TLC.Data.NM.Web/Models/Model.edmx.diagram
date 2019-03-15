@@ -4,8 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-<<<<<<< HEAD
-      <Diagram DiagramId="d36356b5e119469bb637fc12388bd735" Name="Diagram1" ZoomLevel="58">
+      <Diagram DiagramId="eab9add02ba94356a3acaeb05a4588a4" Name="Diagram1" ZoomLevel="58">
         <EntityTypeShape EntityType="Model.Bank" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.BankContact" Width="1.5" PointX="8.25" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.Contact" Width="1.5" PointX="6" PointY="18.125" IsExpanded="true" />
@@ -84,87 +83,6 @@
         <AssociationConnector Association="Model.FK_RoleOption_Role" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_StockProductDetail_StockProduct" ManuallyRouted="false" />
-=======
-      <Diagram DiagramId="c583622006254897befe9f6a59defabc" Name="Diagram1" ZoomLevel="92">
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Bank" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.BankContact" Width="1.5" PointX="8.25" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Contact" Width="1.5" PointX="6" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Country" Width="1.5" PointX="1.5" PointY="23.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Currency" Width="1.5" PointX="3" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Document" Width="1.5" PointX="3" PointY="30.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.DocumentType" Width="1.5" PointX="0.75" PointY="30.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.EntryNote" Width="1.5" PointX="5.25" PointY="31.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Family" Width="1.5" PointX="1.5" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Incoterms" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Item" Width="1.5" PointX="3.75" PointY="39.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MeasureUnit" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.MovementType" Width="1.5" PointX="3" PointY="33.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Option" Width="1.5" PointX="9.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.OutputNote" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Password" Width="1.5" PointX="14.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Port" Width="1.5" PointX="3" PointY="43.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.PrePurcherseOrder" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.PrePurcherseOrderDetail" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Product" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.PurcherseOrder" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Role" Width="1.5" PointX="9.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.RoleOption" Width="1.5" PointX="12" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.StockProduct" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.StockProductDetail" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Store" Width="1.5" PointX="3" PointY="36" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.SubFamily" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Supplier" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TaxPercentage" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Tolerance" Width="1.5" PointX="3" PointY="46.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.Treasury" Width="1.5" PointX="3" PointY="48.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.TypeExistence" Width="1.5" PointX="0.75" PointY="26.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TLC.Data.NMModel.User" Width="1.5" PointX="12" PointY="5.5" IsExpanded="true" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_BankContact_Bank" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_BankContact_Contact" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Contact_Item" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Contact_Supplier" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PrePO_Country" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Supplier_Country" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Currency" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Document_DocumentType" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_Document" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_Document" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PO_DocumentType" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_DestinationStore" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_MovementType" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_Supplier" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_EntryNote_TransferStore" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_StockProductDetail_EntryNote" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_SubFamily_Family" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Incoterms" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PrePODetail_MeasureUnit" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_MeasureUnit" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_MeasureUnit1" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_MovementType" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Option" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_DestinationStore" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_OutputNote_OriginalStore" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_StockProductDetail_OutputNote" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Password_User" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Port" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PO_PrePO" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PrePO_Supplier" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PrePODetail_PrePO" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PrePODetail_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_Provider" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_SubFamily" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage4" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage5" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage6" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TaxPercentage7" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_Product_TypeExistence" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_StockProduct_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Tolerance" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_PO_Treasury" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_RoleOption_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_User_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="TLC.Data.NMModel.FK_StockProductDetail_StockProduct" ManuallyRouted="false" />
->>>>>>> 3e14766d94afd9d479fb0f42e1d946b6bf182a4f
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
