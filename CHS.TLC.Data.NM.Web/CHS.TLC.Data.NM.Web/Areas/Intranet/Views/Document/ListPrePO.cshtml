@@ -72,34 +72,46 @@
                         <tbody>
                             @foreach (var prePurcherseOrder in Model.LstPrePO)
                             {
-                            <tr>
-                                <td>@prePurcherseOrder.Code</td>
-                                <td>@prePurcherseOrder.RegistrationDate.ToString("dd/MM/yyyy")</td>
-                                <td>@prePurcherseOrder.DateOrder.ToString("dd/MM/yyyy")</td>
-                                <td>@prePurcherseOrder.Supplier.BussinessName</td>
-                                <td>@prePurcherseOrder.SendSupply</td>
-                                <td>@prePurcherseOrder.DocumentName</td>
-                                <td>
-                                    @if (!String.IsNullOrEmpty(prePurcherseOrder.DocumentName))
-                                    {
-                                        <a href="#"><i class="icon-file"></i> Descargar</a>
-                                    }
-                                </td>
-                                <td>
-                                    <div class='btn-group' style='margin-bottom:5px'>
-                                        @Html.EncodedActionLink(Html.Raw("<i class='icon icon-edit'></i> Editar"), "AddEditPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { @class = "'btn'" })
-                                        <button class='btn dropdown-toggle' data-toggle='dropdown'>
-                                            <span class='caret'></span>
-                                        </button>
-                                        <ul class='dropdown-menu'>
-                                            <li>
-                                                @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeletePrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { })
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>@prePurcherseOrder.Code</td>
+                                    <td>@prePurcherseOrder.RegistrationDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@prePurcherseOrder.DateOrder.ToString("dd/MM/yyyy")</td>
+                                    <td>@prePurcherseOrder.Supplier.BussinessName</td>
+                                    <td>@prePurcherseOrder.SendSupply</td>
+                                    <td>@prePurcherseOrder.DocumentName</td>
+                                    <td class="text-center">
+                                        @if (!String.IsNullOrEmpty(prePurcherseOrder.DocumentName))
+                                        {
+                                            @Html.EncodedActionLink(Html.Raw("<i class='icon-file'></i> Descargar"), "DownloadDocumentPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { @target = "_blank" })
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class='btn-group' style='margin-bottom:5px'>
+                                            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-edit'></i> Editar"), "AddEditPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { @class = "'btn'" })
+                                            <button class='btn dropdown-toggle' data-toggle='dropdown'>
+                                                <span class='caret'></span>
+                                            </button>
+                                            <ul class='dropdown-menu'>
+                                                <li>
+                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-plus'></i> Documento"), "_AddEditDocumentPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { })
+                                                </li>
+                                                @if (!String.IsNullOrEmpty(prePurcherseOrder.DocumentName))
+                                                {
+                                                    <li>
+                                                        @Html.EncodedActionLink(Html.Raw("<i class='icon-check-sign'></i> Generar P.O."), "AddEditPO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { })
+                                                    </li>
+                                                }
+                                                <li class="divider"></li>
+                                                <li>
+                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeletePrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { })
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
                             }
+                            <tr style="visibility:hidden"><td colspan="5">&nbsp;</td></tr>
+                            <tr style="visibility:hidden"><td colspan="5">&nbsp;</td></tr>
                             <tr style="visibility:hidden"><td colspan="5">&nbsp;</td></tr>
                         </tbody>
                     </table>
