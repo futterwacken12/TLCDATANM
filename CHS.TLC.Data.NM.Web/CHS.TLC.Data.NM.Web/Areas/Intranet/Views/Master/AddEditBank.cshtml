@@ -16,7 +16,7 @@
             <form class="form" method="post" style="margin-bottom: 0;">
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(x => x.BankId)
-                <div class='control-group' style="padding-bottom: 3%;">
+                <div class='control-group'>
                     <label class='control-label' for='Type'>Tipo Banco</label>
                     <div class='controls'>
                         @Html.DropDownListFor(x => x.Type, Model.LstBankType, "[-Seleccione-]", new { @class = "select2 span12" })

@@ -36,6 +36,7 @@ namespace CHS.TLC.Data.NM.Web.Models
         public bool Detraction { get; set; }
         public bool Perception { get; set; }
         public string State { get; set; }
+        public string MethodPayment { get; set; }
     
         public virtual ICollection<Contact> Contact { get; set; }
         public virtual Country Country { get; set; }

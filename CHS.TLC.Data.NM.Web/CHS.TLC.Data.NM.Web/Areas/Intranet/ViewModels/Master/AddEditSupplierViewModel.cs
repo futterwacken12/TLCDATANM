@@ -48,6 +48,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
                 this.Code = supplier.Code;
                 this.RUC = supplier.RUC;
                 this.BussinessName = supplier.BussinessName;
+                this.MethodPayment = supplier.MethodPayment;
                 this.IsActive = supplier.IsActive;
                 this.Provenance = supplier.Provenance;
                 this.Origin = supplier.Origin;

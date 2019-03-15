@@ -1,0 +1,26 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master._DeleteProductViewModel
+@{
+    ViewBag.Title = "Eliminar Producto";
+    ViewBag.PageIcon = "trash";
+    Layout = ConstantHelpers.Layout.MODAL_LAYOUT_PATH;
+    ViewBag.Form = new ModalFormHelpers("_DeleteProduct", "Master", FormMethod.Post);
+}
+
+@section Styles
+{
+    <style>
+        form {
+            margin: 0 0 0px !important;
+        }
+    </style>
+}
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(x => x.ProductId)
+
+<p>¿Está seguro de eliminar el producto <b>@Model.InvoiceDescription</b>?</p>
+
+@section Footer
+{
+    <button id="save" type="submit" class="btn btn-primary"><i class="icon icon-save"></i> Guardar</button>
+}

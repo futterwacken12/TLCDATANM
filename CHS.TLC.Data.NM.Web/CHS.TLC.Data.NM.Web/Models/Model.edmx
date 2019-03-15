@@ -190,6 +190,7 @@
           <Property Name="PortId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="PrePurcherseOrder">
           <Key>
@@ -279,6 +280,8 @@
           <Property Name="SupplierEmail" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="OrderDate" Type="date" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="ShipmentDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -346,6 +349,7 @@
           <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="RUC" Type="varchar" MaxLength="11" Nullable="false" />
           <Property Name="BussinessName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="MethodPayment" Type="varchar" MaxLength="3" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="Provenance" Type="varchar" MaxLength="3" Nullable="false" />
           <Property Name="Origin" Type="varchar" MaxLength="100" Nullable="false" />
@@ -1595,6 +1599,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PurcherseOrder" Relationship="Model.FK_PO_Port" FromRole="Port" ToRole="PurcherseOrder" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PrePurcherseOrder">
           <Key>
@@ -1709,6 +1714,8 @@
           <NavigationProperty Name="PrePurcherseOrder" Relationship="Model.FK_PO_PrePO" FromRole="PurcherseOrder" ToRole="PrePurcherseOrder" />
           <NavigationProperty Name="Tolerance" Relationship="Model.FK_PO_Tolerance" FromRole="PurcherseOrder" ToRole="Tolerance" />
           <NavigationProperty Name="Treasury" Relationship="Model.FK_PO_Treasury" FromRole="PurcherseOrder" ToRole="Treasury" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="ShipmentDate" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -1805,6 +1812,7 @@
           <NavigationProperty Name="EntryNote" Relationship="Model.FK_EntryNote_Supplier" FromRole="Supplier" ToRole="EntryNote" />
           <NavigationProperty Name="PrePurcherseOrder" Relationship="Model.FK_PrePO_Supplier" FromRole="Supplier" ToRole="PrePurcherseOrder" />
           <NavigationProperty Name="Product" Relationship="Model.FK_Product_Provider" FromRole="Supplier" ToRole="Product" />
+          <Property Name="MethodPayment" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="TaxPercentage">
           <Key>
@@ -2602,6 +2610,7 @@
           <EntitySetMapping Name="Port">
             <EntityTypeMapping TypeName="Model.Port">
               <MappingFragment StoreEntitySet="Port">
+                <ScalarProperty Name="City" ColumnName="City" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PortId" ColumnName="PortId" />
@@ -2674,6 +2683,8 @@
           <EntitySetMapping Name="PurcherseOrder">
             <EntityTypeMapping TypeName="Model.PurcherseOrder">
               <MappingFragment StoreEntitySet="PurcherseOrder">
+                <ScalarProperty Name="ShipmentDate" ColumnName="ShipmentDate" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="SupplierEmail" ColumnName="SupplierEmail" />
@@ -2767,6 +2778,7 @@
           <EntitySetMapping Name="Supplier">
             <EntityTypeMapping TypeName="Model.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="MethodPayment" ColumnName="MethodPayment" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="Perception" ColumnName="Perception" />
                 <ScalarProperty Name="Detraction" ColumnName="Detraction" />

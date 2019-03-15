@@ -38,6 +38,8 @@ namespace CHS.TLC.Data.NM.Web.Models
         public string SupplierEmail { get; set; }
         public string State { get; set; }
         public System.DateTime OrderDate { get; set; }
+        public int CountryId { get; set; }
+        public System.DateTime ShipmentDate { get; set; }
     
         public virtual Currency Currency { get; set; }
         public virtual DocumentType DocumentType { get; set; }

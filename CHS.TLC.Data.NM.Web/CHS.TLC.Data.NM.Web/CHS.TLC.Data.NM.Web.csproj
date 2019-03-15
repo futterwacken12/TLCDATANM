@@ -569,6 +569,7 @@
     <Content Include="Areas\Intranet\Views\Master\AddEditProduct.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListProduct.cshtml" />
     <Content Include="Content\assets\stylesheets\bootstrap-colorpicker.css.map" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteProduct.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

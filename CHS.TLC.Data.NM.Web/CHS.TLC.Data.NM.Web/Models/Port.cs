@@ -22,6 +22,7 @@ namespace CHS.TLC.Data.NM.Web.Models
         public int PortId { get; set; }
         public string Name { get; set; }
         public string State { get; set; }
+        public string City { get; set; }
     
         public virtual ICollection<PurcherseOrder> PurcherseOrder { get; set; }
     }
