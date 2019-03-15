@@ -27,6 +27,7 @@ namespace CHS.TLC.Data.NM.Web.Models
         public string Code { get; set; }
         public string RUC { get; set; }
         public string BussinessName { get; set; }
+        public string MethodPayment { get; set; }
         public bool IsActive { get; set; }
         public string Provenance { get; set; }
         public string Origin { get; set; }
@@ -36,7 +37,6 @@ namespace CHS.TLC.Data.NM.Web.Models
         public bool Detraction { get; set; }
         public bool Perception { get; set; }
         public string State { get; set; }
-        public string MethodPayment { get; set; }
     
         public virtual ICollection<Contact> Contact { get; set; }
         public virtual Country Country { get; set; }

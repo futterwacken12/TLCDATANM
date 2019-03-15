@@ -154,10 +154,15 @@
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\LstSupplierInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\DataSelect2.cs" />
+    <Compile Include="Areas\Intranet\Models\BE\Json\PrePurcherseOrderInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\ProductByCodeAndInvoice.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\SupplierInfo.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\AddEditPOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\AddEditPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\ListPrePOViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\LstPOViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\_AddEditDocumentPrePOViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\_DeletePrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditProductViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListProductViewModel.cs" />
@@ -544,10 +549,7 @@
     <Content Include="Areas\Intranet\Views\Master\ListTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteTypeExistence.cshtml" />
-    <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
-    <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListSupplier.cshtml" />
-    <Content Include="Areas\Intranet\Views\Store\ListOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\ListOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditSupplier.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteSupplier.cshtml" />
@@ -559,6 +561,14 @@
     <Content Include="Areas\Intranet\Views\Master\AddEditBankContact.cshtml" />
     <Content Include="Areas\Intranet\Views\Document\ListPrePO.cshtml" />
     <Content Include="Areas\Intranet\Views\Document\AddEditPrePO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Document\_DeletePrePO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Document\_AddEditDocumentPrePO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Document\ListPO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Document\AddEditPO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditProduct.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListProduct.cshtml" />
+    <Content Include="Content\assets\stylesheets\bootstrap-colorpicker.css.map" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteProduct.cshtml" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -566,10 +576,6 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Intranet\Views\Master\AddEditProduct.cshtml" />
-    <Content Include="Areas\Intranet\Views\Master\ListProduct.cshtml" />
-    <Content Include="Content\assets\stylesheets\bootstrap-colorpicker.css.map" />
-    <Content Include="Areas\Intranet\Views\Master\_DeleteProduct.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

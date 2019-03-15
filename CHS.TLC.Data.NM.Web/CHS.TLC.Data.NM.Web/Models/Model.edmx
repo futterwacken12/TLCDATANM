@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TLC.Data.NMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bank">
           <Key>
             <PropertyRef Name="BankId" />
@@ -944,7 +944,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ModelStoreContainer">
+        <EntityContainer Name="TLCDataNMModelStoreContainer">
           <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BankContact" EntityType="Self.BankContact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
@@ -1159,234 +1159,20 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="TLCDataNMEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Bank" EntityType="Model.Bank" />
-          <EntitySet Name="BankContact" EntityType="Model.BankContact" />
-          <EntitySet Name="Contact" EntityType="Model.Contact" />
-          <EntitySet Name="Country" EntityType="Model.Country" />
-          <EntitySet Name="Currency" EntityType="Model.Currency" />
-          <EntitySet Name="Document" EntityType="Model.Document" />
-          <EntitySet Name="DocumentType" EntityType="Model.DocumentType" />
-          <EntitySet Name="EntryNote" EntityType="Model.EntryNote" />
-          <EntitySet Name="Family" EntityType="Model.Family" />
-          <EntitySet Name="Incoterms" EntityType="Model.Incoterms" />
-          <EntitySet Name="Item" EntityType="Model.Item" />
-          <EntitySet Name="MeasureUnit" EntityType="Model.MeasureUnit" />
-          <EntitySet Name="MovementType" EntityType="Model.MovementType" />
-          <EntitySet Name="Option" EntityType="Model.Option" />
-          <EntitySet Name="OutputNote" EntityType="Model.OutputNote" />
-          <EntitySet Name="Password" EntityType="Model.Password" />
-          <EntitySet Name="Port" EntityType="Model.Port" />
-          <EntitySet Name="PrePurcherseOrder" EntityType="Model.PrePurcherseOrder" />
-          <EntitySet Name="PrePurcherseOrderDetail" EntityType="Model.PrePurcherseOrderDetail" />
-          <EntitySet Name="Product" EntityType="Model.Product" />
-          <EntitySet Name="PurcherseOrder" EntityType="Model.PurcherseOrder" />
-          <EntitySet Name="Role" EntityType="Model.Role" />
-          <EntitySet Name="RoleOption" EntityType="Model.RoleOption" />
-          <EntitySet Name="StockProduct" EntityType="Model.StockProduct" />
-          <EntitySet Name="StockProductDetail" EntityType="Model.StockProductDetail" />
-          <EntitySet Name="Store" EntityType="Model.Store" />
-          <EntitySet Name="SubFamily" EntityType="Model.SubFamily" />
-          <EntitySet Name="Supplier" EntityType="Model.Supplier" />
-          <EntitySet Name="TaxPercentage" EntityType="Model.TaxPercentage" />
-          <EntitySet Name="Tolerance" EntityType="Model.Tolerance" />
-          <EntitySet Name="Treasury" EntityType="Model.Treasury" />
-          <EntitySet Name="TypeExistence" EntityType="Model.TypeExistence" />
-          <EntitySet Name="User" EntityType="Model.User" />
-          <AssociationSet Name="FK_BankContact_Bank" Association="Model.FK_BankContact_Bank">
-            <End Role="Bank" EntitySet="Bank" />
-            <End Role="BankContact" EntitySet="BankContact" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BankContact_Contact" Association="Model.FK_BankContact_Contact">
-            <End Role="Contact" EntitySet="Contact" />
-            <End Role="BankContact" EntitySet="BankContact" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contact_Item" Association="Model.FK_Contact_Item">
-            <End Role="Item" EntitySet="Item" />
-            <End Role="Contact" EntitySet="Contact" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contact_Supplier" Association="Model.FK_Contact_Supplier">
-            <End Role="Supplier" EntitySet="Supplier" />
-            <End Role="Contact" EntitySet="Contact" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrePO_Country" Association="Model.FK_PrePO_Country">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Supplier_Country" Association="Model.FK_Supplier_Country">
-            <End Role="Country" EntitySet="Country" />
-            <End Role="Supplier" EntitySet="Supplier" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PO_Currency" Association="Model.FK_PO_Currency">
-            <End Role="Currency" EntitySet="Currency" />
-            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_DocumentType" Association="Model.FK_Document_DocumentType">
-            <End Role="DocumentType" EntitySet="DocumentType" />
-            <End Role="Document" EntitySet="Document" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_Document" Association="Model.FK_EntryNote_Document">
-            <End Role="Document" EntitySet="Document" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OutputNote_Document" Association="Model.FK_OutputNote_Document">
-            <End Role="Document" EntitySet="Document" />
-            <End Role="OutputNote" EntitySet="OutputNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PO_DocumentType" Association="Model.FK_PO_DocumentType">
-            <End Role="DocumentType" EntitySet="DocumentType" />
-            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_DestinationStore" Association="Model.FK_EntryNote_DestinationStore">
-            <End Role="Store" EntitySet="Store" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_MovementType" Association="Model.FK_EntryNote_MovementType">
-            <End Role="MovementType" EntitySet="MovementType" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_Supplier" Association="Model.FK_EntryNote_Supplier">
-            <End Role="Supplier" EntitySet="Supplier" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EntryNote_TransferStore" Association="Model.FK_EntryNote_TransferStore">
-            <End Role="Store" EntitySet="Store" />
-            <End Role="EntryNote" EntitySet="EntryNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StockProductDetail_EntryNote" Association="Model.FK_StockProductDetail_EntryNote">
-            <End Role="EntryNote" EntitySet="EntryNote" />
-            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubFamily_Family" Association="Model.FK_SubFamily_Family">
-            <End Role="Family" EntitySet="Family" />
-            <End Role="SubFamily" EntitySet="SubFamily" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PO_Incoterms" Association="Model.FK_PO_Incoterms">
-            <End Role="Incoterms" EntitySet="Incoterms" />
-            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrePODetail_MeasureUnit" Association="Model.FK_PrePODetail_MeasureUnit">
-            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
-            <End Role="PrePurcherseOrderDetail" EntitySet="PrePurcherseOrderDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_MeasureUnit" Association="Model.FK_Product_MeasureUnit">
-            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_MeasureUnit1" Association="Model.FK_Product_MeasureUnit1">
-            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OutputNote_MovementType" Association="Model.FK_OutputNote_MovementType">
-            <End Role="MovementType" EntitySet="MovementType" />
-            <End Role="OutputNote" EntitySet="OutputNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RoleOption_Option" Association="Model.FK_RoleOption_Option">
-            <End Role="Option" EntitySet="Option" />
-            <End Role="RoleOption" EntitySet="RoleOption" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OutputNote_DestinationStore" Association="Model.FK_OutputNote_DestinationStore">
-            <End Role="Store" EntitySet="Store" />
-            <End Role="OutputNote" EntitySet="OutputNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OutputNote_OriginalStore" Association="Model.FK_OutputNote_OriginalStore">
-            <End Role="Store" EntitySet="Store" />
-            <End Role="OutputNote" EntitySet="OutputNote" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StockProductDetail_OutputNote" Association="Model.FK_StockProductDetail_OutputNote">
-            <End Role="OutputNote" EntitySet="OutputNote" />
-            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Password_User" Association="Model.FK_Password_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Password" EntitySet="Password" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PO_Port" Association="Model.FK_PO_Port">
-            <End Role="Port" EntitySet="Port" />
-            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PO_PrePO" Association="Model.FK_PO_PrePO">
-            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
-            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrePO_Supplier" Association="Model.FK_PrePO_Supplier">
-            <End Role="Supplier" EntitySet="Supplier" />
-            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrePODetail_PrePO" Association="Model.FK_PrePODetail_PrePO">
-            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
-            <End Role="PrePurcherseOrderDetail" EntitySet="PrePurcherseOrderDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PrePODetail_Product" Association="Model.FK_PrePODetail_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="PrePurcherseOrderDetail" EntitySet="PrePurcherseOrderDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_Provider" Association="Model.FK_Product_Provider">
-            <End Role="Supplier" EntitySet="Supplier" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_SubFamily" Association="Model.FK_Product_SubFamily">
-            <End Role="SubFamily" EntitySet="SubFamily" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TaxPercentage4" Association="Model.FK_Product_TaxPercentage4">
-            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TaxPercentage5" Association="Model.FK_Product_TaxPercentage5">
-            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TaxPercentage6" Association="Model.FK_Product_TaxPercentage6">
-            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TaxPercentage7" Association="Model.FK_Product_TaxPercentage7">
-            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_TypeExistence" Association="Model.FK_Product_TypeExistence">
-            <End Role="TypeExistence" EntitySet="TypeExistence" />
-            <End Role="Product" EntitySet="Product" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StockProduct_Product" Association="Model.FK_StockProduct_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="StockProduct" EntitySet="StockProduct" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PO_Tolerance" Association="Model.FK_PO_Tolerance">
-            <End Role="Tolerance" EntitySet="Tolerance" />
-            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PO_Treasury" Association="Model.FK_PO_Treasury">
-            <End Role="Treasury" EntitySet="Treasury" />
-            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RoleOption_Role" Association="Model.FK_RoleOption_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="RoleOption" EntitySet="RoleOption" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="Model.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StockProductDetail_StockProduct" Association="Model.FK_StockProductDetail_StockProduct">
-            <End Role="StockProduct" EntitySet="StockProduct" />
-            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="TLC.Data.NMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Bank">
           <Key>
             <PropertyRef Name="BankId" />
           </Key>
           <Property Name="BankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BankContact" Relationship="Model.FK_BankContact_Bank" FromRole="Bank" ToRole="BankContact" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BankContact" Relationship="Self.FK_BankContact_Bank" FromRole="Bank" ToRole="BankContact" />
         </EntityType>
         <EntityType Name="BankContact">
           <Key>
@@ -1397,9 +1183,9 @@
           <Property Name="BankId" Type="Int32" Nullable="false" />
           <Property Name="AccountSoles" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="AccountDollars" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Bank" Relationship="Model.FK_BankContact_Bank" FromRole="BankContact" ToRole="Bank" />
-          <NavigationProperty Name="Contact" Relationship="Model.FK_BankContact_Contact" FromRole="BankContact" ToRole="Contact" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Bank" Relationship="Self.FK_BankContact_Bank" FromRole="BankContact" ToRole="Bank" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_BankContact_Contact" FromRole="BankContact" ToRole="Contact" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -1408,36 +1194,36 @@
           <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SupplierId" Type="Int32" Nullable="false" />
           <Property Name="ItemId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="SecondLastName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BankContact" Relationship="Model.FK_BankContact_Contact" FromRole="Contact" ToRole="BankContact" />
-          <NavigationProperty Name="Item" Relationship="Model.FK_Contact_Item" FromRole="Contact" ToRole="Item" />
-          <NavigationProperty Name="Supplier" Relationship="Model.FK_Contact_Supplier" FromRole="Contact" ToRole="Supplier" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SecondLastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BankContact" Relationship="Self.FK_BankContact_Contact" FromRole="Contact" ToRole="BankContact" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_Contact_Item" FromRole="Contact" ToRole="Item" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Contact_Supplier" FromRole="Contact" ToRole="Supplier" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="CountryId" />
           </Key>
           <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PrePurcherseOrder" Relationship="Model.FK_PrePO_Country" FromRole="Country" ToRole="PrePurcherseOrder" />
-          <NavigationProperty Name="Supplier" Relationship="Model.FK_Supplier_Country" FromRole="Country" ToRole="Supplier" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PrePurcherseOrder" Relationship="Self.FK_PrePO_Country" FromRole="Country" ToRole="PrePurcherseOrder" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Supplier_Country" FromRole="Country" ToRole="Supplier" />
         </EntityType>
         <EntityType Name="Currency">
           <Key>
             <PropertyRef Name="CurrencyId" />
           </Key>
           <Property Name="CurrencyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Sign" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PurcherseOrder" Relationship="Model.FK_PO_Currency" FromRole="Currency" ToRole="PurcherseOrder" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sign" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PurcherseOrder" Relationship="Self.FK_PO_Currency" FromRole="Currency" ToRole="PurcherseOrder" />
         </EntityType>
         <EntityType Name="Document">
           <Key>
@@ -1445,22 +1231,22 @@
           </Key>
           <Property Name="DocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="DocumentNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DocumentType" Relationship="Model.FK_Document_DocumentType" FromRole="Document" ToRole="DocumentType" />
-          <NavigationProperty Name="EntryNote" Relationship="Model.FK_EntryNote_Document" FromRole="Document" ToRole="EntryNote" />
-          <NavigationProperty Name="OutputNote" Relationship="Model.FK_OutputNote_Document" FromRole="Document" ToRole="OutputNote" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DocumentNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DocumentType" Relationship="Self.FK_Document_DocumentType" FromRole="Document" ToRole="DocumentType" />
+          <NavigationProperty Name="EntryNote" Relationship="Self.FK_EntryNote_Document" FromRole="Document" ToRole="EntryNote" />
+          <NavigationProperty Name="OutputNote" Relationship="Self.FK_OutputNote_Document" FromRole="Document" ToRole="OutputNote" />
         </EntityType>
         <EntityType Name="DocumentType">
           <Key>
             <PropertyRef Name="DocumentTypeId" />
           </Key>
           <Property Name="DocumentTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Acronym" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Document" Relationship="Model.FK_Document_DocumentType" FromRole="DocumentType" ToRole="Document" />
-          <NavigationProperty Name="PurcherseOrder" Relationship="Model.FK_PO_DocumentType" FromRole="DocumentType" ToRole="PurcherseOrder" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acronym" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Document" Relationship="Self.FK_Document_DocumentType" FromRole="DocumentType" ToRole="Document" />
+          <NavigationProperty Name="PurcherseOrder" Relationship="Self.FK_PO_DocumentType" FromRole="DocumentType" ToRole="PurcherseOrder" />
         </EntityType>
         <EntityType Name="EntryNote">
           <Key>
@@ -1469,74 +1255,74 @@
           <Property Name="EntryNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MovementTypeId" Type="Int32" Nullable="false" />
-          <Property Name="SupplierGuideNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="TransportGuideNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Seal" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SupplierGuideNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TransportGuideNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Seal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TransportTime" Type="Time" Nullable="false" Precision="7" />
           <Property Name="DestinationStoreId" Type="Int32" Nullable="false" />
           <Property Name="TransferStoreId" Type="Int32" Nullable="false" />
           <Property Name="SupplierId" Type="Int32" Nullable="false" />
           <Property Name="DocumentId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Document" Relationship="Model.FK_EntryNote_Document" FromRole="EntryNote" ToRole="Document" />
-          <NavigationProperty Name="Store" Relationship="Model.FK_EntryNote_DestinationStore" FromRole="EntryNote" ToRole="Store" />
-          <NavigationProperty Name="MovementType" Relationship="Model.FK_EntryNote_MovementType" FromRole="EntryNote" ToRole="MovementType" />
-          <NavigationProperty Name="Supplier" Relationship="Model.FK_EntryNote_Supplier" FromRole="EntryNote" ToRole="Supplier" />
-          <NavigationProperty Name="Store1" Relationship="Model.FK_EntryNote_TransferStore" FromRole="EntryNote" ToRole="Store" />
-          <NavigationProperty Name="StockProductDetail" Relationship="Model.FK_StockProductDetail_EntryNote" FromRole="EntryNote" ToRole="StockProductDetail" />
+          <NavigationProperty Name="Document" Relationship="Self.FK_EntryNote_Document" FromRole="EntryNote" ToRole="Document" />
+          <NavigationProperty Name="Store" Relationship="Self.FK_EntryNote_DestinationStore" FromRole="EntryNote" ToRole="Store" />
+          <NavigationProperty Name="MovementType" Relationship="Self.FK_EntryNote_MovementType" FromRole="EntryNote" ToRole="MovementType" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_EntryNote_Supplier" FromRole="EntryNote" ToRole="Supplier" />
+          <NavigationProperty Name="Store1" Relationship="Self.FK_EntryNote_TransferStore" FromRole="EntryNote" ToRole="Store" />
+          <NavigationProperty Name="StockProductDetail" Relationship="Self.FK_StockProductDetail_EntryNote" FromRole="EntryNote" ToRole="StockProductDetail" />
         </EntityType>
         <EntityType Name="Family">
           <Key>
             <PropertyRef Name="FamilyId" />
           </Key>
           <Property Name="FamilyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="SKUCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="SubFamily" Relationship="Model.FK_SubFamily_Family" FromRole="Family" ToRole="SubFamily" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SKUCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SubFamily" Relationship="Self.FK_SubFamily_Family" FromRole="Family" ToRole="SubFamily" />
         </EntityType>
         <EntityType Name="Incoterms">
           <Key>
             <PropertyRef Name="IncotermsId" />
           </Key>
           <Property Name="IncotermsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Acronym" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PurcherseOrder" Relationship="Model.FK_PO_Incoterms" FromRole="Incoterms" ToRole="PurcherseOrder" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acronym" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PurcherseOrder" Relationship="Self.FK_PO_Incoterms" FromRole="Incoterms" ToRole="PurcherseOrder" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
             <PropertyRef Name="ItemId" />
           </Key>
           <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Contact" Relationship="Model.FK_Contact_Item" FromRole="Item" ToRole="Contact" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_Contact_Item" FromRole="Item" ToRole="Contact" />
         </EntityType>
         <EntityType Name="MeasureUnit">
           <Key>
             <PropertyRef Name="MeasureUnitId" />
           </Key>
           <Property Name="MeasureUnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Acronym" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PrePurcherseOrderDetail" Relationship="Model.FK_PrePODetail_MeasureUnit" FromRole="MeasureUnit" ToRole="PrePurcherseOrderDetail" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_Product_MeasureUnit" FromRole="MeasureUnit" ToRole="Product" />
-          <NavigationProperty Name="Product1" Relationship="Model.FK_Product_MeasureUnit1" FromRole="MeasureUnit" ToRole="Product" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acronym" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PrePurcherseOrderDetail" Relationship="Self.FK_PrePODetail_MeasureUnit" FromRole="MeasureUnit" ToRole="PrePurcherseOrderDetail" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_MeasureUnit" FromRole="MeasureUnit" ToRole="Product" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Product_MeasureUnit1" FromRole="MeasureUnit" ToRole="Product" />
         </EntityType>
         <EntityType Name="MovementType">
           <Key>
             <PropertyRef Name="MovementTypeId" />
           </Key>
           <Property Name="MovementTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EntryNote" Relationship="Model.FK_EntryNote_MovementType" FromRole="MovementType" ToRole="EntryNote" />
-          <NavigationProperty Name="OutputNote" Relationship="Model.FK_OutputNote_MovementType" FromRole="MovementType" ToRole="OutputNote" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EntryNote" Relationship="Self.FK_EntryNote_MovementType" FromRole="MovementType" ToRole="EntryNote" />
+          <NavigationProperty Name="OutputNote" Relationship="Self.FK_OutputNote_MovementType" FromRole="MovementType" ToRole="OutputNote" />
         </EntityType>
         <EntityType Name="Option">
           <Key>
@@ -1544,17 +1330,17 @@
           </Key>
           <Property Name="OptionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FatherId" Type="Int32" />
-          <Property Name="Section" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="SubSection" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Action" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Controller" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Section" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubSection" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Controller" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Area" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
-          <Property Name="Icon" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Order" Type="Int32" Nullable="false" />
           <Property Name="IsVisible" Type="Boolean" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="RoleOption" Relationship="Model.FK_RoleOption_Option" FromRole="Option" ToRole="RoleOption" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RoleOption" Relationship="Self.FK_RoleOption_Option" FromRole="Option" ToRole="RoleOption" />
         </EntityType>
         <EntityType Name="OutputNote">
           <Key>
@@ -1563,7 +1349,7 @@
           <Property Name="OutputNoteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Time" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MovementTypeId" Type="Int32" Nullable="false" />
           <Property Name="DestinationStoreId" Type="Int32" Nullable="false" />
           <Property Name="OriginalStoreId" Type="Int32" Nullable="false" />
@@ -1572,34 +1358,34 @@
           <Property Name="Other" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IsOfficeGuide" Type="Boolean" Nullable="false" />
           <Property Name="IsTransferGuide" Type="Boolean" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Document" Relationship="Model.FK_OutputNote_Document" FromRole="OutputNote" ToRole="Document" />
-          <NavigationProperty Name="MovementType" Relationship="Model.FK_OutputNote_MovementType" FromRole="OutputNote" ToRole="MovementType" />
-          <NavigationProperty Name="Store" Relationship="Model.FK_OutputNote_DestinationStore" FromRole="OutputNote" ToRole="Store" />
-          <NavigationProperty Name="Store1" Relationship="Model.FK_OutputNote_OriginalStore" FromRole="OutputNote" ToRole="Store" />
-          <NavigationProperty Name="StockProductDetail" Relationship="Model.FK_StockProductDetail_OutputNote" FromRole="OutputNote" ToRole="StockProductDetail" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Document" Relationship="Self.FK_OutputNote_Document" FromRole="OutputNote" ToRole="Document" />
+          <NavigationProperty Name="MovementType" Relationship="Self.FK_OutputNote_MovementType" FromRole="OutputNote" ToRole="MovementType" />
+          <NavigationProperty Name="Store" Relationship="Self.FK_OutputNote_DestinationStore" FromRole="OutputNote" ToRole="Store" />
+          <NavigationProperty Name="Store1" Relationship="Self.FK_OutputNote_OriginalStore" FromRole="OutputNote" ToRole="Store" />
+          <NavigationProperty Name="StockProductDetail" Relationship="Self.FK_StockProductDetail_OutputNote" FromRole="OutputNote" ToRole="StockProductDetail" />
         </EntityType>
         <EntityType Name="Password">
           <Key>
             <PropertyRef Name="PasswordId" />
           </Key>
           <Property Name="PasswordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BlockDate" Type="DateTime" Precision="3" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Model.FK_Password_User" FromRole="Password" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Password_User" FromRole="Password" ToRole="User" />
         </EntityType>
         <EntityType Name="Port">
           <Key>
             <PropertyRef Name="PortId" />
           </Key>
           <Property Name="PortId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PurcherseOrder" Relationship="Model.FK_PO_Port" FromRole="Port" ToRole="PurcherseOrder" />
-          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PurcherseOrder" Relationship="Self.FK_PO_Port" FromRole="Port" ToRole="PurcherseOrder" />
         </EntityType>
         <EntityType Name="PrePurcherseOrder">
           <Key>
@@ -1609,20 +1395,20 @@
           <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SupplierId" Type="Int32" Nullable="false" />
           <Property Name="CountryId" Type="Int32" Nullable="false" />
           <Property Name="ShipmentDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Text" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="SendSupply" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Text" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SendSupply" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DocumentName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DocumentPath" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="DocumentExtension" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="DocumentContentType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Country" Relationship="Model.FK_PrePO_Country" FromRole="PrePurcherseOrder" ToRole="Country" />
-          <NavigationProperty Name="PurcherseOrder" Relationship="Model.FK_PO_PrePO" FromRole="PrePurcherseOrder" ToRole="PurcherseOrder" />
-          <NavigationProperty Name="Supplier" Relationship="Model.FK_PrePO_Supplier" FromRole="PrePurcherseOrder" ToRole="Supplier" />
-          <NavigationProperty Name="PrePurcherseOrderDetail" Relationship="Model.FK_PrePODetail_PrePO" FromRole="PrePurcherseOrder" ToRole="PrePurcherseOrderDetail" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_PrePO_Country" FromRole="PrePurcherseOrder" ToRole="Country" />
+          <NavigationProperty Name="PurcherseOrder" Relationship="Self.FK_PO_PrePO" FromRole="PrePurcherseOrder" ToRole="PurcherseOrder" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_PrePO_Supplier" FromRole="PrePurcherseOrder" ToRole="Supplier" />
+          <NavigationProperty Name="PrePurcherseOrderDetail" Relationship="Self.FK_PrePODetail_PrePO" FromRole="PrePurcherseOrder" ToRole="PrePurcherseOrderDetail" />
         </EntityType>
         <EntityType Name="PrePurcherseOrderDetail">
           <Key>
@@ -1630,14 +1416,14 @@
           </Key>
           <Property Name="PrePurcherseOrderDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PrePurcherseOrderId" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="MeasureUnitId" Type="Int32" Nullable="false" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
-          <NavigationProperty Name="MeasureUnit" Relationship="Model.FK_PrePODetail_MeasureUnit" FromRole="PrePurcherseOrderDetail" ToRole="MeasureUnit" />
-          <NavigationProperty Name="PrePurcherseOrder" Relationship="Model.FK_PrePODetail_PrePO" FromRole="PrePurcherseOrderDetail" ToRole="PrePurcherseOrder" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_PrePODetail_Product" FromRole="PrePurcherseOrderDetail" ToRole="Product" />
+          <NavigationProperty Name="MeasureUnit" Relationship="Self.FK_PrePODetail_MeasureUnit" FromRole="PrePurcherseOrderDetail" ToRole="MeasureUnit" />
+          <NavigationProperty Name="PrePurcherseOrder" Relationship="Self.FK_PrePODetail_PrePO" FromRole="PrePurcherseOrderDetail" ToRole="PrePurcherseOrder" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_PrePODetail_Product" FromRole="PrePurcherseOrderDetail" ToRole="Product" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -1649,13 +1435,13 @@
           <Property Name="MeasureUnitPrimaryId" Type="Int32" />
           <Property Name="MeasureUnitSecondaryId" Type="Int32" />
           <Property Name="SupplierId" Type="Int32" />
-          <Property Name="InternalCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="InternalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="Barcode" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Color" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="InvoiceDescription" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="LocalDescription" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="LotNumberPurchase" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Barcode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InvoiceDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LocalDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LotNumberPurchase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TaxPercentageAdvalorenId" Type="Int32" Nullable="false" />
           <Property Name="TaxPercentageAffectionIGVId" Type="Int32" Nullable="false" />
           <Property Name="TaxPercentagePerceptionId" Type="Int32" Nullable="false" />
@@ -1666,18 +1452,18 @@
           <Property Name="ConversionFactor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MinimumStock" Type="Int32" />
           <Property Name="MinimumLot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="MeasureUnit" Relationship="Model.FK_Product_MeasureUnit" FromRole="Product" ToRole="MeasureUnit" />
-          <NavigationProperty Name="MeasureUnit1" Relationship="Model.FK_Product_MeasureUnit1" FromRole="Product" ToRole="MeasureUnit" />
-          <NavigationProperty Name="PrePurcherseOrderDetail" Relationship="Model.FK_PrePODetail_Product" FromRole="Product" ToRole="PrePurcherseOrderDetail" />
-          <NavigationProperty Name="Supplier" Relationship="Model.FK_Product_Provider" FromRole="Product" ToRole="Supplier" />
-          <NavigationProperty Name="SubFamily" Relationship="Model.FK_Product_SubFamily" FromRole="Product" ToRole="SubFamily" />
-          <NavigationProperty Name="TaxPercentage" Relationship="Model.FK_Product_TaxPercentage4" FromRole="Product" ToRole="TaxPercentage" />
-          <NavigationProperty Name="TaxPercentage1" Relationship="Model.FK_Product_TaxPercentage5" FromRole="Product" ToRole="TaxPercentage" />
-          <NavigationProperty Name="TaxPercentage2" Relationship="Model.FK_Product_TaxPercentage6" FromRole="Product" ToRole="TaxPercentage" />
-          <NavigationProperty Name="TaxPercentage3" Relationship="Model.FK_Product_TaxPercentage7" FromRole="Product" ToRole="TaxPercentage" />
-          <NavigationProperty Name="TypeExistence" Relationship="Model.FK_Product_TypeExistence" FromRole="Product" ToRole="TypeExistence" />
-          <NavigationProperty Name="StockProduct" Relationship="Model.FK_StockProduct_Product" FromRole="Product" ToRole="StockProduct" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MeasureUnit" Relationship="Self.FK_Product_MeasureUnit" FromRole="Product" ToRole="MeasureUnit" />
+          <NavigationProperty Name="MeasureUnit1" Relationship="Self.FK_Product_MeasureUnit1" FromRole="Product" ToRole="MeasureUnit" />
+          <NavigationProperty Name="PrePurcherseOrderDetail" Relationship="Self.FK_PrePODetail_Product" FromRole="Product" ToRole="PrePurcherseOrderDetail" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Product_Provider" FromRole="Product" ToRole="Supplier" />
+          <NavigationProperty Name="SubFamily" Relationship="Self.FK_Product_SubFamily" FromRole="Product" ToRole="SubFamily" />
+          <NavigationProperty Name="TaxPercentage" Relationship="Self.FK_Product_TaxPercentage4" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TaxPercentage1" Relationship="Self.FK_Product_TaxPercentage5" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TaxPercentage2" Relationship="Self.FK_Product_TaxPercentage6" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TaxPercentage3" Relationship="Self.FK_Product_TaxPercentage7" FromRole="Product" ToRole="TaxPercentage" />
+          <NavigationProperty Name="TypeExistence" Relationship="Self.FK_Product_TypeExistence" FromRole="Product" ToRole="TypeExistence" />
+          <NavigationProperty Name="StockProduct" Relationship="Self.FK_StockProduct_Product" FromRole="Product" ToRole="StockProduct" />
         </EntityType>
         <EntityType Name="PurcherseOrder">
           <Key>
@@ -1685,48 +1471,48 @@
           </Key>
           <Property Name="PurcherseOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PrePurcherseOrderId" Type="Int32" Nullable="false" />
           <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CurrencyId" Type="Int32" Nullable="false" />
           <Property Name="IncotermsId" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="ToleranceId" Type="Int32" Nullable="false" />
-          <Property Name="ToleranceRemark" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="ShipmentSample" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ToleranceRemark" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ShipmentSample" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TreasuryId" Type="Int32" Nullable="false" />
           <Property Name="PortId" Type="Int32" Nullable="false" />
-          <Property Name="BeneficiarySupply" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="BeneficiarySupplyAdress" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="BeneficiaryBankAdress" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="BankAccountnumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="SwiftCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IntermediaryBank" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SwiftIntermediaryBank" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CEOEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SupplierEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="BeneficiarySupply" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BeneficiarySupplyAdress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BeneficiaryBankAdress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BankAccountnumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SwiftCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IntermediaryBank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SwiftIntermediaryBank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CEOEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SupplierEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Currency" Relationship="Model.FK_PO_Currency" FromRole="PurcherseOrder" ToRole="Currency" />
-          <NavigationProperty Name="DocumentType" Relationship="Model.FK_PO_DocumentType" FromRole="PurcherseOrder" ToRole="DocumentType" />
-          <NavigationProperty Name="Incoterms" Relationship="Model.FK_PO_Incoterms" FromRole="PurcherseOrder" ToRole="Incoterms" />
-          <NavigationProperty Name="Port" Relationship="Model.FK_PO_Port" FromRole="PurcherseOrder" ToRole="Port" />
-          <NavigationProperty Name="PrePurcherseOrder" Relationship="Model.FK_PO_PrePO" FromRole="PurcherseOrder" ToRole="PrePurcherseOrder" />
-          <NavigationProperty Name="Tolerance" Relationship="Model.FK_PO_Tolerance" FromRole="PurcherseOrder" ToRole="Tolerance" />
-          <NavigationProperty Name="Treasury" Relationship="Model.FK_PO_Treasury" FromRole="PurcherseOrder" ToRole="Treasury" />
           <Property Name="CountryId" Type="Int32" Nullable="false" />
           <Property Name="ShipmentDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Currency" Relationship="Self.FK_PO_Currency" FromRole="PurcherseOrder" ToRole="Currency" />
+          <NavigationProperty Name="DocumentType" Relationship="Self.FK_PO_DocumentType" FromRole="PurcherseOrder" ToRole="DocumentType" />
+          <NavigationProperty Name="Incoterms" Relationship="Self.FK_PO_Incoterms" FromRole="PurcherseOrder" ToRole="Incoterms" />
+          <NavigationProperty Name="Port" Relationship="Self.FK_PO_Port" FromRole="PurcherseOrder" ToRole="Port" />
+          <NavigationProperty Name="PrePurcherseOrder" Relationship="Self.FK_PO_PrePO" FromRole="PurcherseOrder" ToRole="PrePurcherseOrder" />
+          <NavigationProperty Name="Tolerance" Relationship="Self.FK_PO_Tolerance" FromRole="PurcherseOrder" ToRole="Tolerance" />
+          <NavigationProperty Name="Treasury" Relationship="Self.FK_PO_Treasury" FromRole="PurcherseOrder" ToRole="Treasury" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="RoleId" />
           </Key>
           <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Acronym" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="RoleOption" Relationship="Model.FK_RoleOption_Role" FromRole="Role" ToRole="RoleOption" />
-          <NavigationProperty Name="User" Relationship="Model.FK_User_Role" FromRole="Role" ToRole="User" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Acronym" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RoleOption" Relationship="Self.FK_RoleOption_Role" FromRole="Role" ToRole="RoleOption" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="RoleOption">
           <Key>
@@ -1735,9 +1521,9 @@
           <Property Name="RoleOptionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OptionId" Type="Int32" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Option" Relationship="Model.FK_RoleOption_Option" FromRole="RoleOption" ToRole="Option" />
-          <NavigationProperty Name="Role" Relationship="Model.FK_RoleOption_Role" FromRole="RoleOption" ToRole="Role" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Option" Relationship="Self.FK_RoleOption_Option" FromRole="RoleOption" ToRole="Option" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_RoleOption_Role" FromRole="RoleOption" ToRole="Role" />
         </EntityType>
         <EntityType Name="StockProduct">
           <Key>
@@ -1745,10 +1531,10 @@
           </Key>
           <Property Name="StockProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_StockProduct_Product" FromRole="StockProduct" ToRole="Product" />
-          <NavigationProperty Name="StockProductDetail" Relationship="Model.FK_StockProductDetail_StockProduct" FromRole="StockProduct" ToRole="StockProductDetail" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_StockProduct_Product" FromRole="StockProduct" ToRole="Product" />
+          <NavigationProperty Name="StockProductDetail" Relationship="Self.FK_StockProductDetail_StockProduct" FromRole="StockProduct" ToRole="StockProductDetail" />
         </EntityType>
         <EntityType Name="StockProductDetail">
           <Key>
@@ -1756,27 +1542,27 @@
           </Key>
           <Property Name="StockProductDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="StockProductId" Type="Int32" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Operation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Operation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Value" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="EntryNoteId" Type="Int32" />
           <Property Name="OutputNoteId" Type="Int32" />
-          <NavigationProperty Name="EntryNote" Relationship="Model.FK_StockProductDetail_EntryNote" FromRole="StockProductDetail" ToRole="EntryNote" />
-          <NavigationProperty Name="OutputNote" Relationship="Model.FK_StockProductDetail_OutputNote" FromRole="StockProductDetail" ToRole="OutputNote" />
-          <NavigationProperty Name="StockProduct" Relationship="Model.FK_StockProductDetail_StockProduct" FromRole="StockProductDetail" ToRole="StockProduct" />
+          <NavigationProperty Name="EntryNote" Relationship="Self.FK_StockProductDetail_EntryNote" FromRole="StockProductDetail" ToRole="EntryNote" />
+          <NavigationProperty Name="OutputNote" Relationship="Self.FK_StockProductDetail_OutputNote" FromRole="StockProductDetail" ToRole="OutputNote" />
+          <NavigationProperty Name="StockProduct" Relationship="Self.FK_StockProductDetail_StockProduct" FromRole="StockProductDetail" ToRole="StockProduct" />
         </EntityType>
         <EntityType Name="Store">
           <Key>
             <PropertyRef Name="StoreId" />
           </Key>
           <Property Name="StoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EntryNote" Relationship="Model.FK_EntryNote_DestinationStore" FromRole="Store" ToRole="EntryNote" />
-          <NavigationProperty Name="EntryNote1" Relationship="Model.FK_EntryNote_TransferStore" FromRole="Store" ToRole="EntryNote" />
-          <NavigationProperty Name="OutputNote" Relationship="Model.FK_OutputNote_DestinationStore" FromRole="Store" ToRole="OutputNote" />
-          <NavigationProperty Name="OutputNote1" Relationship="Model.FK_OutputNote_OriginalStore" FromRole="Store" ToRole="OutputNote" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EntryNote" Relationship="Self.FK_EntryNote_DestinationStore" FromRole="Store" ToRole="EntryNote" />
+          <NavigationProperty Name="EntryNote1" Relationship="Self.FK_EntryNote_TransferStore" FromRole="Store" ToRole="EntryNote" />
+          <NavigationProperty Name="OutputNote" Relationship="Self.FK_OutputNote_DestinationStore" FromRole="Store" ToRole="OutputNote" />
+          <NavigationProperty Name="OutputNote1" Relationship="Self.FK_OutputNote_OriginalStore" FromRole="Store" ToRole="OutputNote" />
         </EntityType>
         <EntityType Name="SubFamily">
           <Key>
@@ -1784,10 +1570,10 @@
           </Key>
           <Property Name="SubFamilyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FamilyId" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Family" Relationship="Model.FK_SubFamily_Family" FromRole="SubFamily" ToRole="Family" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_Product_SubFamily" FromRole="SubFamily" ToRole="Product" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Family" Relationship="Self.FK_SubFamily_Family" FromRole="SubFamily" ToRole="Family" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_SubFamily" FromRole="SubFamily" ToRole="Product" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -1795,81 +1581,81 @@
           </Key>
           <Property Name="SupplierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CountryId" Type="Int32" />
-          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="RUC" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="BussinessName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RUC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BussinessName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MethodPayment" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="Provenance" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Origin" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Provenance" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Origin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Retention" Type="Boolean" Nullable="false" />
           <Property Name="Detraction" Type="Boolean" Nullable="false" />
           <Property Name="Perception" Type="Boolean" Nullable="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Contact" Relationship="Model.FK_Contact_Supplier" FromRole="Supplier" ToRole="Contact" />
-          <NavigationProperty Name="Country" Relationship="Model.FK_Supplier_Country" FromRole="Supplier" ToRole="Country" />
-          <NavigationProperty Name="EntryNote" Relationship="Model.FK_EntryNote_Supplier" FromRole="Supplier" ToRole="EntryNote" />
-          <NavigationProperty Name="PrePurcherseOrder" Relationship="Model.FK_PrePO_Supplier" FromRole="Supplier" ToRole="PrePurcherseOrder" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_Product_Provider" FromRole="Supplier" ToRole="Product" />
-          <Property Name="MethodPayment" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK_Contact_Supplier" FromRole="Supplier" ToRole="Contact" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Supplier_Country" FromRole="Supplier" ToRole="Country" />
+          <NavigationProperty Name="EntryNote" Relationship="Self.FK_EntryNote_Supplier" FromRole="Supplier" ToRole="EntryNote" />
+          <NavigationProperty Name="PrePurcherseOrder" Relationship="Self.FK_PrePO_Supplier" FromRole="Supplier" ToRole="PrePurcherseOrder" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Provider" FromRole="Supplier" ToRole="Product" />
         </EntityType>
         <EntityType Name="TaxPercentage">
           <Key>
             <PropertyRef Name="TaxPercentageId" />
           </Key>
           <Property Name="TaxPercentageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_Product_TaxPercentage4" FromRole="TaxPercentage" ToRole="Product" />
-          <NavigationProperty Name="Product1" Relationship="Model.FK_Product_TaxPercentage5" FromRole="TaxPercentage" ToRole="Product" />
-          <NavigationProperty Name="Product2" Relationship="Model.FK_Product_TaxPercentage6" FromRole="TaxPercentage" ToRole="Product" />
-          <NavigationProperty Name="Product3" Relationship="Model.FK_Product_TaxPercentage7" FromRole="TaxPercentage" ToRole="Product" />
+          <Property Name="Description" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_TaxPercentage4" FromRole="TaxPercentage" ToRole="Product" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Product_TaxPercentage5" FromRole="TaxPercentage" ToRole="Product" />
+          <NavigationProperty Name="Product2" Relationship="Self.FK_Product_TaxPercentage6" FromRole="TaxPercentage" ToRole="Product" />
+          <NavigationProperty Name="Product3" Relationship="Self.FK_Product_TaxPercentage7" FromRole="TaxPercentage" ToRole="Product" />
         </EntityType>
         <EntityType Name="Tolerance">
           <Key>
             <PropertyRef Name="ToleranceId" />
           </Key>
           <Property Name="ToleranceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <NavigationProperty Name="PurcherseOrder" Relationship="Model.FK_PO_Tolerance" FromRole="Tolerance" ToRole="PurcherseOrder" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Value" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="PurcherseOrder" Relationship="Self.FK_PO_Tolerance" FromRole="Tolerance" ToRole="PurcherseOrder" />
         </EntityType>
         <EntityType Name="Treasury">
           <Key>
             <PropertyRef Name="TreasuryId" />
           </Key>
           <Property Name="TreasuryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Value" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PurcherseOrder" Relationship="Model.FK_PO_Treasury" FromRole="Treasury" ToRole="PurcherseOrder" />
+          <NavigationProperty Name="PurcherseOrder" Relationship="Self.FK_PO_Treasury" FromRole="Treasury" ToRole="PurcherseOrder" />
         </EntityType>
         <EntityType Name="TypeExistence">
           <Key>
             <PropertyRef Name="TypeExistenceId" />
           </Key>
           <Property Name="TypeExistenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="Model.FK_Product_TypeExistence" FromRole="TypeExistence" ToRole="Product" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_TypeExistence" FromRole="TypeExistence" ToRole="Product" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="State" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Password" Relationship="Model.FK_Password_User" FromRole="User" ToRole="Password" />
-          <NavigationProperty Name="Role" Relationship="Model.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Password" Relationship="Self.FK_Password_User" FromRole="User" ToRole="Password" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_BankContact_Bank">
-          <End Type="Model.Bank" Role="Bank" Multiplicity="1" />
-          <End Type="Model.BankContact" Role="BankContact" Multiplicity="*" />
+          <End Role="Bank" Type="Self.Bank" Multiplicity="1" />
+          <End Role="BankContact" Type="Self.BankContact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Bank">
               <PropertyRef Name="BankId" />
@@ -1880,8 +1666,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BankContact_Contact">
-          <End Type="Model.Contact" Role="Contact" Multiplicity="1" />
-          <End Type="Model.BankContact" Role="BankContact" Multiplicity="*" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+          <End Role="BankContact" Type="Self.BankContact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Contact">
               <PropertyRef Name="ContactId" />
@@ -1892,8 +1678,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contact_Item">
-          <End Type="Model.Item" Role="Item" Multiplicity="1" />
-          <End Type="Model.Contact" Role="Contact" Multiplicity="*" />
+          <End Role="Item" Type="Self.Item" Multiplicity="1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Item">
               <PropertyRef Name="ItemId" />
@@ -1904,8 +1690,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Contact_Supplier">
-          <End Type="Model.Supplier" Role="Supplier" Multiplicity="1" />
-          <End Type="Model.Contact" Role="Contact" Multiplicity="*" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
               <PropertyRef Name="SupplierId" />
@@ -1916,8 +1702,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PrePO_Country">
-          <End Type="Model.Country" Role="Country" Multiplicity="1" />
-          <End Type="Model.PrePurcherseOrder" Role="PrePurcherseOrder" Multiplicity="*" />
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="PrePurcherseOrder" Type="Self.PrePurcherseOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Country">
               <PropertyRef Name="CountryId" />
@@ -1928,8 +1714,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Supplier_Country">
-          <End Type="Model.Country" Role="Country" Multiplicity="0..1" />
-          <End Type="Model.Supplier" Role="Supplier" Multiplicity="*" />
+          <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Country">
               <PropertyRef Name="CountryId" />
@@ -1940,8 +1726,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PO_Currency">
-          <End Type="Model.Currency" Role="Currency" Multiplicity="1" />
-          <End Type="Model.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
+          <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+          <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Currency">
               <PropertyRef Name="CurrencyId" />
@@ -1952,8 +1738,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Document_DocumentType">
-          <End Type="Model.DocumentType" Role="DocumentType" Multiplicity="1" />
-          <End Type="Model.Document" Role="Document" Multiplicity="*" />
+          <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+          <End Role="Document" Type="Self.Document" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DocumentType">
               <PropertyRef Name="DocumentTypeId" />
@@ -1964,8 +1750,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_Document">
-          <End Type="Model.Document" Role="Document" Multiplicity="1" />
-          <End Type="Model.EntryNote" Role="EntryNote" Multiplicity="*" />
+          <End Role="Document" Type="Self.Document" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Document">
               <PropertyRef Name="DocumentId" />
@@ -1976,8 +1762,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OutputNote_Document">
-          <End Type="Model.Document" Role="Document" Multiplicity="0..1" />
-          <End Type="Model.OutputNote" Role="OutputNote" Multiplicity="*" />
+          <End Role="Document" Type="Self.Document" Multiplicity="0..1" />
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Document">
               <PropertyRef Name="DocumentId" />
@@ -1988,8 +1774,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PO_DocumentType">
-          <End Type="Model.DocumentType" Role="DocumentType" Multiplicity="1" />
-          <End Type="Model.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
+          <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+          <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DocumentType">
               <PropertyRef Name="DocumentTypeId" />
@@ -2000,8 +1786,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_DestinationStore">
-          <End Type="Model.Store" Role="Store" Multiplicity="1" />
-          <End Type="Model.EntryNote" Role="EntryNote" Multiplicity="*" />
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Store">
               <PropertyRef Name="StoreId" />
@@ -2012,8 +1798,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_MovementType">
-          <End Type="Model.MovementType" Role="MovementType" Multiplicity="1" />
-          <End Type="Model.EntryNote" Role="EntryNote" Multiplicity="*" />
+          <End Role="MovementType" Type="Self.MovementType" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MovementType">
               <PropertyRef Name="MovementTypeId" />
@@ -2024,8 +1810,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_Supplier">
-          <End Type="Model.Supplier" Role="Supplier" Multiplicity="1" />
-          <End Type="Model.EntryNote" Role="EntryNote" Multiplicity="*" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
               <PropertyRef Name="SupplierId" />
@@ -2036,8 +1822,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EntryNote_TransferStore">
-          <End Type="Model.Store" Role="Store" Multiplicity="1" />
-          <End Type="Model.EntryNote" Role="EntryNote" Multiplicity="*" />
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Store">
               <PropertyRef Name="StoreId" />
@@ -2048,8 +1834,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StockProductDetail_EntryNote">
-          <End Type="Model.EntryNote" Role="EntryNote" Multiplicity="0..1" />
-          <End Type="Model.StockProductDetail" Role="StockProductDetail" Multiplicity="*" />
+          <End Role="EntryNote" Type="Self.EntryNote" Multiplicity="0..1" />
+          <End Role="StockProductDetail" Type="Self.StockProductDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EntryNote">
               <PropertyRef Name="EntryNoteId" />
@@ -2060,8 +1846,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SubFamily_Family">
-          <End Type="Model.Family" Role="Family" Multiplicity="1" />
-          <End Type="Model.SubFamily" Role="SubFamily" Multiplicity="*" />
+          <End Role="Family" Type="Self.Family" Multiplicity="1" />
+          <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Family">
               <PropertyRef Name="FamilyId" />
@@ -2072,8 +1858,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PO_Incoterms">
-          <End Type="Model.Incoterms" Role="Incoterms" Multiplicity="1" />
-          <End Type="Model.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
+          <End Role="Incoterms" Type="Self.Incoterms" Multiplicity="1" />
+          <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Incoterms">
               <PropertyRef Name="IncotermsId" />
@@ -2084,8 +1870,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PrePODetail_MeasureUnit">
-          <End Type="Model.MeasureUnit" Role="MeasureUnit" Multiplicity="1" />
-          <End Type="Model.PrePurcherseOrderDetail" Role="PrePurcherseOrderDetail" Multiplicity="*" />
+          <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="1" />
+          <End Role="PrePurcherseOrderDetail" Type="Self.PrePurcherseOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MeasureUnit">
               <PropertyRef Name="MeasureUnitId" />
@@ -2096,8 +1882,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_MeasureUnit">
-          <End Type="Model.MeasureUnit" Role="MeasureUnit" Multiplicity="0..1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MeasureUnit">
               <PropertyRef Name="MeasureUnitId" />
@@ -2108,8 +1894,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_MeasureUnit1">
-          <End Type="Model.MeasureUnit" Role="MeasureUnit" Multiplicity="0..1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <End Role="MeasureUnit" Type="Self.MeasureUnit" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MeasureUnit">
               <PropertyRef Name="MeasureUnitId" />
@@ -2120,8 +1906,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OutputNote_MovementType">
-          <End Type="Model.MovementType" Role="MovementType" Multiplicity="1" />
-          <End Type="Model.OutputNote" Role="OutputNote" Multiplicity="*" />
+          <End Role="MovementType" Type="Self.MovementType" Multiplicity="1" />
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MovementType">
               <PropertyRef Name="MovementTypeId" />
@@ -2132,8 +1918,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RoleOption_Option">
-          <End Type="Model.Option" Role="Option" Multiplicity="1" />
-          <End Type="Model.RoleOption" Role="RoleOption" Multiplicity="*" />
+          <End Role="Option" Type="Self.Option" Multiplicity="1" />
+          <End Role="RoleOption" Type="Self.RoleOption" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Option">
               <PropertyRef Name="OptionId" />
@@ -2144,8 +1930,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OutputNote_DestinationStore">
-          <End Type="Model.Store" Role="Store" Multiplicity="1" />
-          <End Type="Model.OutputNote" Role="OutputNote" Multiplicity="*" />
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Store">
               <PropertyRef Name="StoreId" />
@@ -2156,8 +1942,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OutputNote_OriginalStore">
-          <End Type="Model.Store" Role="Store" Multiplicity="1" />
-          <End Type="Model.OutputNote" Role="OutputNote" Multiplicity="*" />
+          <End Role="Store" Type="Self.Store" Multiplicity="1" />
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Store">
               <PropertyRef Name="StoreId" />
@@ -2168,8 +1954,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StockProductDetail_OutputNote">
-          <End Type="Model.OutputNote" Role="OutputNote" Multiplicity="0..1" />
-          <End Type="Model.StockProductDetail" Role="StockProductDetail" Multiplicity="*" />
+          <End Role="OutputNote" Type="Self.OutputNote" Multiplicity="0..1" />
+          <End Role="StockProductDetail" Type="Self.StockProductDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OutputNote">
               <PropertyRef Name="OutputNoteId" />
@@ -2180,8 +1966,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Password_User">
-          <End Type="Model.User" Role="User" Multiplicity="1" />
-          <End Type="Model.Password" Role="Password" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Password" Type="Self.Password" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="UserId" />
@@ -2192,8 +1978,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PO_Port">
-          <End Type="Model.Port" Role="Port" Multiplicity="1" />
-          <End Type="Model.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
+          <End Role="Port" Type="Self.Port" Multiplicity="1" />
+          <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Port">
               <PropertyRef Name="PortId" />
@@ -2204,8 +1990,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PO_PrePO">
-          <End Type="Model.PrePurcherseOrder" Role="PrePurcherseOrder" Multiplicity="1" />
-          <End Type="Model.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
+          <End Role="PrePurcherseOrder" Type="Self.PrePurcherseOrder" Multiplicity="1" />
+          <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PrePurcherseOrder">
               <PropertyRef Name="PrePurcherseOrderId" />
@@ -2216,8 +2002,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PrePO_Supplier">
-          <End Type="Model.Supplier" Role="Supplier" Multiplicity="1" />
-          <End Type="Model.PrePurcherseOrder" Role="PrePurcherseOrder" Multiplicity="*" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="PrePurcherseOrder" Type="Self.PrePurcherseOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
               <PropertyRef Name="SupplierId" />
@@ -2228,8 +2014,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PrePODetail_PrePO">
-          <End Type="Model.PrePurcherseOrder" Role="PrePurcherseOrder" Multiplicity="1" />
-          <End Type="Model.PrePurcherseOrderDetail" Role="PrePurcherseOrderDetail" Multiplicity="*" />
+          <End Role="PrePurcherseOrder" Type="Self.PrePurcherseOrder" Multiplicity="1" />
+          <End Role="PrePurcherseOrderDetail" Type="Self.PrePurcherseOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PrePurcherseOrder">
               <PropertyRef Name="PrePurcherseOrderId" />
@@ -2240,8 +2026,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PrePODetail_Product">
-          <End Type="Model.Product" Role="Product" Multiplicity="1" />
-          <End Type="Model.PrePurcherseOrderDetail" Role="PrePurcherseOrderDetail" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="PrePurcherseOrderDetail" Type="Self.PrePurcherseOrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -2252,8 +2038,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_Provider">
-          <End Type="Model.Supplier" Role="Supplier" Multiplicity="0..1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Supplier">
               <PropertyRef Name="SupplierId" />
@@ -2264,8 +2050,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_SubFamily">
-          <End Type="Model.SubFamily" Role="SubFamily" Multiplicity="1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <End Role="SubFamily" Type="Self.SubFamily" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SubFamily">
               <PropertyRef Name="SubFamilyId" />
@@ -2276,8 +2062,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_TaxPercentage4">
-          <End Type="Model.TaxPercentage" Role="TaxPercentage" Multiplicity="1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaxPercentage">
               <PropertyRef Name="TaxPercentageId" />
@@ -2288,8 +2074,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_TaxPercentage5">
-          <End Type="Model.TaxPercentage" Role="TaxPercentage" Multiplicity="1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaxPercentage">
               <PropertyRef Name="TaxPercentageId" />
@@ -2300,8 +2086,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_TaxPercentage6">
-          <End Type="Model.TaxPercentage" Role="TaxPercentage" Multiplicity="1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaxPercentage">
               <PropertyRef Name="TaxPercentageId" />
@@ -2312,8 +2098,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_TaxPercentage7">
-          <End Type="Model.TaxPercentage" Role="TaxPercentage" Multiplicity="1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <End Role="TaxPercentage" Type="Self.TaxPercentage" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TaxPercentage">
               <PropertyRef Name="TaxPercentageId" />
@@ -2324,8 +2110,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_TypeExistence">
-          <End Type="Model.TypeExistence" Role="TypeExistence" Multiplicity="1" />
-          <End Type="Model.Product" Role="Product" Multiplicity="*" />
+          <End Role="TypeExistence" Type="Self.TypeExistence" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeExistence">
               <PropertyRef Name="TypeExistenceId" />
@@ -2336,8 +2122,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StockProduct_Product">
-          <End Type="Model.Product" Role="Product" Multiplicity="1" />
-          <End Type="Model.StockProduct" Role="StockProduct" Multiplicity="*" />
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="StockProduct" Type="Self.StockProduct" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductId" />
@@ -2348,8 +2134,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PO_Tolerance">
-          <End Type="Model.Tolerance" Role="Tolerance" Multiplicity="1" />
-          <End Type="Model.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
+          <End Role="Tolerance" Type="Self.Tolerance" Multiplicity="1" />
+          <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tolerance">
               <PropertyRef Name="ToleranceId" />
@@ -2360,8 +2146,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PO_Treasury">
-          <End Type="Model.Treasury" Role="Treasury" Multiplicity="1" />
-          <End Type="Model.PurcherseOrder" Role="PurcherseOrder" Multiplicity="*" />
+          <End Role="Treasury" Type="Self.Treasury" Multiplicity="1" />
+          <End Role="PurcherseOrder" Type="Self.PurcherseOrder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Treasury">
               <PropertyRef Name="TreasuryId" />
@@ -2372,8 +2158,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RoleOption_Role">
-          <End Type="Model.Role" Role="Role" Multiplicity="1" />
-          <End Type="Model.RoleOption" Role="RoleOption" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RoleOption" Type="Self.RoleOption" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="RoleId" />
@@ -2384,8 +2170,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Type="Model.Role" Role="Role" Multiplicity="1" />
-          <End Type="Model.User" Role="User" Multiplicity="*" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="RoleId" />
@@ -2396,8 +2182,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StockProductDetail_StockProduct">
-          <End Type="Model.StockProduct" Role="StockProduct" Multiplicity="1" />
-          <End Type="Model.StockProductDetail" Role="StockProductDetail" Multiplicity="*" />
+          <End Role="StockProduct" Type="Self.StockProduct" Multiplicity="1" />
+          <End Role="StockProductDetail" Type="Self.StockProductDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="StockProduct">
               <PropertyRef Name="StockProductId" />
@@ -2407,441 +2193,656 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="TLCDataNMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bank" EntityType="Self.Bank" />
+          <EntitySet Name="BankContact" EntityType="Self.BankContact" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" />
+          <EntitySet Name="Country" EntityType="Self.Country" />
+          <EntitySet Name="Currency" EntityType="Self.Currency" />
+          <EntitySet Name="Document" EntityType="Self.Document" />
+          <EntitySet Name="DocumentType" EntityType="Self.DocumentType" />
+          <EntitySet Name="EntryNote" EntityType="Self.EntryNote" />
+          <EntitySet Name="Family" EntityType="Self.Family" />
+          <EntitySet Name="Incoterms" EntityType="Self.Incoterms" />
+          <EntitySet Name="Item" EntityType="Self.Item" />
+          <EntitySet Name="MeasureUnit" EntityType="Self.MeasureUnit" />
+          <EntitySet Name="MovementType" EntityType="Self.MovementType" />
+          <EntitySet Name="Option" EntityType="Self.Option" />
+          <EntitySet Name="OutputNote" EntityType="Self.OutputNote" />
+          <EntitySet Name="Password" EntityType="Self.Password" />
+          <EntitySet Name="Port" EntityType="Self.Port" />
+          <EntitySet Name="PrePurcherseOrder" EntityType="Self.PrePurcherseOrder" />
+          <EntitySet Name="PrePurcherseOrderDetail" EntityType="Self.PrePurcherseOrderDetail" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="PurcherseOrder" EntityType="Self.PurcherseOrder" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="RoleOption" EntityType="Self.RoleOption" />
+          <EntitySet Name="StockProduct" EntityType="Self.StockProduct" />
+          <EntitySet Name="StockProductDetail" EntityType="Self.StockProductDetail" />
+          <EntitySet Name="Store" EntityType="Self.Store" />
+          <EntitySet Name="SubFamily" EntityType="Self.SubFamily" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" />
+          <EntitySet Name="TaxPercentage" EntityType="Self.TaxPercentage" />
+          <EntitySet Name="Tolerance" EntityType="Self.Tolerance" />
+          <EntitySet Name="Treasury" EntityType="Self.Treasury" />
+          <EntitySet Name="TypeExistence" EntityType="Self.TypeExistence" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_BankContact_Bank" Association="Self.FK_BankContact_Bank">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="BankContact" EntitySet="BankContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BankContact_Contact" Association="Self.FK_BankContact_Contact">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="BankContact" EntitySet="BankContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Item" Association="Self.FK_Contact_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_Supplier" Association="Self.FK_Contact_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Contact" EntitySet="Contact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrePO_Country" Association="Self.FK_PrePO_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplier_Country" Association="Self.FK_Supplier_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PO_Currency" Association="Self.FK_PO_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_DocumentType" Association="Self.FK_Document_DocumentType">
+            <End Role="DocumentType" EntitySet="DocumentType" />
+            <End Role="Document" EntitySet="Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_Document" Association="Self.FK_EntryNote_Document">
+            <End Role="Document" EntitySet="Document" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutputNote_Document" Association="Self.FK_OutputNote_Document">
+            <End Role="Document" EntitySet="Document" />
+            <End Role="OutputNote" EntitySet="OutputNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PO_DocumentType" Association="Self.FK_PO_DocumentType">
+            <End Role="DocumentType" EntitySet="DocumentType" />
+            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_DestinationStore" Association="Self.FK_EntryNote_DestinationStore">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_MovementType" Association="Self.FK_EntryNote_MovementType">
+            <End Role="MovementType" EntitySet="MovementType" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_Supplier" Association="Self.FK_EntryNote_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntryNote_TransferStore" Association="Self.FK_EntryNote_TransferStore">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="EntryNote" EntitySet="EntryNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockProductDetail_EntryNote" Association="Self.FK_StockProductDetail_EntryNote">
+            <End Role="EntryNote" EntitySet="EntryNote" />
+            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubFamily_Family" Association="Self.FK_SubFamily_Family">
+            <End Role="Family" EntitySet="Family" />
+            <End Role="SubFamily" EntitySet="SubFamily" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PO_Incoterms" Association="Self.FK_PO_Incoterms">
+            <End Role="Incoterms" EntitySet="Incoterms" />
+            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrePODetail_MeasureUnit" Association="Self.FK_PrePODetail_MeasureUnit">
+            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+            <End Role="PrePurcherseOrderDetail" EntitySet="PrePurcherseOrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_MeasureUnit" Association="Self.FK_Product_MeasureUnit">
+            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_MeasureUnit1" Association="Self.FK_Product_MeasureUnit1">
+            <End Role="MeasureUnit" EntitySet="MeasureUnit" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutputNote_MovementType" Association="Self.FK_OutputNote_MovementType">
+            <End Role="MovementType" EntitySet="MovementType" />
+            <End Role="OutputNote" EntitySet="OutputNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOption_Option" Association="Self.FK_RoleOption_Option">
+            <End Role="Option" EntitySet="Option" />
+            <End Role="RoleOption" EntitySet="RoleOption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutputNote_DestinationStore" Association="Self.FK_OutputNote_DestinationStore">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="OutputNote" EntitySet="OutputNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OutputNote_OriginalStore" Association="Self.FK_OutputNote_OriginalStore">
+            <End Role="Store" EntitySet="Store" />
+            <End Role="OutputNote" EntitySet="OutputNote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockProductDetail_OutputNote" Association="Self.FK_StockProductDetail_OutputNote">
+            <End Role="OutputNote" EntitySet="OutputNote" />
+            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Password_User" Association="Self.FK_Password_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Password" EntitySet="Password" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PO_Port" Association="Self.FK_PO_Port">
+            <End Role="Port" EntitySet="Port" />
+            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PO_PrePO" Association="Self.FK_PO_PrePO">
+            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
+            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrePO_Supplier" Association="Self.FK_PrePO_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrePODetail_PrePO" Association="Self.FK_PrePODetail_PrePO">
+            <End Role="PrePurcherseOrder" EntitySet="PrePurcherseOrder" />
+            <End Role="PrePurcherseOrderDetail" EntitySet="PrePurcherseOrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrePODetail_Product" Association="Self.FK_PrePODetail_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="PrePurcherseOrderDetail" EntitySet="PrePurcherseOrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Provider" Association="Self.FK_Product_Provider">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_SubFamily" Association="Self.FK_Product_SubFamily">
+            <End Role="SubFamily" EntitySet="SubFamily" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage4" Association="Self.FK_Product_TaxPercentage4">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage5" Association="Self.FK_Product_TaxPercentage5">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage6" Association="Self.FK_Product_TaxPercentage6">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TaxPercentage7" Association="Self.FK_Product_TaxPercentage7">
+            <End Role="TaxPercentage" EntitySet="TaxPercentage" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_TypeExistence" Association="Self.FK_Product_TypeExistence">
+            <End Role="TypeExistence" EntitySet="TypeExistence" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockProduct_Product" Association="Self.FK_StockProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="StockProduct" EntitySet="StockProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PO_Tolerance" Association="Self.FK_PO_Tolerance">
+            <End Role="Tolerance" EntitySet="Tolerance" />
+            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PO_Treasury" Association="Self.FK_PO_Treasury">
+            <End Role="Treasury" EntitySet="Treasury" />
+            <End Role="PurcherseOrder" EntitySet="PurcherseOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOption_Role" Association="Self.FK_RoleOption_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleOption" EntitySet="RoleOption" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockProductDetail_StockProduct" Association="Self.FK_StockProductDetail_StockProduct">
+            <End Role="StockProduct" EntitySet="StockProduct" />
+            <End Role="StockProductDetail" EntitySet="StockProductDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="TLCDataNMEntities">
+        <EntityContainerMapping StorageEntityContainer="TLCDataNMModelStoreContainer" CdmEntityContainer="TLCDataNMEntities">
           <EntitySetMapping Name="Bank">
-            <EntityTypeMapping TypeName="Model.Bank">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Bank">
               <MappingFragment StoreEntitySet="Bank">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BankContact">
-            <EntityTypeMapping TypeName="Model.BankContact">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.BankContact">
               <MappingFragment StoreEntitySet="BankContact">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="AccountDollars" ColumnName="AccountDollars" />
-                <ScalarProperty Name="AccountSoles" ColumnName="AccountSoles" />
-                <ScalarProperty Name="BankId" ColumnName="BankId" />
-                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
                 <ScalarProperty Name="BankContactId" ColumnName="BankContactId" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="AccountSoles" ColumnName="AccountSoles" />
+                <ScalarProperty Name="AccountDollars" ColumnName="AccountDollars" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Contact">
-            <EntityTypeMapping TypeName="Model.Contact">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Contact">
               <MappingFragment StoreEntitySet="Contact">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="SecondLastName" ColumnName="SecondLastName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
                 <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="SecondLastName" ColumnName="SecondLastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Country">
-            <EntityTypeMapping TypeName="Model.Country">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Country">
               <MappingFragment StoreEntitySet="Country">
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Currency">
-            <EntityTypeMapping TypeName="Model.Currency">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Currency">
               <MappingFragment StoreEntitySet="Currency">
-                <ScalarProperty Name="Sign" ColumnName="Sign" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Document">
-            <EntityTypeMapping TypeName="Model.Document">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Document">
               <MappingFragment StoreEntitySet="Document">
-                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
                 <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DocumentType">
-            <EntityTypeMapping TypeName="Model.DocumentType">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.DocumentType">
               <MappingFragment StoreEntitySet="DocumentType">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EntryNote">
-            <EntityTypeMapping TypeName="Model.EntryNote">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.EntryNote">
               <MappingFragment StoreEntitySet="EntryNote">
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="TransferStoreId" ColumnName="TransferStoreId" />
-                <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
-                <ScalarProperty Name="TransportTime" ColumnName="TransportTime" />
-                <ScalarProperty Name="Seal" ColumnName="Seal" />
-                <ScalarProperty Name="TransportGuideNumber" ColumnName="TransportGuideNumber" />
-                <ScalarProperty Name="SupplierGuideNumber" ColumnName="SupplierGuideNumber" />
-                <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="EntryNoteId" ColumnName="EntryNoteId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
+                <ScalarProperty Name="SupplierGuideNumber" ColumnName="SupplierGuideNumber" />
+                <ScalarProperty Name="TransportGuideNumber" ColumnName="TransportGuideNumber" />
+                <ScalarProperty Name="Seal" ColumnName="Seal" />
+                <ScalarProperty Name="TransportTime" ColumnName="TransportTime" />
+                <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
+                <ScalarProperty Name="TransferStoreId" ColumnName="TransferStoreId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Family">
-            <EntityTypeMapping TypeName="Model.Family">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Family">
               <MappingFragment StoreEntitySet="Family">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="SKUCode" ColumnName="SKUCode" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SKUCode" ColumnName="SKUCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Incoterms">
-            <EntityTypeMapping TypeName="Model.Incoterms">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Incoterms">
               <MappingFragment StoreEntitySet="Incoterms">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IncotermsId" ColumnName="IncotermsId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Item">
-            <EntityTypeMapping TypeName="Model.Item">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Item">
               <MappingFragment StoreEntitySet="Item">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MeasureUnit">
-            <EntityTypeMapping TypeName="Model.MeasureUnit">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.MeasureUnit">
               <MappingFragment StoreEntitySet="MeasureUnit">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="MeasureUnitId" ColumnName="MeasureUnitId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MovementType">
-            <EntityTypeMapping TypeName="Model.MovementType">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.MovementType">
               <MappingFragment StoreEntitySet="MovementType">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Option">
-            <EntityTypeMapping TypeName="Model.Option">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Option">
               <MappingFragment StoreEntitySet="Option">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
-                <ScalarProperty Name="Order" ColumnName="Order" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Icon" ColumnName="Icon" />
-                <ScalarProperty Name="Area" ColumnName="Area" />
-                <ScalarProperty Name="Controller" ColumnName="Controller" />
-                <ScalarProperty Name="Action" ColumnName="Action" />
-                <ScalarProperty Name="SubSection" ColumnName="SubSection" />
-                <ScalarProperty Name="Section" ColumnName="Section" />
-                <ScalarProperty Name="FatherId" ColumnName="FatherId" />
                 <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+                <ScalarProperty Name="FatherId" ColumnName="FatherId" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="SubSection" ColumnName="SubSection" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OutputNote">
-            <EntityTypeMapping TypeName="Model.OutputNote">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.OutputNote">
               <MappingFragment StoreEntitySet="OutputNote">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="IsTransferGuide" ColumnName="IsTransferGuide" />
-                <ScalarProperty Name="IsOfficeGuide" ColumnName="IsOfficeGuide" />
-                <ScalarProperty Name="Other" ColumnName="Other" />
-                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-                <ScalarProperty Name="OriginalStoreId" ColumnName="OriginalStoreId" />
-                <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
-                <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Time" ColumnName="Time" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="OutputNoteId" ColumnName="OutputNoteId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="MovementTypeId" ColumnName="MovementTypeId" />
+                <ScalarProperty Name="DestinationStoreId" ColumnName="DestinationStoreId" />
+                <ScalarProperty Name="OriginalStoreId" ColumnName="OriginalStoreId" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="IsOfficeGuide" ColumnName="IsOfficeGuide" />
+                <ScalarProperty Name="IsTransferGuide" ColumnName="IsTransferGuide" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Password">
-            <EntityTypeMapping TypeName="Model.Password">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Password">
               <MappingFragment StoreEntitySet="Password">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="BlockDate" ColumnName="BlockDate" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="PasswordId" ColumnName="PasswordId" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="BlockDate" ColumnName="BlockDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Port">
-            <EntityTypeMapping TypeName="Model.Port">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Port">
               <MappingFragment StoreEntitySet="Port">
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PortId" ColumnName="PortId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PrePurcherseOrder">
-            <EntityTypeMapping TypeName="Model.PrePurcherseOrder">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.PrePurcherseOrder">
               <MappingFragment StoreEntitySet="PrePurcherseOrder">
-                <ScalarProperty Name="DocumentContentType" ColumnName="DocumentContentType" />
-                <ScalarProperty Name="DocumentExtension" ColumnName="DocumentExtension" />
-                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
-                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
-                <ScalarProperty Name="SendSupply" ColumnName="SendSupply" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="ShipmentDate" ColumnName="ShipmentDate" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-                <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="PrePurcherseOrderId" ColumnName="PrePurcherseOrderId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="ShipmentDate" ColumnName="ShipmentDate" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="SendSupply" ColumnName="SendSupply" />
+                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+                <ScalarProperty Name="DocumentPath" ColumnName="DocumentPath" />
+                <ScalarProperty Name="DocumentExtension" ColumnName="DocumentExtension" />
+                <ScalarProperty Name="DocumentContentType" ColumnName="DocumentContentType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PrePurcherseOrderDetail">
-            <EntityTypeMapping TypeName="Model.PrePurcherseOrderDetail">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.PrePurcherseOrderDetail">
               <MappingFragment StoreEntitySet="PrePurcherseOrderDetail">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="MeasureUnitId" ColumnName="MeasureUnitId" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="PrePurcherseOrderId" ColumnName="PrePurcherseOrderId" />
                 <ScalarProperty Name="PrePurcherseOrderDetailId" ColumnName="PrePurcherseOrderDetailId" />
+                <ScalarProperty Name="PrePurcherseOrderId" ColumnName="PrePurcherseOrderId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="MeasureUnitId" ColumnName="MeasureUnitId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="Model.Product">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="MinimumLot" ColumnName="MinimumLot" />
-                <ScalarProperty Name="MinimumStock" ColumnName="MinimumStock" />
-                <ScalarProperty Name="ConversionFactor" ColumnName="ConversionFactor" />
-                <ScalarProperty Name="OtherMeasureUnit" ColumnName="OtherMeasureUnit" />
-                <ScalarProperty Name="IsPurchase" ColumnName="IsPurchase" />
-                <ScalarProperty Name="IsSale" ColumnName="IsSale" />
-                <ScalarProperty Name="TaxPercentageDetractionId" ColumnName="TaxPercentageDetractionId" />
-                <ScalarProperty Name="TaxPercentagePerceptionId" ColumnName="TaxPercentagePerceptionId" />
-                <ScalarProperty Name="TaxPercentageAffectionIGVId" ColumnName="TaxPercentageAffectionIGVId" />
-                <ScalarProperty Name="TaxPercentageAdvalorenId" ColumnName="TaxPercentageAdvalorenId" />
-                <ScalarProperty Name="LotNumberPurchase" ColumnName="LotNumberPurchase" />
-                <ScalarProperty Name="LocalDescription" ColumnName="LocalDescription" />
-                <ScalarProperty Name="InvoiceDescription" ColumnName="InvoiceDescription" />
-                <ScalarProperty Name="Color" ColumnName="Color" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
-                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
-                <ScalarProperty Name="MeasureUnitSecondaryId" ColumnName="MeasureUnitSecondaryId" />
-                <ScalarProperty Name="MeasureUnitPrimaryId" ColumnName="MeasureUnitPrimaryId" />
-                <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
-                <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
+                <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
+                <ScalarProperty Name="MeasureUnitPrimaryId" ColumnName="MeasureUnitPrimaryId" />
+                <ScalarProperty Name="MeasureUnitSecondaryId" ColumnName="MeasureUnitSecondaryId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="InvoiceDescription" ColumnName="InvoiceDescription" />
+                <ScalarProperty Name="LocalDescription" ColumnName="LocalDescription" />
+                <ScalarProperty Name="LotNumberPurchase" ColumnName="LotNumberPurchase" />
+                <ScalarProperty Name="TaxPercentageAdvalorenId" ColumnName="TaxPercentageAdvalorenId" />
+                <ScalarProperty Name="TaxPercentageAffectionIGVId" ColumnName="TaxPercentageAffectionIGVId" />
+                <ScalarProperty Name="TaxPercentagePerceptionId" ColumnName="TaxPercentagePerceptionId" />
+                <ScalarProperty Name="TaxPercentageDetractionId" ColumnName="TaxPercentageDetractionId" />
+                <ScalarProperty Name="IsSale" ColumnName="IsSale" />
+                <ScalarProperty Name="IsPurchase" ColumnName="IsPurchase" />
+                <ScalarProperty Name="OtherMeasureUnit" ColumnName="OtherMeasureUnit" />
+                <ScalarProperty Name="ConversionFactor" ColumnName="ConversionFactor" />
+                <ScalarProperty Name="MinimumStock" ColumnName="MinimumStock" />
+                <ScalarProperty Name="MinimumLot" ColumnName="MinimumLot" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PurcherseOrder">
-            <EntityTypeMapping TypeName="Model.PurcherseOrder">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.PurcherseOrder">
               <MappingFragment StoreEntitySet="PurcherseOrder">
-                <ScalarProperty Name="ShipmentDate" ColumnName="ShipmentDate" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="SupplierEmail" ColumnName="SupplierEmail" />
-                <ScalarProperty Name="CEOEmail" ColumnName="CEOEmail" />
-                <ScalarProperty Name="SwiftIntermediaryBank" ColumnName="SwiftIntermediaryBank" />
-                <ScalarProperty Name="IntermediaryBank" ColumnName="IntermediaryBank" />
-                <ScalarProperty Name="SwiftCode" ColumnName="SwiftCode" />
-                <ScalarProperty Name="BankAccountnumber" ColumnName="BankAccountnumber" />
-                <ScalarProperty Name="BeneficiaryBankAdress" ColumnName="BeneficiaryBankAdress" />
-                <ScalarProperty Name="BeneficiarySupplyAdress" ColumnName="BeneficiarySupplyAdress" />
-                <ScalarProperty Name="BeneficiarySupply" ColumnName="BeneficiarySupply" />
-                <ScalarProperty Name="PortId" ColumnName="PortId" />
-                <ScalarProperty Name="TreasuryId" ColumnName="TreasuryId" />
-                <ScalarProperty Name="ShipmentSample" ColumnName="ShipmentSample" />
-                <ScalarProperty Name="ToleranceRemark" ColumnName="ToleranceRemark" />
-                <ScalarProperty Name="ToleranceId" ColumnName="ToleranceId" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="IncotermsId" ColumnName="IncotermsId" />
-                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
-                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-                <ScalarProperty Name="PrePurcherseOrderId" ColumnName="PrePurcherseOrderId" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
                 <ScalarProperty Name="PurcherseOrderId" ColumnName="PurcherseOrderId" />
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="PrePurcherseOrderId" ColumnName="PrePurcherseOrderId" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="IncotermsId" ColumnName="IncotermsId" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="ToleranceId" ColumnName="ToleranceId" />
+                <ScalarProperty Name="ToleranceRemark" ColumnName="ToleranceRemark" />
+                <ScalarProperty Name="ShipmentSample" ColumnName="ShipmentSample" />
+                <ScalarProperty Name="TreasuryId" ColumnName="TreasuryId" />
+                <ScalarProperty Name="PortId" ColumnName="PortId" />
+                <ScalarProperty Name="BeneficiarySupply" ColumnName="BeneficiarySupply" />
+                <ScalarProperty Name="BeneficiarySupplyAdress" ColumnName="BeneficiarySupplyAdress" />
+                <ScalarProperty Name="BeneficiaryBankAdress" ColumnName="BeneficiaryBankAdress" />
+                <ScalarProperty Name="BankAccountnumber" ColumnName="BankAccountnumber" />
+                <ScalarProperty Name="SwiftCode" ColumnName="SwiftCode" />
+                <ScalarProperty Name="IntermediaryBank" ColumnName="IntermediaryBank" />
+                <ScalarProperty Name="SwiftIntermediaryBank" ColumnName="SwiftIntermediaryBank" />
+                <ScalarProperty Name="CEOEmail" ColumnName="CEOEmail" />
+                <ScalarProperty Name="SupplierEmail" ColumnName="SupplierEmail" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="ShipmentDate" ColumnName="ShipmentDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="Model.Role">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RoleOption">
-            <EntityTypeMapping TypeName="Model.RoleOption">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.RoleOption">
               <MappingFragment StoreEntitySet="RoleOption">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="OptionId" ColumnName="OptionId" />
                 <ScalarProperty Name="RoleOptionId" ColumnName="RoleOptionId" />
+                <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StockProduct">
-            <EntityTypeMapping TypeName="Model.StockProduct">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.StockProduct">
               <MappingFragment StoreEntitySet="StockProduct">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="StockProductId" ColumnName="StockProductId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StockProductDetail">
-            <EntityTypeMapping TypeName="Model.StockProductDetail">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.StockProductDetail">
               <MappingFragment StoreEntitySet="StockProductDetail">
-                <ScalarProperty Name="OutputNoteId" ColumnName="OutputNoteId" />
-                <ScalarProperty Name="EntryNoteId" ColumnName="EntryNoteId" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="Operation" ColumnName="Operation" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="StockProductId" ColumnName="StockProductId" />
                 <ScalarProperty Name="StockProductDetailId" ColumnName="StockProductDetailId" />
+                <ScalarProperty Name="StockProductId" ColumnName="StockProductId" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="EntryNoteId" ColumnName="EntryNoteId" />
+                <ScalarProperty Name="OutputNoteId" ColumnName="OutputNoteId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Store">
-            <EntityTypeMapping TypeName="Model.Store">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Store">
               <MappingFragment StoreEntitySet="Store">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubFamily">
-            <EntityTypeMapping TypeName="Model.SubFamily">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.SubFamily">
               <MappingFragment StoreEntitySet="SubFamily">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
                 <ScalarProperty Name="SubFamilyId" ColumnName="SubFamilyId" />
+                <ScalarProperty Name="FamilyId" ColumnName="FamilyId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Supplier">
-            <EntityTypeMapping TypeName="Model.Supplier">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
-                <ScalarProperty Name="MethodPayment" ColumnName="MethodPayment" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Perception" ColumnName="Perception" />
-                <ScalarProperty Name="Detraction" ColumnName="Detraction" />
-                <ScalarProperty Name="Retention" ColumnName="Retention" />
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Origin" ColumnName="Origin" />
-                <ScalarProperty Name="Provenance" ColumnName="Provenance" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="BussinessName" ColumnName="BussinessName" />
-                <ScalarProperty Name="RUC" ColumnName="RUC" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="RUC" ColumnName="RUC" />
+                <ScalarProperty Name="BussinessName" ColumnName="BussinessName" />
+                <ScalarProperty Name="MethodPayment" ColumnName="MethodPayment" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Provenance" ColumnName="Provenance" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Retention" ColumnName="Retention" />
+                <ScalarProperty Name="Detraction" ColumnName="Detraction" />
+                <ScalarProperty Name="Perception" ColumnName="Perception" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TaxPercentage">
-            <EntityTypeMapping TypeName="Model.TaxPercentage">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.TaxPercentage">
               <MappingFragment StoreEntitySet="TaxPercentage">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="TaxPercentageId" ColumnName="TaxPercentageId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tolerance">
-            <EntityTypeMapping TypeName="Model.Tolerance">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Tolerance">
               <MappingFragment StoreEntitySet="Tolerance">
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="ToleranceId" ColumnName="ToleranceId" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Treasury">
-            <EntityTypeMapping TypeName="Model.Treasury">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.Treasury">
               <MappingFragment StoreEntitySet="Treasury">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="TreasuryId" ColumnName="TreasuryId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeExistence">
-            <EntityTypeMapping TypeName="Model.TypeExistence">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.TypeExistence">
               <MappingFragment StoreEntitySet="TypeExistence">
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="TypeExistenceId" ColumnName="TypeExistenceId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="State" ColumnName="State" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="Model.User">
+            <EntityTypeMapping TypeName="TLC.Data.NMModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -18,6 +18,7 @@ namespace CHS.TLC.Data.NM.Web.Helpers
     public static class ConvertHelpers
     {
         private static readonly DateTime unixEpoch = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+       
         public static DateTime FirstDayOfWeek(this DateTime dt)
         {
             var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
