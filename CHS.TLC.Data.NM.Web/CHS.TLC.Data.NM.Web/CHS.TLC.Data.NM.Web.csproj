@@ -154,11 +154,18 @@
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\LstSupplierInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\DataSelect2.cs" />
+    <Compile Include="Areas\Intranet\Models\BE\Json\PrePurcherseOrderInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\ProductByCodeAndInvoice.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\SupplierInfo.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\AddEditPOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\AddEditPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\ListPrePOViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\LstPOViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\_AddEditDocumentPrePOViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\_DeletePrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\AddEditProductViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\ListProductViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditBankContactViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditContactViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
@@ -183,6 +190,7 @@
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteItemViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteMeasureUnitViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteBankViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteProductViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSubFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSupplierViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTaxPercentageViewModel.cs" />
@@ -358,6 +366,11 @@
     <Content Include="Content\assets\images\ajax-loaders\8.gif" />
     <Content Include="Content\assets\images\ajax-loaders\9.gif" />
     <Content Include="Content\assets\images\avatar.jpg" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\hue.png" />
+    <Content Include="Content\assets\images\bootstrap-colorpicker\saturation.png" />
     <Content Include="Content\assets\images\bootstrap\glyphicons-halflings-white.png" />
     <Content Include="Content\assets\images\bootstrap\glyphicons-halflings.png" />
     <Content Include="Content\assets\images\jquery_ui\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -385,6 +398,7 @@
     <Content Include="Content\assets\images\plugins\select2\spinner.gif" />
     <Content Include="Content\assets\images\plugins\xeditable\clear.png" />
     <Content Include="Content\assets\images\plugins\xeditable\loading.gif" />
+    <Content Include="Content\assets\javascripts\bootstrap-colorpicker.js" />
     <Content Include="Content\assets\javascripts\bootstrap\bootstrap.min.js" />
     <Content Include="Content\assets\javascripts\demo\charts.js" />
     <Content Include="Content\assets\javascripts\demo\demo.js" />
@@ -449,6 +463,7 @@
     <Content Include="Content\assets\javascripts\plugins\xeditable\wysihtml5.js" />
     <Content Include="Content\assets\javascripts\tables.js" />
     <Content Include="Content\assets\javascripts\theme.js" />
+    <Content Include="Content\assets\stylesheets\bootstrap-colorpicker.css" />
     <Content Include="Content\assets\stylesheets\bootstrap\bootstrap-responsive.css" />
     <Content Include="Content\assets\stylesheets\bootstrap\bootstrap.css" />
     <Content Include="Content\assets\stylesheets\demo.css" />
@@ -534,8 +549,11 @@
     <Content Include="Areas\Intranet\Views\Master\ListTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditTypeExistence.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteTypeExistence.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\LstOutputNote.cshtml" />
+=======
+>>>>>>> 3e14766d94afd9d479fb0f42e1d946b6bf182a4f
     <Content Include="Areas\Intranet\Views\Master\ListSupplier.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\ListOutputNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\AddEditSupplier.cshtml" />
@@ -548,6 +566,17 @@
     <Content Include="Areas\Intranet\Views\Master\AddEditBankContact.cshtml" />
     <Content Include="Areas\Intranet\Views\Document\ListPrePO.cshtml" />
     <Content Include="Areas\Intranet\Views\Document\AddEditPrePO.cshtml" />
+<<<<<<< HEAD
+=======
+    <Content Include="Areas\Intranet\Views\Document\_DeletePrePO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Document\_AddEditDocumentPrePO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Document\ListPO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Document\AddEditPO.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\AddEditProduct.cshtml" />
+    <Content Include="Areas\Intranet\Views\Master\ListProduct.cshtml" />
+    <Content Include="Content\assets\stylesheets\bootstrap-colorpicker.css.map" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteProduct.cshtml" />
+>>>>>>> 3e14766d94afd9d479fb0f42e1d946b6bf182a4f
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>

@@ -1,0 +1,105 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master.ListProductViewModel
+@{
+    ViewBag.Title = "Lista de Productos";
+    ViewBag.PageIcon = "icon-file-alt";
+}
+
+@section Breadcrumbs{
+}
+
+<div class="row-fluid">
+    <div class="span12 box bordered-box green-border">
+        <div class="box-header green-background">
+            <div class="title">
+                <i class="icon-filter"></i>
+                Filtros
+            </div>
+        </div>
+        <div class="box-content box-double-padding">
+            <form class="form" style="margin-bottom: 0;">
+                <fieldset>
+                    <div class="span6">
+                        <strong>Descripción Invoice</strong>
+                        @Html.TextBoxFor(x => x.InvoiceDescription, new { @class = "span12" })
+                    </div>
+                </fieldset>
+
+                <hr class="hr-normal">
+
+                <div class="form-actions" style="margin-bottom: 0;">
+                    <div class="text-right">
+                        <a class="btn btn-primary"><i class="icon-filter"></i> Filtrar</a>
+                        <a class="btn btn-default"><i class="icon-eraser"></i> Limpiar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12 box bordered-box green-border" style="margin-bottom:0;">
+        <div class="box-header green-background">
+            <div class="title"><i class="icon icon-reorder"></i> Resultados</div>
+        </div>
+        <div class="box-content box-no-padding">
+            <div class="responsive-table">
+                <div class="scrollable-area">
+                    <table class='table table-hover table-striped' style='margin-bottom:0;'>
+                        <thead>
+                            <tr>
+                                <th>Código Interno</th>
+                                <th>Familia</th>
+                                <th>Subfamilia</th>
+                                <th>Descripción Invoice</th>
+                                <th>Estado</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var product in Model.LstProduct)
+                            {
+                                <tr>
+                                    <td>@product.InternalCode</td>
+                                    <td>@product.SubFamily.Family.Description</td>
+                                    <td>@product.SubFamily.Description</td>
+                                    <td>@product.InvoiceDescription</td>
+                                    <td>@Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(product.State))</td>
+                                    <td>
+                                        <div class='btn-group' style='margin-bottom:5px'>
+                                            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-edit'></i> Editar"), "AddEditProduct", "Master", "Intranet", new { ProductId = product.ProductId }, new { @class = "'btn'" })
+                                            <button class='btn dropdown-toggle' data-toggle='dropdown'>
+                                                <span class='caret'></span>
+                                            </button>
+                                            <ul class='dropdown-menu'>
+                                                <li>
+                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteProduct", "Master", "Intranet", new { ProductId = product.ProductId }, new { })
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            <tr style="visibility:hidden"><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="col-lg-6" style="padding-top: 20px;">
+        <div class="pull-left">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nuevo Producto"), "AddEditProduct", "Master", "Intranet", new { }, new { @class = "'btn btn-primary'" })
+        </div>
+    </div>
+
+    <div class="col-lg-6" style="padding-top: 20px;">
+        <div class="pull-right">
+            @Html.PagedListPager(Model.LstProduct, p => Url.Action("ListProduct", new { p = p, InvoiceDescription = Model.InvoiceDescription }), ConstantHelpers.Bootstrap3Pager)
+        </div>
+    </div>
+</div>

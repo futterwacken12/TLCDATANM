@@ -1,7 +1,7 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master.ListTypeExistenceViewModel
 @{
     ViewBag.Title = "Lista de Tipos de Existencia";
-    ViewBag.PageIcon = "arrow-right";
+    ViewBag.PageIcon = "bar-chart";
 }
 
 <div class="row-fluid">
@@ -63,7 +63,7 @@
                                 <tr>
                                     <td>@typeExistence.Description</td>
                                     <td>
-                                        @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(ConstantHelpers.ESTADO.ACTIVO))
+                                        @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(typeExistence.State))
                                     </td>
                                     <td>
                                         <div class='btn-group' style='margin-bottom:5px'>

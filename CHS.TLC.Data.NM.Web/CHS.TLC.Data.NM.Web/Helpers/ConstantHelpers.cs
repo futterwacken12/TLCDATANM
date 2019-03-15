@@ -22,6 +22,8 @@ namespace CHS.TLC.Data.NM.Web.Helpers
         {
             public const String ACTIVO = "ACT";
             public const String INACTIVO = "INA";
+            public const String DESACTIVADO = "DES";
+            public const String BLOQUEADO = "BLO";
 
             public static String GetLabelEstado(String Estado)
             {
@@ -45,6 +47,11 @@ namespace CHS.TLC.Data.NM.Web.Helpers
                 }
                 return "";
             }
+        }
+        public static class TIPODOCUMENTO
+        {
+            public const String PURCHARSE_ORDER = "PO";
+            public const String EXTRANJERO = "EXT";
         }
         public static class TIPOBANCO
         {

@@ -1,7 +1,7 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master.ListSupplierViewModel
 @{
     ViewBag.Title = "Lista de Proveedores";
-    ViewBag.PageIcon = "arrow-right";
+    ViewBag.PageIcon = "truck";
 }
 
 @section Breadcrumbs{
@@ -85,7 +85,7 @@
                                         @supplier.Country.Name
                                     </td>
                                     <td>
-                                        @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(ConstantHelpers.ESTADO.ACTIVO))
+                                        @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(supplier.State))
                                     </td>
                                     <td>
                                         <div class='btn-group' style='margin-bottom:5px'>
@@ -95,7 +95,7 @@
                                             </button>
                                             <ul class='dropdown-menu'>
                                                 <li>
-                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-edit'></i> Editar"), "AddEditSupplier", "Master", "Intranet", new { SupplierId = supplier.SupplierId }, new { })
+                                                    @Html.EncodedActionLink(Html.Raw("<i class='icon icon-edit'></i> Editar"), "AddEditSupplier", "Master", "Intranet", new { SupplierId = supplier.SupplierId }, new { })
                                                 </li>
                                                 <li>
                                                     @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteSupplier", "Master", "Intranet", new { SupplierId = supplier.SupplierId }, new { })

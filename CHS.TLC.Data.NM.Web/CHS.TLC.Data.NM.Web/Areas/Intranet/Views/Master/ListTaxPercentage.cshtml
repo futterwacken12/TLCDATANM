@@ -1,7 +1,7 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master.ListTaxPercentageViewModel
 @{
     ViewBag.Title = "Lista de Porcentajes de Impuestos";
-    ViewBag.PageIcon = "arrow-right";
+    ViewBag.PageIcon = "money";
 }
 
 <div class="row-fluid">
@@ -63,7 +63,7 @@
                                 <tr>
                                     <td>@taxPercentage.Description</td>
                                     <td>
-                                        @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(ConstantHelpers.ESTADO.ACTIVO))
+                                        @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(taxPercentage.State))
                                     </td>
                                     <td>
                                         <div class='btn-group' style='margin-bottom:5px'>
