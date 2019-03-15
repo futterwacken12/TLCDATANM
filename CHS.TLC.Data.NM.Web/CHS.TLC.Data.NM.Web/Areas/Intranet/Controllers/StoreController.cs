@@ -5,6 +5,7 @@ using CHS.TLC.Data.NM.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -72,27 +73,90 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult AddEditEntryNote(AddEditEntryNoteViewModel model)
+        [ValidateAntiForgeryToken]
+        public ActionResult AddEditEntryNote(AddEditEntryNoteViewModel model, FormCollection frm)
         {
             try
             {
-                EntryNote entryNote = null;
+                using (var transaction = new TransactionScope())
+                {
+                    EntryNote entryNote = null;
 
-                if (model.EntryNoteId.HasValue)
-                {
-                    entryNote = context.EntryNote.FirstOrDefault( x => x.EntryNoteId == model.EntryNoteId);
-                }
-                else
-                {
-                    entryNote = new EntryNote();
-                    entryNote.State = ConstantHelpers.ESTADO.ACTIVO;
-                    entryNote.Date = DateTime.Now;
-                    entryNote.Time = DateTime.Now.TimeOfDay;
+                    if (model.EntryNoteId.HasValue)
+                    {
+                        entryNote = context.EntryNote.FirstOrDefault(x => x.EntryNoteId == model.EntryNoteId);
+                    }
+                    else
+                    {
+                        entryNote = new EntryNote();
+                        entryNote.State = ConstantHelpers.ESTADO.ACTIVO;
+                        entryNote.Date = DateTime.Now;
+                        entryNote.Time = DateTime.Now.TimeOfDay;
+                        context.EntryNote.Add(entryNote);
+                    }
+
+                    entryNote.MovementTypeId = model.MovementTypeId;
+                    entryNote.SupplierGuideNumber = model.SupplierGuideNumber;
+                    entryNote.TransportGuideNumber = model.TransportGuideNumber;
+                    entryNote.Seal = model.Seal;
+                    entryNote.TransportTime = model.TransportTime;
+                    entryNote.DestinationStoreId = model.DestinationStoreId;
+                    entryNote.TransferStoreId = model.TransferStoreId;
+                    entryNote.SupplierId = model.SupplierId;
+                    entryNote.DocumentCode = model.DocumentCode;
+                    entryNote.DocumentId = model.DocumentId;
+                    entryNote.Code = model.Code ?? String.Empty;
+
+                    var lstQuantity = frm.AllKeys.Where(x => x.StartsWith("qreal-")).ToList();
+                    foreach (var q in lstQuantity)
+                    {
+                        var PrePurcherseOrderDetailId = q.Replace("qreal-", String.Empty).ToInteger();
+                        PrePurcherseOrderDetail detail = context.PrePurcherseOrderDetail.FirstOrDefault( x => x.PrePurcherseOrderDetailId == PrePurcherseOrderDetailId);
+                        detail.RealQuantity = frm[q].ToDecimal();
+                        detail.RealMeasureUnit = frm["ureal-" + PrePurcherseOrderDetailId].ToString();
+                        detail.TypePayment = frm["typepayment-" + PrePurcherseOrderDetailId].ToString();
+
+                        var stockProductDetail = new StockProductDetail();
+                        context.StockProductDetail.Add(stockProductDetail);
+                        stockProductDetail.EntryNote = entryNote;
+                        stockProductDetail.State = ConstantHelpers.ESTADO.ACTIVO;
+                        stockProductDetail.Operation = ConstantHelpers.OPERATION.ENTRY;
+                        stockProductDetail.Value = detail.RealQuantity.Value;
+                        stockProductDetail.Date = DateTime.Now;
+
+                        var stock = context.StockProduct.FirstOrDefault( x => x.ProductId == detail.ProductId);
+                        if(stock != null)
+                        {
+                            stock.Quantity += detail.RealQuantity.Value;
+                        }
+                        else
+                        {
+                            stock = new StockProduct();
+                            stock.Quantity = detail.RealQuantity.Value;
+                            stock.State = ConstantHelpers.ESTADO.ACTIVO;
+                            stock.ProductId = detail.ProductId;
+                            context.StockProduct.Add(stock);
+                        }
+
+                        stockProductDetail.StockProduct = stock;
+                    }
+
+
+                    context.SaveChanges();
+
+                    if (String.IsNullOrEmpty(model.Code))
+                    {
+                        entryNote.Code = entryNote.EntryNoteId.ToString();
+                        context.SaveChanges();
+                    }
+
+                    transaction.Complete();
                 }
 
 
                 PostMessage(MessageType.Success);
                 return RedirectToAction("ListEntryNote");
+
             }
             catch (Exception ex)
             {

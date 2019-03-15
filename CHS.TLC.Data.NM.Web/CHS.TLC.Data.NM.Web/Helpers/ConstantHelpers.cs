@@ -81,6 +81,11 @@ namespace CHS.TLC.Data.NM.Web.Helpers
                 return "";
             }
         }
+        public static class OPERATION
+        {
+            public const String ENTRY = "ENT";
+            public const String OUTPUT = "OUT";
+        }
         public static class PROCEDENCIA
         {
             public const String LOCAL = "LOC";
@@ -181,5 +186,7 @@ namespace CHS.TLC.Data.NM.Web.Helpers
                 };
             }
         }
+
+        public static object Estado { get; internal set; }
     }
 }
