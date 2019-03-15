@@ -1,0 +1,39 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document._AddEditDocumentPrePOViewModel
+@{
+    ViewBag.Title = "Nuevo Contacto";
+    ViewBag.PageIcon = "file-alt";
+    Layout = ConstantHelpers.Layout.MODAL_LAYOUT_PATH;
+    ViewBag.Form = new ModalFormHelpers("_AddEditDocumentPrePO", "Document", FormMethod.Post, new { @enctype = "multipart/form-data" });
+}
+
+@section Styles
+{
+    <style>
+        form {
+            margin: 0 0 0px !important;
+        }
+    </style>
+}
+<div class="well">
+    <label><strong>Código Pre P.O. : @Model.Code</strong></label>
+</div>
+@Html.AntiForgeryToken()
+@Html.HiddenFor(x => x.PrePurcherseOrderId)
+
+<div class='control-group'>
+    <label class='control-label' for='ItemId'>Archivo</label>
+    <div class='controls'>
+        @Html.TextBoxFor(x => x.File, new { @class = "form-control", @type="file" })
+    </div>
+</div>
+<div class='control-group'>
+    <label class='control-label' for='Name'>Nombre Documento</label>
+    <div class='controls'>
+        @Html.TextBoxFor(x => x.DocumentName, new { @class = "input-block-level", @placeholder = "Nombre Documento" })
+    </div>
+</div>
+
+@section Footer
+{
+    <button id="save" type="submit" class="btn btn-primary"><i class="icon icon-save"></i> Guardar</button>
+}
