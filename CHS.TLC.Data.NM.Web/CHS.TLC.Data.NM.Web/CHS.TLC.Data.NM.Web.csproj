@@ -563,13 +563,6 @@
     <Content Include="Areas\Intranet\Views\Master\AddEditProduct.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListProduct.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteProduct.cshtml" />
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\assets\webfonts\fa-brands-400.eot" />
     <Content Include="Content\assets\webfonts\fa-brands-400.ttf" />
     <Content Include="Content\assets\webfonts\fa-brands-400.woff" />
@@ -586,6 +579,14 @@
     <Content Include="Content\assets\webfonts\fa-solid-900.ttf" />
     <Content Include="Content\assets\webfonts\fa-solid-900.woff" />
     <Content Include="Content\assets\webfonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteContact.cshtml" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
