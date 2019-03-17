@@ -16,7 +16,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         }
         public void Fill(CargarDatosContext c, Int32? contactId)
         {
-            this.ContactId = ContactId;
+            this.ContactId = contactId;
 
             if (this.ContactId.HasValue)
             {

@@ -1,4 +1,5 @@
-﻿using CHS.TLC.Data.NM.Web.Models;
+﻿using CHS.TLC.Data.NM.Web.Helpers;
+using CHS.TLC.Data.NM.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
     public class AddEditEntryNoteViewModel
     {
         public Int32? EntryNoteId { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         public TimeSpan Time { get; set; }
         public String Code { get; set; }
         public Int32 MovementTypeId { get; set; }
@@ -21,10 +22,19 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
         public int TransferStoreId { get; set; }
         public int SupplierId { get; set; }
         public int DocumentId { get; set; }
+        public String DocumentCode { get; set; }
+        public Int32 DocumentTypeId { get; set; }
+        public Int32 ProductId { get; set; }
+        public List<Web.Models.Store> LstStore { get; set; } = new List<Web.Models.Store>();
+        public List<MovementType> LstMovementType { get; set; } = new List<MovementType>();
+        public List<DocumentType> LstDocumentType { get; set; } = new List<DocumentType>();
 
         public void Fill(CargarDatosContext c, Int32? entryNoteId)
         {
             this.EntryNoteId = entryNoteId;
+            this.LstMovementType = c.context.MovementType.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
+            this.LstStore = c.context.Store.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
+            this.LstDocumentType = c.context.DocumentType.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
 
             if (this.EntryNoteId.HasValue)
             {
@@ -42,7 +52,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
                 this.TransportTime = entryNote.TransportTime;
                 this.DestinationStoreId = entryNote.DestinationStoreId;
                 this.SupplierId = entryNote.SupplierId;
-                this.DocumentId = entryNote.DocumentId;
+                this.DocumentCode = entryNote.DocumentCode;
             }
         }
     }

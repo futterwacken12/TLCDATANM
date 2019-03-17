@@ -18,6 +18,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         {
             return View();
         }
+        
         [HttpGet]
         public JsonResult GetPrePurcherseOrderByCode(String q)
         {
@@ -31,6 +32,36 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                         text = x.Code
                     }).ToList();
                 
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public JsonResult GetPurcherseOrderInfo(Int32 PurcherseOrderId)
+        {
+            var data = new List<PurcherseOrderInfo>();
+            try
+            {
+                var documentCode = context.PurcherseOrder.FirstOrDefault( x => x.PurcherseOrderId == PurcherseOrderId).Code;
+                var prePurcherseOrderId = context.PurcherseOrder.FirstOrDefault(x => x.PurcherseOrderId == PurcherseOrderId).PrePurcherseOrderId;
+                data = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId).Select( x => new PurcherseOrderInfo
+                {
+                    descriptionLocal = x.Product.LocalDescription,
+                    descriptionInvoice = x.Product.InvoiceDescription,
+                    code = x.Product.InternalCode,
+                    family = x.Product.SubFamily.Family.Description,
+                    design = "564",
+                    quantity = x.Quantity,
+                    unit = x.Product.MeasureUnit.Acronym,
+                    prePurcherseOrderDetailId = x.PrePurcherseOrderDetailId,
+                    supplierName = x.PrePurcherseOrder.Supplier.BussinessName,
+                    supplierId = x.PrePurcherseOrder.SupplierId,
+                    documentCode = documentCode
+                }).ToList();
+
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -72,6 +103,35 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 var supplier = context.Supplier.FirstOrDefault(x => x.SupplierId == SupplierId);
                 data.Code = supplier.Code;
                 data.Address = supplier.Address;
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public JsonResult GetDocumentByCode(String q, Int32 documentTypeId)
+        {
+            var data = new List<DataSelect2>();
+            try
+            {
+                var acronym = context.DocumentType.FirstOrDefault(x => x.DocumentTypeId == documentTypeId).Acronym;
+
+                switch (acronym)
+                {
+                    case "PO":
+                        data = context.PurcherseOrder.Where(x => x.Code.Contains(q) &&
+                                x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x => new DataSelect2
+                                {
+                                    id = x.PurcherseOrderId,
+                                    text = x.Code
+                                }).ToList();
+                        break;
+                    default:
+                        break;
+                }               
+
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

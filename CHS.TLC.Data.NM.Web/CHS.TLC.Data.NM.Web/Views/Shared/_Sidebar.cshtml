@@ -11,30 +11,49 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="">
-                <a href="@Url.Action("ListPrePO", "Document")">
-                    <i class="icon-file-alt"></i>
-                    <span>Lista de Pre P.O.</span>
+            <li>
+                <a class='dropdown-collapse ' href='#'>
+                    <i class=' icon-hdd'></i>
+                    <span>Purcharse Order</span>
+                    <i class='icon-angle-down angle-down'></i>
                 </a>
+                <ul class='nav nav-stacked'>
+                    <li class="">
+                        <a href="@Url.Action("ListPrePO", "Document")">
+                            <i class="icon-file-alt"></i>
+                            <span>Pre P.O.</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("ListPO", "Document")">
+                            <i class="icon-check-sign"></i>
+                            <span>P.O.</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li class="">
-                <a href="@Url.Action("ListPO", "Document")">
-                    <i class="icon-check-sign"></i>
-                    <span>Lista de P.O.</span>
+            <li>
+                <a class='dropdown-collapse ' href='#'>
+                    <i class='icon-exchange'></i>
+                    <span>Almacén</span>
+                    <i class='icon-angle-down angle-down'></i>
                 </a>
+                <ul class='nav nav-stacked'>
+                    <li class="">
+                        <a href="@Url.Action("ListEntryNote", "Store")">
+                            <i class="icon-arrow-left"></i>
+                            <span>Notas de Entrada</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("ListOutputNote", "Store")">
+                            <i class="icon-arrow-right"></i>
+                            <span>Notas de Salida</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li class="">
-                <a href="@Url.Action("ListEntryNote", "Store")">
-                    <i class="icon-arrow-left"></i>
-                    <span>Lista de Notas de Entrada</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="@Url.Action("ListOutputNote", "Store")">
-                    <i class="icon-arrow-right"></i>
-                    <span>Lista de Notas de Salida</span>
-                </a>
-            </li>
+            
             <li>
                 <a class='dropdown-collapse ' href='#'>
                     <i class='icon-cogs'></i>

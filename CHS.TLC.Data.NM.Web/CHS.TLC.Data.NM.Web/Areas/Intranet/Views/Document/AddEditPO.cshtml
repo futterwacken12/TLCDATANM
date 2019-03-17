@@ -302,7 +302,7 @@
                     }
                 },
                 minimumInputLength: 1,
-                placeholder:'Pre Orden'
+                placeholder: 'Pre Orden'
             });
             $('#ProductId').select2({
                 ajax: {
@@ -355,16 +355,16 @@
                     type: 'GET',
                     success: function (data) {
                         if (data !== null && data.length > 0) {
-                            var template = '<tr id="row-' + data[0].id +'">'+
-                                '<td>'+ data[0].code +'</td>'+
+                            var template = '<tr id="row-' + data[0].id + '">' +
+                                '<td>' + data[0].code + '</td>' +
                                 '<td>' + data[0].invoiceDescription + '</td>' +
-                                '<td>' + data[0].quantity + '<input hidden id = "quantity-'+ data[0].id + '" value="' + data[0].quantity+'"/></td> '+
+                                '<td>' + data[0].quantity + '<input hidden id = "quantity-' + data[0].id + '" value="' + data[0].quantity + '"/></td> ' +
                                 '<td>' + data[0].measureUnit + '</td> ' +
                                 '<td><input value="0" class="price span12 onlyNumbers" name="price-' + data[0].id + '" data-index="' + data[0].id + '"/></td> ' +
                                 '<td><input value="0" class="totalPrice span12 onlyNumbers" name="total-' + data[0].id + '" disabled id="total-' + data[0].id + '"/></td> ' +
                                 '<td class="span2">' +
-                                    '<div class="pull-right"><a class="deleterow btn btn-danger" data-index ="' + data[0].id +'"><i class="icon-trash"></i> Eliminar</a></div>' +
-                                '</td>'+
+                                '<div class="pull-right"><a class="deleterow btn btn-danger" data-index ="' + data[0].id + '"><i class="icon-trash"></i> Eliminar</a></div>' +
+                                '</td>' +
                                 '</tr>';
 
                             $('#product-table').append(template);
@@ -387,7 +387,7 @@
                 $('#total-' + index).val(value * quantity);
 
                 var total = 0;
-                $('.totalPrice').each(function(){
+                $('.totalPrice').each(function () {
                     total += parseFloat($(this).val());
                 });
                 $('#total-quantity').text(total.toFixed(2));
@@ -406,10 +406,10 @@
 
             @if (Model.PrePurcherseOrderId != 0) {
                 <text>
-                    var newOption = new Option('@Model.PreOrderCode', '@Model.PrePurcherseOrderId', true, true);
-                    $("#PrePurcherseOrderId").append(newOption).trigger('change');
+            var newOption = new Option('@Model.PreOrderCode', '@Model.PrePurcherseOrderId', true, true);
+            $("#PrePurcherseOrderId").append(newOption).trigger('change');
                 </text>
             }
-        })
+        });
     </script>
 }
