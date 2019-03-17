@@ -9,156 +9,159 @@
     <li class="separator"><i class="icon-angle-right"></i></li>
 }
 
-<div class="row-fluid">
-    <div class="span12 box bordered-box green-border">
-        <div class="box-header green-background">
-            <div class="title">
-                <i class="icon-reorder"></i>
-                Formulario
+
+
+    <div class="row-fluid">
+        <i class="fas fa-acorn"></i>
+        <div class="span12 box bordered-box green-border">
+            <div class="box-header green-background">
+                <div class="title">
+                    <i class="icon-reorder"></i>
+                    Formulario
+                </div>
+            </div>
+            <div class="box-content box-double-padding">
+                <form class="form" style="margin-bottom: 0;" method="post">
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.EntryNoteId)
+                    @Html.HiddenFor(x => x.SupplierId)
+                    @Html.HiddenFor(x => x.DocumentCode)
+
+                    <fieldset>
+                        <div class='control-group pull-right'>
+                            <label class='control-label' for='RegistrationDate'>
+                                <strong>Fecha de Registro : @Model.Date</strong>
+                            </label>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">#Nota Entrada</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(x => x.Code, new { @class = "span12", @type = "text" })
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="span4">
+                                <label class="control-label">Tipo Documento</label>
+                                <div class="controls">
+                                    @Html.DropDownListFor(x => x.DocumentTypeId, new SelectList(Model.LstDocumentType, "DocumentTypeId", "Acronym"), new { @class = "span12 select2" })
+                                    <p class="help-block">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <label class="control-label">#Documento</label>
+                                <div class="controls">
+                                    <select id="DocumentId" name="DocumentId" class="span12"></select>
+                                    <p class="help-block">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="span4">
+                                <label class="control-label">Tipo Movimiento</label>
+                                <div class="controls">
+                                    @Html.DropDownListFor(x => x.MovementTypeId, new SelectList(Model.LstMovementType, "MovementTypeId", "Name"), new { @class = "span12 select2" })
+                                    <p class="help-block">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="span3">
+                                <label class="control-label">Proveedor</label>
+                                <div class="controls">
+                                    <input type="text" class="span12" id="NombreProveedor" name="NombreProveedor" />
+                                    <p class="help-block">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="span9">
+                                <label class="control-label">#Guía de Proveedor</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(x => x.SupplierGuideNumber, new { @class = "span12", @type = "text" })
+                                    <p class="help-block">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">#Guía del Transportista</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(x => x.TransportGuideNumber, new { @class = "span12", @type = "text" })
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Hora Llegada Transporte</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(x => x.TransportTime, new { @class = "span12", @type = "text" })
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">#Presinto</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(x => x.Seal, new { @class = "span12", @type = "text" })
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="control-group">
+                            <div class="span6">
+                                <label class="control-label">Transferencia</label>
+                                <div class="controls">
+                                    @Html.DropDownListFor(x => x.TransferStoreId, new SelectList(Model.LstStore, "StoreId", "Name"), new { @class = "select2 span12" })
+                                    <p class="help-block">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="span6">
+                                <label class="control-label">Almacen Destino</label>
+                                <div class="controls">
+                                    @Html.DropDownListFor(x => x.DestinationStoreId, new SelectList(Model.LstStore, "StoreId", "Name"), new { @class = "select2 span12" })
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <hr class="hr-normal">
+                    <br />
+                    <div class="responsive-table">
+                        <div class="scrollable-area">
+                            <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Desc. Invoice</th>
+                                        <th>Desc. Local</th>
+                                        <th>Familia</th>
+                                        <th>Cod. Diseño</th>
+                                        <th>Cant. Pedida</th>
+                                        <th>Uni. Pedida</th>
+                                        <th>Cant. Real</th>
+                                        <th>Und. Real</th>
+                                        <th>Cant. Real</th>
+                                        <th>Und. Real</th>
+                                        <th>Parcial/Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="body-po"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="form-actions" style="margin-bottom: 0;">
+                        <div class="text-left">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="icon-save"></i>
+                                Guardar
+                            </button>
+                            <a class="btn btn-default" href="@Url.Action("ListEntryNote", "Store")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="box-content box-double-padding">
-            <form class="form" style="margin-bottom: 0;" method="post">
-                @Html.AntiForgeryToken()
-                @Html.HiddenFor(x => x.EntryNoteId)
-                @Html.HiddenFor(x => x.SupplierId)
-                @Html.HiddenFor(x => x.DocumentCode)
-
-                <fieldset>
-                    <div class='control-group pull-right'>
-                        <label class='control-label' for='RegistrationDate'>
-                            <strong>Fecha de Registro : @Model.Date</strong>
-                        </label>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">#Nota Entrada</label>
-                        <div class="controls">
-                            @Html.TextBoxFor(x => x.Code, new { @class = "span12", @type = "text" })
-                            <p class="help-block">
-                            </p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="span4">
-                            <label class="control-label">Tipo Documento</label>
-                            <div class="controls">
-                                @Html.DropDownListFor(x => x.DocumentTypeId, new SelectList(Model.LstDocumentType, "DocumentTypeId", "Acronym"), new { @class = "span12 select2" })
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <label class="control-label">#Documento</label>
-                            <div class="controls">
-                                <select id="DocumentId" name="DocumentId" class="span12"></select>
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
-                        <div class="span4">
-                            <label class="control-label">Tipo Movimiento</label>
-                            <div class="controls">
-                                @Html.DropDownListFor(x => x.MovementTypeId, new SelectList(Model.LstMovementType, "MovementTypeId", "Name"), new { @class = "span12 select2" })
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <div class="span3">
-                            <label class="control-label">Proveedor</label>
-                            <div class="controls">
-                                <input type="text" class="span12" id="NombreProveedor" name="NombreProveedor" />
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
-                        <div class="span9">
-                            <label class="control-label">#Guía de Proveedor</label>
-                            <div class="controls">
-                                @Html.TextBoxFor(x => x.SupplierGuideNumber, new { @class = "span12", @type = "text" })
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">#Guía del Transportista</label>
-                        <div class="controls">
-                            @Html.TextBoxFor(x => x.TransportGuideNumber, new { @class = "span12", @type = "text" })
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Hora Llegada Transporte</label>
-                        <div class="controls">
-                            @Html.TextBoxFor(x => x.TransportTime, new { @class = "span12", @type = "text" })
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">#Presinto</label>
-                        <div class="controls">
-                            @Html.TextBoxFor(x => x.Seal, new { @class = "span12", @type = "text" })
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <div class="control-group">
-                        <div class="span6">
-                            <label class="control-label">Transferencia</label>
-                            <div class="controls">
-                                @Html.DropDownListFor(x => x.TransferStoreId, new SelectList(Model.LstStore, "StoreId", "Name"), new { @class = "select2 span12" })
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
-                        <div class="span6">
-                            <label class="control-label">Almacen Destino</label>
-                            <div class="controls">
-                                @Html.DropDownListFor(x => x.DestinationStoreId, new SelectList(Model.LstStore, "StoreId", "Name"), new { @class = "select2 span12" })
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-                <hr class="hr-normal">
-                <br />
-                <div class="responsive-table">
-                    <div class="scrollable-area">
-                        <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Desc. Invoice</th>
-                                    <th>Desc. Local</th>
-                                    <th>Familia</th>
-                                    <th>Cod. Diseño</th>
-                                    <th>Cant. Pedida</th>
-                                    <th>Uni. Pedida</th>
-                                    <th>Cant. Real</th>
-                                    <th>Und. Real</th>
-                                    <th>Cant. Real</th>
-                                    <th>Und. Real</th>
-                                    <th>Parcial/Total</th>
-                                </tr>
-                            </thead>
-                            <tbody id="body-po"></tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="form-actions" style="margin-bottom: 0;">
-                    <div class="text-left">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="icon-save"></i>
-                            Guardar
-                        </button>
-                        <a class="btn btn-default" href="@Url.Action("ListEntryNote", "Store")"><i class="icon icon-arrow-left"></i> Cancelar</a>
-                    </div>
-                </div>
-            </form>
-        </div>
     </div>
-</div>
 
 @section Scripts{
     <script>

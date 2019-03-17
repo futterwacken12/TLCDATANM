@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="span9">                        
+                    <div class="span9">
                         <label class='control-label' for='NombreProveedor'>Nombre Proveedor</label>
                         <div class='controls'>
                             <input name="NombreProveedor" id="NombreProveedor" class="input-block-level span12" type="text" />
@@ -96,7 +96,7 @@
                 <div class='control-group'>
                     <label class='control-label' for='ProductId'><i class="icon-search"></i> Buscar Producto</label>
                     <div class='controls'>
-                        <select name="ProductId" id="ProductId" class="span6" disabled></select>
+                        <select name="ProductId" id="ProductId" class="span6"></select>
                         <a class="btn btn-inverse" id="add-product"><i class="icon-plus-sign"></i> Agregar</a>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                                     <th>Descripción Invoice</th>
                                     <th>Cantidad</th>
                                     <th>Und.</th>
-                                    <th>Precio</th>
+                                    <th id="precio-moneda">Precio (@Model.CurrencyCode)</th>
                                     <th>Total</th>
                                     <th></th>
                                 </tr>
@@ -122,7 +122,7 @@
                                     <tr id="row-@prePO.PrePurcherseOrderDetailId">
                                         <td>@prePO.Product.InternalCode</td>
                                         <td>@prePO.Product.InvoiceDescription.ToUpper()</td>
-                                        <td>@prePO.Quantity<input hidden id="quantity-@prePO.PrePurcherseOrderId" value="@prePO.Quantity" /></td>
+                                        <td>@prePO.Quantity<input hidden id="quantity-@prePO.PrePurcherseOrderDetailId" value="@prePO.Quantity" /></td>
                                         <td>@prePO.MeasureUnit.Acronym</td>
                                         <td>
                                             <input class="price span12 onlyNumbers" name="price-@prePO.PrePurcherseOrderDetailId" value="@prePO.Price" data_index="@prePO.PrePurcherseOrderDetailId" />
@@ -159,13 +159,13 @@
                     <div class="span9">
                         <label class='control-label' for='CountryId'>Tolerance Remark</label>
                         <div class='controls'>
-                            @Html.TextAreaFor(x => x.ToleranceRemark, new { @class = "input-block-level", @rows = "3" , @placeholder = "Tolerance Remark" })
+                            @Html.TextAreaFor(x => x.ToleranceRemark, new { @class = "input-block-level", @rows = "3", @placeholder = "Tolerance Remark" })
                         </div>
                     </div>
                 </div>
                 <div class='control-group'>
                     <div class="span3">
-                        
+
                         <label class='control-label' for='Text'>Made</label>
                         <div class='controls'>
                             @Html.DropDownListFor(x => x.CountryId, new SelectList(Model.LstCountry, "CountryId", "Name"), "[-Seleccione-]", new { @class = "input-block-level select2" })
@@ -282,7 +282,7 @@
                     type: "GET",
                     data: function (params) {
                         return {
-                            q: params.term, // search term
+                            q: params.term // search term
                         };
                     },
                     processResults: function (data) {
@@ -311,8 +311,7 @@
                     type: "GET",
                     data: function (params) {
                         return {
-                            q: params.term,
-                            prePurcherseOrderId: $('#PrePurcherseOrderId').val()
+                            q: params.term
                         };
                     },
                     processResults: function (data) {
@@ -344,8 +343,39 @@
                         $('#SupplierId').val(data.supplierId);
 
                         $('#ProductId').removeAttr('disabled');
+
+                        var template = '';
+                        for (var i = 0; i < data.lstDetail.length; i++)
+                        {
+                            if ($('#row-' + data.lstDetail[i].prePurcherseOrderDetailId) === null) {
+                                template = '<tr id="row-' + data.lstDetail[i].prePurcherseOrderDetailId + '">' +
+                                    '<td>' + data.lstDetail[i].productCode + '</td>' +
+                                    '<td>' + data.lstDetail[i].descriptionInvoice + '</td>' +
+                                    '<td>' + data.lstDetail[i].quantity + '<input hidden id="quantity-' + data.lstDetail[i].prePurcherseOrderDetailId + '" value="' + data.lstDetail[i].quantity + '" /></td>' +
+                                    '<td>m</td>' +
+                                    '<td>' +
+                                    '<input class="price span12 onlyNumbers" name="price-' + data.lstDetail[i].prePurcherseOrderDetailId + '" data-index="' + data.lstDetail[i].prePurcherseOrderDetailId + '" />' +
+                                    '</td>' +
+                                    '<td>' +
+                                    '<input class="total span12 onlyNumbers" name="total-' + data.lstDetail[i].prePurcherseOrderDetailId + '" id="total-' + data.lstDetail[i].prePurcherseOrderDetailId + '" disabled />' +
+                                    '</td>' +
+                                    '<td class="span2">' +
+                                    '<div class="pull-right">' +
+                                    '<a class="deleterow btn btn-danger" data-index="' + data.lstDetail[i].prePurcherseOrderDetailId + '"><i class="icon-trash"></i> Eliminar</a>' +
+                                    '</div>' +
+                                    '</td>' +
+                                    '</tr>';
+
+                                $('#product-table').append(template);
+                            }                            
+                        }
                     }
                 });
+            });
+
+            $('#CurrencyId').on('change', function () {
+                var text = $('#CurrencyId').select2('data')[0].text;
+                $('#precio-moneda').text('Precio (' + text + ')');
             });
 
             $('#add-product').on('click', function () {
@@ -361,7 +391,7 @@
                                 '<td>' + data[0].quantity + '<input hidden id = "quantity-' + data[0].id + '" value="' + data[0].quantity + '"/></td> ' +
                                 '<td>' + data[0].measureUnit + '</td> ' +
                                 '<td><input value="0" class="price span12 onlyNumbers" name="price-' + data[0].id + '" data-index="' + data[0].id + '"/></td> ' +
-                                '<td><input value="0" class="totalPrice span12 onlyNumbers" name="total-' + data[0].id + '" disabled id="total-' + data[0].id + '"/></td> ' +
+                                '<td><input value="0" class="total span12 onlyNumbers" name="total-' + data[0].id + '" disabled id="total-' + data[0].id + '"/></td> ' +
                                 '<td class="span2">' +
                                 '<div class="pull-right"><a class="deleterow btn btn-danger" data-index ="' + data[0].id + '"><i class="icon-trash"></i> Eliminar</a></div>' +
                                 '</td>' +
@@ -370,7 +400,7 @@
                             $('#product-table').append(template);
 
                             var total = 0;
-                            $('.totalPrice').each(function () {
+                            $('.total').each(function () {
                                 total += parseFloat($(this).val());
                             });
                             $('#total-quantity').text(total.toFixed(2));
@@ -384,10 +414,10 @@
                 var index = $(this).attr('data-index');
                 var quantity = parseFloat($('#quantity-' + index).val());
 
-                $('#total-' + index).val(value * quantity);
+                $('#total-' + index).val((value * quantity).toFixed(2));
 
                 var total = 0;
-                $('.totalPrice').each(function () {
+                $('.total').each(function () {
                     total += parseFloat($(this).val());
                 });
                 $('#total-quantity').text(total.toFixed(2));

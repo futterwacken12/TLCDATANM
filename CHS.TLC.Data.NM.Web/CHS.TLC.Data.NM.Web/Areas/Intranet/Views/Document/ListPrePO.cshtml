@@ -1,6 +1,6 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document.ListPrePOViewModel
 @{
-    ViewBag.Title = "Lista de Purchase Orders";
+    ViewBag.Title = "Lista de Pre Purchase Orders";
     ViewBag.PageIcon = "file-alt";
 }
 
@@ -18,17 +18,27 @@
         <div class="box-content box-double-padding">
             <form class="form" style="margin-bottom: 0;">
                 <fieldset>
-                    <div class="span4">
+                    <div class="span2">
                         <strong>Código</strong>
                         @Html.TextBoxFor(x => x.Code, new { @class = "span12" })
                     </div>
                     <div class="span4">
                         <strong>Proveedor</strong>
-
-                        @Html.DropDownListFor(x => x.SupplierId, new SelectList(Model.LstSupplier, "SupplierId", "BussinessName"), "[-Seleccione-]", new { @class = "span12" })
+                        @Html.DropDownListFor(x => x.SupplierId, new SelectList(Model.LstSupplier, "SupplierId", "BussinessName"), "[-Seleccione-]", new { @class = "select2 span12" })
                     </div>
-                    <div class="span4">
+                    <div class="span3">
                         <strong>Fecha Pedido</strong>
+                        <div class="">
+                            <div class="datepicker input-append" id="datepicker" style="padding-left: 0%; padding: unset;">
+                                @Html.TextBoxFor(x => x.OrderDate, new { @class = "input-block-level", @placeholder = "Fecha Pedido", @data_format = "dd/MM/yyyy" })
+                                <span class="add-on">
+                                    <i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <strong>Proforma</strong>
                         @Html.TextBoxFor(x => x.OrderDate, new { @class = "span12" })
                     </div>
                 </fieldset>
@@ -47,11 +57,18 @@
         </div>
     </div>
 </div>
-
+<div class="row-fluid">
+    <div class="col-lg-12">
+        <div class="pull-left">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva Pre P.O."), "AddEditPrePO", "Document", "Intranet", new { }, new { @class = "'btn btn-primary'" })
+        </div>
+    </div>
+</div>
+<br />
 <div class="row-fluid">
     <div class="span12 box bordered-box green-border" style="margin-bottom:0;">
         <div class="box-header green-background">
-            <div class="title"><i class="icon-reorder"></i> Resultados</div>
+            <div class="title"><i class="icon-reorder"></i> Registros</div>
         </div>
         <div class="box-content box-no-padding">
             <div class="responsive-table">
@@ -93,7 +110,7 @@
                                             </button>
                                             <ul class='dropdown-menu'>
                                                 <li>
-                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-plus'></i> Documento"), "_AddEditDocumentPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { })
+                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-plus'></i> Proforma"), "_AddEditDocumentPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { })
                                                 </li>
                                                 @if (!String.IsNullOrEmpty(prePurcherseOrder.DocumentName))
                                                 {
@@ -122,12 +139,6 @@
 </div>
 
 <div class="row-fluid">
-    <div class="col-lg-6" style="padding-top: 20px;">
-        <div class="pull-left">
-            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva Pre P.O."), "AddEditPrePO", "Document", "Intranet", new { }, new { @class = "'btn btn-primary'" })
-        </div>
-    </div>
-
     <div class="col-lg-6" style="padding-top: 20px;">
         <div class="pull-right">
             @Html.PagedListPager(Model.LstPrePO, Page => Url.Action("ListPrePO", new { Page = Page, Code = Model.Code, OrderDate = Model.OrderDate, SupplierId = Model.SupplierId }), ConstantHelpers.Bootstrap3Pager)

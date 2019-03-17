@@ -768,13 +768,13 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region BankContact
-        [EncryptedActionParameter]
-        public ActionResult _AddEditBankContact(Int32? ContactId)
-        {
-            var model = new _AddEditBankContactViewModel();
-            //model.Fill(CargarDatosContext(), ContactId);
-            return View(model);
-        }
+        //[EncryptedActionParameter]
+        //public ActionResult _AddEditBankContact(Int32? ContactId)
+        //{
+        //    var model = new _AddEditBankContactViewModel();
+        //    //model.Fill(CargarDatosContext(), ContactId);
+        //    return View(model);
+        //}
         #endregion
         #region Product
         public ActionResult ListProduct(Int32? Page, String InvoiceDescription)

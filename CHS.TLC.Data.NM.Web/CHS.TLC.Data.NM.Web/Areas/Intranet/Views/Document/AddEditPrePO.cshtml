@@ -87,7 +87,7 @@
                 <div class='control-group'>
                     <label class='control-label' for='ProductId'><i class="icon-search"></i> Buscar Producto</label>
                     <div class='controls'>
-                        <select name="ProductId" id="ProductId" class="span6" disabled></select>
+                        <select name="ProductId" id="ProductId" class="span6"></select>
                         <a class="btn btn-inverse" id="add-product"><i class="icon-plus-sign"></i> Agregar</a>
                         @*<select name="ProductId" id="ProductId" class="input-block-level"></select>*@
                     </div>
@@ -159,7 +159,7 @@
                         </div>
                     </div>
                     <div class="span9">
-                        <label class='control-label' for='Text'>Send Supply</label>
+                        <label class='control-label' for='Text'>Email Proveedor</label>
                         <div class='controls'>
                             @Html.TextBoxFor(x => x.SendSupply, new { @class = "input-block-level", @placeholder = "Send Supply" })
                         </div>
@@ -169,9 +169,9 @@
                     
                 </div>
                 <div class='control-group'>
-                    <label class='control-label' for='Text'>Text</label>
+                    <label class='control-label' for='Text'>Observaciones</label>
                     <div class='controls'>
-                        @Html.TextAreaFor(x => x.Text, new { @class = "input-block-level", @placeholder = "Text", @rows="3" })
+                        @Html.TextAreaFor(x => x.Text, new { @class = "input-block-level", @placeholder = "Observaciones", @rows="3" })
                     </div>                    
                 </div>
                 <hr />
@@ -225,8 +225,7 @@
                     type: "GET",
                     data: function (params) {
                         return {
-                            q: params.term,
-                            supplierid: $('#SupplierId').val()// search term
+                            q: params.term
                         };
                     },
                     processResults: function (data) {
