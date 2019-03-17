@@ -347,7 +347,7 @@
                         var template = '';
                         for (var i = 0; i < data.lstDetail.length; i++)
                         {
-                            if ($('#row-' + data.lstDetail[i].prePurcherseOrderDetailId) === null) {
+                            if ($('#row-' + data.lstDetail[i].prePurcherseOrderDetailId).length === 0) {
                                 template = '<tr id="row-' + data.lstDetail[i].prePurcherseOrderDetailId + '">' +
                                     '<td>' + data.lstDetail[i].productCode + '</td>' +
                                     '<td>' + data.lstDetail[i].descriptionInvoice + '</td>' +
