@@ -44,6 +44,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document
         public List<Country> LstCountry = new List<Country>();
         public List<Treasury> LstTreasury = new List<Treasury>();
         public List<Port> LstPort = new List<Port>();
+        public String CurrencyCode = String.Empty;
         public List<SelectListItem> LstMethodPayment = new List<SelectListItem>();
 
         public void Fill(CargarDatosContext c, Int32? purcherseOrderId,Int32? prePurcherseOrderId)
@@ -95,6 +96,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document
                 this.MethodPayment = po.PrePurcherseOrder.Supplier.MethodPayment;
                 this.CountryId = po.CountryId;
                 this.ShipmentDate = po.ShipmentDate.ToString("dd/MM/yyyy");
+                this.CurrencyCode = po.Currency.Name;
                 this.LstPrePODetail = po.PrePurcherseOrder.PrePurcherseOrderDetail.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
             }
         }

@@ -25,7 +25,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             var data = new List<DataSelect2>();
             try
             {
-                var supplier = context.PrePurcherseOrder.Where(x => x.Code.Contains(q) &&
+                data = context.PrePurcherseOrder.Where(x => x.Code.Contains(q) &&
                     x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x => new DataSelect2
                     {
                         id = x.PrePurcherseOrderId,
@@ -83,6 +83,16 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 data.countryId = prePo.Supplier.CountryId.Value;
                 data.supplierId = prePo.SupplierId;
                 data.shipmentDate = prePo.ShipmentDate.ToString("dd/MM/yyyy");
+
+                data.lstDetail = prePo.PrePurcherseOrderDetail.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x => new PrePurcherseOrderDetailInfo
+                {
+                    quantity = x.Quantity,
+                    descriptionInvoice = x.Product.InvoiceDescription.ToUpper(),
+                    productCode = x.Product.InternalCode,
+                    prePurcherseOrderDetailId = x.PrePurcherseOrderDetailId
+
+                }).ToList();
+
 
                 var contact = prePo.Supplier.Contact.FirstOrDefault( x => x.State == ConstantHelpers.ESTADO.ACTIVO);
                 data.supplierEmail = contact == null ? "" : contact.Email;
@@ -160,13 +170,13 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             }
         }
         [HttpGet]
-        public JsonResult GetProductByCodeAndInvoicePrePO(String q, Int32? prePurcherseOrderId)
+        public JsonResult GetProductByCodeAndInvoicePrePO(String q)
         {
             var data = new List<DataSelect2>();
             try
             {
-                data = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId &&
-                    (x.Product.InvoiceDescription.Contains(q) || x.Product.InternalCode.Contains(q)) &&
+                data = context.PrePurcherseOrderDetail.Where(x =>
+                    (x.Product.InvoiceDescription.Contains(q))&&
                     x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x => new DataSelect2
                     {
                         id = x.ProductId,
@@ -181,13 +191,13 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             }
         }
         [HttpGet]
-        public JsonResult GetProductByCodeAndInvoice(String q, Int32? supplierid)
+        public JsonResult GetProductByCodeAndInvoice(String q)
         {
             var data = new List<DataSelect2>();
             try
             {
-                data = context.Product.Where(x => x.SupplierId == supplierid &&
-                    (x.InvoiceDescription.Contains(q) || x.InternalCode.Contains(q)) &&
+                data = context.Product.Where(x =>
+                    (x.InvoiceDescription.Contains(q)) &&
                     x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x => new DataSelect2
                     {
                         id = x.ProductId,

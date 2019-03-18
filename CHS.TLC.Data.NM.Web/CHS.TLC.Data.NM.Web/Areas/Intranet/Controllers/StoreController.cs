@@ -101,7 +101,6 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                     entryNote.Seal = model.Seal;
                     entryNote.TransportTime = model.TransportTime;
                     entryNote.DestinationStoreId = model.DestinationStoreId;
-                    entryNote.TransferStoreId = model.TransferStoreId;
                     entryNote.SupplierId = model.SupplierId;
                     entryNote.DocumentCode = model.DocumentCode;
                     entryNote.DocumentId = model.DocumentId;
@@ -124,7 +123,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                         stockProductDetail.Value = detail.RealQuantity.Value;
                         stockProductDetail.Date = DateTime.Now;
 
-                        var stock = context.StockProduct.FirstOrDefault( x => x.ProductId == detail.ProductId);
+                        var stock = context.StockProduct.FirstOrDefault( x => x.ProductId == detail.ProductId && x.StoreId == model.DestinationStoreId);
                         if(stock != null)
                         {
                             stock.Quantity += detail.RealQuantity.Value;

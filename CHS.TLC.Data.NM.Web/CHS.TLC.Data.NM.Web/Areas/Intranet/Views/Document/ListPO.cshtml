@@ -49,9 +49,17 @@
 </div>
 
 <div class="row-fluid">
+    <div class="col-lg-12">
+        <div class="pull-left">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva P.O."), "AddEditPO", "Document", "Intranet", new { }, new { @class = "'btn btn-primary'" })
+        </div>
+    </div>
+</div>
+<br />
+<div class="row-fluid">
     <div class="span12 box bordered-box green-border" style="margin-bottom:0;">
         <div class="box-header green-background">
-            <div class="title"><i class="icon-reorder"></i> Resultados</div>
+            <div class="title"><i class="icon-reorder"></i> Registros</div>
         </div>
         <div class="box-content box-no-padding">
             <div class="responsive-table">
@@ -72,31 +80,31 @@
                         <tbody>
                             @foreach (var purcherseOrder in Model.LstPO)
                             {
-                            <tr>
-                                <td>@purcherseOrder.Code</td>
-                                <td>@purcherseOrder.RegistrationDate.ToString("dd/MM/yyyy")</td>
-                                <td>@purcherseOrder.OrderDate.ToString("dd/MM/yyyy")</td>
-                                <td>@purcherseOrder.PrePurcherseOrder.Supplier.BussinessName</td>
-                                <td>@purcherseOrder.Port.Name</td>
-                                <td>@purcherseOrder.CEOEmail</td>
-                                <td class="text-center">
-                                    @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(purcherseOrder.State))
-                                </td>
-                                <td>
-                                    <div class='btn-group' style='margin-bottom:5px'>
-                                        @Html.EncodedActionLink(Html.Raw("<i class='icon icon-edit'></i> Editar"), "AddEditPO", "Document", "Intranet", new { PurcherseOrderId = purcherseOrder.PurcherseOrderId }, new { @class = "'btn'" })
-                                        <button class='btn dropdown-toggle' data-toggle='dropdown'>
-                                            <span class='caret'></span>
-                                        </button>
-                                        <ul class='dropdown-menu'>
-                                            <li class="divider"></li>
-                                            <li>
-                                                @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeletePO", "Document", "Intranet", new { PurcherseOrderId = purcherseOrder.PurcherseOrderId }, new { })
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>@purcherseOrder.Code</td>
+                                    <td>@purcherseOrder.RegistrationDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@purcherseOrder.OrderDate.ToString("dd/MM/yyyy")</td>
+                                    <td>@purcherseOrder.PrePurcherseOrder.Supplier.BussinessName</td>
+                                    <td>@purcherseOrder.Port.Name</td>
+                                    <td>@purcherseOrder.CEOEmail</td>
+                                    <td class="text-center">
+                                        @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(purcherseOrder.State))
+                                    </td>
+                                    <td>
+                                        <div class='btn-group' style='margin-bottom:5px'>
+                                            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-edit'></i> Editar"), "AddEditPO", "Document", "Intranet", new { PurcherseOrderId = purcherseOrder.PurcherseOrderId }, new { @class = "'btn'" })
+                                            <button class='btn dropdown-toggle' data-toggle='dropdown'>
+                                                <span class='caret'></span>
+                                            </button>
+                                            <ul class='dropdown-menu'>
+                                                @*<li class="divider"></li>*@
+                                                <li>
+                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeletePO", "Document", "Intranet", new { PurcherseOrderId = purcherseOrder.PurcherseOrderId }, new { })
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
                             }
                             <tr style="visibility:hidden"><td colspan="5">&nbsp;</td></tr>
                             <tr style="visibility:hidden"><td colspan="5">&nbsp;</td></tr>
@@ -110,12 +118,6 @@
 </div>
 
 <div class="row-fluid">
-    <div class="col-lg-6" style="padding-top: 20px;">
-        <div class="pull-left">
-            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva P.O."), "AddEditPO", "Document", "Intranet", new { }, new { @class = "'btn btn-primary'" })
-        </div>
-    </div>
-
     <div class="col-lg-6" style="padding-top: 20px;">
         <div class="pull-right">
             @Html.PagedListPager(Model.LstPO, Page => Url.Action("ListPO", new { Page = Page, Code = Model.Code, OrderDate = Model.OrderDate, SupplierId = Model.SupplierId }), ConstantHelpers.Bootstrap3Pager)

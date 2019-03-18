@@ -1,7 +1,9 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store.AddEditEntryNoteViewModel
 @{
-    ViewBag.Title = (Model.EntryNoteId.HasValue ? "Editar" : "Agregar") + " nota de entrada";
-    ViewBag.PageIcon = "arrow-left";
+                /**/
+
+                ViewBag.Title = (Model.EntryNoteId.HasValue ? "Editar" : "Agregar") + " nota de entrada";
+                ViewBag.PageIcon = "arrow-left";
 }
 
 @section Breadcrumbs{
@@ -25,21 +27,24 @@
                 @Html.HiddenFor(x => x.DocumentCode)
 
                 <fieldset>
-                    <div class='control-group pull-right'>
-                        <label class='control-label' for='RegistrationDate'>
-                            <strong>Fecha de Registro : @Model.Date</strong>
-                        </label>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">#Nota Entrada</label>
-                        <div class="controls">
-                            @Html.TextBoxFor(x => x.Code, new { @class = "span12", @type = "text" })
-                            <p class="help-block">
-                            </p>
+                    <div class='control-group'>
+
+                        <div class="span6">
+                            <label class='control-label' for='RegistrationDate'>
+                                <strong>Fecha de Registro : @Model.Date</strong>
+                            </label>
+                        </div>
+                        <div class="span6">
+                            <label class="control-label">#Nota Entrada</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(x => x.Code, new { @class = "span12", @type = "text" })
+                                <p class="help-block">
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="control-group">
-                        <div class="span4">
+                        <div class="span6">
                             <label class="control-label">Tipo Documento</label>
                             <div class="controls">
                                 @Html.DropDownListFor(x => x.DocumentTypeId, new SelectList(Model.LstDocumentType, "DocumentTypeId", "Acronym"), new { @class = "span12 select2" })
@@ -47,7 +52,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="span4">
+                        <div class="span6">
                             <label class="control-label">#Documento</label>
                             <div class="controls">
                                 <select id="DocumentId" name="DocumentId" class="span12"></select>
@@ -55,18 +60,10 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="span4">
-                            <label class="control-label">Tipo Movimiento</label>
-                            <div class="controls">
-                                @Html.DropDownListFor(x => x.MovementTypeId, new SelectList(Model.LstMovementType, "MovementTypeId", "Name"), new { @class = "span12 select2" })
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="control-group">
-                        <div class="span3">
+                        <div class="span6">
                             <label class="control-label">Proveedor</label>
                             <div class="controls">
                                 <input type="text" class="span12" id="NombreProveedor" name="NombreProveedor" />
@@ -74,7 +71,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="span9">
+                        <div class="span6">
                             <label class="control-label">#Guía de Proveedor</label>
                             <div class="controls">
                                 @Html.TextBoxFor(x => x.SupplierGuideNumber, new { @class = "span12", @type = "text" })
@@ -84,38 +81,40 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label">#Guía del Transportista</label>
-                        <div class="controls">
-                            @Html.TextBoxFor(x => x.TransportGuideNumber, new { @class = "span12", @type = "text" })
+                        <div class="span6">
+                            <label class="control-label">#Guía del Transportista</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(x => x.TransportGuideNumber, new { @class = "span12", @type = "text" })
+                            </div>
                         </div>
+                        <div class="span6">
+                            <label class="control-label">Hora Llegada Transporte</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(x => x.TransportTime, new { @class = "span12", @type = "text" })
+                            </div>
+                        </div>                        
                     </div>
-                    <div class="control-group">
-                        <label class="control-label">Hora Llegada Transporte</label>
-                        <div class="controls">
-                            @Html.TextBoxFor(x => x.TransportTime, new { @class = "span12", @type = "text" })
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">#Presinto</label>
-                        <div class="controls">
-                            @Html.TextBoxFor(x => x.Seal, new { @class = "span12", @type = "text" })
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
                     <div class="control-group">
                         <div class="span6">
-                            <label class="control-label">Transferencia</label>
+                            <label class="control-label">#Presinto</label>
                             <div class="controls">
-                                @Html.DropDownListFor(x => x.TransferStoreId, new SelectList(Model.LstStore, "StoreId", "Name"), new { @class = "select2 span12" })
-                                <p class="help-block">
-                                </p>
+                                @Html.TextBoxFor(x => x.Seal, new { @class = "span12", @type = "text" })
                             </div>
                         </div>
                         <div class="span6">
                             <label class="control-label">Almacen Destino</label>
                             <div class="controls">
                                 @Html.DropDownListFor(x => x.DestinationStoreId, new SelectList(Model.LstStore, "StoreId", "Name"), new { @class = "select2 span12" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="span12">
+                            <label class="control-label">Tipo Movimiento</label>
+                            <div class="controls">
+                                @Html.DropDownListFor(x => x.MovementTypeId, new SelectList(Model.LstMovementType, "MovementTypeId", "Name"), "[-Seleccione-]", new { @class = "span6 select2" })
+                                <p class="help-block">
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -130,15 +129,21 @@
                                     <th>#</th>
                                     <th>Desc. Invoice</th>
                                     <th>Desc. Local</th>
-                                    <th>Familia</th>
+                                    <th>Fam.</th>
                                     <th>Cod. Diseño</th>
                                     <th>Cant. Pedida</th>
-                                    <th>Uni. Pedida</th>
+                                    <th>U. Pedida</th>
+                                    <th>Cant. Pedida</th>
+                                    <th>U. Pedida</th>
                                     <th>Cant. Real</th>
-                                    <th>Und. Real</th>
+                                    <th>U. Real</th>
                                     <th>Cant. Real</th>
-                                    <th>Und. Real</th>
-                                    <th>Parcial/Total</th>
+                                    <th>U. Real</th>
+                                    <th>Cant. Real</th>
+                                    <th>U. Real</th>
+                                    <th>Cant. Real</th>
+                                    <th>U. Real</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody id="body-po"></tbody>
@@ -222,17 +227,27 @@
                                 '<td>' + value.family +'</td>' +
                                 '<td>' + value.desing +'</td>' +
 
-                                '<td><input class="span9" readonly data-type="startP-' + value.prePurcherseOrderDetailId +'" value="' + value.quantity +'" /></td>'+
-                                '<td><input class="span9" readonly value="'+ value.unit +'" /></td>'+
+                                '<td>' + value.quantity +'</td>'+
+                                '<td>' + value.unit +'</td>' +
 
-                                '<td style="background-color:#78d676"><input class="span9 onlyNumbers realP" value="0" data-index="' + value.prePurcherseOrderDetailId + '" name="qreal-' + value.prePurcherseOrderDetailId+'"/></td>' +
-                                '<td style="background-color:#78d676"><input class="span9" value="' + value.unit + '" name="ureal-' + value.prePurcherseOrderDetailId +'" readonly/></td>' +
+                                '<td>0</td>' +
+                                '<td>rollos</td>' +
 
-                                '<td style="background-color:#ef4f4f"><input class="span9 difP" data-type="difP-' + value.prePurcherseOrderDetailId+'" readonly value="0" /></td>'+
-                                '<td style="background-color:#ef4f4f"><input class="span9" readonly value="' + value.unit+'" /></td>'+
+                                '<td style="background-color:#78d676"><input class="span12 onlyNumbers realP" value="0" data-index="' + value.prePurcherseOrderDetailId + '" name="qreal-' + value.prePurcherseOrderDetailId+'"/></td>' +
+                                '<td style="background-color:#78d676"><input class="span12 " value="' + value.unit + '" name="ureal-' + value.prePurcherseOrderDetailId + '" readonly/></td>' +
+
+                                '<td style="background-color:#78d676"><input class="span12 onlyNumbers realS" value="0" data-index="' + value.prePurcherseOrderDetailId + '" name="qsreal-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                '<td style="background-color:#78d676"><input class="span12" value="rollos" name="usreal-' + value.prePurcherseOrderDetailId + '" readonly/></td>' +
+
+                                '<td style="background-color:#ef4f4f"><input class="span12 difP" data-type="difP-' + value.prePurcherseOrderDetailId+'" readonly value="0" /></td>'+
+                                '<td style="background-color:#ef4f4f"><input class="span12" readonly value="' + value.unit + '" /></td>' +
+
+                                '<td style="background-color:#ef4f4f"><input class="span12 difS" data-type="difS-' + value.prePurcherseOrderDetailId + '" readonly value="0" /></td>' +
+                                '<td style="background-color:#ef4f4f"><input class="span12" readonly value="rollos" /></td>' +
 
                                 '<td>' +
-                                '<select class="form-control" name="typepayment-' + value.prePurcherseOrderDetailId +'">'+
+                                '<select class="typepayment" name="typepayment-' + value.prePurcherseOrderDetailId + '" data-index="' + value.prePurcherseOrderDetailId +'">' +
+                                    '<option value>[-Seleccione-]</option>'+
                                     '<option value="PAR">PARCIAL</option>'+
                                     '<option value="TOT">TOTAL</option>'+
                                 '</select>'+
