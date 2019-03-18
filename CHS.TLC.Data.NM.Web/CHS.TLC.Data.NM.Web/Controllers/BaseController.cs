@@ -144,26 +144,26 @@ namespace CHS.TLC.Data.NM.Web.Controllers
 
             return null;
         }
-        public String GenerarMenu(List<RoleOption> LstSeguridadGrupoPermiso)
+        public String GenerarMenu(List<RoleOption> LstRoleOption)
         {
-            var LstSeguridadPermiso = LstSeguridadGrupoPermiso.OrderBy(x => x.Option.Order).Where(x => (!x.Option.FatherId.HasValue || x.Option.FatherId == 0) && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option).ToList();
+            var LstOption = LstRoleOption.OrderBy(x => x.Option.Order).Where(x => (!x.Option.FatherId.HasValue || x.Option.FatherId == 0) && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option).ToList();
             StringBuilder sb = new StringBuilder();
-            foreach (var seguridadPermiso in LstSeguridadPermiso)
-                GenerarMenu(ref sb, seguridadPermiso, LstSeguridadGrupoPermiso);
+            foreach (var option in LstOption)
+                GenerarMenu(ref sb, option, LstRoleOption);
 
             return sb.ToString();
         }
-        private void GenerarMenu(ref StringBuilder sb, Option seguridadPermiso, List<RoleOption> lstSeguridadGrupoPermiso)
+        private void GenerarMenu(ref StringBuilder sb, Option option, List<RoleOption> LstRoleOption)
         {
-            var lstPermisos = lstSeguridadGrupoPermiso.Where(x => x.Option.FatherId.HasValue && x.Option.FatherId == seguridadPermiso.OptionId && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option);
+            var LstPermiso = LstRoleOption.Where(x => x.Option.FatherId.HasValue && x.Option.FatherId == option.OptionId && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option);
 
-            if (lstPermisos != null && lstPermisos.Count() > 0)
+            if (LstPermiso != null && LstPermiso.Count() > 0)
             {
                 sb.Append("<li class=''>" +
-                        "<a href='#'><i class='fa fa-" + seguridadPermiso.Icon + "'></i><span>" + seguridadPermiso.Description + "</span></a>" +
+                        "<a href='#'><i class='fa fa-" + option.Icon + "'></i><span>" + option.Description + "</span></a>" +
                             "<ul class='nav nav-stacked'>");
-                foreach (var grupoPermiso in lstPermisos)
-                    GenerarMenu(ref sb, grupoPermiso, lstSeguridadGrupoPermiso);
+                foreach (var permiso in LstPermiso)
+                    GenerarMenu(ref sb, permiso, LstRoleOption);
 
                 sb.Append("</ul></li>");
             }

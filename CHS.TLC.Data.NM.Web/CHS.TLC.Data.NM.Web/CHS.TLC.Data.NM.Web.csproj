@@ -156,7 +156,6 @@
     <Compile Include="Areas\Intranet\Models\BE\Json\DataSelect2.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\PrePurcherseOrderInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\ProductByCodeAndInvoice.cs" />
-    <Compile Include="Areas\Intranet\Models\BE\Json\PurcherseOrderInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\SupplierInfo.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\AddEditPOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\AddEditPrePOViewModel.cs" />
