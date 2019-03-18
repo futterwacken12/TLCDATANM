@@ -92,7 +92,7 @@
                             <div class="controls">
                                 @Html.TextBoxFor(x => x.TransportTime, new { @class = "span12", @type = "text" })
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="control-group">
                         <div class="span6">
@@ -121,36 +121,37 @@
                 </fieldset>
                 <hr class="hr-normal">
                 <br />
-                <div class="responsive-table">
-                    <div class="scrollable-area">
-                        <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Desc. Invoice</th>
-                                    <th>Desc. Local</th>
-                                    <th>Fam.</th>
-                                    <th>Cod. Diseño</th>
-                                    <th>Cant. Pedida</th>
-                                    <th>U. Pedida</th>
-                                    <th>Cant. Pedida</th>
-                                    <th>U. Pedida</th>
-                                    <th>Cant. Real</th>
-                                    <th>U. Real</th>
-                                    <th>Cant. Real</th>
-                                    <th>U. Real</th>
-                                    <th>Cant. Real</th>
-                                    <th>U. Real</th>
-                                    <th>Cant. Real</th>
-                                    <th>U. Real</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody id="body-po"></tbody>
-                        </table>
-                    </div>
+                <div id="table-zone">                   
+                    @*<div class="responsive-table">
+                        <div class="scrollable-area">
+                            <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Desc. Invoice</th>
+                                        <th>Desc. Local</th>
+                                        <th>Fam.</th>
+                                        <th>Cod. Diseño</th>
+                                        <th>Cant. Pedida</th>
+                                        <th>U. Pedida</th>
+                                        <th>Cant. Pedida</th>
+                                        <th>U. Pedida</th>
+                                        <th>Cant. Real</th>
+                                        <th>U. Real</th>
+                                        <th>Cant. Real</th>
+                                        <th>U. Real</th>
+                                        <th>Cant. Real</th>
+                                        <th>U. Real</th>
+                                        <th>Cant. Real</th>
+                                        <th>U. Real</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="body-po"></tbody>
+                            </table>
+                        </div>
+                    </div>*@
                 </div>
-
                 <div class="form-actions" style="margin-bottom: 0;">
                     <div class="text-left">
                         <button type="submit" class="btn btn-primary">
@@ -216,46 +217,82 @@
                             $('#SupplierId').val(data[0].supplierId);
                             $('#DocumentCode').val(data[0].documentCode);
                         }
+
                         var template = '';
-                        for (var i = 0; i < data.length; i++){
-                            var value = data[i];
+                        var templateTable = '';
 
-                            template = '<tr>' +
-                                '<td>' + value.code +'</td>' +
-                                '<td>' + value.descriptionInvoice +'</td>' +
-                                '<td>' + value.descriptionLocal +'</td>' +
-                                '<td>' + value.family +'</td>' +
-                                '<td>' + value.desing +'</td>' +
+                        for (var p = 0; p < data.lstProductId.length; p++) {
+                            templateTable = '<div class="responsive-table">' +
+                                '<div class="scrollable-area">' +
+                                '<table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">' +
+                                '<thead>' +
+                                '<tr>' +
+                                '<th>#</th>' +
+                                '<th>Desc. Invoice</th>' +
+                                '<th>Desc. Local</th>' +
+                                '<th>Fam.</th>' +
+                                '<th>Cod. Diseño</th>' +
+                                '<th>Cant. Pedida</th>' +
+                                '<th>U. Pedida</th>' +
+                                '<th>Cant. Pedida</th>' +
+                                '<th>U. Pedida</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th></th>' +
+                                '</tr>' +
+                                '</thead>' +
+                                '<tbody id="body-' + data.lstProductId[p] +'"></tbody>' +
+                                '</table>' +
+                                '</div > ' +
+                                '</div >';
+                            $('#table-zone').append(templateTable);
 
-                                '<td>' + value.quantity +'</td>'+
-                                '<td>' + value.unit +'</td>' +
+                            for (var i = 0; i < data.lstPurcharseOrder.length; i++) {
+                                var value = data.lstPurcharseOrder[i];
 
-                                '<td>0</td>' +
-                                '<td>rollos</td>' +
+                                template = '<tr>' +
+                                    '<td>' + value.code + '</td>' +
+                                    '<td>' + value.descriptionInvoice + '</td>' +
+                                    '<td>' + value.descriptionLocal + '</td>' +
+                                    '<td>' + value.family + '</td>' +
+                                    '<td>' + value.desing + '</td>' +
 
-                                '<td style="background-color:#78d676"><input class="span12 onlyNumbers realP" value="0" data-index="' + value.prePurcherseOrderDetailId + '" name="qreal-' + value.prePurcherseOrderDetailId+'"/></td>' +
-                                '<td style="background-color:#78d676"><input class="span12 " value="' + value.unit + '" name="ureal-' + value.prePurcherseOrderDetailId + '" readonly/></td>' +
+                                    '<td>' + '<input class="span12" disabled data-type="startP-' + i + '" value="' + value.quantity + '"/></td>' +
+                                    '<td>' + value.unit + '</td>' +
 
-                                '<td style="background-color:#78d676"><input class="span12 onlyNumbers realS" value="0" data-index="' + value.prePurcherseOrderDetailId + '" name="qsreal-' + value.prePurcherseOrderDetailId + '"/></td>' +
-                                '<td style="background-color:#78d676"><input class="span12" value="rollos" name="usreal-' + value.prePurcherseOrderDetailId + '" readonly/></td>' +
+                                    '<td>' + '<input class="span12" disabled data-type="startS-' + i + '" value ="0" /></td>' +
+                                    '<td>rollos</td>' +
 
-                                '<td style="background-color:#ef4f4f"><input class="span12 difP" data-type="difP-' + value.prePurcherseOrderDetailId+'" readonly value="0" /></td>'+
-                                '<td style="background-color:#ef4f4f"><input class="span12" readonly value="' + value.unit + '" /></td>' +
+                                    '<td style="background-color:#78d676"><input class="span12 onlyNumbers realP" value="0" data-index="' + i + '" name="qreal-' + i + '"/></td>' +
+                                    '<td style="background-color:#78d676"><input class="span12 " value="m" readonly/></td>' +
 
-                                '<td style="background-color:#ef4f4f"><input class="span12 difS" data-type="difS-' + value.prePurcherseOrderDetailId + '" readonly value="0" /></td>' +
-                                '<td style="background-color:#ef4f4f"><input class="span12" readonly value="rollos" /></td>' +
+                                    '<td style="background-color:#78d676"><input class="span12 onlyNumbers realS" value="0" data-index="' + i + '" name="qsreal-' + i + '"/></td>' +
+                                    '<td style="background-color:#78d676"><input class="span12" value="rollos" readonly/></td>' +
 
-                                '<td>' +
-                                '<select class="typepayment" name="typepayment-' + value.prePurcherseOrderDetailId + '" data-index="' + value.prePurcherseOrderDetailId +'">' +
-                                    '<option value>[-Seleccione-]</option>'+
-                                    '<option value="PAR">PARCIAL</option>'+
-                                    '<option value="TOT">TOTAL</option>'+
-                                '</select>'+
-                                '</td>'+
-                                '</tr > ';
+                                    '<td style="background-color:#ef4f4f"><input class="span12 difP" name="difP-' + i + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input class="span12" readonly value="m" /></td>' +
 
-                            $('#body-po').append(template);
-                        }
+                                    '<td style="background-color:#ef4f4f"><input class="span12 difS" name="difS-' + i + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input class="span12" readonly value="rollos" /></td>' +
+
+                                    '<td>' +
+                                    '<select data-body=' + data.lstProductId[p] +' class="typepayment" name="typepayment-' + i + '" data-index="' + i + '">' +
+                                    '<option value>[-Seleccione-]</option>' +
+                                    '<option value="PAR">PARCIAL</option>' +
+                                    '<option value="TOT">TOTAL</option>' +
+                                    '</select>' +
+                                    '</td>' +
+                                    '</tr > ';
+
+                                $('#body-' + data.lstProductId[p]).append(template);
+                            }
+                        }                        
                     }
                 });
             });
@@ -266,7 +303,57 @@
                 if (value >= 0) {
                     var startp = $('input[data-type="startP-' + index + '"]').val();
                     var resta = startp - value;
-                    $('input[data-type="difP-' + index + '"]').val(resta);
+                    $('input[name="difP-' + index + '"]').val(resta);
+                }
+            });
+
+            $(document).on('keyup', '.drealP', function () {
+                var value = $(this).val();
+                var index = $(this).attr('data-index');
+                if (value >= 0) {
+                    var startp = $('input[data-type="difP-' + index + '"]').val();
+                    var resta = startp - value;
+                    $('input[name="difP-' + index + '"]').val(resta);
+                }
+            });
+
+
+            $(document).on('change', '.typepayment', function () {
+                var value = $(this).val();
+                var body = $(this).attr('data-body');
+                var index = parseFloat($(this).attr('data-index')) + 1;
+                if (value === 'PAR') {
+                    var template = '<tr>' +
+                        '<td colspan="5"></td>' +
+
+                        '<td>' + '<input class="span12" disabled data-type="startP-' + index + '" value="' + $('input[name="difP-' + (index - 1) + '"]').val()  + '"/></td>' +
+                        '<td>m</td>' +
+
+                        '<td>' + '<input class="span12" disabled data-type="startS-' + index + '" value="' + $('input[name="difS-' + (index - 1) + '"]').val() + '"/></td>' +
+                        '<td>rollos</td>' +
+
+                            '<td style="background-color:#78d676"><input class="span12 onlyNumbers realP" value="0" data-index="' + index + '" name="qreal-' + index + '"/></td>' +
+                        '<td style="background-color:#78d676"><input class="span12 " value="m" readonly/></td>' +
+
+                            '<td style="background-color:#78d676"><input class="span12 onlyNumbers realS" value="0" data-index="' + index + '" name="qsreal-' + index + '"/></td>' +
+                        '<td style="background-color:#78d676"><input class="span12" value="rollos" readonly/></td>' +
+
+                            '<td style="background-color:#ef4f4f"><input class="span12 difP" name="difP-' + index + '" readonly value="0" /></td>' +
+                        '<td style="background-color:#ef4f4f"><input class="span12" readonly value="m" /></td>' +
+
+                            '<td style="background-color:#ef4f4f"><input class="span12 difS" name="difS-' + index + '" readonly value="0" /></td>' +
+                        '<td style="background-color:#ef4f4f"><input class="span12" readonly value="rollos" /></td>' +
+
+                        '<td>' +
+                        '<select data-body=' + body + ' class="typepayment" name="typepayment-' + index + '" data-index="' + index + '">' +
+                        '<option value>[-Seleccione-]</option>' +
+                        '<option value="PAR">PARCIAL</option>' +
+                        '<option value="TOT">TOTAL</option>' +
+                        '</select>' +
+                        '</td>' +
+                        '</tr > ';
+
+                    $('#body-' + body).append(template);
                 }
             });
         });

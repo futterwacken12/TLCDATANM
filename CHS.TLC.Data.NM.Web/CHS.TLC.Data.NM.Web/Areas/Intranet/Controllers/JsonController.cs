@@ -42,12 +42,12 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         [HttpGet]
         public JsonResult GetPurcherseOrderInfo(Int32 PurcherseOrderId)
         {
-            var data = new List<PurcherseOrderInfo>();
+            var data = new LstPurcherseOrderInfo();
             try
             {
-                var documentCode = context.PurcherseOrder.FirstOrDefault( x => x.PurcherseOrderId == PurcherseOrderId).Code;
+                var documentCode = context.PurcherseOrder.FirstOrDefault(x => x.PurcherseOrderId == PurcherseOrderId).Code;
                 var prePurcherseOrderId = context.PurcherseOrder.FirstOrDefault(x => x.PurcherseOrderId == PurcherseOrderId).PrePurcherseOrderId;
-                data = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId).Select( x => new PurcherseOrderInfo
+                data.lstPurcharseOrder = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId).Select(x => new PurcherseOrderInfo
                 {
                     descriptionLocal = x.Product.LocalDescription,
                     descriptionInvoice = x.Product.InvoiceDescription,
@@ -61,6 +61,9 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                     supplierId = x.PrePurcherseOrder.SupplierId,
                     documentCode = documentCode
                 }).ToList();
+
+                data.lstProductId = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId).Select(
+                    x => x.ProductId).Distinct().ToList();
 
                 return Json(data, JsonRequestBehavior.AllowGet);
             }

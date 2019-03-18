@@ -152,6 +152,7 @@
     <Compile Include="Areas\Intranet\Controllers\MasterController.cs" />
     <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
+    <Compile Include="Areas\Intranet\Models\BE\Json\LstPurcherseOrderInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\LstSupplierInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\DataSelect2.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\PrePurcherseOrderDetailInfo.cs" />
