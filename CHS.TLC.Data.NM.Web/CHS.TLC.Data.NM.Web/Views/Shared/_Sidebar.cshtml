@@ -5,7 +5,7 @@
     <div class='navigation'>
         <ul class='nav nav-stacked'>
             @Html.Raw(controller.GenerarMenu(controller.ObtenerPermisos(Session.GetRolId())))
-            <li class="">
+            @*<li class="">
                 <a href="@Url.Action("DashboardAdministrator", "Home")">
                     <i class="icon-dashboard"></i>
                     <span>Dashboard</span>
@@ -116,7 +116,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li>*@
         </ul>
     </div>
 </nav>

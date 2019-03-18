@@ -15,13 +15,12 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         public Int32 TypeExistenceId { get; set; }
         public Int32? MeasureUnitPrimaryId { get; set; }
         public Int32? MeasureUnitSecondaryId { get; set; }
-        public Int32? SupplierId { get; set; }
         public String InternalCode { get; set; }
         public String SKUCode { get; set; }
         public Boolean IsActive { get; set; }
         public String Barcode { get; set; }
         public String DesignName { get; set; }
-        public String NumberDesign { get; set; }
+        public String DesignNumber { get; set; }
         public String Color { get; set; }
         public String InvoiceDescription { get; set; }
         public String LocalDescription { get; set; }
@@ -42,7 +41,6 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         public List<TypeExistence> LstTypeExistence { get; set; } = new List<TypeExistence>();
         public List<TaxPercentage> LstTaxPercentage { get; set; } = new List<TaxPercentage>();
         public List<MeasureUnit> LstMeasureUnit { get; set; } = new List<MeasureUnit>();
-        public List<Supplier> LstSupplier { get; set; } = new List<Supplier>();
         public AddEditProductViewModel()
         {
         }
@@ -54,7 +52,6 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
             this.LstTypeExistence = c.context.TypeExistence.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).ToList();
             this.LstTaxPercentage = c.context.TaxPercentage.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).ToList();
             this.LstMeasureUnit = c.context.MeasureUnit.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).ToList();
-            this.LstSupplier = c.context.Supplier.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).ToList();
 
             if (this.ProductId.HasValue)
             {
@@ -65,13 +62,14 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
                 this.TypeExistenceId = product.TypeExistenceId;
                 this.MeasureUnitPrimaryId = product.MeasureUnitPrimaryId;
                 this.MeasureUnitSecondaryId = product.MeasureUnitSecondaryId;
-                this.SupplierId = product.SupplierId;
                 this.InternalCode = product.InternalCode;
                 this.IsActive = product.IsActive;
                 this.Barcode = product.Barcode;
                 this.Color = product.Color;
                 this.InvoiceDescription = product.InvoiceDescription;
                 this.LocalDescription = product.LocalDescription;
+                this.DesignName = product.DesignName;
+                this.DesignNumber = product.DesignNumber;
                 this.LotNumberPurchase = product.LotNumberPurchase;
                 this.TaxPercentageAdvalorenId = product.TaxPercentageAdvalorenId;
                 this.TaxPercentageAffectionIGVId = product.TaxPercentageAffectionIGVId;
