@@ -152,8 +152,10 @@
     <Compile Include="Areas\Intranet\Controllers\MasterController.cs" />
     <Compile Include="Areas\Intranet\Controllers\StoreController.cs" />
     <Compile Include="Areas\Intranet\IntranetAreaRegistration.cs" />
+    <Compile Include="Areas\Intranet\Models\BE\Json\LstPurcherseOrderInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\LstSupplierInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\DataSelect2.cs" />
+    <Compile Include="Areas\Intranet\Models\BE\Json\PrePurcherseOrderDetailInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\PrePurcherseOrderInfo.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\ProductByCodeAndInvoice.cs" />
     <Compile Include="Areas\Intranet\Models\BE\Json\PurcherseOrderInfo.cs" />
@@ -167,7 +169,6 @@
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditProductViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListProductViewModel.cs" />
-    <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditBankContactViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditContactViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditFamilyViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditItemViewModel.cs" />
@@ -461,6 +462,7 @@
     <Content Include="Content\assets\stylesheets\dtbootstrap\bootstrap-clockpicker.min.css" />
     <Content Include="Content\assets\stylesheets\dtbootstrap\bootstrap-datepicker.min.css" />
     <Content Include="Content\assets\stylesheets\dtbootstrap\bootstrap-timepicker.min.css" />
+    <Content Include="Content\assets\stylesheets\fontawesome.css" />
     <Content Include="Content\assets\stylesheets\jquery_ui\jquery-ui-1.10.0.custom.css" />
     <Content Include="Content\assets\stylesheets\jquery_ui\jquery.ui.1.10.0.ie.css" />
     <Content Include="Content\assets\stylesheets\light-theme.css" />
@@ -481,6 +483,10 @@
     <Content Include="Content\assets\stylesheets\plugins\slider_nav\slidernav.css" />
     <Content Include="Content\assets\stylesheets\plugins\tabdrop\tabdrop.css" />
     <Content Include="Content\assets\stylesheets\plugins\xeditable\bootstrap-editable.css" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\assets\webfonts\fa-light-300.svg" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.svg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -558,6 +564,23 @@
     <Content Include="Areas\Intranet\Views\Master\AddEditProduct.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\ListProduct.cshtml" />
     <Content Include="Areas\Intranet\Views\Master\_DeleteProduct.cshtml" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\assets\webfonts\fa-light-300.eot" />
+    <Content Include="Content\assets\webfonts\fa-light-300.ttf" />
+    <Content Include="Content\assets\webfonts\fa-light-300.woff" />
+    <Content Include="Content\assets\webfonts\fa-light-300.woff2" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\assets\webfonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Intranet\Views\Master\_DeleteContact.cshtml" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -565,7 +588,6 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Intranet\Views\Master\_DeleteContact.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -606,6 +628,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Intranet\Views\Json\" />
+    <Folder Include="Content\assets\images\bootstrap-colorpicker\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

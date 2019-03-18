@@ -14,5 +14,6 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Models.BE.Json
         public String supplierEmail { get; set; } 
         public String shipmentDate { get; set; }
         public Int32 supplierId { get; set; }
+        public List<PrePurcherseOrderDetailInfo> lstDetail { get; set; } = new List<PrePurcherseOrderDetailInfo>();
     }
 }

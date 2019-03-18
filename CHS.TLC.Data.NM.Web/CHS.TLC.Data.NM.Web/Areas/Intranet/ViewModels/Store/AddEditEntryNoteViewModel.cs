@@ -19,7 +19,6 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
         public String Seal { get; set; }
         public TimeSpan TransportTime { get; set; }
         public int DestinationStoreId { get; set; }
-        public int TransferStoreId { get; set; }
         public int SupplierId { get; set; }
         public int DocumentId { get; set; }
         public String DocumentCode { get; set; }
