@@ -19,17 +19,17 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         // GET: Intranet/Document
         #region PURCHARSE ORDER
         [EncryptedActionParameter]
-        public ActionResult ListPO(Int32? Page, String Code, String OrderDate, Int32? SupplierId)
+        public ActionResult ListPO(Int32? Page, String Code, String OrderDate, Int32? SupplierId, Int32? FatherId)
         {
             var model = new LstPOViewModel();
-            model.Fill(CargarDatosContext(), Page, Code, OrderDate, SupplierId);
+            model.Fill(CargarDatosContext(), Page, Code, OrderDate, SupplierId, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
-        public ActionResult ListPrePO(Int32? Page, String Code, String OrderDate, Int32? SupplierId)
+        public ActionResult ListPrePO(Int32? Page, String Code, String OrderDate, Int32? SupplierId, Int32? FatherId)
         {
             var model = new ListPrePOViewModel();
-            model.Fill(CargarDatosContext(), Page, Code, OrderDate, SupplierId);
+            model.Fill(CargarDatosContext(), Page, Code, OrderDate, SupplierId, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -203,6 +203,37 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 model.Fill(CargarDatosContext(), model.PrePurcherseOrderId);
                 return View(model);
             }
+        }
+        [EncryptedActionParameter]
+        public ActionResult _DeletePO(Int32 PurcherseOrderId)
+        {
+            var model = new _DeletePOViewModel();
+            model.Fill(CargarDatosContext(), PurcherseOrderId);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult _DeletePO(_DeletePOViewModel model)
+        {
+            try
+            {
+                PurcherseOrder purcherseOrder = null;
+
+                if (model.PurcherseOrderId > 0)
+                {
+                    purcherseOrder = context.PurcherseOrder.FirstOrDefault(x => x.PurcherseOrderId == model.PurcherseOrderId);
+                    purcherseOrder.State = ConstantHelpers.ESTADO.INACTIVO;
+                }
+
+                context.SaveChanges();
+                PostMessage(MessageType.Success);
+            }
+            catch (Exception ex)
+            {
+                PostMessage(MessageType.Error);
+            }
+
+            return RedirectToAction("ListPO");
         }
         [EncryptedActionParameter]
         public ActionResult _DeletePrePO(Int32 PrePurcherseOrderId)

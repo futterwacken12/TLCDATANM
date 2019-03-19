@@ -24,15 +24,16 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
         public String Date { get; set; }
         public IPagedList<EntryNote> LstEntryNote { get; set; }
         public Int32? Page { get; set; }
-
+        public Int32? FatherId { get; set; }
         public LstEntryNoteViewModel()
         {
             LstState.Add(new SelectListItem { Value = ConstantHelpers.ESTADO.ACTIVO, Text = "ACTIVO" });
             LstState.Add(new SelectListItem { Value = ConstantHelpers.ESTADO.INACTIVO, Text = "INACTIVO" });
         }
 
-        public void Fill(CargarDatosContext c, Int32? page, String state, String date, Int32? movementTypeId, String code)
+        public void Fill(CargarDatosContext c, Int32? page, String state, String date, Int32? movementTypeId, String code, Int32? fatherId)
         {
+            this.FatherId = FatherId;
             this.Page = page ?? 1;
             this.State = state;
             this.Date = date;

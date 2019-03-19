@@ -55,6 +55,7 @@
 <div class="row-fluid">
     <div class="col-lg-6">
         <div class="pull-left">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn'" })
             @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva nota de ingreso"), "AddEditEntryNote", "Store", "Intranet", new { }, new { @class = "'btn btn-primary'" })
         </div>
     </div>
