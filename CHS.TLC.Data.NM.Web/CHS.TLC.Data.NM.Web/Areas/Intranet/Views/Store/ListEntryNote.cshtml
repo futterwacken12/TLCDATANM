@@ -7,6 +7,12 @@
 @section Breadcrumbs{
 }
 
+<style>
+    .input-append, .input-prepend {
+        display: flex !important;
+    }
+</style>
+
 <div class="row-fluid">
     <div class="span12 box bordered-box green-border">
         <div class="box-header green-background">
@@ -16,35 +22,33 @@
             </div>
         </div>
         <div class="box-content box-double-padding">
-            <form class="form" style="margin-bottom: 0;">
+            <form class="form" method="post" style="margin-bottom: 0;">
                 <fieldset>
-                    <div class="span4">
-                        <strong>Estado</strong>
-                        @Html.DropDownListFor(x => x.State, Model.LstState, "[-Seleccione-]", new { @class = "span12" })
-                    </div>
-                    <div class="span4">
-                        <strong>Fecha</strong>
-                        @Html.TextBoxFor(x => x.Date, new { @class = "span12" })
-                    </div>
                     <div class="span4">
                         <strong>Código</strong>
                         @Html.TextBoxFor(x => x.Code, new { @class = "span12" })
                     </div>
-                </fieldset>
-                <fieldset>
                     <div class="span4">
                         <strong>Tipo de Movimiento</strong>
                         @Html.DropDownListFor(x => x.MovementTypeId, new SelectList(Model.LstMovementType, "MovementTypeId", "Name"), "[-Seleccione-]", new { @class = "span12" })
                     </div>
+                    <div class="span4">
+                        <strong>Fecha Pedido</strong>
+                        <div class="datepicker input-append" id="datepicker" style="padding-left: 0%; padding: unset;">
+                            @Html.TextBoxFor(x => x.Date, new { @class = "input-block-level", @placeholder = "Fecha Pedido", @data_format = "dd/MM/yyyy" })
+                            <span class="add-on">
+                                <i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i>
+                            </span>
+                        </div>
+                    </div>
                 </fieldset>
+
                 <hr class="hr-normal">
 
                 <div class="form-actions" style="margin-bottom: 0;">
                     <div class="text-right">
-                        <div class="btn btn-primary">
-                            <i class="icon-save"></i>
-                            Filtrar
-                        </div>
+                        <button class="btn btn-primary"><i class="icon-filter"></i> Filtrar</button>
+                        <a href="@Url.Action("ListEntryNote", "Store")" class="btn btn-default"><i class="icon-eraser"></i> Limpiar</a>
                     </div>
                 </div>
             </form>
@@ -69,7 +73,7 @@
         <div class="box-content box-no-padding">
             <div class="responsive-table">
                 <div class="scrollable-area">
-                    <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;">
+                    <table class="table table-hover table-striped" style="margin-bottom:0;">
                         <thead>
                             <tr>
                                 <th>Código</th>

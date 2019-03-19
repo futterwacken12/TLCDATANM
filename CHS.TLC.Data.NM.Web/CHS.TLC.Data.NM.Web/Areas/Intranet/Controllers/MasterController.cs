@@ -777,10 +777,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         //}
         #endregion
         #region Product
-        public ActionResult ListProduct(Int32? Page, String InvoiceDescription)
+        public ActionResult ListProduct(Int32? Page, String InvoiceDescription, Int32? FamilyId, Int32? SubFamilyId)
         {
             var model = new ListProductViewModel();
-            model.Fill(CargarDatosContext(), Page, InvoiceDescription);
+            model.Fill(CargarDatosContext(), Page, InvoiceDescription, FamilyId, SubFamilyId);
             return View(model);
         }
         [EncryptedActionParameter]

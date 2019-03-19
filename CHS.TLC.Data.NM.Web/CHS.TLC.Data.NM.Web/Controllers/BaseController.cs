@@ -127,6 +127,29 @@ namespace CHS.TLC.Data.NM.Web.Controllers
 
             return RedirectToAction(action, controller, new { q = encText });
         }
+        public ActionResult RedirectToActionSecureArea(string action, string controller, string area, object args)
+        {
+            string queryString = string.Empty;
+
+            if (args != null)
+            {
+                RouteValueDictionary d = new RouteValueDictionary(args);
+
+                for (int i = 0; i < d.Keys.Count; i++)
+                {
+                    if (i > 0)
+                    {
+                        queryString += "?";
+                    }
+
+                    queryString += d.Keys.ElementAt(i) + "=" + d.Values.ElementAt(i);
+                }
+            }
+
+            var encText = EncryptedExtensions.Encrypt(queryString);
+
+            return RedirectToAction(action, controller, new { Area = area, q = encText });
+        }
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (Request.Params == filterContext.ActionParameters)

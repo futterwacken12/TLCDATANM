@@ -33,7 +33,7 @@
             @foreach (var icon in Model.LstGroupIcon)
             {
                 <div class="span3">
-                    <div class="box-quick-link blue-background">
+                    <div class="box-quick-link green-background">
                         <a href="#">
                             <div class="header">
                                 <div class="far fa-@icon"></div>
@@ -47,7 +47,7 @@
                         <div class="span12">
                             @foreach (var option in Model.LstOption.Where(x => x.Icon.Equals(icon)))
                             {
-                                @Html.EncodedActionLink(Html.Raw("<div class='box-content box-statistic text-right'><small>" +option.Description + "</small><div class='text-error icon-circle align-left'></div><br /></div>"),
+                                @Html.EncodedActionLink(Html.Raw("<div class='box-content box-statistic text-right'><small>" +option.Description + "</small><div class='text-green icon-circle align-left'></div><br /></div>"),
                                option.Action, option.Controller, option.Area, new { FatherId = option.FatherId }, new {  })
                                 
                             }
@@ -58,26 +58,3 @@
         </div>
     </div>
 </div>
-
-
-@*<div class="span3 box-quick-link blue-background">
-        <a href="/orders.html">
-            <div class="header">
-                <div class="fas fa-ship"></div>
-            </div>
-        </a>
-    </div>
-    <div class="span3 box-quick-link blue-background">
-        <a href="/orders.html">
-            <div class="header">
-                <div class="fas fa-truck"></div>
-            </div>
-        </a>
-    </div>
-    <div class="span3 box-quick-link blue-background">
-        <a href="/orders.html">
-            <div class="header">
-                <div class="fas fa-warehouse"></div>
-            </div>
-        </a>
-    </div>*@

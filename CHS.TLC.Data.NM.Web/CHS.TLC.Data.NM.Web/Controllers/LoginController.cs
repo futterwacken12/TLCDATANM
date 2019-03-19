@@ -77,7 +77,7 @@ namespace CHS.TLC.Data.NM.Web.Controllers
         }
         public ActionResult Dasboard()
         {
-            return RedirectToAction("DashboardAdministrator", "Home", new { Area = "Intranet" });
+            return RedirectToActionSecureArea("MainOption", "Home", "Intranet", new { FatherId = 46 });
         }
         public ActionResult LogOut()
         {

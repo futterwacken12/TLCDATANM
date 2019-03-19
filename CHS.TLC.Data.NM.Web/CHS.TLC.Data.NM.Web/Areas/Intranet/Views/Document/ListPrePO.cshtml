@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="box-content box-double-padding">
-            <form class="form" style="margin-bottom: 0;">
+            <form class="form" method="post" style="margin-bottom: 0;">
                 <fieldset>
                     <div class="span2">
                         <strong>Código</strong>
@@ -47,10 +47,8 @@
 
                 <div class="form-actions" style="margin-bottom: 0;">
                     <div class="text-right">
-                        <div class="btn btn-primary">
-                            <i class="icon-save"></i>
-                            Filtrar
-                        </div>
+                        <button class="btn btn-primary"><i class="icon-filter"></i> Filtrar</button>
+                        <a href="@Url.Action("ListPrePO", "Document")" class="btn btn-default"><i class="icon-eraser"></i> Limpiar</a>
                     </div>
                 </div>
             </form>
@@ -78,7 +76,7 @@
         <div class="box-content box-no-padding">
             <div class="responsive-table">
                 <div class="scrollable-area">
-                    <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;">
+                    <table class="table table-hover table-striped" style="margin-bottom:0;">
                         <thead>
                             <tr>
                                 <th>Código</th>
@@ -105,11 +103,11 @@
                                     <td class="text-center">
                                         @if (!String.IsNullOrEmpty(prePurcherseOrder.DocumentName))
                                         {
-                                            @Html.EncodedActionLink(Html.Raw("<i class='icon-file'></i> Descargar"), "DownloadDocumentPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { @target = "_blank" })
+                                            @Html.EncodedActionLink(Html.Raw("<i class='icon-download'></i> Descargar"), "DownloadDocumentPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { @class = "btn btn-default", @target = "_blank" })
                                         }
                                     </td>
                                     <td>
-                                        @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-plus'></i> Proforma"), "_AddEditDocumentPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { @class="'btn btn-warning'"})
+                                        @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-plus'></i> Proforma"), "_AddEditDocumentPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { @class = "'btn btn-warning'" })
                                     </td>
                                     <td>
                                         <div class='btn-group' style='margin-bottom:5px'>
@@ -134,9 +132,8 @@
                                     </td>
                                 </tr>
                             }
-                            <tr style="visibility:hidden"><td colspan="5">&nbsp;</td></tr>
-                            <tr style="visibility:hidden"><td colspan="5">&nbsp;</td></tr>
-                            <tr style="visibility:hidden"><td colspan="5">&nbsp;</td></tr>
+                            <tr style="visibility:hidden"><td colspan="9">&nbsp;</td></tr>
+                            <tr style="visibility:hidden"><td colspan="9">&nbsp;</td></tr>
                         </tbody>
                     </table>
                 </div>

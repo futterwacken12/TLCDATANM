@@ -6,6 +6,11 @@
 @section Breadcrumbs{
 }
 
+<style>
+    .input-append, .input-prepend {
+        display: flex !important;
+    }
+</style>
 
 <div class="row-fluid">
     <div class="span12 box bordered-box green-border">
@@ -16,12 +21,12 @@
             </div>
         </div>
         <div class="box-content box-double-padding">
-            <form class="form" style="margin-bottom: 0;" method="post">
+            <form class="form" method="post" style="margin-bottom: 0;">
                 <fieldset>
                     <div class="span2">
-                        <strong>Fecha Inicio</strong><br />
+                        <strong>Fecha Pedido</strong>
                         <div class="datepicker input-append" id="datepicker" style="padding-left: 0%; padding: unset;">
-                            @Html.TextBoxFor(x => x.FechaInicio, new { @class = "span12", @placeholder = "Fecha Inicio", @data_format = "dd/MM/yyyy" })
+                            @Html.TextBoxFor(x => x.FechaInicio, new { @class = "input-block-level", @placeholder = "Fecha Inicio", @data_format = "dd/MM/yyyy" })
                             <span class="add-on">
                                 <i data-date-icon="icon-calendar" data-time-icon="icon-time" class="icon-calendar"></i>
                             </span>
@@ -41,14 +46,13 @@
                         <select id="StockProductId" name="StockProductId" class="span12"></select>
                     </div>
                 </fieldset>
+
                 <hr class="hr-normal">
 
                 <div class="form-actions" style="margin-bottom: 0;">
                     <div class="text-right">
-                        <button class="btn btn-primary" type="submit">
-                            <i class="icon-save"></i>
-                            Filtrar
-                        </button>
+                        <button class="btn btn-primary"><i class="icon-filter"></i> Filtrar</button>
+                        <a href="@Url.Action("KardexValorized", "Report")" class="btn btn-default"><i class="icon-eraser"></i> Limpiar</a>
                     </div>
                 </div>
             </form>
