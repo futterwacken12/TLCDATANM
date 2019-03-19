@@ -20,6 +20,26 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         
         [HttpGet]
+        public JsonResult GetStockProduct(String q)
+        {
+            var data = new List<DataSelect2>();
+            try
+            {
+                data = context.StockProduct.Where(x => x.Product.InvoiceDescription.Contains(q) &&
+                    x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x => new DataSelect2
+                    {
+                        id = x.StockProductId,
+                        text = x.Product.InvoiceDescription.ToUpper()
+                    }).ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
         public JsonResult GetPrePurcherseOrderByCode(String q)
         {
             var data = new List<DataSelect2>();

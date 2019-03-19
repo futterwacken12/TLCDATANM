@@ -222,7 +222,9 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                         stockProductDetail.Operation = ConstantHelpers.OPERATION.ENTRY;
                         stockProductDetail.Value = frm["qreal-" + index + "-" + PrePurcherseOrderDetailId].ToDecimal();
                         stockProductDetail.Date = DateTime.Now;
-                        
+                        stockProductDetail.CUPrice = detail.Price;
+                        stockProductDetail.CurrencyId = detail.PrePurcherseOrder.PurcherseOrder.FirstOrDefault(x => x.State == ConstantHelpers.ESTADO.ACTIVO).CurrencyId;
+
                         var stock = context.StockProduct.FirstOrDefault(x => x.ProductId == detail.ProductId && x.StoreId == model.DestinationStoreId && x.State == ConstantHelpers.ESTADO.ACTIVO);
                         if (stock != null)
                         {

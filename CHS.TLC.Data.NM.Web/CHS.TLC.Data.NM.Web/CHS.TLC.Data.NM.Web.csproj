@@ -200,6 +200,7 @@
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteSupplierViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTaxPercentageViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_DeleteTypeExistenceViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Report\KardexValorizedViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditEntryNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\AddEditOutputNoteViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Store\LstEntryNoteViewModel.cs" />
@@ -599,6 +600,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Intranet\Views\Store\_DeleteEntryNote.cshtml" />
+    <Content Include="Areas\Intranet\Views\Report\KardexValorized.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -639,7 +641,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Intranet\Views\Json\" />
-    <Folder Include="Areas\Intranet\Views\Report\" />
     <Folder Include="Content\assets\images\bootstrap-colorpicker\" />
   </ItemGroup>
   <ItemGroup>
