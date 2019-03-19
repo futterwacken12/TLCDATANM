@@ -59,6 +59,30 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 return Json(data, JsonRequestBehavior.AllowGet);
             }
         }
+<<<<<<< HEAD
+        //[HttpGet]
+        //public JsonResult GetPurcherseOrderInfo(Int32 PurcherseOrderId)
+        //{
+        //    var data = new LstPurcherseOrderInfo();
+        //    try
+        //    {
+        //        var documentCode = context.PurcherseOrder.FirstOrDefault(x => x.PurcherseOrderId == PurcherseOrderId).Code;
+        //        var prePurcherseOrderId = context.PurcherseOrder.FirstOrDefault(x => x.PurcherseOrderId == PurcherseOrderId).PrePurcherseOrderId;
+        //        data.lstPurcharseOrder = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId).Select(x => new PurcherseOrderInfo
+        //        {
+        //            descriptionLocal = x.Product.LocalDescription,
+        //            descriptionInvoice = x.Product.InvoiceDescription,
+        //            code = x.Product.InternalCode,
+        //            family = x.Product.SubFamily.Family.Description,
+        //            design = "564",
+        //            quantity = x.Quantity,
+        //            unit = x.Product.MeasureUnit.Acronym,
+        //            prePurcherseOrderDetailId = x.PrePurcherseOrderDetailId,
+        //            supplierName = x.PrePurcherseOrder.Supplier.BussinessName,
+        //            supplierId = x.PrePurcherseOrder.SupplierId,
+        //            documentCode = documentCode
+        //        }).ToList();
+=======
         [HttpGet]
         public JsonResult GetStockProductsByDescription(String q, Int32 StoreId)
         {
@@ -185,17 +209,18 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                     documentCode = documentCode,
                     productId = x.ProductId
                 }).ToList();
+>>>>>>> 548ee9d080f0bc4fc2732e7f2c90fee05016d7cf
 
-                data.lstProductId = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId).Select(
-                    x => x.ProductId).Distinct().ToList();
+        //        data.lstProductId = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId).Select(
+        //            x => x.ProductId).Distinct().ToList();
 
-                return Json(data, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                return Json(data, JsonRequestBehavior.AllowGet);
-            }
-        }
+        //        return Json(data, JsonRequestBehavior.AllowGet);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Json(data, JsonRequestBehavior.AllowGet);
+        //    }
+        //}
         [HttpGet]
         public JsonResult GetPrePurcherseOrderInfo(Int32 PrePurcherseOrderId)
         {

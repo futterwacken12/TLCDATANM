@@ -20,5 +20,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             var model = new DashboardAdministratorViewModel();
             return View(model);
         }
+        public ActionResult MainOption(Int32? FatherId)
+        {
+            var model = new MainOptionViewModel();
+            model.Fill(CargarDatosContext(), FatherId);
+            return View(model);
+        }
     }
 }
