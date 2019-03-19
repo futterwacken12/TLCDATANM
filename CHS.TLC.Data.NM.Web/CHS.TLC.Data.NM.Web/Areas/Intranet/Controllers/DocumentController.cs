@@ -19,17 +19,17 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         // GET: Intranet/Document
         #region PURCHARSE ORDER
         [EncryptedActionParameter]
-        public ActionResult ListPO(Int32? Page, String Code, String OrderDate, Int32? SupplierId)
+        public ActionResult ListPO(Int32? Page, String Code, String OrderDate, Int32? SupplierId, Int32? FatherId)
         {
             var model = new LstPOViewModel();
-            model.Fill(CargarDatosContext(), Page, Code, OrderDate, SupplierId);
+            model.Fill(CargarDatosContext(), Page, Code, OrderDate, SupplierId, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
-        public ActionResult ListPrePO(Int32? Page, String Code, String OrderDate, Int32? SupplierId)
+        public ActionResult ListPrePO(Int32? Page, String Code, String OrderDate, Int32? SupplierId, Int32? FatherId)
         {
             var model = new ListPrePOViewModel();
-            model.Fill(CargarDatosContext(), Page, Code, OrderDate, SupplierId);
+            model.Fill(CargarDatosContext(), Page, Code, OrderDate, SupplierId, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]

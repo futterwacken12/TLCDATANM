@@ -14,8 +14,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Report
         public Int32? StockProductId { get; set; }
         public String DescriptionInvoice { get; set; }
         public List<StockProductDetail> LstStockProductDetail { get; set; } = new List<StockProductDetail>();
-        public void Fill(CargarDatosContext c, String fechaInicio, String fechaFin, Int32? stockProductId)
+        public Int32? FatherId { get; set; }
+        public void Fill(CargarDatosContext c, String fechaInicio, String fechaFin, Int32? stockProductId, Int32? fatherId)
         {
+            this.FatherId = fatherId;
             this.StockProductId = stockProductId;
             this.FechaInicio = fechaInicio;
             this.FechaFin = fechaFin;

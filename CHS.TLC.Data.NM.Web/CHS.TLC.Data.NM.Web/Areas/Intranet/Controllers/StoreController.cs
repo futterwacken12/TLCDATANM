@@ -20,10 +20,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         {
             return View();
         }
-        public ActionResult ListOutputNote(Int32? Page, String State, String Date, Int32? MovementTypeId, String Code)
+        [EncryptedActionParameter]
+        public ActionResult ListOutputNote(Int32? Page, String State, String Date, Int32? MovementTypeId, String Code, Int32? FatherId)
         {
             var model = new LstOuputNoteViewModel();
-            model.Fill(CargarDatosContext(), Page, State, Date, MovementTypeId, Code);
+            model.Fill(CargarDatosContext(), Page, State, Date, MovementTypeId, Code, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -156,10 +157,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 return View(model);
             }
         }
-        public ActionResult ListEntryNote(Int32? Page, String State, String Date, Int32? MovementTypeId, String Code)
+        [EncryptedActionParameter]
+        public ActionResult ListEntryNote(Int32? Page, String State, String Date, Int32? MovementTypeId, String Code, Int32? FatherId)
         {
             var model = new LstEntryNoteViewModel();
-            model.Fill(CargarDatosContext(), Page, State, Date, MovementTypeId, Code);
+            model.Fill(CargarDatosContext(), Page, State, Date, MovementTypeId, Code, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
