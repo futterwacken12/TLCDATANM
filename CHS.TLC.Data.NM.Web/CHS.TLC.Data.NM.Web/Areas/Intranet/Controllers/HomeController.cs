@@ -1,5 +1,6 @@
 ﻿using CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Home;
 using CHS.TLC.Data.NM.Web.Controllers;
+using CHS.TLC.Data.NM.Web.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             var model = new DashboardAdministratorViewModel();
             return View(model);
         }
+        [EncryptedActionParameter]
         public ActionResult MainOption(Int32? FatherId)
         {
             var model = new MainOptionViewModel();
