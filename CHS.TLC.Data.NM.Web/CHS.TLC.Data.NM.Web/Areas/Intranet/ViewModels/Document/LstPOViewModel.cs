@@ -27,7 +27,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document
 
             LstSupplier = c.context.Supplier.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
 
-            var query = c.context.PurcherseOrder.AsQueryable();
+            var query = c.context.PurcherseOrder.Where( x => x.State == ConstantHelpers.ESTADO.ACTIVO).AsQueryable();
             if (!String.IsNullOrEmpty(this.Code))
             {
                 query = query.Where(x => x.Code.Contains(this.Code));

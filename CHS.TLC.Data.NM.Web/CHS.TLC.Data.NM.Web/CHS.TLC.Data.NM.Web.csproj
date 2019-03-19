@@ -168,6 +168,7 @@
     <Compile Include="Areas\Intranet\ViewModels\Document\ListPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\LstPOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\_AddEditDocumentPrePOViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Document\_DeletePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\_DeletePrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\MainOptionViewModel.cs" />
@@ -603,6 +604,7 @@
     <Content Include="Areas\Intranet\Views\Home\MainOption.cshtml" />
     <Content Include="Areas\Intranet\Views\Store\_DeleteEntryNote.cshtml" />
     <Content Include="Areas\Intranet\Views\Report\KardexValorized.cshtml" />
+    <Content Include="Areas\Intranet\Views\Document\_DeletePO.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

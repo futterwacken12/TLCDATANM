@@ -205,6 +205,37 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             }
         }
         [EncryptedActionParameter]
+        public ActionResult _DeletePO(Int32 PurcherseOrderId)
+        {
+            var model = new _DeletePOViewModel();
+            model.Fill(CargarDatosContext(), PurcherseOrderId);
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult _DeletePO(_DeletePOViewModel model)
+        {
+            try
+            {
+                PurcherseOrder purcherseOrder = null;
+
+                if (model.PurcherseOrderId > 0)
+                {
+                    purcherseOrder = context.PurcherseOrder.FirstOrDefault(x => x.PurcherseOrderId == model.PurcherseOrderId);
+                    purcherseOrder.State = ConstantHelpers.ESTADO.INACTIVO;
+                }
+
+                context.SaveChanges();
+                PostMessage(MessageType.Success);
+            }
+            catch (Exception ex)
+            {
+                PostMessage(MessageType.Error);
+            }
+
+            return RedirectToAction("ListPO");
+        }
+        [EncryptedActionParameter]
         public ActionResult _DeletePrePO(Int32 PrePurcherseOrderId)
         {
             var model = new _DeletePrePOViewModel();
