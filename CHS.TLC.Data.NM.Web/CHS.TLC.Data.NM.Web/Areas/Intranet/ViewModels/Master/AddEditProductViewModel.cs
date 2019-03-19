@@ -65,7 +65,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
                 this.TypeExistenceId = product.TypeExistenceId;
                 this.MeasureUnitPrimaryId = product.MeasureUnitPrimaryId;
                 this.MeasureUnitSecondaryId = product.MeasureUnitSecondaryId;
-                this.SupplierId = product.SupplierId;
+                
                 this.InternalCode = product.InternalCode;
                 this.IsActive = product.IsActive;
                 this.Barcode = product.Barcode;

@@ -1,9 +1,7 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store.AddEditEntryNoteViewModel
 @{
-                /**/
-
-                ViewBag.Title = (Model.EntryNoteId.HasValue ? "Editar" : "Agregar") + " nota de entrada";
-                ViewBag.PageIcon = "arrow-left";
+    ViewBag.Title = (Model.EntryNoteId.HasValue ? "Ver" : "Agregar") + " nota de ingreso";
+    ViewBag.PageIcon = "arrow-left";
 }
 
 @section Breadcrumbs{
@@ -31,7 +29,7 @@
 
                         <div class="span6">
                             <label class='control-label' for='RegistrationDate'>
-                                <strong>Fecha de Registro : @Model.Date</strong>
+                                <strong>Fecha de Registro : @Model.Date.ToString("dd/MM/yyyy")</strong>
                             </label>
                         </div>
                         <div class="span6">
@@ -55,7 +53,7 @@
                         <div class="span6">
                             <label class="control-label">#Documento</label>
                             <div class="controls">
-                                <select id="DocumentId" name="DocumentId" class="span12"></select>
+                                <select id="DocumentId" name="DocumentId" class="span12" @(Model.EntryNoteId.HasValue ? "disabled" : String.Empty)></select>
                                 <p class="help-block">
                                 </p>
                             </div>
@@ -66,7 +64,7 @@
                         <div class="span6">
                             <label class="control-label">Proveedor</label>
                             <div class="controls">
-                                <input type="text" class="span12" id="NombreProveedor" name="NombreProveedor" />
+                                @Html.TextBoxFor(x => x.NombreProveedor, new { @class = "span12", @type = "text" , @readonly = true})
                                 <p class="help-block">
                                 </p>
                             </div>
@@ -121,43 +119,127 @@
                 </fieldset>
                 <hr class="hr-normal">
                 <br />
-                <div id="table-zone">                   
-                    @*<div class="responsive-table">
-                        <div class="scrollable-area">
-                            <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Desc. Invoice</th>
-                                        <th>Desc. Local</th>
-                                        <th>Fam.</th>
-                                        <th>Cod. Diseño</th>
-                                        <th>Cant. Pedida</th>
-                                        <th>U. Pedida</th>
-                                        <th>Cant. Pedida</th>
-                                        <th>U. Pedida</th>
-                                        <th>Cant. Real</th>
-                                        <th>U. Real</th>
-                                        <th>Cant. Real</th>
-                                        <th>U. Real</th>
-                                        <th>Cant. Real</th>
-                                        <th>U. Real</th>
-                                        <th>Cant. Real</th>
-                                        <th>U. Real</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="body-po"></tbody>
-                            </table>
+                <div id="table-zone">
+                    @for (int i = 0; i < Model.LstProduct.Count; i++)
+                    {
+                        <div class="responsive-table" id="table-@Model.LstProduct[i]" style="font-size: 12px;" >
+                            <div class="scrollable-area">
+                                <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Desc. Invoice</th>
+                                            <th>Desc. Local</th>
+                                            <th>Fam.</th>
+                                            <th>Cod. Diseño</th>
+                                            <th>Cant. Pedida</th>
+                                            <th>U. Pedida</th>
+                                            <th>Cant. Pedida</th>
+                                            <th>U. Pedida</th>
+                                            <th>Cant. Real</th>
+                                            <th>U. Real</th>
+                                            <th>Cant. Real</th>
+                                            <th>U. Real</th>
+                                            <th>Cant. Real</th>
+                                            <th>U. Real</th>
+                                            <th>Cant. Real</th>
+                                            <th>U. Real</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="body-@Model.LstProduct[i]">
+                                        @{
+                                            var p = 0;
+                                            Decimal? cantReal = 0;
+                                        }
+                                        @foreach(var value in Model.LstEntryNoteDetail.Where(x => x.PrePurcherseOrderDetail.ProductId == Model.LstProduct[i]))
+                                        {
+                                        <tr id="rowmaster-@i">
+                                            @if (p == 0)
+                                            {
+                                                cantReal = value.PrePurcherseOrderDetail.Quantity - value.RealQuantity;
+                                                <td>@value.PrePurcherseOrderDetail.Product.InternalCode </td>
+                                                <td>@value.PrePurcherseOrderDetail.Product.InvoiceDescription.ToUpper()</td>
+                                                <td>@value.PrePurcherseOrderDetail.Product.LocalDescription.ToUpper()</td>
+                                                <td>@value.PrePurcherseOrderDetail.Product.SubFamily.Family.Description</td>
+                                                <td>@value.PrePurcherseOrderDetail.Product.DesignNumber</td>
+                                                <td><input style="width: 65px;" class="span12 real" disabled data-type="startP-@i" value="@value.PrePurcherseOrderDetail.Quantity" /></td>
+                                                <td>m</td>
+                                                <td><input style="width: 65px;" class="span12 sec" disabled data-type="startS-@i" value="0" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                <td>rollos</td>
+
+                                                <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
+
+                                                <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
+
+                                                <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(cantReal)" /></td>
+                                                <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>
+
+                                                <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-@i" readonly value="0" /></td>
+                                                <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>
+
+                                                <td>
+                                                    <select style="width: 100px;" data-pod="@value.PrePurcherseOrderDetailId" data-body='@Model.LstProduct[i]' class="typepayment" name="typepayment-@i" data-index="@i" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty)>
+                                                        <option value="">[-Seleccione-]</option>
+                                                        <option value="PAR" @(value.TypePayment == "PAR" ? "selected" : String.Empty)>PARCIAL</option>
+                                                        <option value="TOT" @(value.TypePayment == "TOT" ? "selected" : String.Empty)>TOTAL</option>
+                                                    </select>
+                                                </td>
+                                                <td><a class="deletemaster btn btn-danger" data-index="@i" @(Model.EntryNoteId.HasValue ? "disabled" : String.Empty)><i class="icon-trash"></i></a></td>
+                                            }
+                                            else
+                                            {
+                                                <td colspan="5"></td>
+                                                <td><input style="width: 65px;" class="span12 real" disabled data-type="startP-@i" value="@cantReal" /></td>
+                                                <td>m</td>
+                                                <td><input style="width: 65px;" class="span12 sec" disabled data-type="startS-@i" value="0" /></td>
+                                                <td>rollos</td>
+
+                                                <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
+
+                                                <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
+
+                                                <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(cantReal - value.RealQuantity)" /></td>
+                                                <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>
+
+                                                <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" value="0" name="difS-@i" readonly /></td>
+                                                <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>
+
+                                                <td>
+                                                    <select style="width: 100px;" data-pod="@value.PrePurcherseOrderDetailId" data-body='@Model.LstProduct[i]' class="typepayment" name="typepayment-@i" data-index="@i" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty)>
+                                                        <option value="">[-Seleccione-]</option>
+                                                        <option value="PAR" @(value.TypePayment == "PAR" ? "selected" : String.Empty)>PARCIAL</option>
+                                                        <option value="TOT" @(value.TypePayment == "TOT" ? "selected" : String.Empty)>TOTAL</option>
+                                                    </select>
+                                                </td>
+                                                <td><a class="deletemaster btn btn-danger" data-index="@i" @(Model.EntryNoteId.HasValue ? "disabled" : String.Empty)><i class="icon-trash"></i></a></td>
+
+                                                cantReal = cantReal - value.RealQuantity;
+                                            }
+
+
+                                        </tr>
+                                            p++;
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>*@
+                    }
                 </div>
                 <div class="form-actions" style="margin-bottom: 0;">
                     <div class="text-left">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="icon-save"></i>
-                            Guardar
-                        </button>
+                        @if (!Model.EntryNoteId.HasValue)
+                        {
+                            <button type="submit" class="btn btn-primary">
+                                <i class="icon-save"></i>
+                                Guardar
+                            </button>
+                        }
                         <a class="btn btn-default" href="@Url.Action("ListEntryNote", "Store")"><i class="icon icon-arrow-left"></i> Cancelar</a>
                     </div>
                 </div>
@@ -201,8 +283,18 @@
             });
             @if (Model.DocumentId != 0) {
                 <text>
-            var newOption = new Option('@Model.DocumentCode', '@Model.DocumentId', true, true);
-            $("#DocumentId").append(newOption).trigger('change');
+                     var newOption = new Option('@Model.DocumentCode', '@Model.DocumentId', true, true);
+                $("#DocumentId").append(newOption).trigger('change');
+                </text>
+            }
+            @if (Model.EntryNoteId.HasValue) {
+                <text>
+                $('input').each(function () {
+                    $(this).attr('disabled', true);
+            });
+            $('.select2').each(function () {
+                $(this).attr('disabled', true);
+            });
                 </text>
             }
 
@@ -212,17 +304,17 @@
                     url: '@Url.Action("GetPurcherseOrderInfo", "Json")' + '?PurcherseOrderId=' + parameter,
                     type: 'GET',
                     success: function (data) {
-                        if (data.length > 0) {
-                            $('#NombreProveedor').val(data[0].supplierName);
-                            $('#SupplierId').val(data[0].supplierId);
-                            $('#DocumentCode').val(data[0].documentCode);
+                        if (data.lstPurcharseOrder.length > 0) {
+                            $('#NombreProveedor').val(data.lstPurcharseOrder[0].supplierName);
+                            $('#SupplierId').val(data.lstPurcharseOrder[0].supplierId);
+                            $('#DocumentCode').val(data.lstPurcharseOrder[0].documentCode);
                         }
 
                         var template = '';
                         var templateTable = '';
 
                         for (var p = 0; p < data.lstProductId.length; p++) {
-                            templateTable = '<div class="responsive-table">' +
+                            templateTable = '<div class="responsive-table" id="table-' + data.lstProductId[p] +'" style="font-size: 12px;" >' +
                                 '<div class="scrollable-area">' +
                                 '<table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">' +
                                 '<thead>' +
@@ -245,6 +337,7 @@
                                 '<th>Cant. Real</th>' +
                                 '<th>U. Real</th>' +
                                 '<th></th>' +
+                                '<th></th>' +
                                 '</tr>' +
                                 '</thead>' +
                                 '<tbody id="body-' + data.lstProductId[p] +'"></tbody>' +
@@ -253,45 +346,46 @@
                                 '</div >';
                             $('#table-zone').append(templateTable);
 
-                            for (var i = 0; i < data.lstPurcharseOrder.length; i++) {
-                                var value = data.lstPurcharseOrder[i];
+                            //for (var i = 0; i < data.lstPurcharseOrder.length; i++) {
+                                var value = data.lstPurcharseOrder[p];
 
-                                template = '<tr>' +
+                                template = '<tr id="rowmaster-'+ p +'">' +
                                     '<td>' + value.code + '</td>' +
                                     '<td>' + value.descriptionInvoice + '</td>' +
                                     '<td>' + value.descriptionLocal + '</td>' +
                                     '<td>' + value.family + '</td>' +
-                                    '<td>' + value.desing + '</td>' +
+                                    '<td>' + value.design + '</td>' +
 
-                                    '<td>' + '<input class="span12" disabled data-type="startP-' + i + '" value="' + value.quantity + '"/></td>' +
-                                    '<td>' + value.unit + '</td>' +
+                                    '<td>' + '<input style="width: 65px;" class="span12 real" disabled data-type="startP-' + p + '" value="' + value.quantity + '"/></td>' +
+                                    '<td>m</td>' +
 
-                                    '<td>' + '<input class="span12" disabled data-type="startS-' + i + '" value ="0" /></td>' +
+                                    '<td>' + '<input style="width: 65px;" class="span12 sec" disabled data-type="startS-' + p + '" value ="0" /></td>' +
                                     '<td>rollos</td>' +
 
-                                    '<td style="background-color:#78d676"><input class="span12 onlyNumbers realP" value="0" data-index="' + i + '" name="qreal-' + i + '"/></td>' +
-                                    '<td style="background-color:#78d676"><input class="span12 " value="m" readonly/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body="' + data.lstProductId[p] +'" class="realP span12 onlyNumbers" value="0" data-index="' + p + '" name="qreal-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly/></td>' +
 
-                                    '<td style="background-color:#78d676"><input class="span12 onlyNumbers realS" value="0" data-index="' + i + '" name="qsreal-' + i + '"/></td>' +
-                                    '<td style="background-color:#78d676"><input class="span12" value="rollos" readonly/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body="' + data.lstProductId[p] +'" class="realS span12 onlyNumbers" value="0" data-index="' + p + '" name="qsreal-' + p + '-' + value.prePurcherseOrderDetailId +'"/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly/></td>' +
 
-                                    '<td style="background-color:#ef4f4f"><input class="span12 difP" name="difP-' + i + '" readonly value="0" /></td>' +
-                                    '<td style="background-color:#ef4f4f"><input class="span12" readonly value="m" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-' + p + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>' +
 
-                                    '<td style="background-color:#ef4f4f"><input class="span12 difS" name="difS-' + i + '" readonly value="0" /></td>' +
-                                    '<td style="background-color:#ef4f4f"><input class="span12" readonly value="rollos" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-' + p + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>' +
 
                                     '<td>' +
-                                    '<select data-body=' + data.lstProductId[p] +' class="typepayment" name="typepayment-' + i + '" data-index="' + i + '">' +
+                                '<select style="width: 100px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body=' + data.lstProductId[p] + ' class="typepayment" name="typepayment-' + p + '-' + value.prePurcherseOrderDetailId + '" data-index="' + p + '">' +
                                     '<option value>[-Seleccione-]</option>' +
                                     '<option value="PAR">PARCIAL</option>' +
                                     '<option value="TOT">TOTAL</option>' +
                                     '</select>' +
                                     '</td>' +
+                                    '<td><a class="deletemaster btn btn-danger" data-index="'+ p +'"><i class="icon-trash"></i></a></td>'+
                                     '</tr > ';
 
                                 $('#body-' + data.lstProductId[p]).append(template);
-                            }
+                            //}
                         }                        
                     }
                 });
@@ -300,62 +394,95 @@
             $(document).on('keyup', '.realP', function () {
                 var value = $(this).val();
                 var index = $(this).attr('data-index');
+                var body = $(this).attr('data-body');
+                var pod = $(this).attr('data-pod');
                 if (value >= 0) {
-                    var startp = $('input[data-type="startP-' + index + '"]').val();
+                    var startp = $('#table-' + body).find('input[data-type="startP-' + index + '"]').val();
                     var resta = startp - value;
-                    $('input[name="difP-' + index + '"]').val(resta);
+                    $('#table-' + body).find('input[name="difP-' + index + '"]').val(resta).trigger('change');
+                    if (resta === 0) {
+                        $('#table-' + body).find('select[name="typepayment-' + index + '-' + pod +'"]').val('TOT');
+                    }
                 }
             });
-
-            $(document).on('keyup', '.drealP', function () {
+            $(document).on('keyup', '.realS', function () {
                 var value = $(this).val();
                 var index = $(this).attr('data-index');
+                var body = $(this).attr('data-body');
+                var pod = $(this).attr('data-pod');
                 if (value >= 0) {
-                    var startp = $('input[data-type="difP-' + index + '"]').val();
+                    var startp = $('input[data-type="startS-' + index + '"]').val();
                     var resta = startp - value;
-                    $('input[name="difP-' + index + '"]').val(resta);
+                    $('#table-' + body).find('input[name="difS-' + index + '-' + pod + '"]').val(resta).trigger('change');                    
                 }
             });
 
+            $(document).on('click', '.delete', function () {
+                var index = $(this).attr('data-index');
+                $('#row-' + index).remove();
+            });
 
             $(document).on('change', '.typepayment', function () {
                 var value = $(this).val();
                 var body = $(this).attr('data-body');
+                var prePurcherseOrderDetailId = $(this).attr('data-pod');
                 var index = parseFloat($(this).attr('data-index')) + 1;
-                if (value === 'PAR') {
-                    var template = '<tr>' +
+                var valorFinal = parseFloat($('#table-' + body).find('input[name="difP-' + (index - 1) + '"]').val());
+                
+                if (value === 'PAR' && $('#table-' + body).find('input[name="difP-' + index + '"]').length === 0 && valorFinal > 0) {
+                    var template = '<tr id="row-'+ index +'">' +
                         '<td colspan="5"></td>' +
 
-                        '<td>' + '<input class="span12" disabled data-type="startP-' + index + '" value="' + $('input[name="difP-' + (index - 1) + '"]').val()  + '"/></td>' +
+                        '<td>' + '<input style="width: 65px;" class="span12 real" disabled data-type="startP-' + index + '" value="' + $('#table-' + body).find('input[name="difP-' + (index - 1) + '"]').val()  + '"/></td>' +
                         '<td>m</td>' +
 
-                        '<td>' + '<input class="span12" disabled data-type="startS-' + index + '" value="' + $('input[name="difS-' + (index - 1) + '"]').val() + '"/></td>' +
+                        '<td>' + '<input style="width: 65px;" class="span12 sec" disabled data-type="startS-' + index + '" value="' + $('#table-' + body).find('input[name="difS-' + (index - 1) + '"]').val() + '"/></td>' +
                         '<td>rollos</td>' +
 
-                            '<td style="background-color:#78d676"><input class="span12 onlyNumbers realP" value="0" data-index="' + index + '" name="qreal-' + index + '"/></td>' +
-                        '<td style="background-color:#78d676"><input class="span12 " value="m" readonly/></td>' +
+                        '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + prePurcherseOrderDetailId+'" data-body="' + body +'" class="realP span12 onlyNumbers" value="0" data-index="' + index + '" name="qreal-' + index + '-' + prePurcherseOrderDetailId+ '"/></td>' +
+                        '<td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly/></td>' +
 
-                            '<td style="background-color:#78d676"><input class="span12 onlyNumbers realS" value="0" data-index="' + index + '" name="qsreal-' + index + '"/></td>' +
-                        '<td style="background-color:#78d676"><input class="span12" value="rollos" readonly/></td>' +
+                        '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + prePurcherseOrderDetailId+'" data-body="' + body +'" class="realS span12 onlyNumbers" value="0" data-index="' + index + '" name="qsreal-' + index + '-' + prePurcherseOrderDetailId+ '"/></td>' +
+                        '<td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly/></td>' +
 
-                            '<td style="background-color:#ef4f4f"><input class="span12 difP" name="difP-' + index + '" readonly value="0" /></td>' +
-                        '<td style="background-color:#ef4f4f"><input class="span12" readonly value="m" /></td>' +
+                        '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-' + index + '" readonly value="0" /></td>' +
+                        '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>' +
 
-                            '<td style="background-color:#ef4f4f"><input class="span12 difS" name="difS-' + index + '" readonly value="0" /></td>' +
-                        '<td style="background-color:#ef4f4f"><input class="span12" readonly value="rollos" /></td>' +
+                        '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-' + index + '" readonly value="0" /></td>' +
+                        '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>' +
 
                         '<td>' +
-                        '<select data-body=' + body + ' class="typepayment" name="typepayment-' + index + '" data-index="' + index + '">' +
+                        '<select style="width: 100px;" data-pod="' + prePurcherseOrderDetailId + '" data-body=' + body + ' class="typepayment" name="typepayment-' + index + '-' + prePurcherseOrderDetailId + '" data-index="' + index + '">' +
                         '<option value>[-Seleccione-]</option>' +
                         '<option value="PAR">PARCIAL</option>' +
                         '<option value="TOT">TOTAL</option>' +
                         '</select>' +
                         '</td>' +
+                        '<td><a class="delete btn btn-danger" data-index="' + index + '"><i class="icon-trash"></i></a></td>' +
                         '</tr > ';
 
                     $('#body-' + body).append(template);
                 }
+
+                if (valorFinal === 0) {
+                    $(this).val('TOT');
+                }
             });
+
+            $(document).on('change', '.difP', function () {
+                var $tr = $(this).closest('tr').next('tr');
+                $tr.find('.real').val($(this).val());
+                var treal = $tr.find('.realP').val();
+                $tr.find('.difP').val(parseFloat($(this).val()) - treal).trigger('change');
+            });
+
+            $(document).on('change', '.difS', function () {
+                var $tr = $(this).closest('tr').next('tr');
+                $tr.find('.sec').val($(this).val());
+                var treal = $tr.find('.realS').val();
+                $tr.find('.difS').val(parseFloat($(this).val()) - treal).trigger('change');
+            });
+
         });
     </script>
 }

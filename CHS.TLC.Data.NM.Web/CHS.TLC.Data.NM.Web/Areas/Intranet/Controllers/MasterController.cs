@@ -821,7 +821,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 product.TypeExistenceId = model.TypeExistenceId;
                 product.MeasureUnitPrimaryId = model.MeasureUnitPrimaryId;
                 product.MeasureUnitSecondaryId = model.MeasureUnitSecondaryId;
-                product.SupplierId = model.SupplierId;
+                
                 product.InternalCode = model.InternalCode;
                 product.IsActive = model.IsActive;
                 product.Barcode = model.Barcode;

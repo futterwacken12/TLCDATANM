@@ -40,6 +40,109 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             }
         }
         [HttpGet]
+        public JsonResult GetStockProductsByDescription(String q, Int32 StoreId)
+        {
+            var data = new List<DataSelect2>();
+            try
+            {
+                data = context.StockProduct.Where(x => x.Product.InvoiceDescription.Contains(q) &&
+                                x.StoreId == StoreId &&
+                                x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x => new DataSelect2
+                                {
+                                    id = x.StockProductId,
+                                    text = x.Product.InvoiceDescription.ToUpper()
+                                }).ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public JsonResult GetStockProductsByColor(String q, Int32 StoreId)
+        {
+            var data = new List<DataSelect2>();
+            try
+            {
+                data = context.StockProduct.Where(x => x.Product.Color.Contains(q) &&
+                                x.StoreId == StoreId &&
+                                x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x => new DataSelect2
+                                {
+                                    id = x.StockProductId,
+                                    text = x.Product.InvoiceDescription.ToUpper()
+                                }).ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public JsonResult GetProductsByStockProduct(Int32 StockProductId)
+        {
+            var data = new LstPurcherseOrderInfo();
+            try
+            {
+                data.lstPurcharseOrder = context.StockProduct.Where(x => x.StockProductId == StockProductId && x.Quantity > 0 && x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x =>
+                new PurcherseOrderInfo
+                {
+                    descriptionLocal = x.Product.LocalDescription.ToUpper(),
+                    descriptionInvoice = x.Product.InvoiceDescription.ToUpper(),
+                    code = x.Product.InternalCode,
+                    family = x.Product.SubFamily.Family.Description,
+                    design = x.Product.DesignNumber,
+                    quantity = x.Quantity,
+                    unit = x.Product.MeasureUnit.Acronym,
+                    prePurcherseOrderDetailId = x.ProductId
+                }).Distinct().ToList();
+
+                data.lstProductId = data.lstPurcharseOrder.Select(
+                    x => x.productId).Distinct().ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
+        public JsonResult GetProductsPurcherseOrderInfo(Int32 PurcherseOrderId, Int32 StoreId)
+        {
+            var data = new LstPurcherseOrderInfo();
+            try
+            {
+                var entryNoteId = context.EntryNote.FirstOrDefault( x => x.DocumentId == PurcherseOrderId && x.State == ConstantHelpers.ESTADO.ACTIVO).EntryNoteId;
+                data.lstPurcharseOrder = context.StockProductDetail.Where(x => x.EntryNoteId == entryNoteId && x.StockProduct.Quantity > 0
+                && x.StockProduct.StoreId == StoreId).Select(x =>
+                new PurcherseOrderInfo {
+                    descriptionLocal = x.StockProduct.Product.LocalDescription.ToUpper(),
+                    descriptionInvoice = x.StockProduct.Product.InvoiceDescription.ToUpper(),
+                    code = x.StockProduct.Product.InternalCode,
+                    family = x.StockProduct.Product.SubFamily.Family.Description,
+                    design = x.StockProduct.Product.DesignNumber,
+                    quantity = x.StockProduct.Quantity,
+                    unit = x.StockProduct.Product.MeasureUnit.Acronym,
+                    prePurcherseOrderDetailId = x.StockProduct.ProductId,
+                    documentCode = x.EntryNote.PurcherseOrder.Code,
+                    productId = x.StockProduct.Product.ProductId
+                }).Distinct().ToList();
+
+                data.lstProductId = data.lstPurcharseOrder.Select(
+                    x => x.productId).Distinct().ToList();
+
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+        }
+        [HttpGet]
         public JsonResult GetPurcherseOrderInfo(Int32 PurcherseOrderId)
         {
             var data = new LstPurcherseOrderInfo();
@@ -49,17 +152,18 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 var prePurcherseOrderId = context.PurcherseOrder.FirstOrDefault(x => x.PurcherseOrderId == PurcherseOrderId).PrePurcherseOrderId;
                 data.lstPurcharseOrder = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId).Select(x => new PurcherseOrderInfo
                 {
-                    descriptionLocal = x.Product.LocalDescription,
-                    descriptionInvoice = x.Product.InvoiceDescription,
+                    descriptionLocal = x.Product.LocalDescription.ToUpper(),
+                    descriptionInvoice = x.Product.InvoiceDescription.ToUpper(),
                     code = x.Product.InternalCode,
                     family = x.Product.SubFamily.Family.Description,
-                    design = "564",
+                    design = x.Product.DesignNumber,
                     quantity = x.Quantity,
                     unit = x.Product.MeasureUnit.Acronym,
                     prePurcherseOrderDetailId = x.PrePurcherseOrderDetailId,
                     supplierName = x.PrePurcherseOrder.Supplier.BussinessName,
                     supplierId = x.PrePurcherseOrder.SupplierId,
-                    documentCode = documentCode
+                    documentCode = documentCode,
+                    productId = x.ProductId
                 }).ToList();
 
                 data.lstProductId = context.PrePurcherseOrderDetail.Where(x => x.PrePurcherseOrderId == prePurcherseOrderId).Select(
@@ -83,7 +187,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 data.orderDate = prePo.DateOrder.ToString("dd/MM/yyyy");
                 data.supplierName = prePo.Supplier.BussinessName;
                 data.supplierAddress = prePo.Supplier.Address;
-                data.countryId = prePo.Supplier.CountryId.Value;
+                data.countryId = prePo.CountryId;
                 data.supplierId = prePo.SupplierId;
                 data.shipmentDate = prePo.ShipmentDate.ToString("dd/MM/yyyy");
 

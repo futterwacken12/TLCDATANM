@@ -27,7 +27,9 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
         public List<Web.Models.Store> LstStore { get; set; } = new List<Web.Models.Store>();
         public List<MovementType> LstMovementType { get; set; } = new List<MovementType>();
         public List<DocumentType> LstDocumentType { get; set; } = new List<DocumentType>();
-
+        public List<EntryNoteDetail> LstEntryNoteDetail { get; set; } = new List<EntryNoteDetail>();
+        public List<Int32> LstProduct { get; set; } = new List<int>();
+        public String NombreProveedor { get; set; }
         public void Fill(CargarDatosContext c, Int32? entryNoteId)
         {
             this.EntryNoteId = entryNoteId;
@@ -52,6 +54,14 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
                 this.DestinationStoreId = entryNote.DestinationStoreId;
                 this.SupplierId = entryNote.SupplierId;
                 this.DocumentCode = entryNote.DocumentCode;
+                this.NombreProveedor = entryNote.Supplier.BussinessName;
+
+                this.LstEntryNoteDetail = c.context.EntryNoteDetail.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO
+                && x.EntryNoteId == this.EntryNoteId).ToList();
+
+                this.LstProduct = LstEntryNoteDetail.Select(x => x.PrePurcherseOrderDetail.ProductId).Distinct().ToList();
+
+
             }
         }
     }

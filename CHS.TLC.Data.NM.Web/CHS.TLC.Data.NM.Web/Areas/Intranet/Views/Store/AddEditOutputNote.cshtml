@@ -5,7 +5,7 @@
 }
 
 @section Breadcrumbs{
-    <li><a href="@Url.Action("ListOuputNote","Store")">Lista de notas de salidas</a></li>
+    <li><a href="@Url.Action("ListOutputNote","Store")">Lista de notas de salidas</a></li>
     <li class="separator"><i class="icon-angle-right"></i></li>
 }
 
@@ -18,85 +18,83 @@
             </div>
         </div>
         <div class="box-content box-double-padding">
-            <form class="form" style="margin-bottom: 0;">
+            <form class="form" style="margin-bottom: 0;" method="post">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.DocumentCode)
+                @Html.HiddenFor(x => x.OutputNoteId)
                 <fieldset>
-                    <div class="span4">
-                        <div class="control-group">
+                    <div class='control-group'>
+
+                        <div class="span6">
+                            <label class='control-label' for='RegistrationDate'>
+                                <strong>Fecha de Registro : @Model.Date.ToString("dd/MM/yyyy")</strong>
+                            </label>
+                        </div>
+                        <div class="span6">
                             <label class="control-label">#Nota Salida</label>
                             <div class="controls">
-                                <input class="span12" id="full-name" type="text">
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Almacén Origen</label>
-                            <div class="controls">
-                                <input class="span12" id="full-name" type="text">
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Tipo Movimiento</label>
-                            <div class="controls">
-                                <input class="span12" id="full-name" type="text">
-                                <p class="help-block">
-                                </p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Almacén Destino</label>
-                            <div class="controls">
-                                <input class="span12" id="full-name" type="text">
+                                @Html.TextBoxFor(x => x.Code, new { @class = "span12", @type = "text" })
                                 <p class="help-block">
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="span5 offset1">
-                        <div class="control-group">
-                            <label class="control-label">Fecha</label>
+                    <div class="control-group">
+                        <div class="span6">
+                            <label class="control-label">Almacén Origen</label>
                             <div class="controls">
-                                <input class="span4" readonly>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label">Documentación Origen</label>
-                            <div class="controls">
-                                <input class="span12" id="full-name" type="text">
+                                @Html.DropDownListFor(x => x.OriginalStoreId, new SelectList(Model.LstStore, "StoreId", "Name"), new { @class = "span12 select2" })
                                 <p class="help-block">
                                 </p>
                             </div>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label"># Documento Origen</label>
+                        <div class="span6">
+                            <label class="control-label">Almacén Destino</label>
                             <div class="controls">
-                                <input class="span12" id="address-line2" placeholder="Street placeholder" type="text">
+                                @Html.DropDownListFor(x => x.DestinationStoreId, new SelectList(Model.LstStore, "StoreId", "Name"), new { @class = "span12 select2" })
+                                <p class="help-block">
+                                </p>
                             </div>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label">Documento a generar</label>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="span6">
+                            <label class="control-label">Tipo Movimiento</label>
                             <div class="controls">
-                                <span class="span3">
-                                    <label class="checkbox inline">
-                                        <input id="inlineCheckbox1" type="checkbox" value="option1">
-                                        Guía Despacho
-                                    </label>
-                                </span>
-                                <span class="span4">
-                                    <label class="checkbox inline">
-                                        <input id="inlineCheckbox1" type="checkbox" value="option1">
-                                        Guía de Transferencia
-                                    </label>
-                                </span>
-                                <i class="icon-ellipsis-horizontal"></i>
-                                @Html.TextBoxFor(x => x.Other, new { @placeholder = "Otros", @class = "span5" })
+                                @Html.DropDownListFor(x => x.MovementTypeId, new SelectList(Model.LstMovementType, "MovementTypeId", "Name"), new { @class = "span12 select2" })
+                                <p class="help-block">
+                                </p>
                             </div>
                         </div>
                     </div>
                 </fieldset>
-
+                <hr class="hr-normal">
+                <div class="">
+                    <label><i class="icon icon-reorder"></i> INFORMACIÓN OPCIONAL</label>
+                </div>
+                <fieldset>
+                    <div class="span6">
+                        <div class="control-group">
+                            <label class="control-label">Tipo Documento</label>
+                            <div class="controls">
+                                @Html.DropDownListFor(x => x.DocumentTypeId, new SelectList(Model.LstDocumentType, "DocumentTypeId", "Acronym"), new { @class = "span12 select2" })
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div class="control-group">
+                            <label class="control-label">Número Documento</label>
+                            <div class="controls">
+                                <select id="DocumentId" name="DocumentId" class="span12" @(Model.OutputNoteId.HasValue ? "disabled" : String.Empty)></select>
+                                <p class="help-block">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
                 <hr class="hr-normal">
 
                 <fieldset>
@@ -104,7 +102,7 @@
                         <div class="control-group">
                             <label class="control-label"><i class="icon-search"></i> Buscar Producto</label>
                             <div class="controls">
-                                <input class="span12" id="full-name" type="text">
+                                <select name="ProductId" id="ProductId" class="span12" @(Model.OutputNoteId.HasValue ? "disabled" : String.Empty)></select>
                                 <p class="help-block">
                                 </p>
                             </div>
@@ -114,7 +112,7 @@
                         <div class="control-group">
                             <label class="control-label"><i class="icon-search"></i> Buscar Diseño o Color</label>
                             <div class="controls">
-                                <input class="span12" id="full-name" type="text">
+                                <select name="ProductColorId" id="ProductColorId" class="span12" @(Model.OutputNoteId.HasValue ? "disabled" : String.Empty)></select>
                                 <p class="help-block">
                                 </p>
                             </div>
@@ -122,74 +120,130 @@
                     </div>
                 </fieldset>
                 <br />
-                <div class="responsive-table">
-                    <div class="scrollable-area">
-                        <table class="table table-hover table-striped" style="margin-bottom:0;">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Desc. Invoice</th>
-                                    <th>Desc. Local</th>
-                                    <th>Familia</th>
-                                    <th>Cod. Diseño</th>
-                                    <th>Cod. Color</th>
-                                    <th>Cant. Stock</th>
-                                    <th>Uni. Pedida</th>
-                                    <th>Cant. Pedida</th>
-                                    <th>Uni. Pedida</th>
-                                    <th>Cant. Despa.</th>
-                                    <th>Und. Des.</th>
-                                    <th>Cant. Des.</th>
-                                    <th>Und. Des.</th>
-                                    <th>Cant. Real</th>
-                                    <th>Und. Real</th>
-                                    <th>Cant. Real</th>
-                                    <th>Und. Real</th>
-                                    <th>Parcial/Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                <div id="table-zone">
+                    @for (int i = 0; i < Model.LstProduct.Count; i++)
+                    {
+                        <div class="responsive-table" id="table-@Model.LstProduct[i]" style="font-size: 12px;">
+                            <div class="scrollable-area">
+                                <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Desc. Invoice</th>
+                                            <th>Desc. Local</th>
+                                            <th>Fam.</th>
+                                            <th>Cod. Diseño</th>
+                                            <th>Cant. Stock</th>
+                                            <th>U. Stock</th>
+                                            <th>Cant. Stock</th>
+                                            <th>U. Stock</th>
+                                            <th>Cant. Des</th>
+                                            <th>U. Des</th>
+                                            <th>Cant. Des</th>
+                                            <th>U. Des</th>
+                                            <th>Cant. Real</th>
+                                            <th>U. Real</th>
+                                            <th>Cant. Real</th>
+                                            <th>U. Real</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="body-@Model.LstProduct[i]">
+                                        @{
+                                            var p = 0;
+                                            Decimal? cantReal = 0;
+                                        }
+                                        @foreach (var value in Model.LstOutputNoteDetail.Where(x => x.ProductId == Model.LstProduct[i]))
+                                        {
+                                            <tr id="rowmaster-@i">
+                                                @if (p == 0)
+                                                {
+                                                    cantReal = value.PStockQuantity;
+                                                    <td>@value.Product.InternalCode </td>
+                                                    <td>@value.Product.InvoiceDescription.ToUpper()</td>
+                                                    <td>@value.Product.LocalDescription.ToUpper()</td>
+                                                    <td>@value.Product.SubFamily.Family.Description</td>
+                                                    <td>@value.Product.DesignNumber</td>
+                                                    <td><input style="width: 65px;" class="span12 real" disabled data-type="startP-@i" value="@value.PStockQuantity" /></td>
+                                                    <td>m</td>
+                                                    <td><input style="width: 65px;" class="span12 sec" disabled data-type="startS-@i" value="0" @(Model.OutputNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td>rollos</td>
 
-                                    <td><input class="span9" readonly data-type="startP-1" value="500" /></td>
-                                    <td><input class="span9" readonly value="m" /></td>
-                                    <td><input class="span9" readonly data-type="startS-1" value="20" /></td>
-                                    <td><input class="span9" readonly value="rollos" /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.OutputNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
 
-                                    <td style="background-color:#78d676"><input class="span9 onlyNumbers realP" value="0" data-index="1" /></td>
-                                    <td style="background-color:#78d676"><input class="span9" value="m" /></td>
-                                    <td style="background-color:#78d676"><input class="span9 onlyNumbers realS" value="0" data-index="1" /></td>
-                                    <td style="background-color:#78d676"><input class="span9" value="rollos" /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.OutputNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
 
-                                    <td style="background-color:#ef4f4f"><input class="span9 difP" data-type="difP-1" readonly value="500" /></td>
-                                    <td style="background-color:#ef4f4f"><input class="span9" readonly value="m" /></td>
-                                    <td style="background-color:#ef4f4f"><input class="span9 difS" data-type="difS-1" readonly value="20" /></td>
-                                    <td style="background-color:#ef4f4f"><input class="span9" readonly value="rollos" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(value.PStockQuantity - value.RealQuantity)" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>
 
-                                    <td>
-                                        <select class="form-control">
-                                            <option value="P">PARCIAL</option>
-                                            <option value="T">TOTAL</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-@i" readonly value="0" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>
+
+                                                    <td>
+                                                        <select style="width: 100px;" data-pod="@value.PrePurcherseOrderDetailId" data-body='@Model.LstProduct[i]' class="typepayment" name="typepayment-@i" data-index="@i" @(Model.OutputNoteId.HasValue ? "readonly" : String.Empty)>
+                                                            <option value="">[-Seleccione-]</option>
+                                                            <option value="PAR" @(value.TypePayment == "PAR" ? "selected" : String.Empty)>PARCIAL</option>
+                                                            <option value="TOT" @(value.TypePayment == "TOT" ? "selected" : String.Empty)>TOTAL</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><a class="deletemaster btn btn-danger" data-index="@i" @(Model.OutputNoteId.HasValue ? "disabled" : String.Empty)><i class="icon-trash"></i></a></td>
+                                                }
+                                                else
+                                                {
+                                                    <td colspan="5"></td>
+                                                    <td><input style="width: 65px;" class="span12 real" disabled data-type="startP-@i" value="@value.PStockQuantity" /></td>
+                                                    <td>m</td>
+                                                    <td><input style="width: 65px;" class="span12 sec" disabled data-type="startS-@i" value="0" /></td>
+                                                    <td>rollos</td>
+
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.OutputNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
+
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.OutputNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
+
+                                                    <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(value.PStockQuantity - value.RealQuantity)" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>
+
+                                                    <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" value="0" name="difS-@i" readonly /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>
+
+                                                    <td>
+                                                        <select style="width: 100px;" data-pod="@value.PrePurcherseOrderDetailId" data-body='@Model.LstProduct[i]' class="typepayment" name="typepayment-@i" data-index="@i" @(Model.OutputNoteId.HasValue ? "readonly" : String.Empty)>
+                                                            <option value="">[-Seleccione-]</option>
+                                                            <option value="PAR" @(value.TypePayment == "PAR" ? "selected" : String.Empty)>PARCIAL</option>
+                                                            <option value="TOT" @(value.TypePayment == "TOT" ? "selected" : String.Empty)>TOTAL</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><a class="deletemaster btn btn-danger" data-index="@i" @(Model.OutputNoteId.HasValue ? "disabled" : String.Empty)><i class="icon-trash"></i></a></td>
+
+                                                    cantReal = cantReal - value.RealQuantity;
+                                                }
+
+
+                                            </tr>
+                                            p++;
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    }
                 </div>
 
                 <div class="form-actions" style="margin-bottom: 0;">
-                    <div class="text-right">
-                        <div class="btn btn-primary">
-                            <i class="icon-save"></i>
-                            Guardar
-                        </div>
+                    <div class="text-left">
+                        @if (!Model.OutputNoteId.HasValue)
+                        {
+                            <button class="btn btn-primary" type="submit">
+                                <i class="icon-save"></i>
+                                Guardar
+                            </button>
+                        }
+                        <a class="btn btn-default" href="@Url.Action("ListOutputNote", "Store")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+
                     </div>
                 </div>
             </form>
@@ -219,6 +273,471 @@
                     $('input[data-type="difS-' + index + '"]').val(resta);
                 }
             });
+
+            $('#DocumentId').select2({
+                allowClear: true,
+                ajax: {
+                    url: '@Url.Action("GetDocumentByCode", "Json")',
+                    dataType: 'json',
+                    type: "GET",
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            documentTypeId: $('#DocumentTypeId').val()
+                        };
+                    },
+                    processResults: function (data) {
+                        var arr = [];
+                        $.each(data, function (index, value) {
+                            arr.push({
+                                id: value.id,
+                                text: value.text
+                            });
+                        });
+                        return {
+                            results: arr
+                        };
+                    },
+                    initSelection: function (element, callback) {
+                        callback({ id: '@Model.DocumentId', text: '@Model.DocumentCode' });
+                    }
+                },
+                minimumInputLength: 1,
+                placeholder: 'Codigo Documento'
+            });
+
+            @if (Model.DocumentId != 0) {
+                <text>
+                     var newOption = new Option('@Model.DocumentCode', '@Model.DocumentId', true, true);
+                $("#DocumentId").append(newOption).trigger('change');
+                </text>
+            }
+            @if (Model.OutputNoteId.HasValue) {
+                <text>
+                $('input').each(function () {
+                    $(this).attr('readonly', true);
+            });
+            $('.select2').each(function () {
+                $(this).attr('disabled', true);
+            });
+                </text>
+            }
+
+            $('#ProductId').select2({
+                placeholder: 'Descripción',
+                ajax: {
+                    url:'@Url.Action("GetStockProductsByDescription", "Json")',
+                    dataType: 'json',
+                    type: "GET",
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            StoreId: $('#OriginalStoreId').val()
+                        };
+                    },
+                    processResults: function (data) {
+                        var arr = [];
+                        $.each(data, function (index, value) {
+                            arr.push({
+                                id: value.id,
+                                text: value.text
+                            });
+                        });
+                        return {
+                            results: arr
+                        };
+                    }
+                },
+                minimumInputLength: 3
+            });
+            $('#ProductColorId').select2({
+                placeholder: 'Color',
+                ajax: {
+                    url: '@Url.Action("GetStockProductsByColor", "Json")',
+                    dataType: 'json',
+                    type: "GET",
+                    data: function (params) {
+                        return {
+                            q: params.term,
+                            StoreId: $('#OriginalStoreId').val()
+                        };
+                    },
+                    processResults: function (data) {
+                        var arr = [];
+                        $.each(data, function (index, value) {
+                            arr.push({
+                                id: value.id,
+                                text: value.text
+                            });
+                        });
+                        return {
+                            results: arr
+                        };
+                    }
+                },
+                minimumInputLength: 3
+            });
+            $('#ProductId').on('change', function () {
+                var parameter = $(this).val();
+                if (parameter !== null) {
+                    $.ajax({
+                    url: '@Url.Action("GetProductsByStockProduct", "Json")' + '?StockProductId=' + parameter,
+                    type: 'GET',
+                    success: function (data) {
+                        var template = '';
+                        var templateTable = '';
+
+                        for (var p = 0; p < data.lstProductId.length; p++) {
+                            templateTable = '<div class="responsive-table" id="table-' + data.lstProductId[p] +'" style="font-size: 12px;" >' +
+                                '<div class="scrollable-area">' +
+                                '<table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">' +
+                                '<thead>' +
+                                '<tr>' +
+                                '<th>#</th>' +
+                                '<th>Desc. Invoice</th>' +
+                                '<th>Desc. Local</th>' +
+                                '<th>Fam.</th>' +
+                                '<th>Cod. Diseño</th>' +
+                                '<th>Cant. Stock</th>' +
+                                '<th>U. Stock</th>' +
+                                '<th>Cant. Stock</th>' +
+                                '<th>U. Stock</th>' +
+                                '<th>Cant. Des</th>' +
+                                '<th>U. Des</th>' +
+                                '<th>Cant. Des</th>' +
+                                '<th>U. Des</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th></th>' +
+                                '<th></th>' +
+                                '</tr>' +
+                                '</thead>' +
+                                '<tbody id="body-' + data.lstProductId[p] +'"></tbody>' +
+                                '</table>' +
+                                '</div > ' +
+                                '</div >';
+                            $('#table-zone').append(templateTable);
+
+                            //for (var i = 0; i < data.lstPurcharseOrder.length; i++) {
+                            var value = data.lstPurcharseOrder[p];
+
+                                template = '<tr id="rowmaster-'+ p +'">' +
+                                    '<td>' + value.code + '</td>' +
+                                    '<td>' + value.descriptionInvoice + '</td>' +
+                                    '<td>' + value.descriptionLocal + '</td>' +
+                                    '<td>' + value.family + '</td>' +
+                                    '<td>' + value.design + '</td>' +
+
+                                    '<td>' + '<input style="width: 65px;" class="span12 real" readonly data-type="startP-' + p + '" value="' + value.quantity + '" name="pstockquantity-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td>m</td>' +
+
+                                    '<td>' + '<input style="width: 65px;" class="span12 sec" readonly data-type="startS-' + p + '" value ="0" name="sstockquantity-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td>rollos</td>' +
+
+                                    '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body="' + data.lstProductId[p] +'" class="realP span12 onlyNumbers" value="0" data-index="' + p + '" name="qreal-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly/></td>' +
+
+                                    '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body="' + data.lstProductId[p] +'" class="realS span12 onlyNumbers" value="0" data-index="' + p + '" name="qsreal-' + p + '-' + value.prePurcherseOrderDetailId +'"/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly/></td>' +
+
+                                    '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-' + p + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>' +
+
+                                    '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-' + p + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>' +
+
+                                    '<td>' +
+                                '<select style="width: 100px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body=' + data.lstProductId[p] + ' class="typepayment" name="typepayment-' + p + '-' + value.prePurcherseOrderDetailId + '" data-index="' + p + '">' +
+                                    '<option value>[-Seleccione-]</option>' +
+                                    '<option value="PAR">PARCIAL</option>' +
+                                    '<option value="TOT">TOTAL</option>' +
+                                    '</select>' +
+                                    '</td>' +
+                                    '<td><a data-table="' + data.lstProductId[p] +'" class="deletemaster btn btn-danger" data-index="'+ p +'"><i class="icon-trash"></i></a></td>'+
+                                    '</tr > ';
+
+                                $('#body-' + data.lstProductId[p]).append(template);
+                            //}
+                        }                        
+                    }
+                });
+                }                
+            });
+            $('#ProductColorId').on('change', function () {
+                var parameter = $(this).val();
+                if (parameter !== null) {
+                    $.ajax({
+                    url: '@Url.Action("GetProductsByStockProduct", "Json")' + '?StockProductId=' + parameter,
+                    type: 'GET',
+                    success: function (data) {
+
+                        var template = '';
+                        var templateTable = '';
+
+                        for (var p = 0; p < data.lstProductId.length; p++) {
+                            templateTable = '<div class="responsive-table" id="table-' + data.lstProductId[p] +'" style="font-size: 12px;" >' +
+                                '<div class="scrollable-area">' +
+                                '<table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">' +
+                                '<thead>' +
+                                '<tr>' +
+                                '<th>#</th>' +
+                                '<th>Desc. Invoice</th>' +
+                                '<th>Desc. Local</th>' +
+                                '<th>Fam.</th>' +
+                                '<th>Cod. Diseño</th>' +
+                                '<th>Cant. Stock</th>' +
+                                '<th>U. Stock</th>' +
+                                '<th>Cant. Stock</th>' +
+                                '<th>U. Stock</th>' +
+                                '<th>Cant. Des</th>' +
+                                '<th>U. Des</th>' +
+                                '<th>Cant. Des</th>' +
+                                '<th>U. Des</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th></th>' +
+                                '<th></th>' +
+                                '</tr>' +
+                                '</thead>' +
+                                '<tbody id="body-' + data.lstProductId[p] +'"></tbody>' +
+                                '</table>' +
+                                '</div > ' +
+                                '</div >';
+                            $('#table-zone').append(templateTable);
+
+                            //for (var i = 0; i < data.lstPurcharseOrder.length; i++) {
+                            var value = data.lstPurcharseOrder[p];
+
+                                template = '<tr id="rowmaster-'+ p +'">' +
+                                    '<td>' + value.code + '</td>' +
+                                    '<td>' + value.descriptionInvoice + '</td>' +
+                                    '<td>' + value.descriptionLocal + '</td>' +
+                                    '<td>' + value.family + '</td>' +
+                                    '<td>' + value.design + '</td>' +
+
+                                    '<td>' + '<input style="width: 65px;" class="span12 real" readonly data-type="startP-' + p + '" value="' + value.quantity + '" name="pstockquantity-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td>m</td>' +
+
+                                    '<td>' + '<input style="width: 65px;" class="span12 sec" readonly data-type="startS-' + p + '" value ="0" name="sstockquantity-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td>rollos</td>' +
+
+                                    '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body="' + data.lstProductId[p] +'" class="realP span12 onlyNumbers" value="0" data-index="' + p + '" name="qreal-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly/></td>' +
+
+                                    '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body="' + data.lstProductId[p] +'" class="realS span12 onlyNumbers" value="0" data-index="' + p + '" name="qsreal-' + p + '-' + value.prePurcherseOrderDetailId +'"/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly/></td>' +
+
+                                    '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-' + p + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>' +
+
+                                    '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-' + p + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>' +
+
+                                    '<td>' +
+                                '<select style="width: 100px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body=' + data.lstProductId[p] + ' class="typepayment" name="typepayment-' + p + '-' + value.prePurcherseOrderDetailId + '" data-index="' + p + '">' +
+                                    '<option value>[-Seleccione-]</option>' +
+                                    '<option value="PAR">PARCIAL</option>' +
+                                    '<option value="TOT">TOTAL</option>' +
+                                    '</select>' +
+                                    '</td>' +
+                                    '<td><a data-table="' + data.lstProductId[p] +'" class="deletemaster btn btn-danger" data-index="'+ p +'"><i class="icon-trash"></i></a></td>'+
+                                    '</tr > ';
+
+                                $('#body-' + data.lstProductId[p]).append(template);
+                            //}
+                        }                        
+                    }
+                });
+                }                
+            });
+            $('#DocumentId').on('change', function () {
+                var parameter = $(this).val();
+                $.ajax({
+                    url: '@Url.Action("GetProductsPurcherseOrderInfo", "Json")' + '?PurcherseOrderId=' + parameter + '&StoreId=' + $('#OriginalStoreId').val(),
+                    type: 'GET',
+                    success: function (data) {
+                        var template = '';
+                        var templateTable = '';
+
+                        for (var p = 0; p < data.lstProductId.length; p++) {
+                            templateTable = '<div class="responsive-table" id="table-' + data.lstProductId[p] +'" style="font-size: 12px;" >' +
+                                '<div class="scrollable-area">' +
+                                '<table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">' +
+                                '<thead>' +
+                                '<tr>' +
+                                '<th>#</th>' +
+                                '<th>Desc. Invoice</th>' +
+                                '<th>Desc. Local</th>' +
+                                '<th>Fam.</th>' +
+                                '<th>Cod. Diseño</th>' +
+                                '<th>Cant. Stock</th>' +
+                                '<th>U. Stock</th>' +
+                                '<th>Cant. Stock</th>' +
+                                '<th>U. Stock</th>' +
+                                '<th>Cant. Des</th>' +
+                                '<th>U. Des</th>' +
+                                '<th>Cant. Des</th>' +
+                                '<th>U. Des</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th>Cant. Real</th>' +
+                                '<th>U. Real</th>' +
+                                '<th></th>' +
+                                '<th></th>' +
+                                '</tr>' +
+                                '</thead>' +
+                                '<tbody id="body-' + data.lstProductId[p] +'"></tbody>' +
+                                '</table>' +
+                                '</div > ' +
+                                '</div >';
+                            $('#table-zone').append(templateTable);
+
+                            //for (var i = 0; i < data.lstPurcharseOrder.length; i++) {
+                            var value = data.lstPurcharseOrder[p];
+
+                                template = '<tr id="rowmaster-'+ p +'">' +
+                                    '<td>' + value.code + '</td>' +
+                                    '<td>' + value.descriptionInvoice + '</td>' +
+                                    '<td>' + value.descriptionLocal + '</td>' +
+                                    '<td>' + value.family + '</td>' +
+                                    '<td>' + value.design + '</td>' +
+
+                                    '<td>' + '<input style="width: 65px;" class="span12 real" readonly data-type="startP-' + p + '" value="' + value.quantity + '" name="pstockquantity-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td>m</td>' +
+
+                                    '<td>' + '<input style="width: 65px;" class="span12 sec" readonly data-type="startS-' + p + '" value ="0" name="sstockquantity-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td>rollos</td>' +
+
+                                    '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body="' + data.lstProductId[p] +'" class="realP span12 onlyNumbers" value="0" data-index="' + p + '" name="qreal-' + p + '-' + value.prePurcherseOrderDetailId + '"/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly/></td>' +
+
+                                    '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body="' + data.lstProductId[p] +'" class="realS span12 onlyNumbers" value="0" data-index="' + p + '" name="qsreal-' + p + '-' + value.prePurcherseOrderDetailId +'"/></td>' +
+                                    '<td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly/></td>' +
+
+                                    '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-' + p + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>' +
+
+                                    '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-' + p + '" readonly value="0" /></td>' +
+                                    '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>' +
+
+                                    '<td>' +
+                                '<select style="width: 100px;" data-pod="' + value.prePurcherseOrderDetailId + '" data-body=' + data.lstProductId[p] + ' class="typepayment" name="typepayment-' + p + '-' + value.prePurcherseOrderDetailId + '" data-index="' + p + '">' +
+                                    '<option value>[-Seleccione-]</option>' +
+                                    '<option value="PAR">PARCIAL</option>' +
+                                    '<option value="TOT">TOTAL</option>' +
+                                    '</select>' +
+                                    '</td>' +
+                                    '<td><a data-table="' + data.lstProductId[p] +'" class="deletemaster btn btn-danger" data-index="'+ p +'"><i class="icon-trash"></i></a></td>'+
+                                    '</tr > ';
+
+                                $('#body-' + data.lstProductId[p]).append(template);
+                            //}
+                        }                        
+                    }
+                });
+            });
+            $(document).on('click', '.deletemaster', function () {
+                var index = $(this).attr('data-table');
+                $('#table-' + index).remove();
+
+            });
+
+            $(document).on('keyup', '.realP', function () {
+                var value = $(this).val();
+                var index = $(this).attr('data-index');
+                var body = $(this).attr('data-body');
+                var pod = $(this).attr('data-pod');
+                if (value >= 0) {
+                    var startp = $('#table-' + body).find('input[data-type="startP-' + index + '"]').val();
+                    var resta = startp - value;
+                    $('#table-' + body).find('input[name="difP-' + index + '"]').val(resta).trigger('change');
+                    if (resta === 0) {
+                        $('#table-' + body).find('select[name="typepayment-' + index + '-' + pod + '"]').val('TOT');
+                    }
+                }
+            });
+            $(document).on('keyup', '.realS', function () {
+                var value = $(this).val();
+                var index = $(this).attr('data-index');
+                var body = $(this).attr('data-body');
+                var pod = $(this).attr('data-pod');
+                if (value >= 0) {
+                    var startp = $('input[data-type="startS-' + index + '"]').val();
+                    var resta = startp - value;
+                    $('#table-' + body).find('input[name="difS-' + index + '-' + pod + '"]').val(resta).trigger('change');
+                }
+            });
+
+            $(document).on('click', '.delete', function () {
+                var index = $(this).attr('data-index');
+                $('#row-' + index).remove();
+            });
+
+            $(document).on('change', '.typepayment', function () {
+                var value = $(this).val();
+                var body = $(this).attr('data-body');
+                var prePurcherseOrderDetailId = $(this).attr('data-pod');
+                var index = parseFloat($(this).attr('data-index')) + 1;
+                var valorFinal = parseFloat($('#table-' + body).find('input[name="difP-' + (index - 1) + '"]').val());
+
+                if (value === 'PAR' && $('#table-' + body).find('input[name="difP-' + index + '"]').length === 0 && valorFinal > 0) {
+                    var template = '<tr id="row-' + index + '">' +
+                        '<td colspan="5"></td>' +
+
+                        '<td>' + '<input style="width: 65px;" class="span12 real" readonly data-type="startP-' + index + '" value="' + $('#table-' + body).find('input[name="difP-' + (index - 1) + '"]').val() + '" name="pstockquantity-' + index + '-' + prePurcherseOrderDetailId + '"/></td>' +
+                        '<td>m</td>' +
+
+                        '<td>' + '<input style="width: 65px;" class="span12 sec" readonly data-type="startS-' + index + '" value="' + $('#table-' + body).find('input[name="difS-' + (index - 1) + '"]').val() + '" name="sstockquantity-' + index + '-' + prePurcherseOrderDetailId + '"/></td>' +
+                        '<td>rollos</td>' +
+
+                        '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + prePurcherseOrderDetailId + '" data-body="' + body + '" class="realP span12 onlyNumbers" value="0" data-index="' + index + '" name="qreal-' + index + '-' + prePurcherseOrderDetailId + '"/></td>' +
+                        '<td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly/></td>' +
+
+                        '<td style="background-color:#78d676"><input style="width: 65px;" data-pod="' + prePurcherseOrderDetailId + '" data-body="' + body + '" class="realS span12 onlyNumbers" value="0" data-index="' + index + '" name="qsreal-' + index + '-' + prePurcherseOrderDetailId + '"/></td>' +
+                        '<td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly/></td>' +
+
+                        '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-' + index + '" readonly value="0" /></td>' +
+                        '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>' +
+
+                        '<td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-' + index + '" readonly value="0" /></td>' +
+                        '<td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>' +
+
+                        '<td>' +
+                        '<select style="width: 100px;" data-pod="' + prePurcherseOrderDetailId + '" data-body=' + body + ' class="typepayment" name="typepayment-' + index + '-' + prePurcherseOrderDetailId + '" data-index="' + index + '">' +
+                        '<option value>[-Seleccione-]</option>' +
+                        '<option value="PAR">PARCIAL</option>' +
+                        '<option value="TOT">TOTAL</option>' +
+                        '</select>' +
+                        '</td>' +
+                        '<td><a class="delete btn btn-danger" data-index="' + index + '"><i class="icon-trash"></i></a></td>' +
+                        '</tr > ';
+
+                    $('#body-' + body).append(template);
+                }
+
+                if (valorFinal === 0) {
+                    $(this).val('TOT');
+                }
+            });
+
+            $(document).on('change', '.difP', function () {
+                var $tr = $(this).closest('tr').next('tr');
+                $tr.find('.real').val($(this).val());
+                var treal = $tr.find('.realP').val();
+                $tr.find('.difP').val(parseFloat($(this).val()) - treal).trigger('change');
+            });
+
+            $(document).on('change', '.difS', function () {
+                var $tr = $(this).closest('tr').next('tr');
+                $tr.find('.sec').val($(this).val());
+                var treal = $tr.find('.realS').val();
+                $tr.find('.difS').val(parseFloat($(this).val()) - treal).trigger('change');
+            });
+
         });
     </script>
 }
