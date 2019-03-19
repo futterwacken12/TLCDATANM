@@ -37,6 +37,16 @@
     </div>
 </div>
 
+<hr />
+
+<div class="row-fluid">
+    <div class="col-lg-12" style="padding-bottom: 4%">
+        <div class="pull-left">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva Familia"), "AddEditFamily", "Master", "Intranet", new { }, new { @class = "'btn btn-primary'" })
+        </div>
+    </div>
+</div>
+
 <div class='row-fluid'>
     <div class='span12 box bordered-box red-border' style='margin-bottom:0;'>
         <div class='box-header green-background'>
@@ -96,13 +106,7 @@
 </div>
 
 <div class="row-fluid">
-    <div class="col-lg-6" style="padding-top: 20px;">
-        <div class="pull-left">
-            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva Familia"), "AddEditFamily", "Master", "Intranet", new { }, new { @class = "'btn btn-primary'" })
-        </div>
-    </div>
-
-    <div class="col-lg-6" style="padding-top: 20px;">
+    <div class="col-lg-12" style="padding-top: 2%">
         <div class="pull-right">
             @Html.PagedListPager(Model.LstFamily, p => Url.Action("ListFamily", new { p = p, Description = Model.Description}), ConstantHelpers.Bootstrap3Pager)
         </div>

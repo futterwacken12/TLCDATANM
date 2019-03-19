@@ -179,10 +179,10 @@ namespace CHS.TLC.Data.NM.Web.Helpers
                     FunctionToDisplayEachPageNumber = null,
                     ClassToApplyToFirstListItemInPager = null,
                     ClassToApplyToLastListItemInPager = null,
-                    ContainerDivClasses = new[] { "pagination-container" },
-                    UlElementClasses = new[] { "pagination" },
-                    LiElementClasses = new[] { "page-item" },
-                    FunctionToTransformEachPageLink = (liTag, aTag) => { aTag.Attributes.Add("class", "page-link"); liTag.InnerHtml = aTag.ToString(); return liTag; },
+                    ContainerDivClasses = new[] { "pagination" },
+                    UlElementClasses = new[] { "" },
+                    LiElementClasses = new[] { "" },
+                    FunctionToTransformEachPageLink = (liTag, aTag) => { aTag.Attributes.Add("class", ""); liTag.InnerHtml = aTag.ToString(); return liTag; },
                 };
             }
         }
