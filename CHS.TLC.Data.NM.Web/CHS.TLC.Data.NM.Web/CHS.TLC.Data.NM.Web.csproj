@@ -166,6 +166,7 @@
     <Compile Include="Areas\Intranet\ViewModels\Document\_AddEditDocumentPrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Document\_DeletePrePOViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Home\DashboardAdministratorViewModel.cs" />
+    <Compile Include="Areas\Intranet\ViewModels\Home\MainOptionViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\AddEditProductViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\ListProductViewModel.cs" />
     <Compile Include="Areas\Intranet\ViewModels\Master\_AddEditContactViewModel.cs" />
@@ -593,6 +594,7 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Intranet\Views\Home\MainOption.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

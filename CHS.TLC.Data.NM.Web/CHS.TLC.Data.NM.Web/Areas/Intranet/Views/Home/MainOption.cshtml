@@ -1,0 +1,87 @@
+﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Home.MainOptionViewModel
+@{
+}
+
+<style>
+    .fas, .far {
+        color: #fff;
+        font-size: 24px;
+        vertical-align: middle;
+    }
+
+    .box-quick-link a .header [class^=fa-], .box-quick-link a:hover .header [class*=" fa-"] {
+        font-size: 30px !important;
+    }
+
+    .box.box-transparent .box-content {
+        background: 0 0;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        background: white;
+        border: 1px solid #dddddd;
+    }
+
+    .box-statistic [class*=icon-] {
+        font-size: 16px !important;
+    }
+</style>
+
+<div class="row-fluid">
+    <div class="span12 box box-transparent">
+        <div class="row-fluid">
+            @foreach (var icon in Model.LstGroupIcon)
+            {
+                <div class="span3">
+                    <div class="box-quick-link blue-background">
+                        <a href="#">
+                            <div class="header">
+                                <div class="far fa-@icon"></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <br />
+
+                    <div class="row-fluid">
+                        <div class="span12">
+                            @foreach (var option in Model.LstOption.Where(x => x.Icon.Equals(icon)))
+                            {<a href="@Url.Action(option.Action, option.Controller)">
+                                <div class="box-content box-statistic text-right">
+                                    <small>@option.Description</small>
+                                    <div class="text-error icon-circle align-left"></div>
+
+                                    <br />
+                                </div>
+                            </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@*<div class="span3 box-quick-link blue-background">
+        <a href="/orders.html">
+            <div class="header">
+                <div class="fas fa-ship"></div>
+            </div>
+        </a>
+    </div>
+    <div class="span3 box-quick-link blue-background">
+        <a href="/orders.html">
+            <div class="header">
+                <div class="fas fa-truck"></div>
+            </div>
+        </a>
+    </div>
+    <div class="span3 box-quick-link blue-background">
+        <a href="/orders.html">
+            <div class="header">
+                <div class="fas fa-warehouse"></div>
+            </div>
+        </a>
+    </div>*@
