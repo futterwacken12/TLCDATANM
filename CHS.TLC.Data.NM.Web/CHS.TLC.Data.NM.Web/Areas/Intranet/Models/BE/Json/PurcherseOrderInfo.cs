@@ -18,5 +18,6 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Models.BE.Json
         public String supplierName { get; set; }
         public Int32 supplierId { get; set; }
         public String documentCode { get; set; }
+        public Int32 productId { get; set; }
     }
 }

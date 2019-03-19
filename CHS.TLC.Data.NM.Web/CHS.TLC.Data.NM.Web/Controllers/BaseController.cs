@@ -155,12 +155,31 @@ namespace CHS.TLC.Data.NM.Web.Controllers
         }
         private void GenerarMenu(ref StringBuilder sb, Option option, List<RoleOption> LstRoleOption)
         {
+<<<<<<< HEAD
             var lstPermission = LstRoleOption.Where(x => !x.Option.FatherId.HasValue && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option);
+=======
+
+            var lstPermission = LstRoleOption.Where(x => x.Option.FatherId.HasValue && x.Option.FatherId == option.OptionId && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option);
+>>>>>>> 548ee9d080f0bc4fc2732e7f2c90fee05016d7cf
 
             if (lstPermission != null && lstPermission.Count() > 0)
             {
                 sb.Append("<li class=''>" +
+<<<<<<< HEAD
                               "<a href='" + Url.Action(option.Action, option.Controller, new { FatherId = option.OptionId, Area = option.Area }) + "'><i class='icon-" + option.Icon + "'></i> <span>" + option.Description + "</span></a>" +
+=======
+                        "<a href='#' class='dropdown-collapse'><i class='icon-" + option.Icon + "'></i> <span>" + option.Description + "</span> <i class='icon-angle-down angle-down'></i></a>" +
+                            "<ul class='nav nav-stacked'>");
+                foreach (var permission in lstPermission)
+                    GenerarMenu(ref sb, permission, LstRoleOption);
+
+                sb.Append("</ul></li>");
+            }
+            else
+            {
+                sb.Append("<li class=''>" +
+                              "<a href='" + Url.Action(option.Action, option.Controller, new { Area = option.Area }) + "'><i class='icon-" + option.Icon + "'></i> <span>" + option.Description + "</span></a>" +
+>>>>>>> 548ee9d080f0bc4fc2732e7f2c90fee05016d7cf
                               "</li>");
             }
         }

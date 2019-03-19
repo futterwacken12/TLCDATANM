@@ -186,7 +186,5 @@ namespace CHS.TLC.Data.NM.Web.Helpers
                 };
             }
         }
-
-        public static object Estado { get; internal set; }
     }
 }

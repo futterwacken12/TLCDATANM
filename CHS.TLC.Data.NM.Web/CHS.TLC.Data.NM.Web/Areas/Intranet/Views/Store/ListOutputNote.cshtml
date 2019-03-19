@@ -87,12 +87,25 @@
                                     <td>@item.Code</td>
                                     <td>@item.DocumentCode</td>
                                     <td>@item.MovementType.Name</td>
-                                    <td>@item.Store.Name</td>
                                     <td>@item.Store1.Name</td>
-                                    <td>@item.Date</td>
-                                    <td></td>
+                                    <td>@item.Store.Name</td>
+                                    <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        <div class='btn-group' style='margin-bottom:5px'>
+                                            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-eye-open'></i> Ver"), "AddEditOutputNote", "Store", "Intranet", new { OutputNoteId = item.OutputNoteId }, new { @class = "'btn'" })
+                                            <button class='btn dropdown-toggle' data-toggle='dropdown'>
+                                                <span class='caret'></span>
+                                            </button>
+                                            <ul class='dropdown-menu'>
+                                                <li>
+                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteOutputNote", "Store", "Intranet", new { OutputNoteId = item.OutputNoteId }, new { })
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                 </tr>
                             }
+                            <tr style="visibility:hidden"><td colspan="7">&nbsp;</td></tr>
                         </tbody>
                     </table>
                 </div>
