@@ -821,13 +821,14 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 product.TypeExistenceId = model.TypeExistenceId;
                 product.MeasureUnitPrimaryId = model.MeasureUnitPrimaryId;
                 product.MeasureUnitSecondaryId = model.MeasureUnitSecondaryId;
-                product.SupplierId = model.SupplierId;
                 product.InternalCode = model.InternalCode;
                 product.IsActive = model.IsActive;
                 product.Barcode = model.Barcode;
                 product.Color = model.Color;
                 product.InvoiceDescription = model.InvoiceDescription;
                 product.LocalDescription = model.LocalDescription;
+                product.DesignName = model.DesignName;
+                product.DesignNumber = model.DesignNumber;
                 product.LotNumberPurchase = model.LotNumberPurchase;
                 product.TaxPercentageAdvalorenId = model.TaxPercentageAdvalorenId;
                 product.TaxPercentageAffectionIGVId = model.TaxPercentageAffectionIGVId;

@@ -139,7 +139,7 @@ namespace CHS.TLC.Data.NM.Web.Controllers
         {
             if (RolId.HasValue)
             {
-                return context.RoleOption.Where(x => x.RoleId == RolId && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO) && x.Option.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).ToList();
+                return context.RoleOption.Where(x => x.RoleId == RolId && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO) && x.Option.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).OrderBy(x => x.Option.Order).ToList();
             }
 
             return null;
@@ -155,6 +155,7 @@ namespace CHS.TLC.Data.NM.Web.Controllers
         }
         private void GenerarMenu(ref StringBuilder sb, Option option, List<RoleOption> LstRoleOption)
         {
+<<<<<<< HEAD
             var LstPermiso = LstRoleOption.Where(x => x.Option.FatherId.HasValue && x.Option.FatherId == option.OptionId && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option);
 
             if (LstPermiso != null && LstPermiso.Count() > 0)
@@ -164,8 +165,25 @@ namespace CHS.TLC.Data.NM.Web.Controllers
                             "<ul class='nav nav-stacked'>");
                 foreach (var permiso in LstPermiso)
                     GenerarMenu(ref sb, permiso, LstRoleOption);
+=======
+            var lstPermission = LstRoleOption.Where(x => x.Option.FatherId.HasValue && x.Option.FatherId == option.OptionId && x.Option.IsVisible && x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).Select(x => x.Option);
+
+            if (lstPermission != null && lstPermission.Count() > 0)
+            {
+                sb.Append("<li class=''>" +
+                        "<a href='#' class='dropdown-collapse'><i class='icon-" + option.Icon + "'></i> <span>" + option.Description + "</span> <i class='icon-angle-down angle-down'></i></a>" +
+                            "<ul class='nav nav-stacked'>");
+                foreach (var permission in lstPermission)
+                    GenerarMenu(ref sb, permission, LstRoleOption);
+>>>>>>> 2aaf4684f290b52965ac1e8501b4cc3de6e61e4c
 
                 sb.Append("</ul></li>");
+            }
+            else
+            {
+                sb.Append("<li class=''>" +
+                              "<a href='" + Url.Action(option.Action, option.Controller, new { Area = option.Area }) + "'><i class='icon-" + option.Icon + "'></i> <span>" + option.Description + "</span></a>" +
+                              "</li>");
             }
         }
     }

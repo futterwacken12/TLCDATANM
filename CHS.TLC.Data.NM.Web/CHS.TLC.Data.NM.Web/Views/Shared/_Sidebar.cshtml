@@ -5,6 +5,121 @@
     <div class='navigation'>
         <ul class='nav nav-stacked'>
             @Html.Raw(controller.GenerarMenu(controller.ObtenerPermisos(Session.GetRolId())))
+<<<<<<< HEAD
+=======
+            @*<li class="">
+                <a href="@Url.Action("DashboardAdministrator", "Home")">
+                    <i class="icon-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a class='dropdown-collapse ' href='#'>
+                    <i class=' icon-hdd'></i>
+                    <span>Purcharse Order</span>
+                    <i class='icon-angle-down angle-down'></i>
+                </a>
+                <ul class='nav nav-stacked'>
+                    <li class="">
+                        <a href="@Url.Action("ListPrePO", "Document")">
+                            <i class="icon-file-alt"></i>
+                            <span>Pre P.O.</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("ListPO", "Document")">
+                            <i class="icon-check-sign"></i>
+                            <span>P.O.</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class='dropdown-collapse ' href='#'>
+                    <i class='icon-exchange'></i>
+                    <span>Almacén</span>
+                    <i class='icon-angle-down angle-down'></i>
+                </a>
+                <ul class='nav nav-stacked'>
+                    <li class="">
+                        <a href="@Url.Action("ListEntryNote", "Store")">
+                            <i class="icon-arrow-left"></i>
+                            <span>Notas de Entrada</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("ListOutputNote", "Store")">
+                            <i class="icon-arrow-right"></i>
+                            <span>Notas de Salida</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a class='dropdown-collapse ' href='#'>
+                    <i class='icon-cogs'></i>
+                    <span>Maestros</span>
+                    <i class='icon-angle-down angle-down'></i>
+                </a>
+                <ul class='nav nav-stacked'>
+                    <li class=''>
+                        <a href='@Url.Action("ListFamily", "Master")'>
+                            <i class='icon-th-list'></i>
+                            <span>Familia</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='@Url.Action("ListBank", "Master")'>
+                            <i class='icon-building'></i>
+                            <span>Banco</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='@Url.Action("ListMeasureUnit", "Master")'>
+                            <i class='icon-tasks'></i>
+                            <span>Unidad de Medida</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='@Url.Action("ListSubFamily", "Master")'>
+                            <i class='icon-sitemap'></i>
+                            <span>Subfamilia</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='@Url.Action("ListTaxPercentage", "Master")'>
+                            <i class='icon-money'></i>
+                            <span>Porcentaje de Impuesto</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='@Url.Action("ListTypeExistence", "Master")'>
+                            <i class='icon-bar-chart'></i>
+                            <span>Tipo de Existencia</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='@Url.Action("ListSupplier", "Master")'>
+                            <i class='icon-truck'></i>
+                            <span>Proveedor</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='@Url.Action("ListItem", "Master")'>
+                            <i class='icon-book'></i>
+                            <span>Rubro</span>
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a href='@Url.Action("ListProduct", "Master")'>
+                            <i class='icon-file-alt'></i>
+                            <span>Producto</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>*@
+>>>>>>> 2aaf4684f290b52965ac1e8501b4cc3de6e61e4c
         </ul>
     </div>
 </nav>

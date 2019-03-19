@@ -44,9 +44,15 @@
                             </div>
                         </div>
                         <div class='control-group'>
-                            <label class='control-label' for='LotNumberPurchase'># Lote Compra</label>
+                            <label class='control-label' for='DesignName'>Nombre de diseño</label>
                             <div class='controls'>
-                                @Html.TextBoxFor(x => x.LotNumberPurchase, new { @class = "input-block-level", @placeholder = "# Lote Compra" })
+                                @Html.TextBoxFor(x => x.DesignName, new { @class = "input-block-level", @placeholder = "Nombre de diseño" })
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label' for='DesignNumber'>Número de diseño</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.DesignNumber, new { @class = "input-block-level", @placeholder = "Número de diseño" })
                             </div>
                         </div>
                     </div>
@@ -82,6 +88,12 @@
                             <label class='control-label' for='Color'>Color</label>
                             <div class='controls'>
                                 @Html.TextBoxFor(x => x.Color, new { @class = "colorpicker-hex input-block-level", @placeholder = "Color", @style = "margin-bottom: 0;", @autocomplete = "off" })
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label' for='LotNumberPurchase'># Lote Compra</label>
+                            <div class='controls'>
+                                @Html.TextBoxFor(x => x.LotNumberPurchase, new { @class = "input-block-level", @placeholder = "# Lote Compra" })
                             </div>
                         </div>
                     </div>
@@ -208,15 +220,6 @@
                         </div>
                     </div>
                 </fieldset>
-
-                <hr class="hr-normal">
-
-                <div class='control-group' style="padding-bottom: 3%;">
-                    <label class='control-label' for='MinimumLot'>Origen Proveedor</label>
-                    <div class='controls'>
-                        @Html.DropDownListFor(x => x.SupplierId, new SelectList(Model.LstSupplier, "SupplierId", "BussinessName"), "[-Seleccione-]", new { @class = "select2 span12" })
-                    </div>
-                </div>
 
                 <div class='control-group'>
                     <div class='controls'>
