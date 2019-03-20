@@ -15,7 +15,7 @@
 <div class="row-fluid">
     <div class="col-lg-12">
         <div class="pull-left">
-            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva nota de ingreso"), "AddEditEntryNote", "Store", "Intranet", new { }, new { @class = "'btn btn-primary'" })
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva nota de ingreso"), "AddEditEntryNote", "Store", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn btn-primary'" })
         </div>
         <div class="pull-right">
             @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn btn-primary'" })
@@ -105,7 +105,7 @@
                                         <ul class='dropdown-menu'>
                                             @*<li class="divider"></li>*@
                                             <li>
-                                                @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteEntryNote", "Store", "Intranet", new { EntryNoteId = item.EntryNoteId }, new { })
+                                                @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteEntryNote", "Store", "Intranet", new { EntryNoteId = item.EntryNoteId, FatherId = Model.FatherId }, new { })
                                             </li>
                                         </ul>
                                     </div>
@@ -124,7 +124,7 @@
 <div class="row-fluid">
     <div class="col-lg-6" style="padding-top: 20px;">
         <div class="pull-right">
-            @Html.PagedListPager(Model.LstEntryNote, Page => Url.Action("LstEntryNote", new { Page = Page, State = Model.State, Date = Model.Date, MovementTypeId = Model.MovementTypeId, Code = Model.Code }), ConstantHelpers.Bootstrap3Pager)
+            @Html.PagedListPager(Model.LstEntryNote, Page => Url.Action("LstEntryNote", new { Page = Page, State = Model.State, Date = Model.Date, MovementTypeId = Model.MovementTypeId, Code = Model.Code, FatherId = Model.FatherId }), ConstantHelpers.Bootstrap3Pager)
         </div>
     </div>
 </div>

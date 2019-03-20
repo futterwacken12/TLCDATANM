@@ -92,7 +92,7 @@
                                         @Html.Raw(ConstantHelpers.PROCEDENCIA.GetLabelProcedencia(supplier.Provenance))
                                     </td>
                                     <td>
-                                        @supplier.Country.Name
+                                        @(supplier.Country != null ? supplier.Country.Name : String.Empty)
                                     </td>
                                     <td>
                                         @Html.Raw(ConstantHelpers.ESTADO.GetLabelEstado(supplier.State))

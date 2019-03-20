@@ -35,7 +35,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
         {
             this.FatherId = fatherId;
             this.EntryNoteId = entryNoteId;
-            this.LstMovementType = c.context.MovementType.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
+            this.LstMovementType = c.context.MovementType.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO && x.Type == "ENT").ToList();
             this.LstStore = c.context.Store.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
             this.LstDocumentType = c.context.DocumentType.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
 

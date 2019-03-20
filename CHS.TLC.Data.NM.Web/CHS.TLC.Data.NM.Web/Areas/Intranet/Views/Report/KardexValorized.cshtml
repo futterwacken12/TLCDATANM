@@ -52,7 +52,11 @@
                             </span>
                         </div>
                     </div>
-                    <div class="span8">
+                    <div class="span4">
+                        <strong>Almacén</strong>
+                        @Html.DropDownListFor(x => x.StoreId, new SelectList(Model.LstStore, "StoreId", "Name"), new { @class = "select2 span12" })
+                    </div>
+                    <div class="span4">
                         <strong>Producto</strong>
                         <select id="StockProductId" name="StockProductId" class="span12"></select>
                     </div>
@@ -79,65 +83,74 @@
         </div>
         <div class="box-content box-no-padding">
             <div>
-                <div class="responsive-table">
-                    <div class="scrollable-area">
-                        <table class="table table-bordered" style="margin-bottom:0;">
-                            <tbody>
-                                <tr>
-                                    <td colspan="9" style="text-align: center; vertical-align: middle;"><strong>COSTO PROMEDIO O PROMEDIO PONDERADO</strong></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="9" style="text-align: center; vertical-align: middle;"><strong>Movimiento de Almacén</strong></td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="2" style="text-align: center; vertical-align: middle;">Fecha</td>
-
-                                    <td colspan="2" style="text-align: center; vertical-align: middle;">Especie</td>
-                                    <td style="text-align: center; vertical-align: middle;" rowspan="2">Existencias</td>
-                                    <td style="text-align: center; vertical-align: middle;" rowspan="2">$/Unidad Entrada</td>
-                                    <td style="text-align: center; vertical-align: middle;" rowspan="2">Costo Medio</td>
-                                    <td style="text-align: center; vertical-align: middle;" colspan="2">Valores</td>
-
-                                    <td style="text-align: center; vertical-align: middle;" rowspan="2">Saldo</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center; vertical-align: middle;">Entrada</td>
-                                    <td style="text-align: center; vertical-align: middle;">Salida</td>
-
-                                    <td style="text-align: center; vertical-align: middle;">Debe</td>
-                                    <td style="text-align: center; vertical-align: middle;">Haber</td>
-                                </tr>
-                                @{ Decimal? exist = 0; Decimal? saldo = 0; Decimal? costoMedio = 0; Int32 i = 1; String currency = String.Empty;}
-                                @foreach (var item in Model.LstStockProductDetail)
-                                {
-                                    if (String.IsNullOrEmpty(currency))
-                                    {
-                                        currency = (item.Currency != null ? item.Currency.Sign : String.Empty);
-                                    }
-
-                                    if (item.Operation == ConstantHelpers.OPERATION.ENTRY)
-                                    {
-                                        costoMedio += item.CUPrice;
-                                    }
-                                    saldo += (item.Operation == ConstantHelpers.OPERATION.ENTRY ? (item.Value * item.CUPrice) : ((-1) * item.Value * costoMedio.Value / (i - 1)));
-                                    exist = exist + (item.Value * (item.Operation == ConstantHelpers.OPERATION.ENTRY ? 1 : (-1)));
+                @foreach (var stockProduct in Model.DStockProduct)
+                {
+                    <div class="responsive-table">
+                        <div class="scrollable-area">
+                            <table class="table table-bordered" style="margin-bottom:0;">
+                                <tbody>
                                     <tr>
-                                        <td>@item.Date.ToString("dd/MM/yyyy")</td>
-                                        <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? item.Value.ToString("#,##0.00") : String.Empty)</td>
-                                        <td>@(item.Operation == ConstantHelpers.OPERATION.OUTPUT ? item.Value.ToString("#,##0.00") : String.Empty)</td>
-                                        <td>@exist</td>
-                                        <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? (currency + " " + item.CUPrice.ToString()) : String.Empty)</td>
-                                        <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? String.Empty : (currency + " " + ((costoMedio / (i - 1)).Value.ToString("#,##0.00"))))</td>
-                                        <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? (item.Value * item.CUPrice).Value.ToString("#,##0.00") : String.Empty)</td>
-                                        <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? String.Empty : (item.Value * costoMedio.Value / (i - 1)).ToString("#,##0.00"))</td>
-                                        <td>@saldo.Value.ToString("#,##0.00")</td>
+                                        <td colspan="9" style="text-align: center; vertical-align: middle;"><strong>COSTO PROMEDIO O PROMEDIO PONDERADO</strong></td>
                                     </tr>
-                                    i++;
-                                }
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td colspan="9" style="text-align: center; vertical-align: middle;"><strong>Movimiento de Almacén ( @stockProduct.Value.ToUpper() )</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" style="text-align: center; vertical-align: middle;">Fecha</td>
+
+                                        <td colspan="2" style="text-align: center; vertical-align: middle;">Especie</td>
+                                        <td style="text-align: center; vertical-align: middle;" rowspan="2">Stock Final</td>
+                                        <td style="text-align: center; vertical-align: middle;" rowspan="2">$/Unidad Entrada</td>
+                                        <td style="text-align: center; vertical-align: middle;" rowspan="2">Valor Promedio</td>
+                                        <td style="text-align: center; vertical-align: middle;" colspan="2">Valores</td>
+
+                                        <td style="text-align: center; vertical-align: middle;" rowspan="2">Kardex Valorizado</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center; vertical-align: middle;">Stock Inicial</td>
+                                        <td style="text-align: center; vertical-align: middle;">Salida</td>
+
+                                        <td style="text-align: center; vertical-align: middle;">Debe</td>
+                                        <td style="text-align: center; vertical-align: middle;">Haber</td>
+                                    </tr>
+                                    @{ Decimal? exist = 0; Decimal? saldo = 0; Decimal? costoMedio = 0; Int32 i = 1; String currency = String.Empty;}
+
+                                    @foreach (var item in Model.LstStockProductDetail.Where(x => x.StockProductId == stockProduct.Key))
+                                    {
+                                        if (String.IsNullOrEmpty(currency))
+                                        {
+                                            currency = (item.Currency != null ? item.Currency.Sign : String.Empty);
+                                        }
+
+
+                                        saldo += (item.Operation == ConstantHelpers.OPERATION.ENTRY ? (item.Value * item.CUPrice) : ((-1) * item.Value * costoMedio));
+                                        exist = exist + (item.Value * (item.Operation == ConstantHelpers.OPERATION.ENTRY ? 1 : (-1)));
+                                        <tr>
+                                            <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                                            <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? item.Value.ToString("#,##0.00") : String.Empty)</td>
+                                            <td>@(item.Operation == ConstantHelpers.OPERATION.OUTPUT ? item.Value.ToString("#,##0.00") : String.Empty)</td>
+                                            <td>@exist</td>
+                                            <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? (currency + " " + item.CUPrice.ToString()) : String.Empty)</td>
+                                            <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? String.Empty : (currency + " " + (costoMedio).Value.ToString("#,##0.00")))</td>
+                                            <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? (item.Value * item.CUPrice).Value.ToString("#,##0.00") : String.Empty)</td>
+                                            <td>@(item.Operation == ConstantHelpers.OPERATION.ENTRY ? String.Empty : (item.Value * costoMedio.Value).ToString("#,##0.00"))</td>
+                                            <td>@saldo.Value.ToString("#,##0.00")</td>
+                                        </tr>
+                                        if (item.Operation == ConstantHelpers.OPERATION.ENTRY)
+                                        {
+                                            i++;
+                                        }
+                                        if (item.Operation == ConstantHelpers.OPERATION.ENTRY)
+                                        {
+                                            costoMedio = saldo / exist;
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
+                 }
             </div>
         </div>
     </div>
@@ -154,7 +167,8 @@
                     type: "GET",
                     data: function (params) {
                         return {
-                            q: params.term
+                            q: params.term,
+                            StoreId: $('#StoreId').val()
                         };
                     },
                     processResults: function (data) {

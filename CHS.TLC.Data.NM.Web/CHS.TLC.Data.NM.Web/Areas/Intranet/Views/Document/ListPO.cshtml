@@ -1,6 +1,6 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document.LstPOViewModel
 @{
-    ViewBag.Title = "Creación de Purcharse Order";
+    ViewBag.Title = "Purcharse Order";
     ViewBag.PageIcon = "check-sign";
 }
 
@@ -110,7 +110,7 @@
                                             <ul class='dropdown-menu'>
                                                 @*<li class="divider"></li>*@
                                                 <li>
-                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeletePO", "Document", "Intranet", new { PurcherseOrderId = purcherseOrder.PurcherseOrderId }, new { })
+                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeletePO", "Document", "Intranet", new { PurcherseOrderId = purcherseOrder.PurcherseOrderId, FatherId = Model.FatherId }, new { })
                                                 </li>
                                             </ul>
                                         </div>
@@ -129,7 +129,7 @@
 <div class="row-fluid">
     <div class="col-lg-6" style="padding-top: 2%">
         <div class="pull-right">
-            @Html.PagedListPager(Model.LstPO, Page => Url.Action("ListPO", new { Page = Page, Code = Model.Code, OrderDate = Model.OrderDate, SupplierId = Model.SupplierId }), ConstantHelpers.Bootstrap3Pager)
+            @Html.PagedListPager(Model.LstPO, Page => Url.Action("ListPO", new { Page = Page, Code = Model.Code, OrderDate = Model.OrderDate, SupplierId = Model.SupplierId, FatherId = Model.FatherId }), ConstantHelpers.Bootstrap3Pager)
         </div>
     </div>
 </div>

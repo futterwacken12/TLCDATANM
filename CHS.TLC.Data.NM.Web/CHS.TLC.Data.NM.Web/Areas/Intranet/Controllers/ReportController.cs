@@ -17,10 +17,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             return View();
         }
         [EncryptedActionParameter]
-        public ActionResult KardexValorized(String FechaInicio, String FechaFin, Int32? StockProductId, Int32? FatherId)
+        public ActionResult KardexValorized(String FechaInicio, String FechaFin, Int32? StockProductId, Int32? FatherId, Int32? StoreId)
         {
             var model = new KardexValorizedViewModel();
-            model.Fill(CargarDatosContext(), FechaInicio, FechaFin, StockProductId, FatherId);
+            model.Fill(CargarDatosContext(), FechaInicio, FechaFin, StockProductId, FatherId, StoreId);
             return View(model);
         }
     }

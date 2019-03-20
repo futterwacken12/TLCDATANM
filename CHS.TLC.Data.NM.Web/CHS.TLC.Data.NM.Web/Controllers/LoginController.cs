@@ -73,9 +73,9 @@ namespace CHS.TLC.Data.NM.Web.Controllers
                 return View(model);
             }
 
-            return Dasboard();
+            return Dashboard();
         }
-        public ActionResult Dasboard()
+        public ActionResult Dashboard()
         {
             return RedirectToActionSecureArea("MainOption", "Home", "Intranet", new { FatherId = 46 });
         }

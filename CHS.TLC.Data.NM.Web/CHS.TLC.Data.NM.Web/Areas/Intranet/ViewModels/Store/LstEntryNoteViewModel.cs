@@ -40,7 +40,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
             this.Code = code;
             this.MovementTypeId = movementTypeId;
 
-            this.LstMovementType = c.context.MovementType.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
+            this.LstMovementType = c.context.MovementType.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO && x.Type == "ENT").ToList();
 
             var query = c.context.EntryNote.Where( x => x.State == ConstantHelpers.ESTADO.ACTIVO).AsQueryable();
 

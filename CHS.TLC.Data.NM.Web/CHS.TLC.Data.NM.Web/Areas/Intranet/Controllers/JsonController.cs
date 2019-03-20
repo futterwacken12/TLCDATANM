@@ -19,12 +19,13 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             return View();
         }
         [HttpGet]
-        public JsonResult GetStockProduct(String q)
+        public JsonResult GetStockProduct(String q, Int32 StoreId)
         {
             var data = new List<DataSelect2>();
             try
             {
                 data = context.StockProduct.Where(x => x.Product.InvoiceDescription.Contains(q) &&
+                    x.StoreId == StoreId &&
                     x.State == ConstantHelpers.ESTADO.ACTIVO).Select(x => new DataSelect2
                     {
                         id = x.StockProductId,

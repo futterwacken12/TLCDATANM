@@ -45,6 +45,8 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         {
             try
             {
+                String poCode = String.Empty;
+
                 using (var transaction = new TransactionScope())
                 {
                     PurcherseOrder purcharseOrder = null;
@@ -103,7 +105,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                     if (String.IsNullOrEmpty(model.Code))
                     {
                         purcharseOrder.Code = purcharseOrder.PrePurcherseOrderId.ToString();
-
+                        poCode = purcharseOrder.Code;
                         context.SaveChanges();
                     }
 
@@ -111,7 +113,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                     transaction.Complete();
                 }
 
-                PostMessage(MessageType.Success);
+                PostMessage(MessageType.Success, "Los datos se guardaron exitosamente. Purcharse Order: " + poCode);
                 return RedirectToAction("ListPO", new { FatherId = model.FatherId});
             }
             catch (Exception ex)
@@ -134,6 +136,8 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         {
             try
             {
+                String prePOCode = String.Empty;
+
                 using (var transaction = new TransactionScope())
                 {
                     PrePurcherseOrder prePO = null;
@@ -188,13 +192,14 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                     if (String.IsNullOrEmpty(model.Code))
                     {
                         prePO.Code = prePO.PrePurcherseOrderId.ToString();
+                        prePOCode = prePO.Code;
                         context.SaveChanges();
                     }
 
                     transaction.Complete();
                 }
-
-                PostMessage(MessageType.Success);
+                
+                PostMessage(MessageType.Success, "Los datos se guardaron exitosamente. Pre Purcharse Order: " + prePOCode);
                 return RedirectToAction("ListPrePO",new { FatherId = model.FatherId });
             }
             catch (Exception ex)
@@ -205,10 +210,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             }
         }
         [EncryptedActionParameter]
-        public ActionResult _DeletePO(Int32 PurcherseOrderId)
+        public ActionResult _DeletePO(Int32 PurcherseOrderId, Int32? FatherId)
         {
             var model = new _DeletePOViewModel();
-            model.Fill(CargarDatosContext(), PurcherseOrderId);
+            model.Fill(CargarDatosContext(), PurcherseOrderId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -236,10 +241,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             return RedirectToAction("ListPO");
         }
         [EncryptedActionParameter]
-        public ActionResult _DeletePrePO(Int32 PrePurcherseOrderId)
+        public ActionResult _DeletePrePO(Int32 PrePurcherseOrderId, Int32? FatherId)
         {
             var model = new _DeletePrePOViewModel();
-            model.Fill(CargarDatosContext(), PrePurcherseOrderId);
+            model.Fill(CargarDatosContext(), PrePurcherseOrderId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -264,7 +269,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 PostMessage(MessageType.Error);
             }
 
-            return RedirectToAction("ListPrePO");
+            return RedirectToAction("ListPrePO", new { FatherId = model.FatherId });
         }
         [EncryptedActionParameter]
         public ActionResult _AddEditDocumentPrePO(Int32 PrePurcherseOrderId, Int32? FatherId)
@@ -314,7 +319,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 PostMessage(MessageType.Error);
             }
 
-            return RedirectToAction("ListPrePO");
+            return RedirectToAction("ListPrePO", new { FatherId = model.FatherId });
         }
         [EncryptedActionParameter]
         public FileContentResult DownloadDocumentPrePO(Int32 PrePurcherseOrderId)

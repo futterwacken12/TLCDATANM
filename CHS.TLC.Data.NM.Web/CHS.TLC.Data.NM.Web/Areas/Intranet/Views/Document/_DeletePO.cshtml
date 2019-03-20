@@ -17,6 +17,7 @@
 
 @Html.AntiForgeryToken()
 @Html.HiddenFor(x => x.PurcherseOrderId)
+@Html.HiddenFor(x => x.FatherId)
 
 <p>¿Está seguro de eliminar la P.O. <b>@Model.Code</b>?</p>
 

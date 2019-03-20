@@ -5,7 +5,7 @@
 }
 
 @section BreadCrumbs{
-    <li><a href="@Url.Action("ListPO","Document")">Lista de P.O.</a></li>
+    <li><a href="@Url.Action("ListPO","Document",new { FatherId = Model.FatherId })">Lista de P.O.</a></li>
     <li class="separator"><i class="icon-angle-right"></i></li>
 }
 
@@ -265,7 +265,7 @@
                 <hr />
                 <div class='control-group'>
                     <button class="btn btn-primary" type="submit"><i class="icon icon-save"></i> Guardar</button>
-                    <a class="btn btn-default" href="@Url.Action("ListPO","Document",new { FatherId = Model.FatherId})"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                    <a class="btn btn-default" href="@Url.Action("ListPO","Document",new { FatherId = Model.FatherId})"><i class="icon icon-arrow-left"></i> Salir</a>
                 </div>
             </form>
 

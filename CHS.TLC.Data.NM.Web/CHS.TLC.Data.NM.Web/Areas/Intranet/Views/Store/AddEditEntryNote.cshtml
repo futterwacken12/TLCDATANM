@@ -5,7 +5,7 @@
 }
 
 @section Breadcrumbs{
-    <li><a href="@Url.Action("ListEntryNote","Store")">Lista de notas de entradas</a></li>
+    <li><a href="@Url.Action("ListEntryNote","Store",new { FatherId = Model.FatherId })">Lista de notas de entradas</a></li>
     <li class="separator"><i class="icon-angle-right"></i></li>
 }
 
