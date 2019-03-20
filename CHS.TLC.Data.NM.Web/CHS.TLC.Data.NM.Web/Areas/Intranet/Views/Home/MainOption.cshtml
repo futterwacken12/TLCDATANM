@@ -45,11 +45,9 @@
 
                     <div class="row-fluid">
                         <div class="span12">
-                            @foreach (var option in Model.LstOption.Where(x => x.Icon.Equals(icon)))
+                            @foreach (var roleOption in Model.LstRoleOption.Where(x => x.Option.Icon.Equals(icon)))
                             {
-                                @Html.EncodedActionLink(Html.Raw("<div class='box-content box-statistic text-right'><small>" +option.Description + "</small><div class='text-green icon-circle align-left'></div><br /></div>"),
-                               option.Action, option.Controller, option.Area, new { FatherId = option.FatherId }, new {  })
-                                
+                                @Html.EncodedActionLink(Html.Raw("<div class='box-content box-statistic text-right'><small>" + roleOption.Option.Description + "</small><div class='text-green icon-circle align-left'></div><br /></div>"), roleOption.Option.Action, roleOption.Option.Controller, roleOption.Option.Area, new { FatherId = roleOption.Option.FatherId }, new {  })
                             }
                         </div>
                     </div>

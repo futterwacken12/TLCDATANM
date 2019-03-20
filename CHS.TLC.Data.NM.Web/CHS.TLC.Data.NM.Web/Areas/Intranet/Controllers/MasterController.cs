@@ -15,17 +15,17 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
     {
         // GET: Intranet/Master
         #region Family
-        public ActionResult ListFamily(Int32? Page, String Description)
+        public ActionResult ListFamily(Int32? Page, String Description, Int32? FatherId)
         {
             var model = new ListFamilyViewModel();
-            model.Fill(CargarDatosContext(), Page, Description);
+            model.Fill(CargarDatosContext(), Page, Description, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
-        public ActionResult AddEditFamily(Int32? FamilyId)
+        public ActionResult AddEditFamily(Int32? FamilyId, Int32? FatherId)
         {
             var model = new AddEditFamilyViewModel();
-            model.Fill(CargarDatosContext(), FamilyId);
+            model.Fill(CargarDatosContext(), FamilyId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -36,7 +36,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    model.Fill(CargarDatosContext(), model.FamilyId);
+                    model.Fill(CargarDatosContext(), model.FamilyId, model.FatherId);
                     TryUpdateModel(model);
                     PostMessage(MessageType.Error);
                     return View(model);
@@ -66,16 +66,15 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             catch (Exception ex)
             {
                 PostMessage(MessageType.Error);
-                model.Fill(CargarDatosContext(), model.FamilyId);
-
+                model.Fill(CargarDatosContext(), model.FamilyId, model.FatherId);
                 return View(model);
             }
         }
         [EncryptedActionParameter]
-        public ActionResult _DeleteFamily(Int32? FamilyId)
+        public ActionResult _DeleteFamily(Int32? FamilyId, Int32? FatherId)
         {
             var model = new _DeleteFamilyViewModel();
-            model.Fill(CargarDatosContext(), FamilyId);
+            model.Fill(CargarDatosContext(), FamilyId, FatherId);
             return View(model);
         }
         [HttpPost]

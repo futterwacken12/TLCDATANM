@@ -10,12 +10,14 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
     {
         public Int32? FamilyId { get; set; }
         public String Description { get; set; }
+        public Int32? FatherId { get; set; }
         public _DeleteFamilyViewModel()
         {
         }
-        public void Fill(CargarDatosContext c, Int32? familyId)
+        public void Fill(CargarDatosContext c, Int32? familyId, Int32? fatherId)
         {
             this.FamilyId = familyId;
+            this.FatherId = fatherId;
 
             if (this.FamilyId.HasValue)
             {

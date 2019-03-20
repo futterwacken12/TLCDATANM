@@ -12,14 +12,16 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
     {
         public Int32? Page { get; set; }
         public String Description { get; set; }
+        public Int32? FatherId { get; set; }
         public IPagedList<Family> LstFamily { get; set; }
         public ListFamilyViewModel()
         {
         }
-        public void Fill(CargarDatosContext c, Int32? page, String description)
+        public void Fill(CargarDatosContext c, Int32? page, String description, Int32? fatherId)
         {
             this.Page = page ?? 1;
             this.Description = description;
+            this.FatherId = fatherId;
 
             var query = c.context.Family.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).AsQueryable();
 
