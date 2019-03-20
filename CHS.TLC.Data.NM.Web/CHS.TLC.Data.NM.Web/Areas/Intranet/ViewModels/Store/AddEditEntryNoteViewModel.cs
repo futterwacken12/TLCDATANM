@@ -30,8 +30,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
         public List<EntryNoteDetail> LstEntryNoteDetail { get; set; } = new List<EntryNoteDetail>();
         public List<Int32> LstProduct { get; set; } = new List<int>();
         public String NombreProveedor { get; set; }
-        public void Fill(CargarDatosContext c, Int32? entryNoteId)
+        public Int32? FatherId { get; set; }
+        public void Fill(CargarDatosContext c, Int32? entryNoteId, Int32? fatherId)
         {
+            this.FatherId = fatherId;
             this.EntryNoteId = entryNoteId;
             this.LstMovementType = c.context.MovementType.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
             this.LstStore = c.context.Store.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();

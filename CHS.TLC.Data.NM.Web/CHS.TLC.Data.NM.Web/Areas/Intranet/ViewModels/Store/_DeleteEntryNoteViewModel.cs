@@ -10,9 +10,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
     {
         public Int32 EntryNoteId { get; set; }
         public String Code { get; set; }
-        public void Fill(CargarDatosContext c, Int32 entryNoteId)
+        public Int32? FatherId { get; set; }
+        public void Fill(CargarDatosContext c, Int32 entryNoteId, Int32? fatherId)
         {
             this.EntryNoteId = entryNoteId;
+            this.FatherId = fatherId;
             this.Code = c.context.EntryNote.FirstOrDefault( x => x.EntryNoteId == this.EntryNoteId).Code;
         }
     }

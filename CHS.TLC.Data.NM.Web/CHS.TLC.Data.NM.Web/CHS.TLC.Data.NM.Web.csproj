@@ -469,6 +469,7 @@
     <Content Include="Content\assets\javascripts\plugins\xeditable\wysihtml5.js" />
     <Content Include="Content\assets\javascripts\tables.js" />
     <Content Include="Content\assets\javascripts\theme.js" />
+    <Content Include="Content\assets\stylesheets\all.css" />
     <Content Include="Content\assets\stylesheets\bootstrap\bootstrap-responsive.css" />
     <Content Include="Content\assets\stylesheets\bootstrap\bootstrap.css" />
     <Content Include="Content\assets\stylesheets\demo.css" />

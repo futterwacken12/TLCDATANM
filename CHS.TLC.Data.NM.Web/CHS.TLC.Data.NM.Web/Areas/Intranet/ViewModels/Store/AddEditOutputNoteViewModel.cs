@@ -28,8 +28,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
         public List<DocumentType> LstDocumentType { get; set; } = new List<DocumentType>();
         public List<Int32> LstProduct { get; set; } = new List<Int32>();
         public List<OutputNoteDetail> LstOutputNoteDetail { get; set; } = new List<OutputNoteDetail>();
-        public void Fill(CargarDatosContext c, Int32? outputNoteId)
+        public Int32? FatherId { get; set; }
+        public void Fill(CargarDatosContext c, Int32? outputNoteId, Int32? fatherId)
         {
+            this.FatherId = fatherId;
             this.OutputNoteId = outputNoteId;
             this.LstStore = c.context.Store.Where( x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
             this.LstMovementType = c.context.MovementType.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();

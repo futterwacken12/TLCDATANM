@@ -27,9 +27,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document
         public String ProductId { get; set; }
         public List<Country> LstCountry { get; set; } = new List<Country>();
         public List<MeasureUnit> LstMeasureUnit { get; set; } = new List<MeasureUnit>();
+        public Int32? FatherId { get; set; }
         public List<PrePurcherseOrderDetail> LstPrePODetail { get; set; } = new List<PrePurcherseOrderDetail>();
-        public void Fill(CargarDatosContext c, Int32? prePurcherseOrderId)
+        public void Fill(CargarDatosContext c, Int32? prePurcherseOrderId, Int32? fatherId)
         {
+            this.FatherId = fatherId;
             var fecha = DateTime.Now;
             this.Registration = fecha.ToString("dd/MM/yyyy HH:mm:ss");
             this.RegistrationDate = fecha.ToString("dd/MM/yyyy");

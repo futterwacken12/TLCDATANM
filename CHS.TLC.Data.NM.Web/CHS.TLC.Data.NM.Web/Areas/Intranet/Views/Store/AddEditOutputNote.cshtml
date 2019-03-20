@@ -22,6 +22,7 @@
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(x => x.DocumentCode)
                 @Html.HiddenFor(x => x.OutputNoteId)
+                @Html.HiddenFor(x => x.FatherId)
                 <fieldset>
                     <div class='control-group'>
 
@@ -242,7 +243,7 @@
                                 Guardar
                             </button>
                         }
-                        <a class="btn btn-default" href="@Url.Action("ListOutputNote", "Store")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                        <a class="btn btn-default" href="@Url.Action("ListOutputNote", "Store",new { FatherId = Model.FatherId})"><i class="icon icon-arrow-left"></i> Cancelar</a>
 
                     </div>
                 </div>

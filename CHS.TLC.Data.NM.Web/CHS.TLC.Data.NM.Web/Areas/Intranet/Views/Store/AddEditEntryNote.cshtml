@@ -23,7 +23,7 @@
                 @Html.HiddenFor(x => x.EntryNoteId)
                 @Html.HiddenFor(x => x.SupplierId)
                 @Html.HiddenFor(x => x.DocumentCode)
-
+                @Html.HiddenFor(x => x.FatherId)
                 <fieldset>
                     <div class='control-group'>
 
@@ -64,7 +64,7 @@
                         <div class="span6">
                             <label class="control-label">Proveedor</label>
                             <div class="controls">
-                                @Html.TextBoxFor(x => x.NombreProveedor, new { @class = "span12", @type = "text" , @readonly = true})
+                                @Html.TextBoxFor(x => x.NombreProveedor, new { @class = "span12", @type = "text", @readonly = true })
                                 <p class="help-block">
                                 </p>
                             </div>
@@ -122,7 +122,7 @@
                 <div id="table-zone">
                     @for (int i = 0; i < Model.LstProduct.Count; i++)
                     {
-                        <div class="responsive-table" id="table-@Model.LstProduct[i]" style="font-size: 12px;" >
+                        <div class="responsive-table" id="table-@Model.LstProduct[i]" style="font-size: 12px;">
                             <div class="scrollable-area">
                                 <table class="table table-bordered table-hover table-striped" style="margin-bottom:0;" id="table">
                                     <thead>
@@ -152,77 +152,77 @@
                                             var p = 0;
                                             Decimal? cantReal = 0;
                                         }
-                                        @foreach(var value in Model.LstEntryNoteDetail.Where(x => x.PrePurcherseOrderDetail.ProductId == Model.LstProduct[i]))
+                                        @foreach (var value in Model.LstEntryNoteDetail.Where(x => x.PrePurcherseOrderDetail.ProductId == Model.LstProduct[i]))
                                         {
-                                        <tr id="rowmaster-@i">
-                                            @if (p == 0)
-                                            {
-                                                cantReal = value.PrePurcherseOrderDetail.Quantity - value.RealQuantity;
-                                                <td>@value.PrePurcherseOrderDetail.Product.InternalCode </td>
-                                                <td>@value.PrePurcherseOrderDetail.Product.InvoiceDescription.ToUpper()</td>
-                                                <td>@value.PrePurcherseOrderDetail.Product.LocalDescription.ToUpper()</td>
-                                                <td>@value.PrePurcherseOrderDetail.Product.SubFamily.Family.Description</td>
-                                                <td>@value.PrePurcherseOrderDetail.Product.DesignNumber</td>
-                                                <td><input style="width: 65px;" class="span12 real" disabled data-type="startP-@i" value="@value.PrePurcherseOrderDetail.Quantity" /></td>
-                                                <td>m</td>
-                                                <td><input style="width: 65px;" class="span12 sec" disabled data-type="startS-@i" value="0" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
-                                                <td>rollos</td>
+                                            <tr id="rowmaster-@i">
+                                                @if (p == 0)
+                                                {
+                                                    cantReal = value.PrePurcherseOrderDetail.Quantity - value.RealQuantity;
+                                                    <td>@value.PrePurcherseOrderDetail.Product.InternalCode </td>
+                                                    <td>@value.PrePurcherseOrderDetail.Product.InvoiceDescription.ToUpper()</td>
+                                                    <td>@value.PrePurcherseOrderDetail.Product.LocalDescription.ToUpper()</td>
+                                                    <td>@value.PrePurcherseOrderDetail.Product.SubFamily.Family.Description</td>
+                                                    <td>@value.PrePurcherseOrderDetail.Product.DesignNumber</td>
+                                                    <td><input style="width: 65px;" class="span12 real" disabled data-type="startP-@i" value="@value.PrePurcherseOrderDetail.Quantity" /></td>
+                                                    <td>m</td>
+                                                    <td><input style="width: 65px;" class="span12 sec" disabled data-type="startS-@i" value="0" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td>rollos</td>
 
-                                                <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
-                                                <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
 
-                                                <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
-                                                <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
 
-                                                <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(cantReal)" /></td>
-                                                <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(cantReal)" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>
 
-                                                <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-@i" readonly value="0" /></td>
-                                                <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" name="difS-@i" readonly value="0" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>
 
-                                                <td>
-                                                    <select style="width: 100px;" data-pod="@value.PrePurcherseOrderDetailId" data-body='@Model.LstProduct[i]' class="typepayment" name="typepayment-@i" data-index="@i" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty)>
-                                                        <option value="">[-Seleccione-]</option>
-                                                        <option value="PAR" @(value.TypePayment == "PAR" ? "selected" : String.Empty)>PARCIAL</option>
-                                                        <option value="TOT" @(value.TypePayment == "TOT" ? "selected" : String.Empty)>TOTAL</option>
-                                                    </select>
-                                                </td>
-                                                <td><a class="deletemaster btn btn-danger" data-index="@i" @(Model.EntryNoteId.HasValue ? "disabled" : String.Empty)><i class="icon-trash"></i></a></td>
-                                            }
-                                            else
-                                            {
-                                                <td colspan="5"></td>
-                                                <td><input style="width: 65px;" class="span12 real" disabled data-type="startP-@i" value="@cantReal" /></td>
-                                                <td>m</td>
-                                                <td><input style="width: 65px;" class="span12 sec" disabled data-type="startS-@i" value="0" /></td>
-                                                <td>rollos</td>
+                                                    <td>
+                                                        <select style="width: 100px;" data-pod="@value.PrePurcherseOrderDetailId" data-body='@Model.LstProduct[i]' class="typepayment" name="typepayment-@i" data-index="@i" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty)>
+                                                            <option value="">[-Seleccione-]</option>
+                                                            <option value="PAR" @(value.TypePayment == "PAR" ? "selected" : String.Empty)>PARCIAL</option>
+                                                            <option value="TOT" @(value.TypePayment == "TOT" ? "selected" : String.Empty)>TOTAL</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><a class="deletemaster btn btn-danger" data-index="@i" @(Model.EntryNoteId.HasValue ? "disabled" : String.Empty)><i class="icon-trash"></i></a></td>
+                                                }
+                                                else
+                                                {
+                                                    <td colspan="5"></td>
+                                                    <td><input style="width: 65px;" class="span12 real" disabled data-type="startP-@i" value="@cantReal" /></td>
+                                                    <td>m</td>
+                                                    <td><input style="width: 65px;" class="span12 sec" disabled data-type="startS-@i" value="0" /></td>
+                                                    <td>rollos</td>
 
-                                                <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
-                                                <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
 
-                                                <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
-                                                <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
 
-                                                <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(cantReal - value.RealQuantity)" /></td>
-                                                <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(cantReal - value.RealQuantity)" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="m" /></td>
 
-                                                <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" value="0" name="difS-@i" readonly /></td>
-                                                <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difS span12" value="0" name="difS-@i" readonly /></td>
+                                                    <td style="background-color:#ef4f4f"><input style="width: 40px;" class="span12" readonly value="rollos" /></td>
 
-                                                <td>
-                                                    <select style="width: 100px;" data-pod="@value.PrePurcherseOrderDetailId" data-body='@Model.LstProduct[i]' class="typepayment" name="typepayment-@i" data-index="@i" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty)>
-                                                        <option value="">[-Seleccione-]</option>
-                                                        <option value="PAR" @(value.TypePayment == "PAR" ? "selected" : String.Empty)>PARCIAL</option>
-                                                        <option value="TOT" @(value.TypePayment == "TOT" ? "selected" : String.Empty)>TOTAL</option>
-                                                    </select>
-                                                </td>
-                                                <td><a class="deletemaster btn btn-danger" data-index="@i" @(Model.EntryNoteId.HasValue ? "disabled" : String.Empty)><i class="icon-trash"></i></a></td>
+                                                    <td>
+                                                        <select style="width: 100px;" data-pod="@value.PrePurcherseOrderDetailId" data-body='@Model.LstProduct[i]' class="typepayment" name="typepayment-@i" data-index="@i" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty)>
+                                                            <option value="">[-Seleccione-]</option>
+                                                            <option value="PAR" @(value.TypePayment == "PAR" ? "selected" : String.Empty)>PARCIAL</option>
+                                                            <option value="TOT" @(value.TypePayment == "TOT" ? "selected" : String.Empty)>TOTAL</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><a class="deletemaster btn btn-danger" data-index="@i" @(Model.EntryNoteId.HasValue ? "disabled" : String.Empty)><i class="icon-trash"></i></a></td>
 
-                                                cantReal = cantReal - value.RealQuantity;
-                                            }
+                                                    cantReal = cantReal - value.RealQuantity;
+                                                }
 
 
-                                        </tr>
+                                            </tr>
                                             p++;
                                         }
                                     </tbody>
@@ -240,7 +240,7 @@
                                 Guardar
                             </button>
                         }
-                        <a class="btn btn-default" href="@Url.Action("ListEntryNote", "Store")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                        <a class="btn btn-default" href="@Url.Action("ListEntryNote", "Store",new { FatherId = Model.FatherId})"><i class="icon icon-arrow-left"></i> Cancelar</a>
                     </div>
                 </div>
             </form>
