@@ -23,14 +23,23 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Report
             this.FechaFin = fechaFin;
             if (this.StockProductId.HasValue)
             {
-                this.DescriptionInvoice = c.context.StockProduct.FirstOrDefault( x => x.StockProductId == this.StockProductId).Product.InvoiceDescription.ToUpper();
-                
-                var dtInicio = String.IsNullOrEmpty(this.FechaInicio) ? DateTime.Now.Date : this.FechaInicio.ToDateTime().Date;
-                var dtFin = String.IsNullOrEmpty(this.FechaFin) ? DateTime.Now.Date : this.FechaFin.ToDateTime().Date;
-                dtFin = dtFin.AddHours(23);
+                var query = c.context.StockProductDetail.Where(x => x.StockProductId == this.StockProductId).AsQueryable();
 
-                LstStockProductDetail = c.context.StockProductDetail.Where(x => x.StockProductId == this.StockProductId
-               && x.Date >= dtInicio && x.Date <= dtFin).ToList();
+                this.DescriptionInvoice = c.context.StockProduct.FirstOrDefault( x => x.StockProductId == this.StockProductId).Product.InvoiceDescription.ToUpper();
+                if (!String.IsNullOrEmpty(this.FechaInicio))
+                {
+                    var dtInicio = String.IsNullOrEmpty(this.FechaInicio) ? DateTime.Now.Date : this.FechaInicio.ToDateTime().Date;
+                    query = query.Where(x => x.Date >= dtInicio);
+                }
+                if (!String.IsNullOrEmpty(this.FechaFin))
+                {
+                    var dtFin = String.IsNullOrEmpty(this.FechaFin) ? DateTime.Now.Date : this.FechaFin.ToDateTime().Date;
+                    dtFin = dtFin.AddHours(23);
+                    query = query.Where(x => x.Date <= dtFin);
+                }
+                
+
+                LstStockProductDetail = query.ToList();
             }
         }
     }

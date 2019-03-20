@@ -1,6 +1,6 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document.ListPrePOViewModel
 @{
-    ViewBag.Title = "Lista de Pre Purchase Orders";
+    ViewBag.Title = "Requerimientos - Pre P.O.";
     ViewBag.PageIcon = "file-alt";
 }
 
@@ -11,8 +11,10 @@
 <div class="row-fluid">
     <div class="col-lg-12" style="padding-bottom: 4%">
         <div class="pull-left">
-            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn'" })
             @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva Pre P.O."), "AddEditPrePO", "Document", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn btn-primary'" })
+        </div>
+        <div class="pull-right">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn btn-primary'" })
         </div>
     </div>
 </div>
@@ -28,7 +30,7 @@
             <form class="form" method="post" style="margin-bottom: 0;">
                 <fieldset>
                     <div class="span2">
-                        <strong>Código</strong>
+                        <strong>Número Requerimiento - Pre P.O.</strong>
                         @Html.TextBoxFor(x => x.Code, new { @class = "span12" })
                     </div>
                     <div class="span4">
@@ -68,7 +70,7 @@
 <div class="row-fluid">
     <div class="span12 box bordered-box green-border" style="margin-bottom:0;">
         <div class="box-header green-background">
-            <div class="title"><i class="icon-reorder"></i> Registros</div>
+            <div class="title"><i class="icon-reorder"></i> Lista de Requerimientos o Pre P.O.</div>
         </div>
         <div class="box-content box-no-padding">
             <div class="responsive-table">
@@ -83,6 +85,7 @@
                                 <th>Email Proveedor</th>
                                 <th>Nombre Documento</th>
                                 <th>Documento</th>
+                                <th></th>
                                 <th></th>
                                 <th>Opción</th>
                             </tr>
@@ -107,20 +110,18 @@
                                         @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-plus'></i> Proforma"), "_AddEditDocumentPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { @class = "'btn btn-warning'" })
                                     </td>
                                     <td>
+                                        @if (!String.IsNullOrEmpty(prePurcherseOrder.DocumentName))
+                                        {
+                                            @Html.EncodedActionLink(Html.Raw("<i class='icon-check-sign'></i> Generar P.O."), "AddEditPO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { })
+                                        }
+                                    </td>
+                                    <td>
                                         <div class='btn-group' style='margin-bottom:5px'>
                                             @Html.EncodedActionLink(Html.Raw("<i class='icon icon-edit'></i> Editar"), "AddEditPrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId, FatherId = Model.FatherId }, new { @class = "'btn'" })
                                             <button class='btn dropdown-toggle' data-toggle='dropdown'>
                                                 <span class='caret'></span>
                                             </button>
                                             <ul class='dropdown-menu'>
-                                                @if (!String.IsNullOrEmpty(prePurcherseOrder.DocumentName))
-                                                {
-                                                    <li>
-                                                        @Html.EncodedActionLink(Html.Raw("<i class='icon-check-sign'></i> Generar P.O."), "AddEditPO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { })
-                                                    </li>
-
-                                                    <li class="divider"></li>
-                                                }
                                                 <li>
                                                     @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeletePrePO", "Document", "Intranet", new { PrePurcherseOrderId = prePurcherseOrder.PrePurcherseOrderId }, new { })
                                                 </li>

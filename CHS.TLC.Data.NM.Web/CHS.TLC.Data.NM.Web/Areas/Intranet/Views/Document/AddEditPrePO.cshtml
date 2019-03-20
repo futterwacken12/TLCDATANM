@@ -53,11 +53,11 @@
                 <div class='control-group'>
                     <label class='control-label' for='SupplierId'>Proveedor</label>
                     <div class='controls'>
-                        <select id="SupplierId" name="SupplierId" class="span12" placeholder="Proveedor" value="@Model.SupplierId" />
+                        <select id="SupplierId" name="SupplierId" class="span9" placeholder="Proveedor" value="@Model.SupplierId" />
                     </div>
+                    @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nuevo Proveedor"), "AddEditSupplier", "Master", "Intranet", new { }, new { @class = "'btn btn-primary'", @target = "_blank" })
                 </div>
                 <div class='control-group'>
-
                     <label class='control-label' for='SupplierCode'>Código Proveedor</label>
                     <div class='controls'>
                         <input hidden />
@@ -81,7 +81,7 @@
 
                 <hr />
                 <div class="pull-right">
-                    <a class="btn btn-warning" @Data.ModalLink("AddEditProduct", "Master")><i class="icon-plus"></i> Nuevo Producto</a>
+                    @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nuevo Producto"), "AddEditProduct", "Master", "Intranet", new { }, new { @class = "'btn btn-primary'", @target = "_blank" })
                 </div>
 
                 <br />
@@ -188,7 +188,7 @@
 
 @section Scripts{
     <script>
-        $(document).on('ready', function () {            
+        $(document).on('ready', function () {
             $('#SupplierId').select2({
                 ajax: {
                     url: '@Url.Action("GetSupplierByName", "Json")',

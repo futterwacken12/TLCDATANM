@@ -1,6 +1,6 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document.LstPOViewModel
 @{
-    ViewBag.Title = "Lista de PO";
+    ViewBag.Title = "Creación de Purcharse Order";
     ViewBag.PageIcon = "check-sign";
 }
 
@@ -16,8 +16,10 @@
 <div class="row-fluid">
     <div class="col-lg-12" style="padding-bottom: 4%">
         <div class="pull-left">
-            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn'" })
             @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva P.O."), "AddEditPO", "Document", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn btn-primary'" })
+        </div>
+        <div class="pull-right">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn btn-primary'" })
         </div>
     </div>
 </div>
@@ -34,7 +36,7 @@
             <form class="form" method="post" style="margin-bottom: 0;">
                 <fieldset>
                     <div class="span4">
-                        <strong>Código</strong>
+                        <strong>Código P.O.</strong>
                         @Html.TextBoxFor(x => x.Code, new { @class = "span12" })
                     </div>
                     <div class="span4">
@@ -68,7 +70,7 @@
 <div class="row-fluid">
     <div class="span12 box bordered-box green-border" style="margin-bottom:0;">
         <div class="box-header green-background">
-            <div class="title"><i class="icon-reorder"></i> Registros</div>
+            <div class="title"><i class="icon-reorder"></i> Lista de P.O.</div>
         </div>
         <div class="box-content box-no-padding">
             <div class="responsive-table">

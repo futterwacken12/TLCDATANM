@@ -1,6 +1,6 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store.LstEntryNoteViewModel
 @{
-    ViewBag.Title = "Lista de notas de ingreso";
+    ViewBag.Title = "Nota de ingreso";
     ViewBag.PageIcon = "arrow-left";
 }
 
@@ -13,10 +13,12 @@
     }
 </style>
 <div class="row-fluid">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <div class="pull-left">
-            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn'" })
             @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva nota de ingreso"), "AddEditEntryNote", "Store", "Intranet", new { }, new { @class = "'btn btn-primary'" })
+        </div>
+        <div class="pull-right">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn btn-primary'" })
         </div>
     </div>
 </div>
@@ -33,7 +35,7 @@
             <form class="form" method="post" style="margin-bottom: 0;">
                 <fieldset>
                     <div class="span4">
-                        <strong>Código</strong>
+                        <strong># Nota de Ingreso</strong>
                         @Html.TextBoxFor(x => x.Code, new { @class = "span12" })
                     </div>
                     <div class="span4">
@@ -67,7 +69,7 @@
 <div class="row-fluid">
     <div class="span12 box bordered-box green-border" style="margin-bottom:0;">
         <div class="box-header green-background">
-            <div class="title"><i class="icon-reorder"></i> Registros</div>
+            <div class="title"><i class="icon-reorder"></i> Lista de Nota de Ingreso</div>
         </div>
         <div class="box-content box-no-padding">
             <div class="responsive-table">
@@ -75,8 +77,9 @@
                     <table class="table table-hover table-striped" style="margin-bottom:0;">
                         <thead>
                             <tr>
-                                <th>Código</th>
-                                <th>Documento</th>
+                                <th># Nota Ingreso</th>
+                                <th>Tipo Documento</th>
+                                <th># Código Documento</th>
                                 <th>Tipo Movimiento</th>
                                 <th>Destino</th>
                                 <th>Fecha Registro</th>
@@ -86,27 +89,28 @@
                         <tbody>
                             @foreach (var item in Model.LstEntryNote)
                             {
-                                <tr>
-                                    <td>@item.Code</td>
-                                    <td>@item.DocumentCode</td>
-                                    <td>@item.MovementType.Name</td>
-                                    <td>@item.Store.Name</td>
-                                    <td>@item.Date.ToString("dd/MM/yyyy")</td>
-                                    <td>
-                                        <div class='btn-group' style='margin-bottom:5px'>
-                                            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-eye-open'></i> Ver"), "AddEditEntryNote", "Store", "Intranet", new { EntryNoteId = item.EntryNoteId, FatherId = Model.FatherId }, new { @class = "'btn'" })
-                                            <button class='btn dropdown-toggle' data-toggle='dropdown'>
-                                                <span class='caret'></span>
-                                            </button>
-                                            <ul class='dropdown-menu'>
-                                                @*<li class="divider"></li>*@
-                                                <li>
-                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteEntryNote", "Store", "Intranet", new { EntryNoteId = item.EntryNoteId }, new { })
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>@item.Code</td>
+                                <td>@item.PurcherseOrder.DocumentType.Acronym</td>
+                                <td>@item.DocumentCode</td>
+                                <td>@item.MovementType.Name</td>
+                                <td>@item.Store.Name</td>
+                                <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <div class='btn-group' style='margin-bottom:5px'>
+                                        @Html.EncodedActionLink(Html.Raw("<i class='icon icon-eye-open'></i> Ver"), "AddEditEntryNote", "Store", "Intranet", new { EntryNoteId = item.EntryNoteId, FatherId = Model.FatherId }, new { @class = "'btn'" })
+                                        <button class='btn dropdown-toggle' data-toggle='dropdown'>
+                                            <span class='caret'></span>
+                                        </button>
+                                        <ul class='dropdown-menu'>
+                                            @*<li class="divider"></li>*@
+                                            <li>
+                                                @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteEntryNote", "Store", "Intranet", new { EntryNoteId = item.EntryNoteId }, new { })
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
                             }
                             <tr style="visibility:hidden"><td colspan="6">&nbsp;</td></tr>
                         </tbody>

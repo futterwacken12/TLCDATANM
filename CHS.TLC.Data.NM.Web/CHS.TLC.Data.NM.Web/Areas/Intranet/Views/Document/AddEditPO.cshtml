@@ -126,10 +126,10 @@
                                         <td>@prePO.Quantity<input hidden id="quantity-@prePO.PrePurcherseOrderDetailId" value="@prePO.Quantity" /></td>
                                         <td>@prePO.MeasureUnit.Acronym</td>
                                         <td>
-                                            <input class="price span12 onlyNumbers" name="price-@prePO.PrePurcherseOrderDetailId" value="@prePO.Price" data_index="@prePO.PrePurcherseOrderDetailId" />
+                                            <input class="price span12 onlyNumberDecimal" name="price-@prePO.PrePurcherseOrderDetailId" value="@prePO.Price" data_index="@prePO.PrePurcherseOrderDetailId" />
                                         </td>
                                         <td>
-                                            <input class="total span12 onlyNumbers" name="total-@prePO.PrePurcherseOrderDetailId" value="@((prePO.Quantity * prePO.Price.Value).ToString("F"))" disabled />
+                                            <input class="total span12 onlyNumberDecimal" name="total-@prePO.PrePurcherseOrderDetailId" value="@((prePO.Quantity * prePO.Price.Value).ToString("F"))" disabled />
                                         </td>
                                         <td class="span2">
                                             <div class="pull-right">
@@ -355,10 +355,10 @@
                                     '<td>' + data.lstDetail[i].quantity + '<input hidden id="quantity-' + data.lstDetail[i].prePurcherseOrderDetailId + '" value="' + data.lstDetail[i].quantity + '" /></td>' +
                                     '<td>m</td>' +
                                     '<td>' +
-                                    '<input class="price span12 onlyNumbers" name="price-' + data.lstDetail[i].prePurcherseOrderDetailId + '" data-index="' + data.lstDetail[i].prePurcherseOrderDetailId + '" />' +
+                                    '<input class="price span12 onlyNumberDecimal" name="price-' + data.lstDetail[i].prePurcherseOrderDetailId + '" data-index="' + data.lstDetail[i].prePurcherseOrderDetailId + '" />' +
                                     '</td>' +
                                     '<td>' +
-                                    '<input class="total span12 onlyNumbers" name="total-' + data.lstDetail[i].prePurcherseOrderDetailId + '" id="total-' + data.lstDetail[i].prePurcherseOrderDetailId + '" disabled />' +
+                                    '<input class="total span12 onlyNumberDecimal" name="total-' + data.lstDetail[i].prePurcherseOrderDetailId + '" id="total-' + data.lstDetail[i].prePurcherseOrderDetailId + '" disabled />' +
                                     '</td>' +
                                     '<td class="span2">' +
                                     '<div class="pull-right">' +
@@ -391,8 +391,8 @@
                                 '<td>' + data[0].invoiceDescription + '</td>' +
                                 '<td>' + data[0].quantity + '<input hidden id = "quantity-' + data[0].id + '" value="' + data[0].quantity + '"/></td> ' +
                                 '<td>' + data[0].measureUnit + '</td> ' +
-                                '<td><input value="0" class="price span12 onlyNumbers" name="price-' + data[0].id + '" data-index="' + data[0].id + '"/></td> ' +
-                                '<td><input value="0" class="total span12 onlyNumbers" name="total-' + data[0].id + '" disabled id="total-' + data[0].id + '"/></td> ' +
+                                '<td><input value="0" class="price span12 onlyNumberDecimal" name="price-' + data[0].id + '" data-index="' + data[0].id + '"/></td> ' +
+                                '<td><input value="0" class="total span12 onlyNumberDecimal" name="total-' + data[0].id + '" disabled id="total-' + data[0].id + '"/></td> ' +
                                 '<td class="span2">' +
                                 '<div class="pull-right"><a class="deleterow btn btn-danger" data-index ="' + data[0].id + '"><i class="icon-trash"></i> Eliminar</a></div>' +
                                 '</td>' +

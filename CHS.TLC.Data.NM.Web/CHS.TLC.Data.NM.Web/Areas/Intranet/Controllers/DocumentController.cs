@@ -267,10 +267,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             return RedirectToAction("ListPrePO");
         }
         [EncryptedActionParameter]
-        public ActionResult _AddEditDocumentPrePO(Int32 PrePurcherseOrderId)
+        public ActionResult _AddEditDocumentPrePO(Int32 PrePurcherseOrderId, Int32? FatherId)
         {
             var model = new _AddEditDocumentPrePOViewModel();
-            model.Fill(CargarDatosContext(), PrePurcherseOrderId);
+            model.Fill(CargarDatosContext(), PrePurcherseOrderId, FatherId);
             return View(model);
         }
         [HttpPost]

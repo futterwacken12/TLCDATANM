@@ -13,8 +13,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document
         public String Code { get; set; }
         public byte[]  DocumentPath { get; set; }
         public String DocumentName { get; set; }
-        public void Fill(CargarDatosContext c, Int32 prePurcherseOrderId)
+        public Int32? FatherId { get; set; }
+        public void Fill(CargarDatosContext c, Int32 prePurcherseOrderId, Int32? fatherId)
         {
+            this.FatherId = fatherId;
             this.PrePurcherseOrderId = prePurcherseOrderId;
             var prePo = c.context.PrePurcherseOrder.FirstOrDefault(x => x.PrePurcherseOrderId == this.PrePurcherseOrderId);
 

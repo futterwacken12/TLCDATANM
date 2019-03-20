@@ -1,6 +1,6 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store.AddEditEntryNoteViewModel
 @{
-    ViewBag.Title = (Model.EntryNoteId.HasValue ? "Ver" : "Agregar") + " nota de ingreso";
+    ViewBag.Title = "Nota de ingreso";
     ViewBag.PageIcon = "arrow-left";
 }
 
@@ -33,12 +33,16 @@
                             </label>
                         </div>
                         <div class="span6">
-                            <label class="control-label">#Nota Entrada</label>
-                            <div class="controls">
-                                @Html.TextBoxFor(x => x.Code, new { @class = "span12", @type = "text" })
-                                <p class="help-block">
-                                </p>
-                            </div>
+                            @if (Model.EntryNoteId.HasValue)
+                            {
+                                <label class="control-label">#Nota Entrada</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(x => x.Code, new { @class = "span12", @type = "text" })
+                                    <p class="help-block">
+                                    </p>
+                                </div>
+                            }
+
                         </div>
                     </div>
                     <div class="control-group">
@@ -171,7 +175,7 @@
                                                     <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
                                                     <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
 
-                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="@value.SecRealQuantity" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
                                                     <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
 
                                                     <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(cantReal)" /></td>
@@ -200,7 +204,7 @@
                                                     <td style="background-color:#78d676"><input style="width: 65px;" class="realP span12 onlyNumbers" value="@value.RealQuantity" data-index="@i" name="qreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
                                                     <td style="background-color:#78d676"><input style="width: 40px;" class="span12 " value="m" readonly /></td>
 
-                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="0" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
+                                                    <td style="background-color:#78d676"><input style="width: 65px;" class="realS span12 onlyNumbers" value="@value.SecRealQuantity" data-index="@i" name="qsreal-@i-@value.PrePurcherseOrderDetailId" @(Model.EntryNoteId.HasValue ? "readonly" : String.Empty) /></td>
                                                     <td style="background-color:#78d676"><input style="width: 40px;" class="span12" value="rollos" readonly /></td>
 
                                                     <td style="background-color:#ef4f4f"><input style="width: 65px;" class="difP span12" name="difP-@i" readonly value="@(cantReal - value.RealQuantity)" /></td>
@@ -240,7 +244,7 @@
                                 Guardar
                             </button>
                         }
-                        <a class="btn btn-default" href="@Url.Action("ListEntryNote", "Store",new { FatherId = Model.FatherId})"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                        <a class="btn btn-default" href="@Url.Action("ListEntryNote", "Store",new { FatherId = Model.FatherId})"><i class="icon icon-arrow-left"></i> Salir</a>
                     </div>
                 </div>
             </form>
@@ -386,7 +390,7 @@
 
                                 $('#body-' + data.lstProductId[p]).append(template);
                             //}
-                        }                        
+                        }
                     }
                 });
             });
@@ -413,7 +417,7 @@
                 if (value >= 0) {
                     var startp = $('input[data-type="startS-' + index + '"]').val();
                     var resta = startp - value;
-                    $('#table-' + body).find('input[name="difS-' + index + '-' + pod + '"]').val(resta).trigger('change');                    
+                    $('#table-' + body).find('input[name="difS-' + index + '-' + pod + '"]').val(resta).trigger('change');
                 }
             });
 
@@ -428,7 +432,7 @@
                 var prePurcherseOrderDetailId = $(this).attr('data-pod');
                 var index = parseFloat($(this).attr('data-index')) + 1;
                 var valorFinal = parseFloat($('#table-' + body).find('input[name="difP-' + (index - 1) + '"]').val());
-                
+
                 if (value === 'PAR' && $('#table-' + body).find('input[name="difP-' + index + '"]').length === 0 && valorFinal > 0) {
                     var template = '<tr id="row-'+ index +'">' +
                         '<td colspan="5"></td>' +

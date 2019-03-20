@@ -1,6 +1,6 @@
 ﻿@model CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store.LstOuputNoteViewModel
 @{
-    ViewBag.Title = "Lista de notas de salida";
+    ViewBag.Title = "Nota de salida";
     ViewBag.PageIcon = "arrow-right";
 }
 
@@ -14,10 +14,12 @@
 </style>
 
 <div class="row-fluid">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
         <div class="pull-left">
-            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn'" })
             @Html.EncodedActionLink(Html.Raw("<i class='icon icon-plus'></i> Nueva nota de salida"), "AddEditOutputNote", "Store", "Intranet", new { }, new { @class = "'btn btn-primary'" })
+        </div>
+        <div class="pull-right">
+            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-arrow-left'></i> Atrás"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn btn-primary'" })
         </div>
     </div>
 </div>
@@ -34,7 +36,7 @@
             <form class="form" method="post" style="margin-bottom: 0;">
                 <fieldset>
                     <div class="span4">
-                        <strong>Código</strong>
+                        <strong># Nota Salida</strong>
                         @Html.TextBoxFor(x => x.Code, new { @class = "span12" })
                     </div>
                     <div class="span4">
@@ -68,7 +70,7 @@
 <div class="row-fluid">
     <div class="span12 box bordered-box green-border" style="margin-bottom:0;">
         <div class="box-header green-background">
-            <div class="title"><i class="icon-reorder"></i> Registros</div>
+            <div class="title"><i class="icon-reorder"></i> Lista de nota de salida</div>
         </div>
         <div class="box-content box-no-padding">
             <div class="responsive-table">
@@ -76,8 +78,9 @@
                     <table class="table table-hover table-striped" style="margin-bottom:0;">
                         <thead>
                             <tr>
-                                <th>Código</th>
-                                <th>Documento</th>
+                                <th>#Nota de Salida</th>
+                                <th>Tipo Documento</th>
+                                <th># Documento</th>
                                 <th>Tipo Movimiento</th>
                                 <th>Origen</th>
                                 <th>Destino</th>
@@ -88,27 +91,29 @@
                         <tbody>
                             @foreach (var item in Model.LstOutPutNote)
                             {
-                                <tr>
-                                    <td>@item.Code</td>
-                                    <td>@item.DocumentCode</td>
-                                    <td>@item.MovementType.Name</td>
-                                    <td>@item.Store1.Name</td>
-                                    <td>@item.Store.Name</td>
-                                    <td>@item.Date.ToString("dd/MM/yyyy")</td>
-                                    <td>
-                                        <div class='btn-group' style='margin-bottom:5px'>
-                                            @Html.EncodedActionLink(Html.Raw("<i class='icon icon-eye-open'></i> Ver"), "AddEditOutputNote", "Store", "Intranet", new { OutputNoteId = item.OutputNoteId, FatherId = Model.FatherId }, new { @class = "'btn'" })
-                                            <button class='btn dropdown-toggle' data-toggle='dropdown'>
-                                                <span class='caret'></span>
-                                            </button>
-                                            <ul class='dropdown-menu'>
-                                                <li>
-                                                    @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteOutputNote", "Store", "Intranet", new { OutputNoteId = item.OutputNoteId }, new { })
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>@item.Code</td>
+
+                                <td>@item.DocumentCode</td>
+                                <td>@(item.PurcherseOrder != null ? item.PurcherseOrder.Code : String.Empty)</td>
+                                <td>@item.MovementType.Name</td>
+                                <td>@item.Store1.Name</td>
+                                <td>@item.Store.Name</td>
+                                <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <div class='btn-group' style='margin-bottom:5px'>
+                                        @Html.EncodedActionLink(Html.Raw("<i class='icon icon-eye-open'></i> Ver"), "AddEditOutputNote", "Store", "Intranet", new { OutputNoteId = item.OutputNoteId, FatherId = Model.FatherId }, new { @class = "'btn'" })
+                                        <button class='btn dropdown-toggle' data-toggle='dropdown'>
+                                            <span class='caret'></span>
+                                        </button>
+                                        <ul class='dropdown-menu'>
+                                            <li>
+                                                @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-trash'></i> Eliminar"), "_DeleteOutputNote", "Store", "Intranet", new { OutputNoteId = item.OutputNoteId }, new { })
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
                             }
                             <tr style="visibility:hidden"><td colspan="7">&nbsp;</td></tr>
                         </tbody>
