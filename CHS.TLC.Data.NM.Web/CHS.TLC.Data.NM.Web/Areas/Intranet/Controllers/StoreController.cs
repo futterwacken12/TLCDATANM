@@ -28,10 +28,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             return View(model);
         }
         [EncryptedActionParameter]
-        public ActionResult AddEditOutputNote(Int32? OutputNoteId)
+        public ActionResult AddEditOutputNote(Int32? OutputNoteId, Int32? FatherId)
         {
             var model = new AddEditOutputNoteViewModel();
-            model.Fill(CargarDatosContext(), OutputNoteId);
+            model.Fill(CargarDatosContext(), OutputNoteId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -47,7 +47,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                     if (model.OutputNoteId.HasValue)
                     {
                         PostMessage(MessageType.Warning, "No se puede editar una nota de salida.");
-                        return RedirectToAction("ListOutputNote");
+                        return RedirectToAction("ListOutputNote",new { FatherId  = model.FatherId });
                         //entryNote = context.EntryNote.FirstOrDefault(x => x.EntryNoteId == model.EntryNoteId);
                     }
                     else
@@ -82,7 +82,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                             if (stock.Quantity <= 0)
                             {
                                 PostMessage(MessageType.Warning, "Se canceló la orden debido a que no se encuentra stock de: " + stock.Product.InvoiceDescription);
-                                return RedirectToAction("ListOutputNote");
+                                return RedirectToAction("ListOutputNote",new { FatherId  = model.FatherId });
                             }
                         }
                     }
@@ -147,13 +147,13 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
 
 
                 PostMessage(MessageType.Success);
-                return RedirectToAction("ListOutputNote");
+                return RedirectToAction("ListOutputNote",new { FatherId  = model.FatherId });
 
             }
             catch (Exception ex)
             {
                 PostMessage(MessageType.Error);
-                model.Fill(CargarDatosContext(), model.OutputNoteId);
+                model.Fill(CargarDatosContext(), model.OutputNoteId, model.FatherId);
                 return View(model);
             }
         }
@@ -165,10 +165,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             return View(model);
         }
         [EncryptedActionParameter]
-        public ActionResult AddEditEntryNote(Int32? EntryNoteId)
+        public ActionResult AddEditEntryNote(Int32? EntryNoteId,Int32? FatherId)
         {
             var model = new AddEditEntryNoteViewModel();
-            model.Fill(CargarDatosContext(), EntryNoteId);
+            model.Fill(CargarDatosContext(), EntryNoteId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -184,7 +184,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                     if (model.EntryNoteId.HasValue)
                     {
                         PostMessage(MessageType.Warning,"No se puede editar una nota de ingreso.");
-                        return RedirectToAction("ListEntryNote");
+                        return RedirectToAction("ListEntryNote",new { FatherId = model.FatherId });
                         //entryNote = context.EntryNote.FirstOrDefault(x => x.EntryNoteId == model.EntryNoteId);
                     }
                     else
@@ -282,22 +282,22 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
 
 
                 PostMessage(MessageType.Success);
-                return RedirectToAction("ListEntryNote");
+                return RedirectToAction("ListEntryNote",new { FatherId = model.FatherId });
 
             }
             catch (Exception ex)
             {
                 PostMessage(MessageType.Error);
-                model.Fill(CargarDatosContext(), model.EntryNoteId);
+                model.Fill(CargarDatosContext(), model.EntryNoteId, model.FatherId);
                 return View(model);
             }
         }
 
         [EncryptedActionParameter]
-        public ActionResult _DeleteEntryNote(Int32 EntryNoteId)
+        public ActionResult _DeleteEntryNote(Int32 EntryNoteId, Int32? FatherId)
         {
             var model = new _DeleteEntryNoteViewModel();
-            model.Fill(CargarDatosContext(), EntryNoteId);
+            model.Fill(CargarDatosContext(), EntryNoteId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -335,7 +335,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 PostMessage(MessageType.Error);
             }
 
-            return RedirectToAction("ListEntryNote");
+            return RedirectToAction("ListEntryNote",new { FatherId = model.FatherId });
         }
     }
 }

@@ -33,10 +33,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             return View(model);
         }
         [EncryptedActionParameter]
-        public ActionResult AddEditPO(Int32? PurcherseOrderId, Int32? PrePurcherseOrderId)
+        public ActionResult AddEditPO(Int32? PurcherseOrderId, Int32? PrePurcherseOrderId, Int32? FatherId)
         {
             var model = new AddEditPOViewModel();
-            model.Fill(CargarDatosContext(), PurcherseOrderId, PrePurcherseOrderId);
+            model.Fill(CargarDatosContext(), PurcherseOrderId, PrePurcherseOrderId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -112,20 +112,20 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 }
 
                 PostMessage(MessageType.Success);
-                return RedirectToAction("ListPO");
+                return RedirectToAction("ListPO", new { FatherId = model.FatherId});
             }
             catch (Exception ex)
             {
                 PostMessage(MessageType.Error);
-                model.Fill(CargarDatosContext(), model.PurcherseOrderId, model.PrePurcherseOrderId);
+                model.Fill(CargarDatosContext(), model.PurcherseOrderId, model.PrePurcherseOrderId, model.FatherId);
                 return View(model);
             }
         }
         [EncryptedActionParameter]
-        public ActionResult AddEditPrePO(Int32? PrePurcherseOrderId)
+        public ActionResult AddEditPrePO(Int32? PrePurcherseOrderId, Int32? FatherId)
         {
             var model = new AddEditPrePOViewModel();
-            model.Fill(CargarDatosContext(), PrePurcherseOrderId);
+            model.Fill(CargarDatosContext(), PrePurcherseOrderId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -195,12 +195,12 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 }
 
                 PostMessage(MessageType.Success);
-                return RedirectToAction("ListPrePO");
+                return RedirectToAction("ListPrePO",new { FatherId = model.FatherId });
             }
             catch (Exception ex)
             {
                 PostMessage(MessageType.Error);
-                model.Fill(CargarDatosContext(), model.PrePurcherseOrderId);
+                model.Fill(CargarDatosContext(), model.PrePurcherseOrderId, model.FatherId);
                 return View(model);
             }
         }

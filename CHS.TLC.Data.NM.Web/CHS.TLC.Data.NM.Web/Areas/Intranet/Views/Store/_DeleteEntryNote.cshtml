@@ -17,6 +17,7 @@
 
 @Html.AntiForgeryToken()
 @Html.HiddenFor(x => x.EntryNoteId)
+@Html.HiddenFor(x => x.FatherId)
 
 <p>¿Está seguro de eliminar la nota de ingreso <b>@Model.Code</b>?</p>
 

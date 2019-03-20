@@ -21,6 +21,7 @@
             <form class="form" method="post" style="margin-bottom: 0;">
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(x => x.PurcherseOrderId)
+                @Html.HiddenFor(x => x.FatherId)
                 @Html.HiddenFor(x => x.RegistrationDate)
                 <input hidden name="SupplierId" id="SupplierId" />
                 <div class='control-group'>
@@ -264,7 +265,7 @@
                 <hr />
                 <div class='control-group'>
                     <button class="btn btn-primary" type="submit"><i class="icon icon-save"></i> Guardar</button>
-                    <a class="btn btn-default" href="@Url.Action("ListPrePO","Document")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                    <a class="btn btn-default" href="@Url.Action("ListPO","Document",new { FatherId = Model.FatherId})"><i class="icon icon-arrow-left"></i> Cancelar</a>
                 </div>
             </form>
 

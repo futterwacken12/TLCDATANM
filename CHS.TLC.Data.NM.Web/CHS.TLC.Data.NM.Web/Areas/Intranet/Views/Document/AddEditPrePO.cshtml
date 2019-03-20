@@ -22,6 +22,7 @@
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(x => x.PrePurcherseOrderId)
                 @Html.HiddenFor(x => x.Registration)
+                @Html.HiddenFor(x => x.FatherId)
                 <div class='control-group'>
                     <label class='control-label' for='RegistrationDate'>
                         <strong>Fecha de Registro : @Model.RegistrationDate</strong>
@@ -45,14 +46,14 @@
                                 </span>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
 
 
                 <div class='control-group'>
                     <label class='control-label' for='SupplierId'>Proveedor</label>
                     <div class='controls'>
-                        <select id="SupplierId" name="SupplierId" class="span12" placeholder="Proveedor" value="@Model.SupplierId"/>
+                        <select id="SupplierId" name="SupplierId" class="span12" placeholder="Proveedor" value="@Model.SupplierId" />
                     </div>
                 </div>
                 <div class='control-group'>
@@ -113,13 +114,13 @@
                                         <td>@prePO.Product.InternalCode</td>
                                         <td>@prePO.Product.InvoiceDescription.ToUpper()</td>
                                         <td>
-                                            <input class="span12 onlyNumbers" name="quantity-@prePO.ProductId" value="@prePO.Quantity"/>
+                                            <input class="span12 onlyNumbers" name="quantity-@prePO.ProductId" value="@prePO.Quantity" />
                                         </td>
                                         <td>
                                             <select class="span12 select2" name="measureunit-@prePO.ProductId">
                                                 @foreach (var o in Model.LstMeasureUnit)
                                                 {
-                                                    <option value="@o.MeasureUnitId" @(o.MeasureUnitId == prePO.MeasureUnitId ? "selected":"")>@o.Acronym</option>
+                                                    <option value="@o.MeasureUnitId" @(o.MeasureUnitId == prePO.MeasureUnitId ? "selected" : "")>@o.Acronym</option>
                                                 }
                                             </select>
                                         </td>
@@ -166,18 +167,18 @@
                     </div>
                 </div>
                 <div class='control-group'>
-                    
+
                 </div>
                 <div class='control-group'>
                     <label class='control-label' for='Text'>Observaciones</label>
                     <div class='controls'>
-                        @Html.TextAreaFor(x => x.Text, new { @class = "input-block-level", @placeholder = "Observaciones", @rows="3" })
-                    </div>                    
+                        @Html.TextAreaFor(x => x.Text, new { @class = "input-block-level", @placeholder = "Observaciones", @rows = "3" })
+                    </div>
                 </div>
                 <hr />
                 <div class='control-group'>
                     <button class="btn btn-primary" type="submit"><i class="icon icon-save"></i> Guardar</button>
-                    <a class="btn btn-default" href="@Url.Action("ListPrePO","Document")"><i class="icon icon-arrow-left"></i> Cancelar</a>
+                    <a class="btn btn-default" href="@Url.Action("ListPrePO","Document",new { FatherId = Model.FatherId })"><i class="icon icon-arrow-left"></i> Cancelar</a>
                 </div>
             </form>
 

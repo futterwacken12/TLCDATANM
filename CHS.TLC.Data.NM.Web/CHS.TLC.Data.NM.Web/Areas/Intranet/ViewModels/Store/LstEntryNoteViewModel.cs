@@ -33,7 +33,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Store
 
         public void Fill(CargarDatosContext c, Int32? page, String state, String date, Int32? movementTypeId, String code, Int32? fatherId)
         {
-            this.FatherId = FatherId;
+            this.FatherId = fatherId;
             this.Page = page ?? 1;
             this.State = state;
             this.Date = date;

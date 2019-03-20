@@ -46,9 +46,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document
         public List<Port> LstPort = new List<Port>();
         public String CurrencyCode = String.Empty;
         public List<SelectListItem> LstMethodPayment = new List<SelectListItem>();
-
-        public void Fill(CargarDatosContext c, Int32? purcherseOrderId,Int32? prePurcherseOrderId)
+        public Int32? FatherId { get; set; }
+        public void Fill(CargarDatosContext c, Int32? purcherseOrderId,Int32? prePurcherseOrderId, Int32? fatherId)
         {
+            this.FatherId = fatherId;
             this.PrePurcherseOrderId = prePurcherseOrderId;
             this.PurcherseOrderId = purcherseOrderId;
             if (this.PrePurcherseOrderId.HasValue)
