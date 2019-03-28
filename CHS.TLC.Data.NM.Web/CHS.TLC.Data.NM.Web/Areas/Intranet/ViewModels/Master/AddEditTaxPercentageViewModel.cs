@@ -11,12 +11,14 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         public Int32? TaxPercentageId { get; set; }
         public Decimal Description { get; set; }
         public String State { get; set; }
+        public Int32? FatherId { get; set; }
         public AddEditTaxPercentageViewModel()
         {
         }
-        public void Fill(CargarDatosContext c, Int32? taxPercentageId)
+        public void Fill(CargarDatosContext c, Int32? taxPercentageId, Int32? fatherid)
         {
             this.TaxPercentageId = taxPercentageId;
+            this.FatherId = fatherid;
 
             if (this.TaxPercentageId.HasValue)
             {

@@ -75,6 +75,7 @@
     <div class="col-lg-6" style="padding-top: 20px;">
         <div class="pull-left">
             @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-plus'></i> Nuevo Contacto"), "_AddEditContact", "Master", "Intranet", new { SupplierId = Model.SupplierId }, new { @class = "'btn btn-primary'" })
+            @Html.EncodedActionLinkModal(Html.Raw("<i class='icon icon-arrow-left'></i> Atras"), "MainOption", "Home", "Intranet", new { FatherId = Model.FatherId }, new { @class = "'btn btn-primary'" })
         </div>
     </div>
 </div>

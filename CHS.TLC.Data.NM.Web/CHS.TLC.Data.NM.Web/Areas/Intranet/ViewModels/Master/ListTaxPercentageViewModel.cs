@@ -13,13 +13,15 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         public Int32? Page { get; set; }
         public String Description { get; set; }
         public IPagedList<TaxPercentage> LstTaxPercentage { get; set; }
+        public Int32? FatherId { get; set; }
         public ListTaxPercentageViewModel()
         {
         }
-        public void Fill(CargarDatosContext c, Int32? page, String description)
+        public void Fill(CargarDatosContext c, Int32? page, String description, Int32? fatherid)
         {
             this.Page = page ?? 1;
             this.Description = description;
+            this.FatherId = fatherid;
 
             var query = c.context.TaxPercentage.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).AsQueryable();
 

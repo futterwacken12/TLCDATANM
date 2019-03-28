@@ -11,12 +11,14 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
     {
         public Int32? SupplierId { get; set; }
         public List<Contact> LstContact { get; set; }
+        public Int32? FatherId { get; set; }
         public ListContactViewModel()
         {
         }
-        public void Fill(CargarDatosContext c, Int32? supplierId)
+        public void Fill(CargarDatosContext c, Int32? supplierId, Int32? fatherid)
         {
             this.SupplierId = supplierId;
+            this.FatherId = fatherid;
 
             var query = c.context.Contact.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO) && x.SupplierId == this.SupplierId).AsQueryable();
             this.LstContact = query.OrderBy(x => x.LastName).ToList();

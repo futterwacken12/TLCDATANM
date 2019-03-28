@@ -96,10 +96,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region Bank
-        public ActionResult ListBank(Int32? Page, String BankType)
+        public ActionResult ListBank(Int32? Page, String BankType, Int32? FatherId)
         {
             var model = new ListBankViewModel();
-            model.Fill(CargarDatosContext(), Page, BankType);
+            model.Fill(CargarDatosContext(), Page, BankType, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -178,10 +178,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region MeasureUnit
-        public ActionResult ListMeasureUnit(Int32? Page, String Description)
+        [EncryptedActionParameter]
+        public ActionResult ListMeasureUnit(Int32? Page, String Description, Int32? FatherId)
         {
             var model = new ListMeasureUnitViewModel();
-            model.Fill(CargarDatosContext(), Page, Description);
+            model.Fill(CargarDatosContext(), Page, Description, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -260,10 +261,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region SubFamily
-        public ActionResult ListSubFamily(Int32? Page, String Description)
+        [EncryptedActionParameter]
+        public ActionResult ListSubFamily(Int32? Page, String Description, Int32? FatherId)
         {
             var model = new ListSubFamilyViewModel();
-            model.Fill(CargarDatosContext(), Page, Description);
+            model.Fill(CargarDatosContext(), Page, Description, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -342,17 +344,18 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region TaxPercentage
-        public ActionResult ListTaxPercentage(Int32? Page, String Description)
+        [EncryptedActionParameter]
+        public ActionResult ListTaxPercentage(Int32? Page, String Description, Int32? FatherId)
         {
             var model = new ListTaxPercentageViewModel();
-            model.Fill(CargarDatosContext(), Page, Description);
+            model.Fill(CargarDatosContext(), Page, Description, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
-        public ActionResult AddEditTaxPercentage(Int32? TaxPercentageId)
+        public ActionResult AddEditTaxPercentage(Int32? TaxPercentageId, Int32? FatherId)
         {
             var model = new AddEditTaxPercentageViewModel();
-            model.Fill(CargarDatosContext(), TaxPercentageId);
+            model.Fill(CargarDatosContext(), TaxPercentageId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -363,7 +366,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    model.Fill(CargarDatosContext(), model.TaxPercentageId);
+                    model.Fill(CargarDatosContext(), model.TaxPercentageId, model.FatherId);
                     TryUpdateModel(model);
                     PostMessage(MessageType.Error);
                     return View(model);
@@ -387,12 +390,12 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 context.SaveChanges();
                 PostMessage(MessageType.Success);
 
-                return RedirectToAction("ListTaxPercentage");
+                return RedirectToAction("ListTaxPercentage", new { FatherId = model.FatherId } );
             }
             catch (Exception ex)
             {
                 PostMessage(MessageType.Error);
-                model.Fill(CargarDatosContext(), model.TaxPercentageId);
+                model.Fill(CargarDatosContext(), model.TaxPercentageId, model.FatherId );
 
                 return View(model);
             }
@@ -423,17 +426,18 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region TypeExistence
-        public ActionResult ListTypeExistence(Int32? Page, String Description)
+        [EncryptedActionParameter]
+        public ActionResult ListTypeExistence(Int32? Page, String Description, Int32? FatherId)
         {
             var model = new ListTypeExistenceViewModel();
-            model.Fill(CargarDatosContext(), Page, Description);
+            model.Fill(CargarDatosContext(), Page, Description, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
-        public ActionResult AddEditTypeExistence(Int32? TypeExistenceId)
+        public ActionResult AddEditTypeExistence(Int32? TypeExistenceId, Int32? FatherId)
         {
             var model = new AddEditTypeExistenceViewModel();
-            model.Fill(CargarDatosContext(), TypeExistenceId);
+            model.Fill(CargarDatosContext(), TypeExistenceId, FatherId);
             return View(model);
         }
         [HttpPost]
@@ -444,7 +448,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
             {
                 if (!ModelState.IsValid)
                 {
-                    model.Fill(CargarDatosContext(), model.TypeExistenceId);
+                    model.Fill(CargarDatosContext(), model.TypeExistenceId, model.FatherId);
                     TryUpdateModel(model);
                     PostMessage(MessageType.Error);
                     return View(model);
@@ -468,46 +472,55 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
                 context.SaveChanges();
                 PostMessage(MessageType.Success);
 
-                return RedirectToAction("ListTypeExistence");
+                return RedirectToAction("ListTypeExistence", new { FatherId = model.FatherId });
             }
             catch (Exception ex)
             {
                 PostMessage(MessageType.Error);
-                model.Fill(CargarDatosContext(), model.TypeExistenceId);
+                model.Fill(CargarDatosContext(), model.TypeExistenceId, model.FatherId);
 
                 return View(model);
             }
         }
         [EncryptedActionParameter]
-        public ActionResult _DeleteTypeExistence(Int32? TypeExistenceId)
+        public ActionResult _DeleteTypeExistence(Int32? TypeExistenceId, Int32? FatherId)
         {
             var model = new _DeleteTypeExistenceViewModel();
-            model.Fill(CargarDatosContext(), TypeExistenceId);
+            model.Fill(CargarDatosContext(), TypeExistenceId, FatherId);
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult _DeleteTypeExistence(_DeleteTypeExistenceViewModel model)
         {
-            TypeExistence TypeExistence = null;
-
-            if (model.TypeExistenceId.HasValue)
+            try
             {
-                TypeExistence = context.TypeExistence.FirstOrDefault(x => x.TypeExistenceId == model.TypeExistenceId);
-                TypeExistence.State = ConstantHelpers.ESTADO.INACTIVO;
+                TypeExistence TypeExistence = null;
+
+                if (model.TypeExistenceId.HasValue)
+                {
+                    TypeExistence = context.TypeExistence.FirstOrDefault(x => x.TypeExistenceId == model.TypeExistenceId);
+                    TypeExistence.State = ConstantHelpers.ESTADO.INACTIVO;
+                }
+
+                context.SaveChanges();
+                PostMessage(MessageType.Success);
+            }
+            catch (Exception ex)
+            {
+                PostMessage(MessageType.Error);
             }
 
-            context.SaveChanges();
-            PostMessage(MessageType.Success);
+            return RedirectToAction("ListTypeExistence", new { FatherId = model.FatherId });
 
-            return RedirectToAction("ListTypeExistence");
         }
         #endregion
         #region Supplier
-        public ActionResult ListSupplier(Int32? Page, String BussinessName)
+        [EncryptedActionParameter]
+        public ActionResult ListSupplier(Int32? Page, String BussinessName, Int32? FatherId)
         {
             var model = new ListSupplierViewModel();
-            model.Fill(CargarDatosContext(), Page, BussinessName);
+            model.Fill(CargarDatosContext(), Page, BussinessName, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -598,10 +611,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         }
         #endregion
         #region Item
-        public ActionResult ListItem(Int32? Page, String Description)
+        [EncryptedActionParameter]
+        public ActionResult ListItem(Int32? Page, String Description, Int32? FatherId)
         {
             var model = new ListItemViewModel();
-            model.Fill(CargarDatosContext(), Page, Description);
+            model.Fill(CargarDatosContext(), Page, Description, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -680,10 +694,10 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         #endregion
         #region Contact
         [EncryptedActionParameter]
-        public ActionResult ListContact(Int32? SupplierId)
+        public ActionResult ListContact(Int32? SupplierId, Int32? FatherId)
         {
             var model = new ListContactViewModel();
-            model.Fill(CargarDatosContext(), SupplierId);
+            model.Fill(CargarDatosContext(), SupplierId, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]
@@ -776,10 +790,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.Controllers
         //}
         #endregion
         #region Product
-        public ActionResult ListProduct(Int32? Page, String InvoiceDescription, Int32? FamilyId, Int32? SubFamilyId)
+        [EncryptedActionParameter]
+        public ActionResult ListProduct(Int32? Page, String InvoiceDescription, Int32? FamilyId, Int32? SubFamilyId, Int32? FatherId)
         {
             var model = new ListProductViewModel();
-            model.Fill(CargarDatosContext(), Page, InvoiceDescription, FamilyId, SubFamilyId);
+            model.Fill(CargarDatosContext(), Page, InvoiceDescription, FamilyId, SubFamilyId, FatherId);
             return View(model);
         }
         [EncryptedActionParameter]

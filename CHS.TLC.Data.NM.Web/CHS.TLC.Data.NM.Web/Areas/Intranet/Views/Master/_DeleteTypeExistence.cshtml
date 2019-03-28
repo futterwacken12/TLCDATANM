@@ -17,6 +17,7 @@
 
 @Html.AntiForgeryToken()
 @Html.HiddenFor(x => x.TypeExistenceId)
+@Html.HiddenFor(x => x.FatherId)
 
 <p>¿Está seguro de eliminar el tipo de existencia <b>@Model.Description</b>?</p>
 
