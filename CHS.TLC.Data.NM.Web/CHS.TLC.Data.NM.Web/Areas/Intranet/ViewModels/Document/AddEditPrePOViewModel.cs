@@ -2,6 +2,7 @@
 using CHS.TLC.Data.NM.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -12,17 +13,27 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Document
         public List<Supplier> LstSupplier { get; set; } = new List<Supplier>();
         public Int32? PrePurcherseOrderId { get; set; }
         public String Code { get; set; }
+        [Required]
+        [Display(Name ="Fecha Pedido")]
         public String DateOrder { get; set; }
         public String Registration { get; set; }
         public String RegistrationDate { get; set; }
         public String RegistrationTime { get; set; }
+        [Required]
+        [Display(Name = "Proveedor")]
         public Int32 SupplierId { get; set; }
         public String SupplierBussinessName { get; set; }
         public String SupplierCode { get; set; }
         public String AddressSupplier { get; set; }
+        [Required]
+        [Display(Name = "Made")]
         public Int32 CountryId { get; set; }
+        [Required]
+        [Display(Name = "Shipment Date")]
         public String ShipmentDate { get; set; }
         public String Text { get; set; }
+        [Required]
+        [Display(Name = "Email Proveedor")]
         public String SendSupply { get; set; }
         public String ProductId { get; set; }
         public List<Country> LstCountry { get; set; } = new List<Country>();
