@@ -16,15 +16,17 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         public String BankType { get; set; }
         public IPagedList<Bank> LstBank { get; set; }
         public List<SelectListItem> LstBankType { get; set; } = new List<SelectListItem>();
+        public Int32? FatherId { get; set; }
         public ListBankViewModel()
         {
             this.LstBankType.Add(new SelectListItem { Value = ConstantHelpers.TIPOBANCO.NACIONAL, Text = "NACIONAL" });
             this.LstBankType.Add(new SelectListItem { Value = ConstantHelpers.TIPOBANCO.EXTRANJERO, Text = "EXTRANJERO" });
         }
-        public void Fill(CargarDatosContext c, Int32? page, String bankType)
+        public void Fill(CargarDatosContext c, Int32? page, String bankType, Int32? fatherid)
         {
             this.Page = page ?? 1;
             this.BankType = bankType;
+            this.FatherId = fatherid;
 
             var query = c.context.Bank.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).AsQueryable();
 

@@ -17,10 +17,11 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         public IPagedList<Product> LstProduct { get; set; }
         public List<Family> LstFamily { get; set; } = new List<Family>();
         public List<SubFamily> LstSubFamily { get; set; } = new List<SubFamily>();
+        public Int32? FatherId { get; set; }
         public ListProductViewModel()
         {
         }
-        public void Fill(CargarDatosContext c, Int32? page, String invoiceDescription, Int32? familyId, Int32? subFamilyId)
+        public void Fill(CargarDatosContext c, Int32? page, String invoiceDescription, Int32? familyId, Int32? subFamilyId, Int32? fatherId)
         {
             this.Page = page ?? 1;
             this.InvoiceDescription = invoiceDescription;
@@ -28,6 +29,7 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
             this.SubFamilyId = subFamilyId;
             this.LstFamily = c.context.Family.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
             this.LstSubFamily = c.context.SubFamily.Where(x => x.State == ConstantHelpers.ESTADO.ACTIVO).ToList();
+            this.FatherId = fatherId;
 
             var query = c.context.Product.Where(x => x.State.Equals(ConstantHelpers.ESTADO.ACTIVO)).AsQueryable();
 

@@ -11,12 +11,14 @@ namespace CHS.TLC.Data.NM.Web.Areas.Intranet.ViewModels.Master
         public Int32? TypeExistenceId { get; set; }
         public String Description { get; set; }
         public String State { get; set; }
+        public Int32? FatherId { get; set; }
         public AddEditTypeExistenceViewModel()
         {
         }
-        public void Fill(CargarDatosContext c, Int32? typeExistenceId)
+        public void Fill(CargarDatosContext c, Int32? typeExistenceId, Int32? fatherid)
         {
             this.TypeExistenceId = typeExistenceId;
+            this.FatherId = fatherid;
 
             if (this.TypeExistenceId.HasValue)
             {
